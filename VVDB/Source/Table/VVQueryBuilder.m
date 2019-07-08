@@ -264,7 +264,7 @@
 }
 
 + (NSString *)referencedCountStatement:(VVRuntime *)runtime {
-    NSString *tableName = @"__ObjectStoreRelationship__";
+    NSString *tableName = @"__VVRelationship__";
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"SELECT COUNT(*) FROM ("];
     [sql appendString:@"SELECT DISTINCT fromTableName,fromRowid FROM "];
@@ -402,7 +402,7 @@
                 [sql appendString:@" AND "];
                 firstCondition = NO;
             }
-            NSString *relationshipTableName = @"__ObjectStoreRelationship__";
+            NSString *relationshipTableName = @"__VVRelationship__";
             NSString *toTableName = runtime.tableName;
             NSString *fromTableName = condition.reference.from.VVRuntime.tableName;
             NSString *fromRowid = [condition.reference.from.rowid stringValue];
@@ -416,7 +416,7 @@
             if (!firstCondition) {
                 [sql appendString:@" AND "];
             }
-            NSString *relationshipTableName = @"__ObjectStoreRelationship__";
+            NSString *relationshipTableName = @"__VVRelationship__";
             NSString *fromTableName = runtime.tableName;
             NSString *toTableName = condition.reference.to.VVRuntime.tableName;;
             NSString *toRowid = [condition.reference.to.rowid stringValue];

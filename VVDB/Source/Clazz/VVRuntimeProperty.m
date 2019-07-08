@@ -209,7 +209,7 @@
 #pragma mark
 
 + (NSString *)VVTableName {
-    return @"__ObjectStoreRuntimeProperty__";
+    return @"__VVRuntimeProperty__";
 }
 
 @end

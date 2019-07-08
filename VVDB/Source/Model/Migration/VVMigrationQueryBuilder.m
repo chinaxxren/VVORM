@@ -19,7 +19,7 @@
 
 + (NSString *)updateRelationshipFromTableName:(NSString *)tableName clazzName:(NSString *)clazzName {
     NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@"UPDATE __ObjectStoreRelationship__ SET fromTableName = "];
+    [sql appendString:@"UPDATE __VVRelationship__ SET fromTableName = "];
     [sql appendString:@"'"];
     [sql appendString:tableName];
     [sql appendString:@"'"];
@@ -32,7 +32,7 @@
 
 + (NSString *)updateRelationshipToTableName:(NSString *)tableName clazzName:(NSString *)clazzName {
     NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@"UPDATE __ObjectStoreRelationship__ SET toTableName = "];
+    [sql appendString:@"UPDATE __VVRelationship__ SET toTableName = "];
     [sql appendString:@"'"];
     [sql appendString:tableName];
     [sql appendString:@"'"];

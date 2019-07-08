@@ -9,7 +9,7 @@
 @implementation VVRelationshipModel
 
 + (NSString *)VVTableName {
-    return @"__ObjectStoreRelationship__";
+    return @"__VVRelationship__";
 }
 
 @end

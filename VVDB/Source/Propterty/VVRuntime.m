@@ -94,24 +94,24 @@
     NSMutableArray *relationshipAttributes = [NSMutableArray array];
     NSMutableArray *simpleValueAttributes = [NSMutableArray array];
     for (VVProperty *property in propertyList) {
-        VVRuntimeProperty *objectStoreAttribute = [VVRuntimeProperty propertyWithBZProperty:property runtime:self nameBuilder:nameBuilder];
-        if (objectStoreAttribute.isValid) {
-            if (!objectStoreAttribute.ignoreAttribute && !property.propertyType.isReadonly) {
-                [insertAttributes addObject:objectStoreAttribute];
-                if (objectStoreAttribute.identicalAttribute) {
-                    [identicalAttributes addObject:objectStoreAttribute];
+        VVRuntimeProperty *runtimeAttribute = [VVRuntimeProperty propertyWithBZProperty:property runtime:self nameBuilder:nameBuilder];
+        if (runtimeAttribute.isValid) {
+            if (!runtimeAttribute.ignoreAttribute && !property.propertyType.isReadonly) {
+                [insertAttributes addObject:runtimeAttribute];
+                if (runtimeAttribute.identicalAttribute) {
+                    [identicalAttributes addObject:runtimeAttribute];
                 }
-                if (!objectStoreAttribute.onceUpdateAttribute) {
-                    [updateAttributes addObject:objectStoreAttribute];
+                if (!runtimeAttribute.onceUpdateAttribute) {
+                    [updateAttributes addObject:runtimeAttribute];
                 }
-                if (objectStoreAttribute.notUpdateIfValueIsNullAttribute) {
+                if (runtimeAttribute.notUpdateIfValueIsNullAttribute) {
                     self.hasNotUpdateIfValueIsNullAttribute = YES;
                 }
-                if (objectStoreAttribute.isRelationshipClazz) {
-                    [relationshipAttributes addObject:objectStoreAttribute];
+                if (runtimeAttribute.isRelationshipClazz) {
+                    [relationshipAttributes addObject:runtimeAttribute];
                 }
-                if (objectStoreAttribute.isSimpleValueClazz) {
-                    [simpleValueAttributes addObject:objectStoreAttribute];
+                if (runtimeAttribute.isSimpleValueClazz) {
+                    [simpleValueAttributes addObject:runtimeAttribute];
                 }
             }
         }
@@ -395,7 +395,7 @@
 
 
 + (NSString *)VVTableName {
-    return @"__ObjectStoreRuntime__";
+    return @"__VVRuntime__";
 }
 
 @end
