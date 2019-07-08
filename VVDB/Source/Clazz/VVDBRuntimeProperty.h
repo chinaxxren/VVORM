@@ -11,7 +11,7 @@
 @class VVDBConditionModel;
 @class VVDBRuntime;
 @class VVNameBuilder;
-@class VVDBClazz;
+@class VVClazz;
 @class VVSQLiteColumnModel;
 @class FMResultSet;
 @class VVProperty;
@@ -51,7 +51,7 @@
 @property(nonatomic, assign) BOOL isRelationshipClazz;
 
 //
-@property(nonatomic, strong) VVDBClazz <VVSerializableAttribute> *vvclazz;
+@property(nonatomic, strong) VVClazz <VVSerializableAttribute> *vvclazz;
 
 // mapper methods
 - (NSArray *)storeValuesWithObject:(NSObject *)object;

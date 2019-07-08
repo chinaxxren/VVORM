@@ -8,7 +8,7 @@
 
 @protocol VVIgnoreAttribute;
 
-@class VVDBClazz;
+@class VVClazz;
 @class VVNameBuilder;
 @class VVDBRuntimeProperty;
 @class VVDBConditionModel;
@@ -16,7 +16,7 @@
 @interface VVDBRuntime : NSObject <VVModelInterface>
 
 //
-- (instancetype)initWithClazz:(Class)clazz osclazz:(VVDBClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder;
+- (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder;
 
 // class information
 @property(nonatomic, assign) Class clazz;
@@ -51,7 +51,7 @@
 @property(nonatomic, assign) BOOL cascadeNotification;
 
 //
-@property(nonatomic, strong) VVDBClazz <VVSerializableAttribute> *osclazz;
+@property(nonatomic, strong) VVClazz <VVSerializableAttribute> *osclazz;
 
 // for response
 @property(atomic, strong) NSString *tableName;
