@@ -33,6 +33,7 @@
 #import "VVClazzDouble.h"
 #import "VVClazzSerialize.h"
 #import "VVClazzNSArray.h"
+#import "VVClazzNSMutableArray.h"
 
 @implementation VVClazz
 
@@ -106,6 +107,7 @@
             [self addOSClazz:[VVClazzNSData class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzNSValue class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzNSNull class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVClazzShort class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzBool class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzInt class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzChar class] vvclazzsArray:clazzsArray];
@@ -117,10 +119,10 @@
             [self addOSClazz:[VVClazzUnsignedLong class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzUnsignedLongLong class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzFloat class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzShort class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzDouble class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzSerialize class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVClazzNSArray class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVClazzNSMutableArray class] vvclazzsArray:clazzsArray];
         }
     }
 

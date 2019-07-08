@@ -50,6 +50,7 @@
 
 - (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object error:(NSError **)error;
 
+// 获取个数
 - (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition;
 
 - (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
@@ -62,10 +63,12 @@
 
 - (NSNumber *)existsObject:(NSObject *)object error:(NSError **)error;
 
+// 获取最小值
 - (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
 - (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
+// 获取最大值
 - (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
 - (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
