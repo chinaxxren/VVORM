@@ -3,14 +3,14 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBClazzC99Bool.h"
+#import "VVDBClazzBool.h"
 
 #import <FMDB/FMResultSet.h>
 
 #import "VVDBConst.h"
 #import "VVDBRuntimeProperty.h"
 
-@implementation VVDBClazzC99Bool
+@implementation VVDBClazzBool
 
 - (NSString *)attributeType {
     return [NSString stringWithFormat:@"%s", @encode(bool)];

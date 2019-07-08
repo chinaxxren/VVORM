@@ -7,6 +7,6 @@
 #import "VVDBClazz.h"
 
 
-@interface VVDBClazzC99Bool : VVDBClazz
+@interface VVDBClazzBool : VVDBClazz
 
 @end

@@ -72,7 +72,7 @@
 		D8D0DD38FDFF6A2045C73B24019C1193 /* VVDBClazzNSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAC4EF0F1359B824D35A1C40C53E70 /* VVDBClazzNSData.m */; };
 		E5708548C98FD6B10D0AA99E73E145C7 /* VVDBReferenceConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */; };
 		EACFDBCD736B40E03A9C3960A5F4992F /* VVDBClazzChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D89F3B8B37C3D82736B706569BB111 /* VVDBClazzChar.m */; };
-		EC65E887CC6996CF72F868843A3E5A74 /* VVDBClazzC99Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzC99Bool.m */; };
+		EC65E887CC6996CF72F868843A3E5A74 /* VVDBClazzBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzBool.m */; };
 		F01AB146650361C14B744484C9DDFE6C /* VVMigrationTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ECC971FE769BFF30F2E899F1FD39E1 /* VVMigrationTable.m */; };
 		F064103AE9FF1F6722E5BAA61177C8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */; };
 		F0A08DEE637180A8C7C58B5FF6544F85 /* VVDBClazzNSNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB3D33DAD722DE90E6CD1031BB7533 /* VVDBClazzNSNull.m */; };
@@ -161,7 +161,7 @@
 		6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVQueryBuilder.m; sourceTree = "<group>"; };
 		6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVRelationshipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRelationshipModel.m; sourceTree = "<group>"; };
 		7057288CB7D896AB146B89EBB8D44A3E /* VVReferenceMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceMapper.h; sourceTree = "<group>"; };
-		748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzC99Bool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzC99Bool.m; sourceTree = "<group>"; };
+		748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzBool.m; sourceTree = "<group>"; };
 		74EBD62AFC707F384B93F3BA357691EB /* VVDBClazzUnsignedInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzUnsignedInt.m; sourceTree = "<group>"; };
 		75EA71FCCAB899369929FDAEC40D33B8 /* VVDBSQLiteConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBSQLiteConditionModel.h; sourceTree = "<group>"; };
 		77F9EA57920052E14B22FECF96E569C9 /* VVDBClazzNSValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSValue.m; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		9001D9524CC1DDA385E703FFA7DF7371 /* VVMigrationQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationQueryBuilder.h; sourceTree = "<group>"; };
 		90D89F3B8B37C3D82736B706569BB111 /* VVDBClazzChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzChar.m; sourceTree = "<group>"; };
 		933E601DEAA65BADE2E24FCDC9038364 /* VVDBRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBRuntimeProperty.h; sourceTree = "<group>"; };
-		9735B52B9C7022FA7182D506D6D789C3 /* VVDBClazzC99Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzC99Bool.h; sourceTree = "<group>"; };
+		9735B52B9C7022FA7182D506D6D789C3 /* VVDBClazzBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzBool.h; sourceTree = "<group>"; };
 		98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVTabel.m"; sourceTree = "<group>"; };
 		98FA70E616F93E376B8A1043FDEEB0E9 /* VVDataBase+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VVDataBase+Background.h"; sourceTree = "<group>"; };
 		99DF0317FF7D1D4CAA3B8838F764805A /* VVObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVObserver.h; sourceTree = "<group>"; };
@@ -390,8 +390,8 @@
 			children = (
 				44FDFAF78F184A464EB01CCCDC2B077A /* VVDBClazz.h */,
 				6A2147734F354FB17CF6E7044A31E936 /* VVDBClazz.m */,
-				9735B52B9C7022FA7182D506D6D789C3 /* VVDBClazzC99Bool.h */,
-				748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzC99Bool.m */,
+				9735B52B9C7022FA7182D506D6D789C3 /* VVDBClazzBool.h */,
+				748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzBool.m */,
 				A5FF295DBFB9393D515D302A5D44804D /* VVDBClazzChar.h */,
 				90D89F3B8B37C3D82736B706569BB111 /* VVDBClazzChar.m */,
 				AEEDD62D25D03473934269764CEFDA8F /* VVDBClazzDouble.h */,
@@ -719,7 +719,7 @@
 				34958DC58BDCA2DADA265E77B212EEC9 /* NSObject+VVObserver.m in Sources */,
 				BEE3BA1C738973518506664D11AA8A26 /* VVClassProperty.m in Sources */,
 				C2DADAB7ED28DF7AE0489E2826B48239 /* VVDBClazz.m in Sources */,
-				EC65E887CC6996CF72F868843A3E5A74 /* VVDBClazzC99Bool.m in Sources */,
+				EC65E887CC6996CF72F868843A3E5A74 /* VVDBClazzBool.m in Sources */,
 				EACFDBCD736B40E03A9C3960A5F4992F /* VVDBClazzChar.m in Sources */,
 				1B1EF78B2F9C9D463D8FA61736BE8AF5 /* VVDBClazzDouble.m in Sources */,
 				B2D44EF72AC93331D57D08C388DAE2AC /* VVDBClazzFloat.m in Sources */,

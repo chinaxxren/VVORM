@@ -18,7 +18,7 @@
 #import "VVDBClazzNSNumber.h"
 #import "VVDBClazzNSData.h"
 #import "VVDBClazzNSNull.h"
-#import "VVDBClazzC99Bool.h"
+#import "VVDBClazzBool.h"
 #import "VVDBClazzInt.h"
 #import "VVDBClazzChar.h"
 #import "VVDBClazzLong.h"
@@ -106,7 +106,7 @@
             [self addOSClazz:[VVDBClazzNSData class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVDBClazzNSValue class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVDBClazzNSNull class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVDBClazzC99Bool class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzBool class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVDBClazzInt class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVDBClazzChar class] vvclazzsArray:clazzsArray];
             [self addOSClazz:[VVDBClazzLong class] vvclazzsArray:clazzsArray];
