@@ -37,7 +37,6 @@
 
 @implementation VVClazz
 
-
 #pragma mark override methods, properties
 
 - (Class)superClazz {
