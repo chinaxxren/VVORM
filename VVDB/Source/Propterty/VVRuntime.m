@@ -3,20 +3,20 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBRuntime.h"
+#import "VVRuntime.h"
 
 #import "VVClazz.h"
 #import "VVNameBuilder.h"
-#import "VVDBRuntimeProperty.h"
-#import "VVDBConditionModel.h"
-#import "VVDBSQLiteConditionModel.h"
+#import "VVRuntimeProperty.h"
+#import "VVConditionModel.h"
+#import "VVSQLiteConditionModel.h"
 #import "VVQueryBuilder.h"
 #import "VVReferenceModel.h"
 #import "VVClassProperty.h"
 #import "VVProperty.h"
 #import "VVPropertyType.h"
 
-@implementation VVDBRuntime
+@implementation VVRuntime
 
 - (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
     if (self = [super init]) {
@@ -94,7 +94,7 @@
     NSMutableArray *relationshipAttributes = [NSMutableArray array];
     NSMutableArray *simpleValueAttributes = [NSMutableArray array];
     for (VVProperty *property in propertyList) {
-        VVDBRuntimeProperty *objectStoreAttribute = [VVDBRuntimeProperty propertyWithBZProperty:property runtime:self nameBuilder:nameBuilder];
+        VVRuntimeProperty *objectStoreAttribute = [VVRuntimeProperty propertyWithBZProperty:property runtime:self nameBuilder:nameBuilder];
         if (objectStoreAttribute.isValid) {
             if (!objectStoreAttribute.ignoreAttribute && !property.propertyType.isReadonly) {
                 [insertAttributes addObject:objectStoreAttribute];
@@ -118,7 +118,7 @@
     }
 
     VVClassProperty *referenceRuntime = [VVClassProperty runtimeWithClass:[VVReferenceModel class]];
-    VVDBRuntimeProperty *rowidAttribute = [VVDBRuntimeProperty propertyWithBZProperty:referenceRuntime.propertyList.firstObject runtime:self nameBuilder:nameBuilder];
+    VVRuntimeProperty *rowidAttribute = [VVRuntimeProperty propertyWithBZProperty:referenceRuntime.propertyList.firstObject runtime:self nameBuilder:nameBuilder];
     NSMutableArray *attributes = [NSMutableArray array];
     [attributes addObject:rowidAttribute];
     [attributes addObjectsFromArray:insertAttributes];
@@ -204,10 +204,10 @@
     return self.insertOrReplaceIntoTemplateStatement;
 }
 
-- (NSString *)updateStatementWithObject:(NSObject *)object condition:(VVDBConditionModel *)condition {
+- (NSString *)updateStatementWithObject:(NSObject *)object condition:(VVConditionModel *)condition {
     if (self.hasNotUpdateIfValueIsNullAttribute) {
         NSMutableArray *attributes = [NSMutableArray array];
-        for (VVDBRuntimeProperty *attribute in self.updateAttributes) {
+        for (VVRuntimeProperty *attribute in self.updateAttributes) {
             NSValue *value = [object valueForKey:attribute.name];
             if (value) {
                 [attributes addObject:attribute];
@@ -225,7 +225,7 @@
     }
 }
 
-- (NSString *)selectStatementWithCondition:(VVDBConditionModel *)condition {
+- (NSString *)selectStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.selectTemplateStatement];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
@@ -233,7 +233,7 @@
     return [NSString stringWithString:sql];
 }
 
-- (NSString *)selectRowidStatement:(VVDBConditionModel *)condition {
+- (NSString *)selectRowidStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.selectRowidTemplateStatement];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
@@ -241,56 +241,56 @@
 }
 
 
-- (NSString *)deleteFromStatementWithCondition:(VVDBConditionModel *)condition {
+- (NSString *)deleteFromStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.deleteFromTemplateStatement];
     [sql appendString:[VVQueryBuilder deleteConditionStatement:condition]];
     return [NSString stringWithString:sql];
 }
 
-- (NSString *)referencedCountStatementWithCondition:(VVDBConditionModel *)condition {
+- (NSString *)referencedCountStatementWithCondition:(VVConditionModel *)condition {
     NSString *conditionStatement = [VVQueryBuilder selectConditionStatement:condition runtime:self];
     NSString *sql = self.referencedCountTemplateStatement;
     sql = [NSString stringWithFormat:sql, conditionStatement];
     return sql;
 }
 
-- (NSString *)countStatementWithCondition:(VVDBConditionModel *)condition {
+- (NSString *)countStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.countTemplateStatement];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
     return [NSString stringWithString:sql];
 }
 
-- (NSString *)minStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition {
+- (NSString *)minStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder minStatement:self columnName:columnName]];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
     return sql;
 }
 
-- (NSString *)maxStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition {
+- (NSString *)maxStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder maxStatement:self columnName:columnName]];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
     return sql;
 }
 
-- (NSString *)avgStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition {
+- (NSString *)avgStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder avgStatement:self columnName:columnName]];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
     return sql;
 }
 
-- (NSString *)totalStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition {
+- (NSString *)totalStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder totalStatement:self columnName:columnName]];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
     return sql;
 }
 
-- (NSString *)sumStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition {
+- (NSString *)sumStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder sumStatement:self columnName:columnName]];
     [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
@@ -299,15 +299,15 @@
 
 #pragma marks unique condition
 
-- (VVDBConditionModel *)rowidCondition:(NSObject *)object {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+- (VVConditionModel *)rowidCondition:(NSObject *)object {
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = [VVQueryBuilder rowidConditionStatement];
     condition.sqlite.parameters = [self rowidAttributeParameter:object];
     return condition;
 }
 
-- (VVDBConditionModel *)uniqueCondition:(NSObject *)object {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+- (VVConditionModel *)uniqueCondition:(NSObject *)object {
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = [VVQueryBuilder uniqueConditionStatement:self];
     condition.sqlite.parameters = [self identificationAttributesParameters:object];
     return condition;
@@ -317,7 +317,7 @@
 
 - (NSMutableArray *)insertAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVDBRuntimeProperty *attribute in self.insertAttributes) {
+    for (VVRuntimeProperty *attribute in self.insertAttributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -325,7 +325,7 @@
 
 - (NSMutableArray *)insertOrIgnoreAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVDBRuntimeProperty *attribute in self.insertAttributes) {
+    for (VVRuntimeProperty *attribute in self.insertAttributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -333,7 +333,7 @@
 
 - (NSMutableArray *)insertOrReplaceAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVDBRuntimeProperty *attribute in self.attributes) {
+    for (VVRuntimeProperty *attribute in self.attributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -342,7 +342,7 @@
 - (NSMutableArray *)updateAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
     if (self.hasNotUpdateIfValueIsNullAttribute) {
-        for (VVDBRuntimeProperty *attribute in self.updateAttributes) {
+        for (VVRuntimeProperty *attribute in self.updateAttributes) {
             NSObject *value = [object valueForKey:attribute.name];
             if (value) {
                 NSArray *values = [attribute storeValuesWithObject:object];
@@ -350,7 +350,7 @@
             }
         }
     } else {
-        for (VVDBRuntimeProperty *attribute in self.updateAttributes) {
+        for (VVRuntimeProperty *attribute in self.updateAttributes) {
             NSArray *values = [attribute storeValuesWithObject:object];
             [parameters addObjectsFromArray:values];
         }
@@ -360,7 +360,7 @@
 
 - (NSMutableArray *)identificationAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVDBRuntimeProperty *attribute in self.identificationAttributes) {
+    for (VVRuntimeProperty *attribute in self.identificationAttributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;

@@ -3,7 +3,7 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBConst.h"
+#import "VVSqliteConst.h"
 
 
 NSString *const SQLITE_DATA_TYPE_NONE = @"NONE";

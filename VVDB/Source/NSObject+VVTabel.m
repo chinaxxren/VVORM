@@ -7,7 +7,7 @@
 
 #import <objc/runtime.h>
 
-#import "VVDBRuntime.h"
+#import "VVRuntime.h"
 
 @implementation NSObject (VVTabel)
 
@@ -19,11 +19,11 @@
     objc_setAssociatedObject(self, _cmd, rowid, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (VVDBRuntime *)VVRuntime {
+- (VVRuntime *)VVRuntime {
     return objc_getAssociatedObject(self, @selector(setVVRuntime:));
 }
 
-- (void)setVVRuntime:(VVDBRuntime *)runtime {
+- (void)setVVRuntime:(VVRuntime *)runtime {
     objc_setAssociatedObject(self, _cmd, runtime, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

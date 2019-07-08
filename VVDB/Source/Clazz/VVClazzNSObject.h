@@ -3,9 +3,10 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBReferenceConditionModel.h"
+#import <Foundation/Foundation.h>
+#import "VVClazz.h"
 
 
-@implementation VVDBReferenceConditionModel
+@interface VVClazzNSObject : VVClazz
 
 @end

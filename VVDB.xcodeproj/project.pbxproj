@@ -7,76 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0072D251CF346E1CC8F7BDDC73F31D51 /* VVClazzNSDecimalNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C31DE9851D8167AF3FBBAD0137271BB /* VVClazzNSDecimalNumber.m */; };
-		0784F5EF99E35B42836EE15500CE3314 /* VVClazzNSValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F9EA57920052E14B22FECF96E569C9 /* VVClazzNSValue.m */; };
-		08195E2A54C717ECD8D56CF6A7F00B9C /* VVClazzNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A7B26C7D33D0EF995812F57EB20461 /* VVClazzNSDate.m */; };
 		0C3F4F4B931EF0CAC43E068339EDA574 /* VVModelMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */; };
-		11C7F252D3C5D2F5023AD65032F56E12 /* VVClazzNSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E86DAFB8A9DC35AC01F17B5DFD44C2D5 /* VVClazzNSNumber.m */; };
-		15E16AF6B3486627A156E3EAA0FB24F0 /* VVDBClazzNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E26AA3522D3E6136393E1EC33A6D09 /* VVDBClazzNSObject.m */; };
-		16C5F6A6A9732C7B0419B46605CF554B /* VVClazzNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0AAB0726B2BFEF446B7154E3171D /* VVClazzNSString.m */; };
+		161B159F4FE6D2C78311E47675E36D92 /* VVClazzSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = E94F317CA8D82C9474BC5F152DF06698 /* VVClazzSerialize.m */; };
 		19965B25577AFB3703AB564C9133D1F5 /* VVPropertyEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */; };
-		1B1EF78B2F9C9D463D8FA61736BE8AF5 /* VVClazzDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FF78BCCB99C2D3F355ADCE35D7E08 /* VVClazzDouble.m */; };
+		19E69C4CA10BC9AECD5417C8C485D99A /* VVClazzNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = E33F75911D1885607DBCD09E0D1ABDB7 /* VVClazzNSString.m */; };
 		1BC653BA033BC1B90F11F026DDD1D1CA /* VVQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */; };
 		1D274A312E0FC8BFA7666A3F71D98526 /* VVRelationshipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVRelationshipModel.m */; };
+		1F18889AE80E50B00F98E2CF0A7D8BDE /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA685B7823C66A93E178C35D110BEC /* AppContent.m */; };
+		1F4B4E32DA2E3AFF8B9C182E2324FAFE /* VVClazzUnsignedChar.m in Sources */ = {isa = PBXBuildFile; fileRef = F81C2AC8F9DF3FE4C48CA7A20AE5CF45 /* VVClazzUnsignedChar.m */; };
 		209F73D0ECFE6C064B5B8575717B43EE /* VVObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */; };
-		247BAB9CBDFCBE34F4C2C14BE40D0A53 /* VVClazzUnsignedLongLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E5B266F7DF8D9C49C44E19B4864E7A /* VVClazzUnsignedLongLong.m */; };
+		2503397848CA8E5D61996C1BC44C1642 /* VVClazzFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EDE085C022874020D3E8101106144 /* VVClazzFloat.m */; };
 		259DE4522BC59A9ED54A554E3F96D237 /* VVSQLiteColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD35ECA0CA56E0AE8916ADDDC3CABAF /* VVSQLiteColumnModel.m */; };
-		25EABAD7865D721DAE3346F1D610BE80 /* VVClazzInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AB5414D9B3700BEF4CBF7F90F77776 /* VVClazzInt.m */; };
-		28CCF33C12093431FF49ACC6CDFFDE94 /* VVClazzLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 695600F794B6BEF3735C5E9A6FB0FC98 /* VVClazzLong.m */; };
-		2AE07510DEB054F063A20CEF71723A43 /* VVClazzNSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = DE57A814BF77EEA86BCB4C8027AE4B62 /* VVClazzNSURL.m */; };
 		31A30F0A3249EA0226D8D48B3CFDB58D /* libPods-VVDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */; };
+		33E948311833DD95CD67C588FA0BBF11 /* VVDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E8DB1829DF16D9A6A174FE11468B2 /* VVDataBaseManager.m */; };
 		34958DC58BDCA2DADA265E77B212EEC9 /* NSObject+VVObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */; };
+		3776A399E0FB01AB13BEED706EC58E9D /* VVClazzUnsignedLong.m in Sources */ = {isa = PBXBuildFile; fileRef = D74B06436E24529FFD7E32690820DE55 /* VVClazzUnsignedLong.m */; };
 		3B03CCFB928F4DA2E1DA6D5EBB51C2AD /* VVMigrationRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A1175FBC4B771C8CA261FC43969BF64F /* VVMigrationRuntimeProperty.m */; };
+		3B88CF2BD3B18DF7DBB9F8D235EEBC9F /* VVClazzInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E8648C3B96FCC8E6AECCC7739577370 /* VVClazzInt.m */; };
+		3DB15E38E19DF648CDF4CBD0C7F10371 /* VVClazzLongLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC78D2BE3803542919735BFC255128A /* VVClazzLongLong.m */; };
+		3DFFA35D493510A57342AEF110E6DB6A /* VVClazzNSNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 58452E4CD824CE81A660E5B76B4E0D74 /* VVClazzNSNull.m */; };
 		3E8CD03112F8D5ADF1A4CD8391C858C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F98CF2D76778DA50805B2D3FD7DCB717 /* AppDelegate.m */; };
-		423741FC72A6AAADC258CD2C3C4DFC54 /* VVDataBase+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = F75279EB2C9F5D097DB27DB3B5F06F03 /* VVDataBase+Background.m */; };
-		42A3BD9C6CBE3EF597CFB96DC9D6B99C /* VVClazzUnsignedInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EBD62AFC707F384B93F3BA357691EB /* VVClazzUnsignedInt.m */; };
+		3F14185DEB7FC4A4690D117647B8500A /* VVClazzNSValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD5F22F70D1932E4732467D2493AF44 /* VVClazzNSValue.m */; };
 		42BFEE6EA0A2FA2E51D4F9076F7273E8 /* NSObject+VVAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2034607297348F23EF86BD05D50B0FCB /* NSObject+VVAutoCoding.m */; };
 		458343C864CBFB4DCFC451E6946D0710 /* VVReferenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F92FEA4C5A99AD74EB0705724423DC85 /* VVReferenceModel.m */; };
-		50E385A0BFC3C668F55E845B330CA476 /* VVDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 390A285824180866C81C764ED9EBBE47 /* VVDataBase.m */; };
-		516FCD01AD52D71873F80C74A2CA5878 /* VVClazzUnsignedShort.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8C5BFC48A830B6184F54F44A125FB9 /* VVClazzUnsignedShort.m */; };
+		476F97F8E530017BB6B1A1E95E17CA0F /* VVClazz.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CB8CA57D5AFBBDF97AE134B880FEB8 /* VVClazz.m */; };
+		4B4BE7C7B8D0BD4BD4E231DF4895C58C /* VVClazzBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 628B4EA0832359B0ADFC52DF8973AAF1 /* VVClazzBool.m */; };
+		4F68D853B391053C8F8DDE03B46156B1 /* VVClazzNSMutableString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D221B4B0A0DB82C19AA844CB6418151 /* VVClazzNSMutableString.m */; };
 		528E99E6FF8DD4E052568395C92A574A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E42C65E4C74123084718BBE0243B94F /* LaunchScreen.storyboard */; };
-		5576F09C554B460BEE177E15F032F776 /* VVDBSQLiteConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A7A79E331E21B9F1788080DFA8F54 /* VVDBSQLiteConditionModel.m */; };
+		5717C3F96FB42A5FA41EF55A38692422 /* VVClazzDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FDFAFC27757BA074C8E0E841CB691 /* VVClazzDouble.m */; };
+		58A6914223808150B8DA2156D92557EE /* VVClazzNSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA47998639EA3E03C15B16659CDDAE7 /* VVClazzNSData.m */; };
 		58B37021C4F079AA59B5F841B44198BD /* FMDatabase+IndexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */; };
 		59A2A71B738F47F1C0AC1CB8DB8A5D4B /* VVPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */; };
+		5A7058A5765EBF6E7B0D219E42AC2869 /* VVClazzUnsignedShort.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DA1FB899E9E80C1EE490B4EE8522F3 /* VVClazzUnsignedShort.m */; };
 		5D58494A88F8729E88B77250494AD719 /* VVNameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 150E2D670D7B9708F1F54228D20A2A3E /* VVNameBuilder.m */; };
-		5F2FCA20DC41A152B1223A918EA85118 /* NSObject+VVTabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */; };
-		68C926F19C0C1B56EB1D3DC5BD7093EF /* VVDBRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FF729B2E6F20FA45C89E2571F2ED4 /* VVDBRuntimeProperty.m */; };
+		5DCD150FE633BD23F7459F89C9D23B83 /* VVClazzNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F247B51B5161E8FBD1C1DD56A2718C10 /* VVClazzNSObject.m */; };
+		6313D9EEC344B5CCB0E2759166C8F1F0 /* NSObject+VVTabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0526E71B1E97F43330757F52F7B8B2 /* NSObject+VVTabel.m */; };
+		68C926F19C0C1B56EB1D3DC5BD7093EF /* VVRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FF729B2E6F20FA45C89E2571F2ED4 /* VVRuntimeProperty.m */; };
+		6965D56A5044CD6CEDA9CECCC0398FCB /* VVRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B104FAA04F01FBDE569F4D073CE3BE /* VVRuntime.m */; };
 		6C742A8FF92A97D985A1C1A5E24B560D /* VVNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */; };
-		6E778E77F2B27512B9711C6D09E03549 /* VVClazzShort.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A67C09C8F6983E851EAFB80A15F4A /* VVClazzShort.m */; };
+		6C8C933C894503470C03B2F8D2BA8FC6 /* VVDataBase+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 585D803FDB2FA117FFE3B75F0D8D7991 /* VVDataBase+Background.m */; };
+		70041313835E6185C35CCEC97501D5EA /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = 826FDA0C3DBF095D520FDB103AC9C3D1 /* Download.m */; };
+		709057EFB2823DC01B118D77096A36F1 /* VVConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C1C70828BAD257808D98D87170C016 /* VVConditionModel.m */; };
+		7C02E13C01D415B1F30052CCB1E37DF8 /* VVClazzUnsignedLongLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 5614B46A0718165EAE1B02598E211F31 /* VVClazzUnsignedLongLong.m */; };
 		7F3FCC3D8EC94540292B5084AF3C370C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */; };
 		8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */; };
-		80F15BA08D4FA78BB72560473F42B750 /* VVClazzNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1399488AA7AE22913FE9F551E8141381 /* VVClazzNSArray.m */; };
-		812280B370803134C8FCDB5A2FFFB5FC /* VVClazzUnsignedLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3818E740BA1A74EE4CC0C63C3C6B /* VVClazzUnsignedLong.m */; };
+		80838AA06B51E6E33F123FC2A9D0E62E /* VVClazzNSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 52527FCB7A04B8827A61AC3CB6876010 /* VVClazzNSURL.m */; };
 		84ACD60EBCA64DCD1D5A633C835F9E5C /* VVDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */; };
+		85B4123B0BB06600135608206223D9BE /* VVClazzShort.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F24AF9460460222BD433E3ACDDBE80 /* VVClazzShort.m */; };
+		86EAD7C2CFF88978D7B336225DAAB7FD /* VVClazzChar.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9C0B7B45C3F2639A001F231304473 /* VVClazzChar.m */; };
 		8CDA0571237342E5A03DD77071A5C2BB /* VVReferenceMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */; };
+		8E35DECDB620899A59145B9B7CE4E58C /* VVClazzNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F86A2FFEBEE7D6691B213FC4EAE9CD /* VVClazzNSDate.m */; };
 		99C83C176DE9D7644C9F3267C9E84D01 /* VVMigrationRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */; };
-		A25CC0A975321809D8176FD69F1CCCC7 /* VVClazzUnsignedChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 273DDFC9E73861205003873C7ED930C2 /* VVClazzUnsignedChar.m */; };
-		A64664786A0FB2D1DBFC29003F7144DF /* VVDBConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D3227278834726943CF1224C018448 /* VVDBConditionModel.m */; };
+		A463CDF55161F257E0065458D5152514 /* VVClazzUnsignedInt.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4BE7B87CAD69DDC8E873E05E4A11 /* VVClazzUnsignedInt.m */; };
+		A5188D4F42C62E7245D4754EDCF08FB7 /* VVClazzNSDecimalNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 491530E84F58697F6AEB8C85C1392C15 /* VVClazzNSDecimalNumber.m */; };
+		AB1A2B88F46BFE74609B977D465E9135 /* VVReferenceConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8700568BD2ACF79C9D9D95710C0F4C6 /* VVReferenceConditionModel.m */; };
 		B295FC18C83206BC1D78D394C4425BF7 /* VVDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */; };
-		B2D44EF72AC93331D57D08C388DAE2AC /* VVClazzFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB180F6248CF61F87FC530DAB141C77 /* VVClazzFloat.m */; };
-		B7F2DF745967DDC02D27639D650F572A /* VVDBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = D95605962711DC4BBBCB2C0851DE8804 /* VVDBRuntime.m */; };
-		B90E134D330A9EAEAA3976B2973A552C /* VVClazzLongLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 074D876D437F523CCFC85AA9F296267D /* VVClazzLongLong.m */; };
-		BC2FDFC523CA4D49D4E9F52FE3878CF4 /* VVClazzNSMutableString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B69C000BF7F53D55B8BA60466A69E /* VVClazzNSMutableString.m */; };
 		BEE3BA1C738973518506664D11AA8A26 /* VVClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */; };
 		BF464AF3F9669C0E0B23D8A7A00B6503 /* VVMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8388B4F82123657399D0D11578F790 /* VVMigration.m */; };
-		C12964776AE287EA25127E22F05FC159 /* VVClazzSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC89A31DFE7754A4C100619E256893 /* VVClazzSerialize.m */; };
-		C2DADAB7ED28DF7AE0489E2826B48239 /* VVClazz.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2147734F354FB17CF6E7044A31E936 /* VVClazz.m */; };
+		C09326C64D582D2A11293EFBD489F42D /* VVClazzLong.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8A739670EAAE70D36EC0D7A87A4296 /* VVClazzLong.m */; };
 		C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */; };
-		C3AE6513A089734A83A16FC4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE60ECF1D259B7B50DA3FB /* User.m */; };
-		C3AE652E33E525D77C6237B5 /* VVDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE64582165A3D54881A411 /* VVDataBaseManager.m */; };
-		C3AE65F64A07F79B6C09FB17 /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6726AD9D6F568BBE13E9 /* AppContent.m */; };
-		C3AE6B4862F0893D76EC27D3 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE604D0B9CA12385E82247 /* Download.m */; };
 		CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50569A531FAE0EB9692310D615EC246E /* ViewController.m */; };
+		CD03E642C378FDAB01575FF1D306E702 /* VVClazzNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 500846FAEF3F47468DE4B82D6450C416 /* VVClazzNSArray.m */; };
+		D01E620A56587FE19FA75A293891AC00 /* VVDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8388897B4FB72E7D3A651887027F08F4 /* VVDataBase.m */; };
 		D0C35F0C65C4F8A6B72CD5CC6F30D6CC /* VVProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1F60C58D243DC9B88FF9945D2909 /* VVProperty.m */; };
-		D0F864B4F52F05D40E80EF4EABA632D1 /* VVDBClazzID.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE97A8B32F11BCB31166D59482BCAE /* VVDBClazzID.m */; };
-		D8D0DD38FDFF6A2045C73B24019C1193 /* VVClazzNSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAC4EF0F1359B824D35A1C40C53E70 /* VVClazzNSData.m */; };
-		E5708548C98FD6B10D0AA99E73E145C7 /* VVDBReferenceConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */; };
-		EACFDBCD736B40E03A9C3960A5F4992F /* VVClazzChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D89F3B8B37C3D82736B706569BB111 /* VVClazzChar.m */; };
-		EC65E887CC6996CF72F868843A3E5A74 /* VVClazzBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D4763F18407AD410F1FEB8EC969E0 /* VVClazzBool.m */; };
+		D0DAA6EB8BE41791E6C9BF4949005DDC /* VVSQLiteConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B5F8C8567CE117012413AD41F331BC /* VVSQLiteConditionModel.m */; };
+		D49F269B9B049CED38B116BC626979CC /* VVClazzNSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 704C2CD5E002028F958BABFD24A7EC07 /* VVClazzNSNumber.m */; };
+		D4FC990D36F13FED3D974F52F27F8FB6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C8659F64DB01AC80AAB35CD984777531 /* User.m */; };
+		D9DE682168E976CFAB4BF9CBF388EBC5 /* VVClazzID.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E332AA7F5C210D749E79E400678D41A /* VVClazzID.m */; };
 		F01AB146650361C14B744484C9DDFE6C /* VVMigrationTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ECC971FE769BFF30F2E899F1FD39E1 /* VVMigrationTable.m */; };
 		F064103AE9FF1F6722E5BAA61177C8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */; };
-		F0A08DEE637180A8C7C58B5FF6544F85 /* VVClazzNSNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB3D33DAD722DE90E6CD1031BB7533 /* VVClazzNSNull.m */; };
-		F82E94AB8A316B7B28EACE93A88BFC11 /* VVDBConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC8702C160D2FBFFC04CD2F7986593 /* VVDBConst.m */; };
+		F82E94AB8A316B7B28EACE93A88BFC11 /* VVSqliteConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC8702C160D2FBFFC04CD2F7986593 /* VVSqliteConst.m */; };
 		FBFD9A7217243518F394E91232A1C99A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EAEBFF67C5DD72130A02B6BE92368F6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -99,148 +99,148 @@
 
 /* Begin PBXFileReference section */
 		0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVDB.release.xcconfig"; path = "Target Support Files/Pods-VVDB/Pods-VVDB.release.xcconfig"; sourceTree = "<group>"; };
-		043FF78BCCB99C2D3F355ADCE35D7E08 /* VVClazzDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzDouble.m; sourceTree = "<group>"; };
-		04DAC4EF0F1359B824D35A1C40C53E70 /* VVClazzNSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSData.m; sourceTree = "<group>"; };
-		074D876D437F523CCFC85AA9F296267D /* VVClazzLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzLongLong.m; sourceTree = "<group>"; };
+		04F8D629F458945D9FD8E99BBE83EFC8 /* VVClazz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazz.h; sourceTree = "<group>"; };
+		0564A1D05E2A3D15351B181728011E97 /* VVClazzLongLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzLongLong.h; sourceTree = "<group>"; };
+		062C3ABD0408BE9F5E608A92D12BFE9E /* VVClazzNSNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSNull.h; sourceTree = "<group>"; };
 		1079BCEDE55CAFDECA3D140BC7FDE6F4 /* VVNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVNotificationCenter.h; sourceTree = "<group>"; };
+		10DA1FB899E9E80C1EE490B4EE8522F3 /* VVClazzUnsignedShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedShort.m; sourceTree = "<group>"; };
+		10E714134ECD5A42C1638FAE1B3342FD /* VVClazzLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzLong.h; sourceTree = "<group>"; };
 		13689AD7C02AB601B61A9F47C1324D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1399488AA7AE22913FE9F551E8141381 /* VVClazzNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSArray.m; sourceTree = "<group>"; };
+		13C1C70828BAD257808D98D87170C016 /* VVConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVConditionModel.m; sourceTree = "<group>"; };
 		150E2D670D7B9708F1F54228D20A2A3E /* VVNameBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVNameBuilder.m; sourceTree = "<group>"; };
-		17AB5414D9B3700BEF4CBF7F90F77776 /* VVClazzInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzInt.m; sourceTree = "<group>"; };
 		1C05566E9314601BD340EDC1BCA5E89E /* VVMigrationTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationTable.h; sourceTree = "<group>"; };
 		1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyType.m; sourceTree = "<group>"; };
-		1CB180F6248CF61F87FC530DAB141C77 /* VVClazzFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzFloat.m; sourceTree = "<group>"; };
-		1EBC89A31DFE7754A4C100619E256893 /* VVClazzSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzSerialize.m; sourceTree = "<group>"; };
 		2034607297348F23EF86BD05D50B0FCB /* NSObject+VVAutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVAutoCoding.m"; sourceTree = "<group>"; };
 		2091D5782BC1299E1865B910A1E3D204 /* NSObject+VVObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVObserver.h"; sourceTree = "<group>"; };
-		2104DD9EB8B6A607F7C0F2F3CB451B85 /* VVClazzNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSData.h; sourceTree = "<group>"; };
 		2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyEncoding.m; sourceTree = "<group>"; };
-		24E5B266F7DF8D9C49C44E19B4864E7A /* VVClazzUnsignedLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedLongLong.m; sourceTree = "<group>"; };
+		2493C36114ED758A23179551F60E6635 /* VVClazzUnsignedInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedInt.h; sourceTree = "<group>"; };
 		26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVObserver.m; sourceTree = "<group>"; };
 		26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationQueryBuilder.m; sourceTree = "<group>"; };
-		273DDFC9E73861205003873C7ED930C2 /* VVClazzUnsignedChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedChar.m; sourceTree = "<group>"; };
 		29101846270BF95D7850BFC007465AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C6B577D0B56FFAAF463B265F27D1BB1 /* VVClazzUnsignedShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedShort.h; sourceTree = "<group>"; };
+		2D3A9D65875812738A829917CAEF1E7E /* VVRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRuntime.h; sourceTree = "<group>"; };
+		2E332AA7F5C210D749E79E400678D41A /* VVClazzID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzID.m; sourceTree = "<group>"; };
+		2E57E842386F230A197816A23C3A6077 /* VVDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBase.h; sourceTree = "<group>"; };
 		2E70C33030D1DC17205FDD395065DE9B /* VVSQLiteColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSQLiteColumnModel.h; sourceTree = "<group>"; };
-		2FFC8702C160D2FBFFC04CD2F7986593 /* VVDBConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBConst.m; sourceTree = "<group>"; };
-		301630BB39D34EEC8ADA38824B98CA5A /* VVClazzNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSDate.h; sourceTree = "<group>"; };
-		327F3C9746B6F0459EFC31116F68D5DE /* VVClazzUnsignedLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedLong.h; sourceTree = "<group>"; };
+		2E9FDFAFC27757BA074C8E0E841CB691 /* VVClazzDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzDouble.m; sourceTree = "<group>"; };
+		2FFC8702C160D2FBFFC04CD2F7986593 /* VVSqliteConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSqliteConst.m; sourceTree = "<group>"; };
 		3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		338FDF52E5F5EA2DAA721FBBCA823CE9 /* VVClazzNSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSValue.h; sourceTree = "<group>"; };
-		390A285824180866C81C764ED9EBBE47 /* VVDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBase.m; sourceTree = "<group>"; };
+		3645937D1C39EA2CB2D9781D42AFF36C /* VVClazzUnsignedShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedShort.h; sourceTree = "<group>"; };
 		39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		418D11855E37148D089973728C50BDBB /* VVClazzInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzInt.h; sourceTree = "<group>"; };
+		3D0526E71B1E97F43330757F52F7B8B2 /* NSObject+VVTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVTabel.m"; sourceTree = "<group>"; };
+		3FC00E4A1CCFA0A6E02519CD414677C9 /* VVClazzNSMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSMutableString.h; sourceTree = "<group>"; };
+		429BA5A44A28453E189B638C01871397 /* VVClazzChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzChar.h; sourceTree = "<group>"; };
+		42CB8CA57D5AFBBDF97AE134B880FEB8 /* VVClazz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazz.m; sourceTree = "<group>"; };
 		444A2716663CA0A4CCB72ABF524618DA /* VVRelationshipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRelationshipModel.h; sourceTree = "<group>"; };
-		44FDFAF78F184A464EB01CCCDC2B077A /* VVClazz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazz.h; sourceTree = "<group>"; };
-		46DB3D33DAD722DE90E6CD1031BB7533 /* VVClazzNSNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSNull.m; sourceTree = "<group>"; };
+		491530E84F58697F6AEB8C85C1392C15 /* VVClazzNSDecimalNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSDecimalNumber.m; sourceTree = "<group>"; };
 		4A6ED129B1511F8E27210AABB080F2BE /* VVPropertyEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyEncoding.h; sourceTree = "<group>"; };
 		4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVObserver.m"; sourceTree = "<group>"; };
-		4B7A7A79E331E21B9F1788080DFA8F54 /* VVDBSQLiteConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBSQLiteConditionModel.m; sourceTree = "<group>"; };
+		4D277AC12575CCCC19600B0C2914AF6C /* VVClazzNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSDate.h; sourceTree = "<group>"; };
 		4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClassProperty.m; sourceTree = "<group>"; };
+		4DBB29877BB5AFAC290E50A8E00CF881 /* VVClazzNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSNumber.h; sourceTree = "<group>"; };
+		4DE9241B0A798BC7B41D28D454E2C2C8 /* VVReferenceConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceConditionModel.h; sourceTree = "<group>"; };
 		4E5E7CBA5402CDEAD1A52DD01D9E7526 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBReferenceConditionModel.m; sourceTree = "<group>"; };
+		500846FAEF3F47468DE4B82D6450C416 /* VVClazzNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSArray.m; sourceTree = "<group>"; };
 		50569A531FAE0EB9692310D615EC246E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		507A5805F821C049D65427DB64469A69 /* VVSQLiteConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSQLiteConditionModel.h; sourceTree = "<group>"; };
 		50D07794EB8240DE31E3664B1229EA1A /* VVReferenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceModel.h; sourceTree = "<group>"; };
+		52527FCB7A04B8827A61AC3CB6876010 /* VVClazzNSURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSURL.m; sourceTree = "<group>"; };
 		53AF1F60C58D243DC9B88FF9945D2909 /* VVProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVProperty.m; sourceTree = "<group>"; };
+		5614B46A0718165EAE1B02598E211F31 /* VVClazzUnsignedLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedLongLong.m; sourceTree = "<group>"; };
 		56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVNotificationCenter.m; sourceTree = "<group>"; };
-		56CEE965F095E12DEAD13681033B4F47 /* VVDBClazzID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzID.h; sourceTree = "<group>"; };
-		58342F4AFC544C31BD035E4DD1D8E8F5 /* VVClazzLongLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzLongLong.h; sourceTree = "<group>"; };
-		584FF729B2E6F20FA45C89E2571F2ED4 /* VVDBRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBRuntimeProperty.m; sourceTree = "<group>"; };
+		58452E4CD824CE81A660E5B76B4E0D74 /* VVClazzNSNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSNull.m; sourceTree = "<group>"; };
+		584FF729B2E6F20FA45C89E2571F2ED4 /* VVRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRuntimeProperty.m; sourceTree = "<group>"; };
+		585D803FDB2FA117FFE3B75F0D8D7991 /* VVDataBase+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VVDataBase+Background.m"; sourceTree = "<group>"; };
 		5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VVDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVModelMapper.m; sourceTree = "<group>"; };
-		59FF3818E740BA1A74EE4CC0C63C3C6B /* VVClazzUnsignedLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedLong.m; sourceTree = "<group>"; };
-		5B8D8FFFBA897CED68463951EF07DEC7 /* VVClazzNSNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSNull.h; sourceTree = "<group>"; };
-		5BDC01C9493A57C761C2CC02BC1EDDCC /* NSObject+VVTabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVTabel.h"; sourceTree = "<group>"; };
+		5B5CC188BF4D6E8C0BB48E5BFF16E46C /* VVClazzInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzInt.h; sourceTree = "<group>"; };
+		5BDF54E838A9C10EE94189F9FD4387F4 /* VVClazzUnsignedChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedChar.h; sourceTree = "<group>"; };
+		5E7CEA2915A754505F26085DA136849C /* VVClazzFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzFloat.h; sourceTree = "<group>"; };
+		5E8648C3B96FCC8E6AECCC7739577370 /* VVClazzInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzInt.m; sourceTree = "<group>"; };
 		5F3725921DE611A3168B38C9CE90318A /* VVModelMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelMapper.h; sourceTree = "<group>"; };
-		5FB3E43AB43742D2BEED8131325EDDE1 /* VVClazzNSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSArray.h; sourceTree = "<group>"; };
-		64FFEE72924127A183DB7064E657A426 /* VVDBReferenceConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBReferenceConditionModel.h; sourceTree = "<group>"; };
-		66A7B26C7D33D0EF995812F57EB20461 /* VVClazzNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSDate.m; sourceTree = "<group>"; };
-		695600F794B6BEF3735C5E9A6FB0FC98 /* VVClazzLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzLong.m; sourceTree = "<group>"; };
-		6A2147734F354FB17CF6E7044A31E936 /* VVClazz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazz.m; sourceTree = "<group>"; };
+		628B4EA0832359B0ADFC52DF8973AAF1 /* VVClazzBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzBool.m; sourceTree = "<group>"; };
+		66F24AF9460460222BD433E3ACDDBE80 /* VVClazzShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzShort.m; sourceTree = "<group>"; };
 		6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6DC78D2BE3803542919735BFC255128A /* VVClazzLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzLongLong.m; sourceTree = "<group>"; };
 		6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVQueryBuilder.m; sourceTree = "<group>"; };
 		6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVRelationshipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRelationshipModel.m; sourceTree = "<group>"; };
+		704C2CD5E002028F958BABFD24A7EC07 /* VVClazzNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSNumber.m; sourceTree = "<group>"; };
 		7057288CB7D896AB146B89EBB8D44A3E /* VVReferenceMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceMapper.h; sourceTree = "<group>"; };
-		748D4763F18407AD410F1FEB8EC969E0 /* VVClazzBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzBool.m; sourceTree = "<group>"; };
-		74EBD62AFC707F384B93F3BA357691EB /* VVClazzUnsignedInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedInt.m; sourceTree = "<group>"; };
-		75EA71FCCAB899369929FDAEC40D33B8 /* VVDBSQLiteConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBSQLiteConditionModel.h; sourceTree = "<group>"; };
-		77F9EA57920052E14B22FECF96E569C9 /* VVClazzNSValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSValue.m; sourceTree = "<group>"; };
 		792650FAC93A8C8D738927AA4BB81E59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7C31DE9851D8167AF3FBBAD0137271BB /* VVClazzNSDecimalNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSDecimalNumber.m; sourceTree = "<group>"; };
-		81990509E773828D6B9A0FEB85C12CF6 /* VVDBRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBRuntime.h; sourceTree = "<group>"; };
-		8243A4E30BF427DBCF0FC8FB751DFCE2 /* VVClazzSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzSerialize.h; sourceTree = "<group>"; };
+		7A4D46CD51C965E58A5665556235CF83 /* VVClazzNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSString.h; sourceTree = "<group>"; };
+		7B0774817DE2CB4BB41183082CE576E8 /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		7EA47998639EA3E03C15B16659CDDAE7 /* VVClazzNSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSData.m; sourceTree = "<group>"; };
+		7FD5F22F70D1932E4732467D2493AF44 /* VVClazzNSValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSValue.m; sourceTree = "<group>"; };
+		826FDA0C3DBF095D520FDB103AC9C3D1 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
+		8388897B4FB72E7D3A651887027F08F4 /* VVDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBase.m; sourceTree = "<group>"; };
 		84DF07B5ED2B7DF80BD92F77D2494775 /* VVModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelInterface.h; sourceTree = "<group>"; };
-		886A4D0365E5B5D68A8F7EC340D9B5B0 /* VVClazzFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzFloat.h; sourceTree = "<group>"; };
-		8A7473BC3FDB186D2EAD727C2F010930 /* VVClazzNSURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSURL.h; sourceTree = "<group>"; };
+		89FF1411C18556C0AA4E2F712BA71320 /* VVClazzShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzShort.h; sourceTree = "<group>"; };
 		8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBUITests.m; sourceTree = "<group>"; };
-		8B8B69C000BF7F53D55B8BA60466A69E /* VVClazzNSMutableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSMutableString.m; sourceTree = "<group>"; };
-		8C94BD02511712F07B7C75819EDC6765 /* VVDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBase.h; sourceTree = "<group>"; };
+		8D221B4B0A0DB82C19AA844CB6418151 /* VVClazzNSMutableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSMutableString.m; sourceTree = "<group>"; };
 		8D46171DAEC577D90FEC65DDD6DB7755 /* VVPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyType.h; sourceTree = "<group>"; };
-		8DE9EEA50C45E9C9C18E08F310C46B50 /* VVClazzLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzLong.h; sourceTree = "<group>"; };
 		9001D9524CC1DDA385E703FFA7DF7371 /* VVMigrationQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationQueryBuilder.h; sourceTree = "<group>"; };
-		90D89F3B8B37C3D82736B706569BB111 /* VVClazzChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzChar.m; sourceTree = "<group>"; };
-		933E601DEAA65BADE2E24FCDC9038364 /* VVDBRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBRuntimeProperty.h; sourceTree = "<group>"; };
-		9735B52B9C7022FA7182D506D6D789C3 /* VVClazzBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzBool.h; sourceTree = "<group>"; };
-		98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVTabel.m"; sourceTree = "<group>"; };
-		98FA70E616F93E376B8A1043FDEEB0E9 /* VVDataBase+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VVDataBase+Background.h"; sourceTree = "<group>"; };
+		90F86A2FFEBEE7D6691B213FC4EAE9CD /* VVClazzNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSDate.m; sourceTree = "<group>"; };
+		9255F8082A507C0978C683686B8B5EED /* NSObject+VVTabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVTabel.h"; sourceTree = "<group>"; };
+		9264CE8F0C15F2D84F7B8281EE1694C5 /* VVClazzNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSObject.h; sourceTree = "<group>"; };
+		933E601DEAA65BADE2E24FCDC9038364 /* VVRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRuntimeProperty.h; sourceTree = "<group>"; };
+		93B5F8C8567CE117012413AD41F331BC /* VVSQLiteConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSQLiteConditionModel.m; sourceTree = "<group>"; };
+		959E8DB1829DF16D9A6A174FE11468B2 /* VVDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBaseManager.m; sourceTree = "<group>"; };
 		99DF0317FF7D1D4CAA3B8838F764805A /* VVObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVObserver.h; sourceTree = "<group>"; };
+		9A50FD46B294836A690EDDD71D64B598 /* VVConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVConditionModel.h; sourceTree = "<group>"; };
 		9B8388B4F82123657399D0D11578F790 /* VVMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigration.m; sourceTree = "<group>"; };
 		A1175FBC4B771C8CA261FC43969BF64F /* VVMigrationRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntimeProperty.m; sourceTree = "<group>"; };
 		A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBTests.m; sourceTree = "<group>"; };
-		A5FF295DBFB9393D515D302A5D44804D /* VVClazzChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzChar.h; sourceTree = "<group>"; };
-		AAB5BC4A3FCCD29A9B6A8A47AAF9AF6D /* VVDBClazzNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSObject.h; sourceTree = "<group>"; };
+		A34374CE8CCA22E77C4E90E3A247D944 /* VVClazzNSDecimalNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSDecimalNumber.h; sourceTree = "<group>"; };
+		A3EA685B7823C66A93E178C35D110BEC /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
+		AC82A3E3B0E93FAF5AD14F733982E541 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		ADA9B878E6AB8932B7DDB9906D322C76 /* VVDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBaseManager.h; sourceTree = "<group>"; };
 		ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AEEDD62D25D03473934269764CEFDA8F /* VVClazzDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzDouble.h; sourceTree = "<group>"; };
-		AF8C5BFC48A830B6184F54F44A125FB9 /* VVClazzUnsignedShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedShort.m; sourceTree = "<group>"; };
 		B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B103E653D8329C6C9D2115C71A43E934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B33CE696E106F312007F6446EE7FC449 /* VVClazzNSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSValue.h; sourceTree = "<group>"; };
 		B7810777C8E04FCA47F165B3EC83CB3B /* VVClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClassProperty.h; sourceTree = "<group>"; };
 		BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntime.m; sourceTree = "<group>"; };
 		C2600E5FC975816167ED8D0DFB926120 /* FMDatabase+IndexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+IndexInfo.h"; sourceTree = "<group>"; };
-		C3AE604D0B9CA12385E82247 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
-		C3AE60ECF1D259B7B50DA3FB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		C3AE64582165A3D54881A411 /* VVDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBaseManager.m; sourceTree = "<group>"; };
-		C3AE66A0422A5FF3835F8D0C /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
-		C3AE6726AD9D6F568BBE13E9 /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
-		C3AE6A86A28DB3128AE83406 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		C3AE6ABD6FFA3C7DD30CDA2C /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
-		C3AE6B12356CB74E9F98DAED /* VVDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBaseManager.h; sourceTree = "<group>"; };
 		C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4765467939FA9D01160618217427865 /* VVMigrationRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationRuntimeProperty.h; sourceTree = "<group>"; };
-		C52DEBCF9CDAF3A52E6610D200FCC672 /* VVClazzUnsignedInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedInt.h; sourceTree = "<group>"; };
-		C6565B0B6C92DE67A53A69CDB0F0626A /* VVClazzNSDecimalNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSDecimalNumber.h; sourceTree = "<group>"; };
+		C8659F64DB01AC80AAB35CD984777531 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVDB.debug.xcconfig"; path = "Target Support Files/Pods-VVDB/Pods-VVDB.debug.xcconfig"; sourceTree = "<group>"; };
-		C9FE7DEC2F92C4E112328E340FAAA2FB /* VVClazzShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzShort.h; sourceTree = "<group>"; };
-		CC97AA83733A16B4BE0FC0CFE76F976F /* VVClazzNSMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSMutableString.h; sourceTree = "<group>"; };
+		CC0E5B4C505B0822A487ACDF7CA1451F /* VVClazzID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzID.h; sourceTree = "<group>"; };
+		CD6CFD0A07D17532F91177BADD7D8399 /* VVClazzNSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSArray.h; sourceTree = "<group>"; };
 		CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+IndexInfo.m"; sourceTree = "<group>"; };
 		D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A7BD02EEFDC8C6991E8C304752FBA5 /* VVQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVQueryBuilder.h; sourceTree = "<group>"; };
-		D4FE97A8B32F11BCB31166D59482BCAE /* VVDBClazzID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzID.m; sourceTree = "<group>"; };
-		D7D3227278834726943CF1224C018448 /* VVDBConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBConditionModel.m; sourceTree = "<group>"; };
-		D95605962711DC4BBBCB2C0851DE8804 /* VVDBRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBRuntime.m; sourceTree = "<group>"; };
-		DC1A67C09C8F6983E851EAFB80A15F4A /* VVClazzShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzShort.m; sourceTree = "<group>"; };
-		DE57A814BF77EEA86BCB4C8027AE4B62 /* VVClazzNSURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSURL.m; sourceTree = "<group>"; };
-		DE5BD6C3A056C45C7F7CF94AF1595DB7 /* VVClazzUnsignedLongLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedLongLong.h; sourceTree = "<group>"; };
+		D41670B95DEF09B9F93302488DC8B256 /* VVClazzNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSData.h; sourceTree = "<group>"; };
+		D6BA031EE2600B792409242C98AA9367 /* VVClazzBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzBool.h; sourceTree = "<group>"; };
+		D74B06436E24529FFD7E32690820DE55 /* VVClazzUnsignedLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedLong.m; sourceTree = "<group>"; };
+		D8700568BD2ACF79C9D9D95710C0F4C6 /* VVReferenceConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceConditionModel.m; sourceTree = "<group>"; };
+		DAFAACEDFC03016D2185A21951261962 /* VVDataBase+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VVDataBase+Background.h"; sourceTree = "<group>"; };
 		E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceMapper.m; sourceTree = "<group>"; };
 		E11F7F548827D13EAA14F63A9FE0E950 /* VVMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigration.h; sourceTree = "<group>"; };
-		E1E26AA3522D3E6136393E1EC33A6D09 /* VVDBClazzNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSObject.m; sourceTree = "<group>"; };
 		E22F18F85678F4BC99158B21281B7BFF /* VVProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVProperty.h; sourceTree = "<group>"; };
+		E33EDE085C022874020D3E8101106144 /* VVClazzFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzFloat.m; sourceTree = "<group>"; };
+		E33F75911D1885607DBCD09E0D1ABDB7 /* VVClazzNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSString.m; sourceTree = "<group>"; };
 		E3B3C11B25253B24F9EBB154EE2848FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E53F040918DCE7D2975B994DCF047EF6 /* VVClazzNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSString.h; sourceTree = "<group>"; };
-		E5FE0AAB0726B2BFEF446B7154E3171D /* VVClazzNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSString.m; sourceTree = "<group>"; };
-		E6AB09AA52292268D1CC3C6F4AA4EA16 /* VVClazzNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSNumber.h; sourceTree = "<group>"; };
+		E5FC6C8BA96E1FCA05BF52646884E003 /* VVClazzDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzDouble.h; sourceTree = "<group>"; };
+		E6B104FAA04F01FBDE569F4D073CE3BE /* VVRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRuntime.m; sourceTree = "<group>"; };
 		E74BC94A4DD4AB35F92DA90A3805C20A /* VVNameBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVNameBuilder.h; sourceTree = "<group>"; };
-		E86DAFB8A9DC35AC01F17B5DFD44C2D5 /* VVClazzNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSNumber.m; sourceTree = "<group>"; };
-		EB778877FCC42799029314BF498B61D7 /* VVDBConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBConst.h; sourceTree = "<group>"; };
+		E94F317CA8D82C9474BC5F152DF06698 /* VVClazzSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzSerialize.m; sourceTree = "<group>"; };
+		EB778877FCC42799029314BF498B61D7 /* VVSqliteConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSqliteConst.h; sourceTree = "<group>"; };
+		EEBC4BE7B87CAD69DDC8E873E05E4A11 /* VVClazzUnsignedInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedInt.m; sourceTree = "<group>"; };
 		EFE4816C95F557AA57261A37C6741711 /* VVMigrationRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationRuntime.h; sourceTree = "<group>"; };
+		F03DBED14A1174872332EF4698E73F0A /* VVClazzSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzSerialize.h; sourceTree = "<group>"; };
 		F0ECC971FE769BFF30F2E899F1FD39E1 /* VVMigrationTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationTable.m; sourceTree = "<group>"; };
-		F75279EB2C9F5D097DB27DB3B5F06F03 /* VVDataBase+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VVDataBase+Background.m"; sourceTree = "<group>"; };
+		F247B51B5161E8FBD1C1DD56A2718C10 /* VVClazzNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSObject.m; sourceTree = "<group>"; };
+		F3B9C0B7B45C3F2639A001F231304473 /* VVClazzChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzChar.m; sourceTree = "<group>"; };
+		F58794D953F746B52130B1D5F6384994 /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
 		F76605C06410951C6B97F85C60FBE2DD /* NSObject+VVAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVAutoCoding.h"; sourceTree = "<group>"; };
-		F78F940D7A9A68513EB4A9662A65672C /* VVClazzUnsignedChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedChar.h; sourceTree = "<group>"; };
+		F81C2AC8F9DF3FE4C48CA7A20AE5CF45 /* VVClazzUnsignedChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedChar.m; sourceTree = "<group>"; };
+		F8462E0E6E13BF864A3235582CE65711 /* VVClazzUnsignedLongLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedLongLong.h; sourceTree = "<group>"; };
 		F92FEA4C5A99AD74EB0705724423DC85 /* VVReferenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceModel.m; sourceTree = "<group>"; };
+		F980348A50D9E6389EF5BA425BBA0671 /* VVClazzNSURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSURL.h; sourceTree = "<group>"; };
 		F98CF2D76778DA50805B2D3FD7DCB717 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FBD35ECA0CA56E0AE8916ADDDC3CABAF /* VVSQLiteColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSQLiteColumnModel.m; sourceTree = "<group>"; };
-		FBD58F37A61F673558A6045F5A3DEA0F /* VVDBConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBConditionModel.h; sourceTree = "<group>"; };
+		FC8A739670EAAE70D36EC0D7A87A4296 /* VVClazzLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzLong.m; sourceTree = "<group>"; };
+		FCC3110768AAF208A51CAD9314A917E9 /* VVClazzUnsignedLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedLong.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,12 +272,12 @@
 		06EF2BAFE5B84542CF39371CD8B4DC5D /* Condition */ = {
 			isa = PBXGroup;
 			children = (
-				FBD58F37A61F673558A6045F5A3DEA0F /* VVDBConditionModel.h */,
-				D7D3227278834726943CF1224C018448 /* VVDBConditionModel.m */,
-				64FFEE72924127A183DB7064E657A426 /* VVDBReferenceConditionModel.h */,
-				4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */,
-				75EA71FCCAB899369929FDAEC40D33B8 /* VVDBSQLiteConditionModel.h */,
-				4B7A7A79E331E21B9F1788080DFA8F54 /* VVDBSQLiteConditionModel.m */,
+				9A50FD46B294836A690EDDD71D64B598 /* VVConditionModel.h */,
+				13C1C70828BAD257808D98D87170C016 /* VVConditionModel.m */,
+				4DE9241B0A798BC7B41D28D454E2C2C8 /* VVReferenceConditionModel.h */,
+				D8700568BD2ACF79C9D9D95710C0F4C6 /* VVReferenceConditionModel.m */,
+				507A5805F821C049D65427DB64469A69 /* VVSQLiteConditionModel.h */,
+				93B5F8C8567CE117012413AD41F331BC /* VVSQLiteConditionModel.m */,
 			);
 			path = Condition;
 			sourceTree = "<group>";
@@ -297,14 +297,14 @@
 			children = (
 				B7810777C8E04FCA47F165B3EC83CB3B /* VVClassProperty.h */,
 				4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */,
-				81990509E773828D6B9A0FEB85C12CF6 /* VVDBRuntime.h */,
-				D95605962711DC4BBBCB2C0851DE8804 /* VVDBRuntime.m */,
 				E22F18F85678F4BC99158B21281B7BFF /* VVProperty.h */,
 				53AF1F60C58D243DC9B88FF9945D2909 /* VVProperty.m */,
 				4A6ED129B1511F8E27210AABB080F2BE /* VVPropertyEncoding.h */,
 				2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */,
 				8D46171DAEC577D90FEC65DDD6DB7755 /* VVPropertyType.h */,
 				1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */,
+				2D3A9D65875812738A829917CAEF1E7E /* VVRuntime.h */,
+				E6B104FAA04F01FBDE569F4D073CE3BE /* VVRuntime.m */,
 			);
 			path = Propterty;
 			sourceTree = "<group>";
@@ -337,7 +337,6 @@
 				C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */,
 				0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -385,67 +384,80 @@
 			path = Migration;
 			sourceTree = "<group>";
 		};
+		9C2A395295F9A65013BC014B1C097A16 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				DAFAACEDFC03016D2185A21951261962 /* VVDataBase+Background.h */,
+				585D803FDB2FA117FFE3B75F0D8D7991 /* VVDataBase+Background.m */,
+				2E57E842386F230A197816A23C3A6077 /* VVDataBase.h */,
+				8388897B4FB72E7D3A651887027F08F4 /* VVDataBase.m */,
+				ADA9B878E6AB8932B7DDB9906D322C76 /* VVDataBaseManager.h */,
+				959E8DB1829DF16D9A6A174FE11468B2 /* VVDataBaseManager.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
 		B95044CB076F02259E48DA7734A9007A /* Clazz */ = {
 			isa = PBXGroup;
 			children = (
-				44FDFAF78F184A464EB01CCCDC2B077A /* VVClazz.h */,
-				6A2147734F354FB17CF6E7044A31E936 /* VVClazz.m */,
-				9735B52B9C7022FA7182D506D6D789C3 /* VVClazzBool.h */,
-				748D4763F18407AD410F1FEB8EC969E0 /* VVClazzBool.m */,
-				A5FF295DBFB9393D515D302A5D44804D /* VVClazzChar.h */,
-				90D89F3B8B37C3D82736B706569BB111 /* VVClazzChar.m */,
-				AEEDD62D25D03473934269764CEFDA8F /* VVClazzDouble.h */,
-				043FF78BCCB99C2D3F355ADCE35D7E08 /* VVClazzDouble.m */,
-				886A4D0365E5B5D68A8F7EC340D9B5B0 /* VVClazzFloat.h */,
-				1CB180F6248CF61F87FC530DAB141C77 /* VVClazzFloat.m */,
-				56CEE965F095E12DEAD13681033B4F47 /* VVDBClazzID.h */,
-				D4FE97A8B32F11BCB31166D59482BCAE /* VVDBClazzID.m */,
-				418D11855E37148D089973728C50BDBB /* VVClazzInt.h */,
-				17AB5414D9B3700BEF4CBF7F90F77776 /* VVClazzInt.m */,
-				8DE9EEA50C45E9C9C18E08F310C46B50 /* VVClazzLong.h */,
-				695600F794B6BEF3735C5E9A6FB0FC98 /* VVClazzLong.m */,
-				58342F4AFC544C31BD035E4DD1D8E8F5 /* VVClazzLongLong.h */,
-				074D876D437F523CCFC85AA9F296267D /* VVClazzLongLong.m */,
-				5FB3E43AB43742D2BEED8131325EDDE1 /* VVClazzNSArray.h */,
-				1399488AA7AE22913FE9F551E8141381 /* VVClazzNSArray.m */,
-				2104DD9EB8B6A607F7C0F2F3CB451B85 /* VVClazzNSData.h */,
-				04DAC4EF0F1359B824D35A1C40C53E70 /* VVClazzNSData.m */,
-				301630BB39D34EEC8ADA38824B98CA5A /* VVClazzNSDate.h */,
-				66A7B26C7D33D0EF995812F57EB20461 /* VVClazzNSDate.m */,
-				C6565B0B6C92DE67A53A69CDB0F0626A /* VVClazzNSDecimalNumber.h */,
-				7C31DE9851D8167AF3FBBAD0137271BB /* VVClazzNSDecimalNumber.m */,
-				CC97AA83733A16B4BE0FC0CFE76F976F /* VVClazzNSMutableString.h */,
-				8B8B69C000BF7F53D55B8BA60466A69E /* VVClazzNSMutableString.m */,
-				5B8D8FFFBA897CED68463951EF07DEC7 /* VVClazzNSNull.h */,
-				46DB3D33DAD722DE90E6CD1031BB7533 /* VVClazzNSNull.m */,
-				E6AB09AA52292268D1CC3C6F4AA4EA16 /* VVClazzNSNumber.h */,
-				E86DAFB8A9DC35AC01F17B5DFD44C2D5 /* VVClazzNSNumber.m */,
-				AAB5BC4A3FCCD29A9B6A8A47AAF9AF6D /* VVDBClazzNSObject.h */,
-				E1E26AA3522D3E6136393E1EC33A6D09 /* VVDBClazzNSObject.m */,
-				E53F040918DCE7D2975B994DCF047EF6 /* VVClazzNSString.h */,
-				E5FE0AAB0726B2BFEF446B7154E3171D /* VVClazzNSString.m */,
-				8A7473BC3FDB186D2EAD727C2F010930 /* VVClazzNSURL.h */,
-				DE57A814BF77EEA86BCB4C8027AE4B62 /* VVClazzNSURL.m */,
-				338FDF52E5F5EA2DAA721FBBCA823CE9 /* VVClazzNSValue.h */,
-				77F9EA57920052E14B22FECF96E569C9 /* VVClazzNSValue.m */,
-				8243A4E30BF427DBCF0FC8FB751DFCE2 /* VVClazzSerialize.h */,
-				1EBC89A31DFE7754A4C100619E256893 /* VVClazzSerialize.m */,
-				C9FE7DEC2F92C4E112328E340FAAA2FB /* VVClazzShort.h */,
-				DC1A67C09C8F6983E851EAFB80A15F4A /* VVClazzShort.m */,
-				F78F940D7A9A68513EB4A9662A65672C /* VVClazzUnsignedChar.h */,
-				273DDFC9E73861205003873C7ED930C2 /* VVClazzUnsignedChar.m */,
-				C52DEBCF9CDAF3A52E6610D200FCC672 /* VVClazzUnsignedInt.h */,
-				74EBD62AFC707F384B93F3BA357691EB /* VVClazzUnsignedInt.m */,
-				327F3C9746B6F0459EFC31116F68D5DE /* VVClazzUnsignedLong.h */,
-				59FF3818E740BA1A74EE4CC0C63C3C6B /* VVClazzUnsignedLong.m */,
-				DE5BD6C3A056C45C7F7CF94AF1595DB7 /* VVClazzUnsignedLongLong.h */,
-				24E5B266F7DF8D9C49C44E19B4864E7A /* VVClazzUnsignedLongLong.m */,
-				2C6B577D0B56FFAAF463B265F27D1BB1 /* VVClazzUnsignedShort.h */,
-				AF8C5BFC48A830B6184F54F44A125FB9 /* VVClazzUnsignedShort.m */,
-				EB778877FCC42799029314BF498B61D7 /* VVDBConst.h */,
-				2FFC8702C160D2FBFFC04CD2F7986593 /* VVDBConst.m */,
-				933E601DEAA65BADE2E24FCDC9038364 /* VVDBRuntimeProperty.h */,
-				584FF729B2E6F20FA45C89E2571F2ED4 /* VVDBRuntimeProperty.m */,
+				04F8D629F458945D9FD8E99BBE83EFC8 /* VVClazz.h */,
+				42CB8CA57D5AFBBDF97AE134B880FEB8 /* VVClazz.m */,
+				D6BA031EE2600B792409242C98AA9367 /* VVClazzBool.h */,
+				628B4EA0832359B0ADFC52DF8973AAF1 /* VVClazzBool.m */,
+				429BA5A44A28453E189B638C01871397 /* VVClazzChar.h */,
+				F3B9C0B7B45C3F2639A001F231304473 /* VVClazzChar.m */,
+				E5FC6C8BA96E1FCA05BF52646884E003 /* VVClazzDouble.h */,
+				2E9FDFAFC27757BA074C8E0E841CB691 /* VVClazzDouble.m */,
+				5E7CEA2915A754505F26085DA136849C /* VVClazzFloat.h */,
+				E33EDE085C022874020D3E8101106144 /* VVClazzFloat.m */,
+				CC0E5B4C505B0822A487ACDF7CA1451F /* VVClazzID.h */,
+				2E332AA7F5C210D749E79E400678D41A /* VVClazzID.m */,
+				5B5CC188BF4D6E8C0BB48E5BFF16E46C /* VVClazzInt.h */,
+				5E8648C3B96FCC8E6AECCC7739577370 /* VVClazzInt.m */,
+				10E714134ECD5A42C1638FAE1B3342FD /* VVClazzLong.h */,
+				FC8A739670EAAE70D36EC0D7A87A4296 /* VVClazzLong.m */,
+				0564A1D05E2A3D15351B181728011E97 /* VVClazzLongLong.h */,
+				6DC78D2BE3803542919735BFC255128A /* VVClazzLongLong.m */,
+				CD6CFD0A07D17532F91177BADD7D8399 /* VVClazzNSArray.h */,
+				500846FAEF3F47468DE4B82D6450C416 /* VVClazzNSArray.m */,
+				D41670B95DEF09B9F93302488DC8B256 /* VVClazzNSData.h */,
+				7EA47998639EA3E03C15B16659CDDAE7 /* VVClazzNSData.m */,
+				4D277AC12575CCCC19600B0C2914AF6C /* VVClazzNSDate.h */,
+				90F86A2FFEBEE7D6691B213FC4EAE9CD /* VVClazzNSDate.m */,
+				A34374CE8CCA22E77C4E90E3A247D944 /* VVClazzNSDecimalNumber.h */,
+				491530E84F58697F6AEB8C85C1392C15 /* VVClazzNSDecimalNumber.m */,
+				3FC00E4A1CCFA0A6E02519CD414677C9 /* VVClazzNSMutableString.h */,
+				8D221B4B0A0DB82C19AA844CB6418151 /* VVClazzNSMutableString.m */,
+				062C3ABD0408BE9F5E608A92D12BFE9E /* VVClazzNSNull.h */,
+				58452E4CD824CE81A660E5B76B4E0D74 /* VVClazzNSNull.m */,
+				4DBB29877BB5AFAC290E50A8E00CF881 /* VVClazzNSNumber.h */,
+				704C2CD5E002028F958BABFD24A7EC07 /* VVClazzNSNumber.m */,
+				9264CE8F0C15F2D84F7B8281EE1694C5 /* VVClazzNSObject.h */,
+				F247B51B5161E8FBD1C1DD56A2718C10 /* VVClazzNSObject.m */,
+				7A4D46CD51C965E58A5665556235CF83 /* VVClazzNSString.h */,
+				E33F75911D1885607DBCD09E0D1ABDB7 /* VVClazzNSString.m */,
+				F980348A50D9E6389EF5BA425BBA0671 /* VVClazzNSURL.h */,
+				52527FCB7A04B8827A61AC3CB6876010 /* VVClazzNSURL.m */,
+				B33CE696E106F312007F6446EE7FC449 /* VVClazzNSValue.h */,
+				7FD5F22F70D1932E4732467D2493AF44 /* VVClazzNSValue.m */,
+				F03DBED14A1174872332EF4698E73F0A /* VVClazzSerialize.h */,
+				E94F317CA8D82C9474BC5F152DF06698 /* VVClazzSerialize.m */,
+				89FF1411C18556C0AA4E2F712BA71320 /* VVClazzShort.h */,
+				66F24AF9460460222BD433E3ACDDBE80 /* VVClazzShort.m */,
+				5BDF54E838A9C10EE94189F9FD4387F4 /* VVClazzUnsignedChar.h */,
+				F81C2AC8F9DF3FE4C48CA7A20AE5CF45 /* VVClazzUnsignedChar.m */,
+				2493C36114ED758A23179551F60E6635 /* VVClazzUnsignedInt.h */,
+				EEBC4BE7B87CAD69DDC8E873E05E4A11 /* VVClazzUnsignedInt.m */,
+				FCC3110768AAF208A51CAD9314A917E9 /* VVClazzUnsignedLong.h */,
+				D74B06436E24529FFD7E32690820DE55 /* VVClazzUnsignedLong.m */,
+				F8462E0E6E13BF864A3235582CE65711 /* VVClazzUnsignedLongLong.h */,
+				5614B46A0718165EAE1B02598E211F31 /* VVClazzUnsignedLongLong.m */,
+				3645937D1C39EA2CB2D9781D42AFF36C /* VVClazzUnsignedShort.h */,
+				10DA1FB899E9E80C1EE490B4EE8522F3 /* VVClazzUnsignedShort.m */,
+				EB778877FCC42799029314BF498B61D7 /* VVSqliteConst.h */,
+				2FFC8702C160D2FBFFC04CD2F7986593 /* VVSqliteConst.m */,
+				933E601DEAA65BADE2E24FCDC9038364 /* VVRuntimeProperty.h */,
+				584FF729B2E6F20FA45C89E2571F2ED4 /* VVRuntimeProperty.m */,
 			);
 			path = Clazz;
 			sourceTree = "<group>";
@@ -455,7 +467,7 @@
 			children = (
 				B95044CB076F02259E48DA7734A9007A /* Clazz */,
 				06EF2BAFE5B84542CF39371CD8B4DC5D /* Condition */,
-				CF71FE68AE71CB34F9ED7BA896486EC5 /* DataBase */,
+				9C2A395295F9A65013BC014B1C097A16 /* DataBase */,
 				52AE3C70395CFD859F723876FEA5DB70 /* Model */,
 				E22680F744378DEC8FB8BB7B39617771 /* Notice */,
 				304F333625AF8938AEAE855DA2BA6D89 /* Propterty */,
@@ -464,8 +476,8 @@
 				CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */,
 				F76605C06410951C6B97F85C60FBE2DD /* NSObject+VVAutoCoding.h */,
 				2034607297348F23EF86BD05D50B0FCB /* NSObject+VVAutoCoding.m */,
-				5BDC01C9493A57C761C2CC02BC1EDDCC /* NSObject+VVTabel.h */,
-				98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */,
+				9255F8082A507C0978C683686B8B5EED /* NSObject+VVTabel.h */,
+				3D0526E71B1E97F43330757F52F7B8B2 /* NSObject+VVTabel.m */,
 				84DF07B5ED2B7DF80BD92F77D2494775 /* VVModelInterface.h */,
 			);
 			path = Source;
@@ -475,36 +487,23 @@
 			isa = PBXGroup;
 			children = (
 				C7EA33761BE579F94D25251A6B128C11 /* Source */,
+				F58794D953F746B52130B1D5F6384994 /* AppContent.h */,
+				A3EA685B7823C66A93E178C35D110BEC /* AppContent.m */,
 				792650FAC93A8C8D738927AA4BB81E59 /* AppDelegate.h */,
 				F98CF2D76778DA50805B2D3FD7DCB717 /* AppDelegate.m */,
 				ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */,
+				7B0774817DE2CB4BB41183082CE576E8 /* Download.h */,
+				826FDA0C3DBF095D520FDB103AC9C3D1 /* Download.m */,
 				C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */,
 				1E42C65E4C74123084718BBE0243B94F /* LaunchScreen.storyboard */,
 				9EAEBFF67C5DD72130A02B6BE92368F6 /* Main.storyboard */,
+				AC82A3E3B0E93FAF5AD14F733982E541 /* User.h */,
+				C8659F64DB01AC80AAB35CD984777531 /* User.m */,
 				4E5E7CBA5402CDEAD1A52DD01D9E7526 /* ViewController.h */,
 				50569A531FAE0EB9692310D615EC246E /* ViewController.m */,
 				3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */,
-				C3AE60ECF1D259B7B50DA3FB /* User.m */,
-				C3AE6A86A28DB3128AE83406 /* User.h */,
-				C3AE6726AD9D6F568BBE13E9 /* AppContent.m */,
-				C3AE6ABD6FFA3C7DD30CDA2C /* AppContent.h */,
-				C3AE604D0B9CA12385E82247 /* Download.m */,
-				C3AE66A0422A5FF3835F8D0C /* Download.h */,
 			);
 			path = VVDB;
-			sourceTree = "<group>";
-		};
-		CF71FE68AE71CB34F9ED7BA896486EC5 /* DataBase */ = {
-			isa = PBXGroup;
-			children = (
-				98FA70E616F93E376B8A1043FDEEB0E9 /* VVDataBase+Background.h */,
-				F75279EB2C9F5D097DB27DB3B5F06F03 /* VVDataBase+Background.m */,
-				8C94BD02511712F07B7C75819EDC6765 /* VVDataBase.h */,
-				390A285824180866C81C764ED9EBBE47 /* VVDataBase.m */,
-				C3AE64582165A3D54881A411 /* VVDataBaseManager.m */,
-				C3AE6B12356CB74E9F98DAED /* VVDataBaseManager.h */,
-			);
-			path = DataBase;
 			sourceTree = "<group>";
 		};
 		DAD824F5F925D128473A048FA0321B5F /* Table */ = {
@@ -712,47 +711,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F18889AE80E50B00F98E2CF0A7D8BDE /* AppContent.m in Sources */,
 				3E8CD03112F8D5ADF1A4CD8391C858C4 /* AppDelegate.m in Sources */,
+				70041313835E6185C35CCEC97501D5EA /* Download.m in Sources */,
 				58B37021C4F079AA59B5F841B44198BD /* FMDatabase+IndexInfo.m in Sources */,
 				42BFEE6EA0A2FA2E51D4F9076F7273E8 /* NSObject+VVAutoCoding.m in Sources */,
-				5F2FCA20DC41A152B1223A918EA85118 /* NSObject+VVTabel.m in Sources */,
 				34958DC58BDCA2DADA265E77B212EEC9 /* NSObject+VVObserver.m in Sources */,
+				6313D9EEC344B5CCB0E2759166C8F1F0 /* NSObject+VVTabel.m in Sources */,
+				D4FC990D36F13FED3D974F52F27F8FB6 /* User.m in Sources */,
 				BEE3BA1C738973518506664D11AA8A26 /* VVClassProperty.m in Sources */,
-				C2DADAB7ED28DF7AE0489E2826B48239 /* VVClazz.m in Sources */,
-				EC65E887CC6996CF72F868843A3E5A74 /* VVClazzBool.m in Sources */,
-				EACFDBCD736B40E03A9C3960A5F4992F /* VVClazzChar.m in Sources */,
-				1B1EF78B2F9C9D463D8FA61736BE8AF5 /* VVClazzDouble.m in Sources */,
-				B2D44EF72AC93331D57D08C388DAE2AC /* VVClazzFloat.m in Sources */,
-				D0F864B4F52F05D40E80EF4EABA632D1 /* VVDBClazzID.m in Sources */,
-				25EABAD7865D721DAE3346F1D610BE80 /* VVClazzInt.m in Sources */,
-				28CCF33C12093431FF49ACC6CDFFDE94 /* VVClazzLong.m in Sources */,
-				B90E134D330A9EAEAA3976B2973A552C /* VVClazzLongLong.m in Sources */,
-				80F15BA08D4FA78BB72560473F42B750 /* VVClazzNSArray.m in Sources */,
-				D8D0DD38FDFF6A2045C73B24019C1193 /* VVClazzNSData.m in Sources */,
-				08195E2A54C717ECD8D56CF6A7F00B9C /* VVClazzNSDate.m in Sources */,
-				0072D251CF346E1CC8F7BDDC73F31D51 /* VVClazzNSDecimalNumber.m in Sources */,
-				BC2FDFC523CA4D49D4E9F52FE3878CF4 /* VVClazzNSMutableString.m in Sources */,
-				F0A08DEE637180A8C7C58B5FF6544F85 /* VVClazzNSNull.m in Sources */,
-				11C7F252D3C5D2F5023AD65032F56E12 /* VVClazzNSNumber.m in Sources */,
-				15E16AF6B3486627A156E3EAA0FB24F0 /* VVDBClazzNSObject.m in Sources */,
-				16C5F6A6A9732C7B0419B46605CF554B /* VVClazzNSString.m in Sources */,
-				2AE07510DEB054F063A20CEF71723A43 /* VVClazzNSURL.m in Sources */,
-				0784F5EF99E35B42836EE15500CE3314 /* VVClazzNSValue.m in Sources */,
-				C12964776AE287EA25127E22F05FC159 /* VVClazzSerialize.m in Sources */,
-				6E778E77F2B27512B9711C6D09E03549 /* VVClazzShort.m in Sources */,
-				A25CC0A975321809D8176FD69F1CCCC7 /* VVClazzUnsignedChar.m in Sources */,
-				42A3BD9C6CBE3EF597CFB96DC9D6B99C /* VVClazzUnsignedInt.m in Sources */,
-				812280B370803134C8FCDB5A2FFFB5FC /* VVClazzUnsignedLong.m in Sources */,
-				247BAB9CBDFCBE34F4C2C14BE40D0A53 /* VVClazzUnsignedLongLong.m in Sources */,
-				516FCD01AD52D71873F80C74A2CA5878 /* VVClazzUnsignedShort.m in Sources */,
-				A64664786A0FB2D1DBFC29003F7144DF /* VVDBConditionModel.m in Sources */,
-				F82E94AB8A316B7B28EACE93A88BFC11 /* VVDBConst.m in Sources */,
-				E5708548C98FD6B10D0AA99E73E145C7 /* VVDBReferenceConditionModel.m in Sources */,
-				B7F2DF745967DDC02D27639D650F572A /* VVDBRuntime.m in Sources */,
-				68C926F19C0C1B56EB1D3DC5BD7093EF /* VVDBRuntimeProperty.m in Sources */,
-				5576F09C554B460BEE177E15F032F776 /* VVDBSQLiteConditionModel.m in Sources */,
-				423741FC72A6AAADC258CD2C3C4DFC54 /* VVDataBase+Background.m in Sources */,
-				50E385A0BFC3C668F55E845B330CA476 /* VVDataBase.m in Sources */,
+				476F97F8E530017BB6B1A1E95E17CA0F /* VVClazz.m in Sources */,
+				4B4BE7C7B8D0BD4BD4E231DF4895C58C /* VVClazzBool.m in Sources */,
+				86EAD7C2CFF88978D7B336225DAAB7FD /* VVClazzChar.m in Sources */,
+				5717C3F96FB42A5FA41EF55A38692422 /* VVClazzDouble.m in Sources */,
+				2503397848CA8E5D61996C1BC44C1642 /* VVClazzFloat.m in Sources */,
+				D9DE682168E976CFAB4BF9CBF388EBC5 /* VVClazzID.m in Sources */,
+				3B88CF2BD3B18DF7DBB9F8D235EEBC9F /* VVClazzInt.m in Sources */,
+				C09326C64D582D2A11293EFBD489F42D /* VVClazzLong.m in Sources */,
+				3DB15E38E19DF648CDF4CBD0C7F10371 /* VVClazzLongLong.m in Sources */,
+				CD03E642C378FDAB01575FF1D306E702 /* VVClazzNSArray.m in Sources */,
+				58A6914223808150B8DA2156D92557EE /* VVClazzNSData.m in Sources */,
+				8E35DECDB620899A59145B9B7CE4E58C /* VVClazzNSDate.m in Sources */,
+				A5188D4F42C62E7245D4754EDCF08FB7 /* VVClazzNSDecimalNumber.m in Sources */,
+				4F68D853B391053C8F8DDE03B46156B1 /* VVClazzNSMutableString.m in Sources */,
+				3DFFA35D493510A57342AEF110E6DB6A /* VVClazzNSNull.m in Sources */,
+				D49F269B9B049CED38B116BC626979CC /* VVClazzNSNumber.m in Sources */,
+				5DCD150FE633BD23F7459F89C9D23B83 /* VVClazzNSObject.m in Sources */,
+				19E69C4CA10BC9AECD5417C8C485D99A /* VVClazzNSString.m in Sources */,
+				80838AA06B51E6E33F123FC2A9D0E62E /* VVClazzNSURL.m in Sources */,
+				3F14185DEB7FC4A4690D117647B8500A /* VVClazzNSValue.m in Sources */,
+				161B159F4FE6D2C78311E47675E36D92 /* VVClazzSerialize.m in Sources */,
+				85B4123B0BB06600135608206223D9BE /* VVClazzShort.m in Sources */,
+				1F4B4E32DA2E3AFF8B9C182E2324FAFE /* VVClazzUnsignedChar.m in Sources */,
+				A463CDF55161F257E0065458D5152514 /* VVClazzUnsignedInt.m in Sources */,
+				3776A399E0FB01AB13BEED706EC58E9D /* VVClazzUnsignedLong.m in Sources */,
+				7C02E13C01D415B1F30052CCB1E37DF8 /* VVClazzUnsignedLongLong.m in Sources */,
+				5A7058A5765EBF6E7B0D219E42AC2869 /* VVClazzUnsignedShort.m in Sources */,
+				709057EFB2823DC01B118D77096A36F1 /* VVConditionModel.m in Sources */,
+				F82E94AB8A316B7B28EACE93A88BFC11 /* VVSqliteConst.m in Sources */,
+				68C926F19C0C1B56EB1D3DC5BD7093EF /* VVRuntimeProperty.m in Sources */,
+				6C8C933C894503470C03B2F8D2BA8FC6 /* VVDataBase+Background.m in Sources */,
+				D01E620A56587FE19FA75A293891AC00 /* VVDataBase.m in Sources */,
+				33E948311833DD95CD67C588FA0BBF11 /* VVDataBaseManager.m in Sources */,
 				BF464AF3F9669C0E0B23D8A7A00B6503 /* VVMigration.m in Sources */,
 				C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */,
 				99C83C176DE9D7644C9F3267C9E84D01 /* VVMigrationRuntime.m in Sources */,
@@ -766,16 +766,15 @@
 				19965B25577AFB3703AB564C9133D1F5 /* VVPropertyEncoding.m in Sources */,
 				59A2A71B738F47F1C0AC1CB8DB8A5D4B /* VVPropertyType.m in Sources */,
 				1BC653BA033BC1B90F11F026DDD1D1CA /* VVQueryBuilder.m in Sources */,
+				AB1A2B88F46BFE74609B977D465E9135 /* VVReferenceConditionModel.m in Sources */,
 				8CDA0571237342E5A03DD77071A5C2BB /* VVReferenceMapper.m in Sources */,
 				458343C864CBFB4DCFC451E6946D0710 /* VVReferenceModel.m in Sources */,
 				1D274A312E0FC8BFA7666A3F71D98526 /* VVRelationshipModel.m in Sources */,
+				6965D56A5044CD6CEDA9CECCC0398FCB /* VVRuntime.m in Sources */,
 				259DE4522BC59A9ED54A554E3F96D237 /* VVSQLiteColumnModel.m in Sources */,
+				D0DAA6EB8BE41791E6C9BF4949005DDC /* VVSQLiteConditionModel.m in Sources */,
 				CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */,
 				8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */,
-				C3AE652E33E525D77C6237B5 /* VVDataBaseManager.m in Sources */,
-				C3AE6513A089734A83A16FC4 /* User.m in Sources */,
-				C3AE65F64A07F79B6C09FB17 /* AppContent.m in Sources */,
-				C3AE6B4862F0893D76EC27D3 /* Download.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

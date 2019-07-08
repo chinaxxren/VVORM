@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 @class FMResultSet;
-@class VVDBRuntimeProperty;
+@class VVRuntimeProperty;
 
 @protocol VVStoreClazzProtocol <NSObject>
 
@@ -36,13 +36,13 @@
 
 - (NSArray *)keysWithObject:(id)object;
 
-- (NSArray *)storeValuesWithValue:(id)value attribute:(VVDBRuntimeProperty *)attribute;
+- (NSArray *)storeValuesWithValue:(id)value attribute:(VVRuntimeProperty *)attribute;
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute;
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVRuntimeProperty *)attribute;
 
 - (NSString *)sqliteDataTypeName;
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVDBRuntimeProperty *)attribute;
+- (NSArray *)sqliteColumnsWithAttribute:(VVRuntimeProperty *)attribute;
 
 - (NSArray *)requiredPropertyList;
 

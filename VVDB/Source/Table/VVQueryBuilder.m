@@ -6,15 +6,15 @@
 #import "VVQueryBuilder.h"
 
 #import "VVQueryBuilder.h"
-#import "VVDBRuntime.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVRuntime.h"
+#import "VVRuntimeProperty.h"
 #import "VVNameBuilder.h"
 #import "VVRelationshipModel.h"
-#import "VVDBConditionModel.h"
+#import "VVConditionModel.h"
 #import "VVSQLiteColumnModel.h"
 #import "VVMigrationTable.h"
-#import "VVDBSQLiteConditionModel.h"
-#import "VVDBReferenceConditionModel.h"
+#import "VVSQLiteConditionModel.h"
+#import "VVReferenceConditionModel.h"
 #import "NSObject+VVTabel.h"
 
 @implementation VVQueryBuilder
@@ -23,13 +23,13 @@
 
 + (NSArray *)sqliteColumnsWithAttributes:(NSArray *)attributes {
     NSMutableArray *sqliteColumns = [NSMutableArray array];
-    for (VVDBRuntimeProperty *attribute in attributes) {
+    for (VVRuntimeProperty *attribute in attributes) {
         [sqliteColumns addObjectsFromArray:attribute.sqliteColumns];
     }
     return sqliteColumns;
 }
 
-+ (NSString *)selectStatement:(VVDBRuntime *)runtime {
++ (NSString *)selectStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"SELECT "];
@@ -50,7 +50,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)selectRowidStatement:(VVDBRuntime *)runtime {
++ (NSString *)selectRowidStatement:(VVRuntime *)runtime {
     VVSQLiteColumnModel *sqliteColumn = runtime.rowidAttribute.sqliteColumns.firstObject;
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
@@ -65,11 +65,11 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)updateStatement:(VVDBRuntime *)runtime {
++ (NSString *)updateStatement:(VVRuntime *)runtime {
     return [self updateStatement:runtime attributes:runtime.updateAttributes];
 }
 
-+ (NSString *)updateStatement:(VVDBRuntime *)runtime attributes:(NSArray *)attributes {
++ (NSString *)updateStatement:(VVRuntime *)runtime attributes:(NSArray *)attributes {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"UPDATE "];
@@ -87,7 +87,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)insertIntoStatement:(VVDBRuntime *)runtime {
++ (NSString *)insertIntoStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"INSERT INTO "];
@@ -116,7 +116,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)insertOrReplaceIntoStatement:(VVDBRuntime *)runtime {
++ (NSString *)insertOrReplaceIntoStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"INSERT OR REPLACE INTO "];
@@ -145,7 +145,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)insertOrIgnoreIntoStatement:(VVDBRuntime *)runtime {
++ (NSString *)insertOrIgnoreIntoStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"INSERT OR IGNORE INTO "];
@@ -174,13 +174,13 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)deleteFromStatement:(VVDBRuntime *)runtime {
++ (NSString *)deleteFromStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString stringWithFormat:@"DELETE FROM %@", tableName];
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)createTableStatement:(VVDBRuntime *)runtime {
++ (NSString *)createTableStatement:(VVRuntime *)runtime {
     NSArray *sqliteColumns = [self sqliteColumnsWithAttributes:runtime.insertAttributes];
     return [self createTableStatement:runtime.tableName fullTextSearch3:runtime.fullTextSearch3 fullTextSearch4:runtime.fullTextSearch4 sqliteColumns:sqliteColumns];
 }
@@ -213,7 +213,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)dropTableStatement:(VVDBRuntime *)runtime {
++ (NSString *)dropTableStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"DROP TABLE "];
@@ -221,7 +221,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)uniqueIndexName:(VVDBRuntime *)runtime {
++ (NSString *)uniqueIndexName:(VVRuntime *)runtime {
     return [self uniqueIndexNameWithTableName:runtime.tableName];
 }
 
@@ -230,7 +230,7 @@
 }
 
 
-+ (NSString *)createUniqueIndexStatement:(VVDBRuntime *)runtime {
++ (NSString *)createUniqueIndexStatement:(VVRuntime *)runtime {
     NSArray *sqliteColumns = [self sqliteColumnsWithAttributes:runtime.identificationAttributes];
     return [self createUniqueIndexStatement:runtime.tableName sqliteColumns:sqliteColumns];
 }
@@ -254,7 +254,7 @@
     return sql;
 }
 
-+ (NSString *)dropIndexStatement:(VVDBRuntime *)runtime {
++ (NSString *)dropIndexStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"DROP INDEX IF EXISTS "];
@@ -263,7 +263,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)referencedCountStatement:(VVDBRuntime *)runtime {
++ (NSString *)referencedCountStatement:(VVRuntime *)runtime {
     NSString *tableName = @"__ObjectStoreRelationship__";
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"SELECT COUNT(*) FROM ("];
@@ -274,7 +274,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)countStatement:(VVDBRuntime *)runtime {
++ (NSString *)countStatement:(VVRuntime *)runtime {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@"SELECT COUNT(*) FROM "];
@@ -297,31 +297,31 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)maxStatement:(VVDBRuntime *)runtime columnName:(NSString *)columnName {
++ (NSString *)maxStatement:(VVRuntime *)runtime columnName:(NSString *)columnName {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString stringWithFormat:@"SELECT MAX(%@) %@ FROM %@", columnName, columnName, tableName];
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)minStatement:(VVDBRuntime *)runtime columnName:(NSString *)columnName {
++ (NSString *)minStatement:(VVRuntime *)runtime columnName:(NSString *)columnName {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString stringWithFormat:@"SELECT MIN(%@) %@ FROM %@", columnName, columnName, tableName];
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)avgStatement:(VVDBRuntime *)runtime columnName:(NSString *)columnName {
++ (NSString *)avgStatement:(VVRuntime *)runtime columnName:(NSString *)columnName {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString stringWithFormat:@"SELECT AVG(%@) %@ FROM %@", columnName, columnName, tableName];
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)totalStatement:(VVDBRuntime *)runtime columnName:(NSString *)columnName {
++ (NSString *)totalStatement:(VVRuntime *)runtime columnName:(NSString *)columnName {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString stringWithFormat:@"SELECT TOTAL(%@) %@ FROM %@", columnName, columnName, tableName];
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)sumStatement:(VVDBRuntime *)runtime columnName:(NSString *)columnName {
++ (NSString *)sumStatement:(VVRuntime *)runtime columnName:(NSString *)columnName {
     NSString *tableName = runtime.tableName;
     NSMutableString *sql = [NSMutableString stringWithFormat:@"SELECT SUM(%@) %@ FROM %@", columnName, columnName, tableName];
     return [NSString stringWithString:sql];
@@ -335,7 +335,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)uniqueConditionStatement:(VVDBRuntime *)runtime {
++ (NSString *)uniqueConditionStatement:(VVRuntime *)runtime {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@""];
     NSArray *attributes = runtime.identificationAttributes;
@@ -353,7 +353,7 @@
 
 #pragma mark condition
 
-+ (NSString *)selectConditionStatement:(VVDBConditionModel *)condition {
++ (NSString *)selectConditionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@" where "];
     if (condition.sqlite.where) {
@@ -364,7 +364,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)deleteConditionStatement:(VVDBConditionModel *)condition {
++ (NSString *)deleteConditionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@" where "];
     if (condition.sqlite.where) {
@@ -375,7 +375,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)updateConditionStatement:(VVDBConditionModel *)condition {
++ (NSString *)updateConditionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:@" where "];
     if (condition.sqlite.where) {
@@ -386,7 +386,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)selectConditionStatement:(VVDBConditionModel *)condition runtime:(VVDBRuntime *)runtime {
++ (NSString *)selectConditionStatement:(VVConditionModel *)condition runtime:(VVRuntime *)runtime {
     NSMutableString *sql = [NSMutableString string];
     if (condition.sqlite.where || condition.reference.from || condition.reference.to) {
         BOOL firstCondition = YES;
@@ -430,7 +430,7 @@
     return [NSString stringWithString:sql];
 }
 
-+ (NSString *)selectConditionOptionStatement:(VVDBConditionModel *)condition {
++ (NSString *)selectConditionOptionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     if (condition.sqlite.orderBy) {
         [sql appendString:@" order by "];

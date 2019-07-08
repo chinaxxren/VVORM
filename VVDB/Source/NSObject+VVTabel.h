@@ -5,12 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class VVDBRuntime;
+@class VVRuntime;
 
 @interface NSObject (VVTabel)
 
 @property(nonatomic, strong) NSNumber *rowid;
-@property(nonatomic, strong) VVDBRuntime *VVRuntime;
+@property(nonatomic, strong) VVRuntime *VVRuntime;
 @property(nonatomic, readonly) NSString *VVHashForSave;
 @property(nonatomic, readonly) NSString *VVHashForFetch;
 

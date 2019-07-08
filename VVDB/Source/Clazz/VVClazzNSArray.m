@@ -4,7 +4,7 @@
 //
 
 #import "VVClazzNSArray.h"
-#import "VVDBConst.h"
+#import "VVSqliteConst.h"
 
 
 @implementation VVClazzNSArray
@@ -37,7 +37,7 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVRuntimeProperty *)attribute {
     return @[@"__ObjectStoreRelationship__"];
 }
 

@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VVDBReferenceConditionModel : NSObject
+@interface VVReferenceConditionModel : NSObject
 
 @property(nonatomic, strong) NSObject *from;
 @property(nonatomic, strong) NSObject *to;

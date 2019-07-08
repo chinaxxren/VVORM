@@ -5,11 +5,11 @@
 
 #import "VVClazz.h"
 
-#import "VVDBRuntimeProperty.h"
+#import "VVRuntimeProperty.h"
 #import "VVSQLiteColumnModel.h"
+#import "VVClazzID.h"
 #import "VVClazzNSMutableString.h"
-#import "VVDBClazzID.h"
-#import "VVDBClazzNSObject.h"
+#import "VVClazzNSObject.h"
 #import "VVClazzNSValue.h"
 #import "VVClazzNSDate.h"
 #import "VVClazzNSURL.h"
@@ -71,7 +71,7 @@
     return nil;
 }
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)sqliteColumnsWithAttribute:(VVRuntimeProperty *)attribute {
     VVSQLiteColumnModel *sqliteColumn = [[VVSQLiteColumnModel alloc] init];
     sqliteColumn.columnName = attribute.columnName;
     sqliteColumn.dataTypeName = [self sqliteDataTypeName];
@@ -166,24 +166,24 @@
     return osclazz;
 }
 
-+ (VVDBClazzID *)clazzIdInstance {
-    static VVDBClazzID *_clazzIdInstance = nil;
++ (VVClazzID *)clazzIdInstance {
+    static VVClazzID *_clazzIdInstance = nil;
     static dispatch_once_t dispatchOnce;
     dispatch_once(&dispatchOnce, ^{
         if (!_clazzIdInstance) {
-            _clazzIdInstance = [[VVDBClazzID alloc] init];
+            _clazzIdInstance = [[VVClazzID alloc] init];
         }
     });
 
     return _clazzIdInstance;
 }
 
-+ (VVDBClazzNSObject *)clazzNSObjectInstance {
-    static VVDBClazzNSObject *_clazzNSObjectInstance = nil;
++ (VVClazzNSObject *)clazzNSObjectInstance {
+    static VVClazzNSObject *_clazzNSObjectInstance = nil;
     static dispatch_once_t dispatchOnce;
     dispatch_once(&dispatchOnce, ^{
         if (!_clazzNSObjectInstance) {
-            _clazzNSObjectInstance = [[VVDBClazzNSObject alloc] init];
+            _clazzNSObjectInstance = [[VVClazzNSObject alloc] init];
         }
     });
 

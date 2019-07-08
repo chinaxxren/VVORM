@@ -8,19 +8,19 @@
 #import <FMDB/FMDatabaseQueue.h>
 #import <FMDB/FMDatabaseAdditions.h>
 
-#import "VVDBConditionModel.h"
+#import "VVConditionModel.h"
 #import "VVModelInterface.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVRuntimeProperty.h"
 #import "VVRelationshipModel.h"
-#import "VVDBRuntime.h"
-#import "VVDBSQLiteConditionModel.h"
+#import "VVRuntime.h"
+#import "VVSQLiteConditionModel.h"
 #import "VVSQLiteColumnModel.h"
 #import "FMDatabase+indexInfo.h"
 #import "NSObject+VVTabel.h"
 
 @implementation VVModelMapper
 
-- (BOOL)createTable:(VVDBRuntime *)runtime db:(FMDatabase *)db {
+- (BOOL)createTable:(VVRuntime *)runtime db:(FMDatabase *)db {
     BOOL tableExists = [db tableExists:runtime.tableName];
     if (!tableExists) {
         [db executeUpdate:[runtime createTableStatement]];
@@ -34,7 +34,7 @@
             }
         }
     } else {
-        for (VVDBRuntimeProperty *attribute in runtime.insertAttributes) {
+        for (VVRuntimeProperty *attribute in runtime.insertAttributes) {
             for (VVSQLiteColumnModel *sqliteColumn in attribute.sqliteColumns) {
                 if (![db columnExists:sqliteColumn.columnName inTableWithName:runtime.tableName]) {
                     NSString *sql = [attribute alterTableAddColumnStatement:sqliteColumn];
@@ -69,7 +69,7 @@
                     changed = YES;
                 } else {
                     for (NSInteger i = 0; i < columnNames.count; i++) {
-                        VVDBRuntimeProperty *attribute = runtime.identificationAttributes[i];
+                        VVRuntimeProperty *attribute = runtime.identificationAttributes[i];
                         NSString *columnNameFrom = columnNames[i];
                         NSString *columnNameTo = attribute.name;
                         if (![columnNameFrom isEqualToString:columnNameTo]) {
@@ -97,7 +97,7 @@
 
 #pragma mark create, drop
 
-- (BOOL)dropTable:(VVDBRuntime *)runtime db:(FMDatabase *)db {
+- (BOOL)dropTable:(VVRuntime *)runtime db:(FMDatabase *)db {
     BOOL tableExists = [db tableExists:runtime.tableName];
     if (tableExists) {
         [db executeUpdate:[runtime dropTableStatement]];
@@ -111,43 +111,43 @@
 
 #pragma mark avg, total, sum, min, max, count, referencedCount
 
-- (NSNumber *)avg:(VVDBRuntime *)runtime columnName:(NSString *)columnName condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)avg:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime avgStatementWithColumnName:columnName condition:condition];
     NSNumber *value = [self groupWithStatement:sql condition:condition db:db];
     return value;
 }
 
-- (NSNumber *)total:(VVDBRuntime *)runtime columnName:(NSString *)columnName condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)total:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime totalStatementWithColumnName:columnName condition:condition];
     NSNumber *value = [self groupWithStatement:sql condition:condition db:db];
     return value;
 }
 
-- (NSNumber *)sum:(VVDBRuntime *)runtime columnName:(NSString *)columnName condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)sum:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime sumStatementWithColumnName:columnName condition:condition];
     NSNumber *value = [self groupWithStatement:sql condition:condition db:db];
     return value;
 }
 
-- (NSNumber *)min:(VVDBRuntime *)runtime columnName:(NSString *)columnName condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)min:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime minStatementWithColumnName:columnName condition:condition];
     NSNumber *value = [self groupWithStatement:sql condition:condition db:db];
     return value;
 }
 
-- (NSNumber *)max:(VVDBRuntime *)runtime columnName:(NSString *)columnName condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)max:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime maxStatementWithColumnName:columnName condition:condition];
     NSNumber *value = [self groupWithStatement:sql condition:condition db:db];
     return value;
 }
 
-- (NSNumber *)count:(VVDBRuntime *)runtime condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)count:(VVRuntime *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime countStatementWithCondition:condition];
     NSNumber *value = [self groupWithStatement:sql condition:condition db:db];
     return value;
 }
 
-- (NSNumber *)groupWithStatement:(NSString *)statement condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSNumber *)groupWithStatement:(NSString *)statement condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     FMResultSet *rs = [db executeQuery:statement withArgumentsInArray:condition.sqlite.parameters];
     if ([self hadError:db]) {
         return nil;
@@ -165,7 +165,7 @@
     if (!object.rowid) {
         return nil;
     }
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"toTableName = ? and toRowid = ?";
     condition.sqlite.parameters = @[object.VVRuntime.tableName, object.rowid];
     NSString *sql = [object.VVRuntime referencedCountStatementWithCondition:condition];
@@ -183,7 +183,7 @@
 
 #pragma mark insert, update, delete
 
-- (NSMutableArray *)select:(VVDBRuntime *)runtime condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (NSMutableArray *)select:(VVRuntime *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime selectStatementWithCondition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
@@ -196,7 +196,7 @@
     while ([rs next]) {
         NSObject *targetObject = [runtime object];
         targetObject.VVRuntime = runtime;
-        for (VVDBRuntimeProperty *attribute in targetObject.VVRuntime.simpleValueAttributes) {
+        for (VVRuntimeProperty *attribute in targetObject.VVRuntime.simpleValueAttributes) {
             NSObject *value = [attribute valueWithResultSet:rs];
             [targetObject setValue:value forKey:attribute.name];
         }
@@ -242,7 +242,7 @@
 }
 
 - (BOOL)updateByRowId:(NSObject *)object db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [object.VVRuntime rowidCondition:object];
+    VVConditionModel *condition = [object.VVRuntime rowidCondition:object];
     NSString *sql = [object.VVRuntime updateStatementWithObject:object condition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:[object.VVRuntime updateAttributesParameters:object]];
@@ -270,7 +270,7 @@
 }
 
 - (BOOL)updateByIdentificationAttributes:(NSObject *)object db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [object.VVRuntime uniqueCondition:object];
+    VVConditionModel *condition = [object.VVRuntime uniqueCondition:object];
     NSString *sql = [object.VVRuntime updateStatementWithObject:object condition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:[object.VVRuntime updateAttributesParameters:object]];
@@ -299,7 +299,7 @@
 }
 
 - (BOOL)deleteFrom:(NSObject *)object db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [object.VVRuntime rowidCondition:object];
+    VVConditionModel *condition = [object.VVRuntime rowidCondition:object];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
     NSString *sql = [object.VVRuntime deleteFromStatementWithCondition:condition];
@@ -310,7 +310,7 @@
     return YES;
 }
 
-- (BOOL)deleteFrom:(VVDBRuntime *)runtime condition:(VVDBConditionModel *)condition db:(FMDatabase *)db {
+- (BOOL)deleteFrom:(VVRuntime *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [runtime deleteFromStatementWithCondition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
@@ -330,7 +330,7 @@
     } else if (!object.VVRuntime.hasIdentificationAttributes) {
         return;
     }
-    VVDBConditionModel *condition = [object.VVRuntime uniqueCondition:object];
+    VVConditionModel *condition = [object.VVRuntime uniqueCondition:object];
     NSString *sql = [object.VVRuntime selectRowidStatement:condition];
     FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
     while (rs.next) {
@@ -348,7 +348,7 @@
 }
 
 - (void)updateSimpleValueWithObject:(NSObject *)object db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [object.VVRuntime rowidCondition:object];
+    VVConditionModel *condition = [object.VVRuntime rowidCondition:object];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
     NSString *sql = [object.VVRuntime selectStatementWithCondition:condition];
@@ -357,7 +357,7 @@
         return;
     }
     while ([rs next]) {
-        for (VVDBRuntimeProperty *attribute in object.VVRuntime.simpleValueAttributes) {
+        for (VVRuntimeProperty *attribute in object.VVRuntime.simpleValueAttributes) {
             if (!attribute.isRelationshipClazz) {
                 NSObject *value = [attribute valueWithResultSet:rs];
                 [object setValue:value forKey:attribute.name];
@@ -371,27 +371,27 @@
 
 #pragma mark relationship methods
 
-- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVDBRuntimeProperty *)attribute relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
+- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVRuntimeProperty *)attribute relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
     NSString *fromClassName = NSStringFromClass([object class]);
     NSString *fromAttributeName = attribute.name;
     NSNumber *fromRowid = object.rowid;
     NSArray *parameters = @[fromClassName, fromAttributeName, fromRowid];
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ?";
     condition.sqlite.orderBy = @"attributeLevel desc,attributeSequence asc,attributeParentLevel desc,attributeParentSequence asc";
     condition.sqlite.parameters = parameters;
     return [self relationshipObjectsWithCondition:condition relationshipRuntime:relationshipRuntime db:db];
 }
 
-- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"toClassName = ? and toRowid = ?";
     condition.sqlite.orderBy = @"toClassName,toRowid";
     condition.sqlite.parameters = @[NSStringFromClass([toObject class]), toObject.rowid];
     return [self relationshipObjectsWithCondition:condition relationshipRuntime:relationshipRuntime db:db];
 }
 
-- (NSMutableArray *)relationshipObjectsWithCondition:(VVDBConditionModel *)condition relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
+- (NSMutableArray *)relationshipObjectsWithCondition:(VVConditionModel *)condition relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
     NSMutableArray *list = [self select:relationshipRuntime condition:condition db:db];
     if ([self hadError:db]) {
         return nil;
@@ -409,11 +409,11 @@
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVDBRuntimeProperty *)attribute relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVRuntimeProperty *)attribute relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
     NSString *className = NSStringFromClass([object class]);
     NSString *attributeName = attribute.name;
     NSNumber *rowid = object.rowid;
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ?";
     condition.sqlite.parameters = @[className, attributeName, rowid];
     [self deleteFrom:relationshipRuntime condition:condition db:db];
@@ -423,9 +423,9 @@
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVDBRuntimeProperty *)attribute relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVRuntimeProperty *)attribute relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
     NSString *attributeName = attribute.name;
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ?";
     condition.sqlite.parameters = @[className, attributeName];
     [self deleteFrom:relationshipRuntime condition:condition db:db];
@@ -435,8 +435,8 @@
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ?";
     condition.sqlite.parameters = @[className];
     [self deleteFrom:relationshipRuntime condition:condition db:db];
@@ -447,7 +447,7 @@
 }
 
 - (BOOL)deleteRelationshipObjectsWithRelationshipObject:(VVRelationshipModel *)relationshipObject db:(FMDatabase *)db {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ? and toClassName = ? and toRowid = ?";
     condition.sqlite.parameters = @[relationshipObject.fromClassName, relationshipObject.fromAttributeName, relationshipObject.fromRowid, relationshipObject.toClassName, relationshipObject.toRowid];
     [self deleteFrom:relationshipObject.VVRuntime condition:condition db:db];
@@ -458,9 +458,9 @@
 }
 
 
-- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
     NSString *className = NSStringFromClass([object class]);
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"(fromClassName = ? and fromRowid = ?)";
     condition.sqlite.parameters = @[className, object.rowid, className, object.rowid];
     [self deleteFrom:relationshipRuntime condition:condition db:db];
@@ -470,9 +470,9 @@
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipRuntime:(VVDBRuntime *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db {
     NSString *className = NSStringFromClass([object class]);
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"(toClassName = ? and toRowid = ?)";
     condition.sqlite.parameters = @[className, object.rowid, className, object.rowid];
     [self deleteFrom:relationshipRuntime condition:condition db:db];

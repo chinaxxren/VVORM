@@ -10,9 +10,9 @@
 
 #import "VVModelInterface.h"
 #import "VVRelationshipModel.h"
-#import "VVDBRuntime.h"
-#import "VVDBRuntimeProperty.h"
-#import "VVDBSQLiteConditionModel.h"
+#import "VVRuntime.h"
+#import "VVRuntimeProperty.h"
+#import "VVSQLiteConditionModel.h"
 
 @interface VVMigration (Protected)
 
@@ -24,17 +24,17 @@
 
 - (NSNumber *)existsObject:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
 - (NSNumber *)referencedCount:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error;
 
@@ -42,25 +42,25 @@
 
 - (NSArray *)refreshObject:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
 - (BOOL)saveObjects:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error;
 
 - (BOOL)deleteObjects:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error;
 
-- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (VVDBRuntime *)runtime:(Class)clazz;
+- (VVRuntime *)runtime:(Class)clazz;
 
-- (BOOL)registerRuntime:(VVDBRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)registerRuntime:(VVRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error;
 
-- (BOOL)unRegisterRuntime:(VVDBRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)unRegisterRuntime:(VVRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error;
 
 - (void)setUnRegistedAllRuntimeFlag;
 
-- (void)setRegistedRuntimeFlag:(VVDBRuntime *)runtime;
+- (void)setRegistedRuntimeFlag:(VVRuntime *)runtime;
 
-- (void)setUnRegistedRuntimeFlag:(VVDBRuntime *)runtime;
+- (void)setUnRegistedRuntimeFlag:(VVRuntime *)runtime;
 @end
 
 
@@ -105,12 +105,12 @@
         *error = err;
         return nil;
     }
-    [os registerClass:[VVDBRuntime class] error:&err];
+    [os registerClass:[VVRuntime class] error:&err];
     if (err) {
         *error = err;
         return nil;
     }
-    [os registerClass:[VVDBRuntimeProperty class] error:&err];
+    [os registerClass:[VVRuntimeProperty class] error:&err];
     if (err) {
         *error = err;
         return nil;
@@ -188,11 +188,11 @@
     return exists;
 }
 
-- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition {
     return [self count:clazz condition:condition error:nil];
 }
 
-- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block NSNumber *value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -210,11 +210,11 @@
     return value;
 }
 
-- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition {
     return [self max:columnName class:clazz condition:condition error:nil];
 }
 
-- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -232,11 +232,11 @@
     return value;
 }
 
-- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition {
     return [self min:columnName class:clazz condition:condition error:nil];
 }
 
-- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -254,11 +254,11 @@
     return value;
 }
 
-- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition {
     return [self total:columnName class:clazz condition:condition error:nil];
 }
 
-- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -276,11 +276,11 @@
     return value;
 }
 
-- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition {
     return [self sum:columnName class:clazz condition:condition error:nil];
 }
 
-- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -298,11 +298,11 @@
     return value;
 }
 
-- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition {
     return [self avg:columnName class:clazz condition:condition error:nil];
 }
 
-- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -370,11 +370,11 @@
 
 #pragma mark fetch methods
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition {
     return [self fetchObjects:clazz condition:condition error:nil];
 }
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block NSMutableArray *value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -393,7 +393,7 @@
 }
 
 - (NSMutableArray *)fetchObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy error:(NSError **)error {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;
@@ -401,7 +401,7 @@
 }
 
 - (NSMutableArray *)fetchObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy offset:(NSNumber *)offset limit:(NSNumber *)limit error:(NSError **)error {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;
@@ -488,11 +488,11 @@
 
 #pragma mark delete methods
 
-- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition {
+- (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition {
     return [self deleteObjects:clazz condition:condition error:nil];
 }
 
-- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
+- (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
@@ -513,7 +513,7 @@
 }
 
 - (BOOL)deleteObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters error:(NSError **)error {
-    VVDBConditionModel *condition = [VVDBConditionModel condition];
+    VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     return [self deleteObjects:clazz condition:condition error:error];
@@ -580,7 +580,7 @@
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        VVDBRuntime *runtime = [self runtime:clazz];
+        VVRuntime *runtime = [self runtime:clazz];
         ret = [_weakSelf registerRuntime:runtime db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];
@@ -605,7 +605,7 @@
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        VVDBRuntime *runtime = [self runtime:clazz];
+        VVRuntime *runtime = [self runtime:clazz];
         ret = [_weakSelf unRegisterRuntime:runtime db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];

@@ -7,8 +7,8 @@
 
 #import <FMDB/FMResultSet.h>
 
-#import "VVDBConst.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVSqliteConst.h"
+#import "VVRuntimeProperty.h"
 
 
 @implementation VVClazzNSURL
@@ -29,14 +29,14 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSURL *)value attribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSURL *)value attribute:(VVRuntimeProperty *)attribute {
     if (value) {
         return @[[value absoluteString]];
     }
     return @[[NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVRuntimeProperty *)attribute {
     NSString *value = [resultSet stringForColumn:attribute.columnName];
     if (value) {
         return [NSURL URLWithString:value];

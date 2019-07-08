@@ -3,12 +3,12 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBClazzNSObject.h"
+#import "VVClazzNSObject.h"
 
-#import "VVDBConst.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVSqliteConst.h"
+#import "VVRuntimeProperty.h"
 
-@implementation VVDBClazzNSObject
+@implementation VVClazzNSObject
 
 - (NSEnumerator *)objectEnumeratorWithObject:(NSArray *)object {
     NSArray *array = @[object];
@@ -43,7 +43,7 @@
     [object setValue:value forKeyPath:key];
 }
 
-- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVRuntimeProperty *)attribute {
     return @[@"__ObjectStoreRelationship__"];
 }
 

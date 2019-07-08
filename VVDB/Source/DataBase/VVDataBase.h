@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 #import "VVMigration.h"
-#import "VVDBConditionModel.h"
+#import "VVConditionModel.h"
 #import "VVMigration.h"
 
 @class FMDatabaseQueue;
@@ -34,25 +34,25 @@
 
 - (BOOL)deleteObjects:(NSArray *)objects error:(NSError **)error;
 
-- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
 - (id)refreshObject:(NSObject *)object;
 
 - (id)refreshObject:(NSObject *)object error:(NSError **)error;
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
 - (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object;
 
 - (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object error:(NSError **)error;
 
-- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
 - (NSNumber *)referencedCount:(NSObject *)object;
 
@@ -62,25 +62,25 @@
 
 - (NSNumber *)existsObject:(NSObject *)object error:(NSError **)error;
 
-- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
-- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
-- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
-- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
-- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
 - (BOOL)registerClass:(Class)clazz;
 

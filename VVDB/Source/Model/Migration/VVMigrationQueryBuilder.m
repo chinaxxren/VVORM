@@ -11,7 +11,7 @@
 
 #import "VVQueryBuilder.h"
 #import "VVMigrationRuntimeProperty.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVRuntimeProperty.h"
 
 @implementation VVMigrationQueryBuilder
 

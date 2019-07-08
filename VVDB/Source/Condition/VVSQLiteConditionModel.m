@@ -3,10 +3,9 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "VVClazz.h"
+#import "VVSQLiteConditionModel.h"
 
 
-@interface VVDBClazzID : VVClazz
+@implementation VVSQLiteConditionModel
 
 @end

@@ -55,7 +55,7 @@
     }];
 }
 
-- (void)deleteObjectsInBackground:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSError *error))completionBlock {
+- (void)deleteObjectsInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -79,7 +79,7 @@
     }];
 }
 
-- (void)fetchObjectsInBackground:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock {
+- (void)fetchObjectsInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -115,7 +115,7 @@
     }];
 }
 
-- (void)countInBackground:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
+- (void)countInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -127,7 +127,7 @@
     }];
 }
 
-- (void)maxInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
+- (void)maxInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -139,7 +139,7 @@
     }];
 }
 
-- (void)minInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
+- (void)minInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -151,7 +151,7 @@
     }];
 }
 
-- (void)sumInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
+- (void)sumInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -163,7 +163,7 @@
     }];
 }
 
-- (void)totalInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
+- (void)totalInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
@@ -175,7 +175,7 @@
     }];
 }
 
-- (void)avgInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVDBConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
+- (void)avgInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;

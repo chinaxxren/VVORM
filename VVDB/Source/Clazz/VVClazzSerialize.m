@@ -7,8 +7,8 @@
 
 #import <FMDB/FMResultSet.h>
 
-#import "VVDBConst.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVSqliteConst.h"
+#import "VVRuntimeProperty.h"
 
 @implementation VVClazzSerialize
 
@@ -24,14 +24,14 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVRuntimeProperty *)attribute {
     if ([value conformsToProtocol:@protocol(NSCoding)]) {
         return @[[NSKeyedArchiver archivedDataWithRootObject:value]];
     }
     return @[[NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVRuntimeProperty *)attribute {
     NSData *value = [resultSet dataForColumn:attribute.columnName];
     if (value) {
         return [NSKeyedUnarchiver unarchiveObjectWithData:value];

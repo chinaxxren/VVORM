@@ -3,15 +3,15 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBClazzID.h"
+#import "VVClazzID.h"
 
 #import <FMDB/FMResultSet.h>
 
-#import "VVDBConst.h"
+#import "VVSqliteConst.h"
 #import "VVSQLiteColumnModel.h"
-#import "VVDBRuntimeProperty.h"
+#import "VVRuntimeProperty.h"
 
-@implementation VVDBClazzID
+@implementation VVClazzID
 
 - (Class)superClazz {
     return NULL;
@@ -33,7 +33,7 @@
     return YES;
 }
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)sqliteColumnsWithAttribute:(VVRuntimeProperty *)attribute {
     VVSQLiteColumnModel *value = [[VVSQLiteColumnModel alloc] init];
     value.columnName = attribute.columnName;
     value.dataTypeName = SQLITE_DATA_TYPE_NONE;
@@ -45,7 +45,7 @@
     return @[value, attributeType];
 }
 
-- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVDBRuntimeProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVRuntimeProperty *)attribute {
     NSString *attributeType = nil;
     if (value) {
         VVClazz *osclazz = [VVClazz vvclazzWithClazz:[value class]];
@@ -60,7 +60,7 @@
     return @[[NSNull null], [NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVRuntimeProperty *)attribute {
     NSString *attributeTypeColumnName = [NSString stringWithFormat:@"%@_attributeType", attribute.columnName];
     NSString *attributeType = [resultSet stringForColumn:attributeTypeColumnName];
     Class clazz = NSClassFromString(attributeType);

@@ -10,10 +10,10 @@
 
 @class VVClazz;
 @class VVNameBuilder;
-@class VVDBRuntimeProperty;
-@class VVDBConditionModel;
+@class VVRuntimeProperty;
+@class VVConditionModel;
 
-@interface VVDBRuntime : NSObject <VVModelInterface>
+@interface VVRuntime : NSObject <VVModelInterface>
 
 //
 - (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder;
@@ -27,7 +27,7 @@
 @property(nonatomic, assign) BOOL isRelationshipClazz;
 
 // attribute inforamtion
-@property(nonatomic, strong) VVDBRuntimeProperty <VVIgnoreAttribute> *rowidAttribute;
+@property(nonatomic, strong) VVRuntimeProperty <VVIgnoreAttribute> *rowidAttribute;
 @property(nonatomic, strong) NSArray *attributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *identificationAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *insertAttributes;
@@ -86,34 +86,34 @@
 
 - (NSString *)insertOrReplaceIntoStatement;
 
-- (NSString *)updateStatementWithObject:(NSObject *)object condition:(VVDBConditionModel *)condition;
+- (NSString *)updateStatementWithObject:(NSObject *)object condition:(VVConditionModel *)condition;
 
-- (NSString *)selectRowidStatement:(VVDBConditionModel *)condition;
+- (NSString *)selectRowidStatement:(VVConditionModel *)condition;
 
-- (NSString *)selectStatementWithCondition:(VVDBConditionModel *)condition;
+- (NSString *)selectStatementWithCondition:(VVConditionModel *)condition;
 
-- (NSString *)deleteFromStatementWithCondition:(VVDBConditionModel *)condition;
+- (NSString *)deleteFromStatementWithCondition:(VVConditionModel *)condition;
 
-- (NSString *)referencedCountStatementWithCondition:(VVDBConditionModel *)condition;
+- (NSString *)referencedCountStatementWithCondition:(VVConditionModel *)condition;
 
-- (NSString *)countStatementWithCondition:(VVDBConditionModel *)condition;
+- (NSString *)countStatementWithCondition:(VVConditionModel *)condition;
 
 - (NSString *)uniqueIndexName;
 
-- (NSString *)minStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition;
+- (NSString *)minStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition;
 
-- (NSString *)maxStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition;
+- (NSString *)maxStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition;
 
-- (NSString *)avgStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition;
+- (NSString *)avgStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition;
 
-- (NSString *)totalStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition;
+- (NSString *)totalStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition;
 
-- (NSString *)sumStatementWithColumnName:(NSString *)columnName condition:(VVDBConditionModel *)condition;
+- (NSString *)sumStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition;
 
 // condition methods
-- (VVDBConditionModel *)rowidCondition:(NSObject *)object;
+- (VVConditionModel *)rowidCondition:(NSObject *)object;
 
-- (VVDBConditionModel *)uniqueCondition:(NSObject *)object;
+- (VVConditionModel *)uniqueCondition:(NSObject *)object;
 
 // parameter methods
 - (NSMutableArray *)insertOrIgnoreAttributesParameters:(NSObject *)object;
