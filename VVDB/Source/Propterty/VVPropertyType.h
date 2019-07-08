@@ -7,6 +7,9 @@
 
 // https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html#//apple_ref/doc/uid/TP40008048-CH101-SW5
 
+/*
+ 属性的限制
+ */
 @interface VVPropertyType : NSObject
 
 //

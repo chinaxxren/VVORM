@@ -5,11 +5,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class VVProperty;
+
 
 @interface VVClassProperty : NSObject
 
 @property(nonatomic, readonly) Class clazz;
-@property(nonatomic, readonly) NSArray *propertyList;
+@property(nonatomic, readonly) NSArray<VVProperty *> *propertyList;
 
 + (VVClassProperty *)runtimeWithClass:(Class)clazz;
 

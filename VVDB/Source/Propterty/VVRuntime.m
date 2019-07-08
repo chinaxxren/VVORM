@@ -167,7 +167,6 @@
     self.countTemplateStatement = [VVQueryBuilder countStatement:self];
     self.referencedCountTemplateStatement = [VVQueryBuilder referencedCountStatement:self];
     self.uniqueIndexNameTemplateStatement = [VVQueryBuilder uniqueIndexName:self];
-
 }
 
 #pragma mark statement methods

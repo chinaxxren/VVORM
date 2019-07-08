@@ -35,11 +35,11 @@
     [userDB saveObject:user];
 
     NSNumber *count = [userDB count:[User class] condition:nil];
-    NSLog(@"%@", count);
+    NSLog(@"count->%@", count);
 
     NSMutableArray *users = [userDB fetchObjects:[User class] condition:nil];
     user = [users firstObject];
-    NSLog(@"%@", user.name);
+    NSLog(@"name->%@", user.name);
 }
 
 - (void)testGlobal {
@@ -51,11 +51,11 @@
     [globalDB saveObject:download];
 
     NSNumber *count = [globalDB count:[Download class] condition:nil];
-    NSLog(@"%@", count);
+    NSLog(@"count->%@", count);
 
     NSMutableArray *downloads = [globalDB fetchObjects:[Download class] condition:nil];
     download = [downloads firstObject];
-    NSLog(@"%@", download.name);
+    NSLog(@"name->%@", download.name);
 }
 
 

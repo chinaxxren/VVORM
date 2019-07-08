@@ -8,6 +8,9 @@
 
 // https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html#//apple_ref/doc/uid/TP40008048-CH100-SW1
 
+/*
+ 属性的类型
+ */
 @interface VVPropertyEncoding : NSObject
 
 - (instancetype)initWithAttributes:(NSString *)attributes;

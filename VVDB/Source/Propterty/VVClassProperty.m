@@ -54,25 +54,25 @@
         return [NSArray arrayWithArray:propertyList];
     }
 
-    NSMutableArray *list = [NSMutableArray array];
+    NSMutableArray<VVProperty *> *proptertyList = [NSMutableArray<VVProperty *> array];
     NSString *className = NSStringFromClass(clazz);
-    id class = objc_getClass([className UTF8String]);
+    Class objcClass = objc_getClass([className UTF8String]);
     unsigned int outCount, i;
-    objc_property_t *properties = class_copyPropertyList(class, &outCount);
+    objc_property_t *properties = class_copyPropertyList(objcClass, &outCount);
     for (i = 0; i < outCount; i++) {
         objc_property_t property = properties[i];
         NSString *name = [NSString stringWithUTF8String:property_getName(property)];
         NSString *attributes = [NSString stringWithUTF8String:property_getAttributes(property)];
         VVProperty *runtimeProperty = [[VVProperty alloc] initWithName:[name copy] attributes:[attributes copy]];
-        [list addObject:runtimeProperty];
+        [proptertyList addObject:runtimeProperty];
     }
     free(properties);
 
-    if (list.count > 0) {
+    if (proptertyList.count > 0) {
         if (!propertyList) {
             propertyList = [NSMutableArray array];
         }
-        [propertyList addObjectsFromArray:list];
+        [propertyList addObjectsFromArray:proptertyList];
     }
 
     if (enumratePropertyOfSuperClass) {
