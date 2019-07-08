@@ -48,7 +48,7 @@
 - (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVDBRuntimeProperty *)attribute {
     NSString *attributeType = nil;
     if (value) {
-        VVDBClazz *osclazz = [VVDBClazz vvclazzWithClazz:[value class]];
+        VVClazz *osclazz = [VVClazz vvclazzWithClazz:[value class]];
         NSArray *storeValue = [osclazz storeValuesWithValue:value attribute:attribute];
         attributeType = osclazz.attributeType;
         NSMutableArray *storeValues = [NSMutableArray arrayWithArray:storeValue];
@@ -67,7 +67,7 @@
     if (clazz) {
         NSObject *value = [resultSet objectForColumnName:attribute.columnName];
         if (value) {
-            VVDBClazz *osclazz = [VVDBClazz vvclazzWithClazz:clazz];
+            VVClazz *osclazz = [VVClazz vvclazzWithClazz:clazz];
             if (osclazz.isSimpleValueClazz) {
                 NSObject *value = [osclazz valueWithResultSet:resultSet attribute:attribute];
                 return value;

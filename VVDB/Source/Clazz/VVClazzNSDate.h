@@ -6,7 +6,6 @@
 #import <Foundation/Foundation.h>
 #import "VVClazz.h"
 
-
-@interface VVDBClazzID : VVClazz
+@interface VVClazzNSDate : VVClazz
 
 @end

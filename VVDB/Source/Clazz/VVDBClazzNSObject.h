@@ -4,9 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VVDBClazz.h"
+#import "VVClazz.h"
 
 
-@interface VVDBClazzNSObject : VVDBClazz
+@interface VVDBClazzNSObject : VVClazz
 
 @end

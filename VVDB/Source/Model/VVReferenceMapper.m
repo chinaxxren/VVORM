@@ -14,7 +14,7 @@
 #import "VVDBRuntime.h"
 #import "VVDBRuntimeProperty.h"
 #import "VVNameBuilder.h"
-#import "VVDBClazz.h"
+#import "VVClazz.h"
 #import "VVNotificationCenter.h"
 #import "NSObject+VVTabel.h"
 #import "VVDBReferenceConditionModel.h"
@@ -989,7 +989,7 @@
     }
 
     Class targetClazz = NULL;
-    VVDBClazz *osclazz = [VVDBClazz vvclazzWithClazz:clazz];
+    VVClazz *osclazz = [VVClazz vvclazzWithClazz:clazz];
     if (osclazz.isObjectClazz) {
         targetClazz = clazz;
     } else {

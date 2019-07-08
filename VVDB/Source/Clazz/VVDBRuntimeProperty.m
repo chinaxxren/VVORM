@@ -6,7 +6,7 @@
 
 #import "VVDBRuntimeProperty.h"
 
-#import "VVDBClazz.h"
+#import "VVClazz.h"
 #import "VVDBRuntime.h"
 #import "VVNameBuilder.h"
 #import "VVQueryBuilder.h"
@@ -113,13 +113,13 @@
 
     // clazz
     if (self.serializableAttribute) {
-        self.vvclazz = [VVDBClazz vvclazzWithPrimitiveEncodingCode:@"Serialize"];
+        self.vvclazz = [VVClazz vvclazzWithPrimitiveEncodingCode:@"Serialize"];
     } else if (isStructure) {
-        self.vvclazz = [VVDBClazz vvclazzWithStructureName:structureName];
+        self.vvclazz = [VVClazz vvclazzWithStructureName:structureName];
     } else if (isPrimitive) {
-        self.vvclazz = [VVDBClazz vvclazzWithPrimitiveEncodingCode:bzproperty.propertyEncoding.code];
+        self.vvclazz = [VVClazz vvclazzWithPrimitiveEncodingCode:bzproperty.propertyEncoding.code];
     } else if (isObject) {
-        self.vvclazz = [VVDBClazz vvclazzWithClazz:self.clazz];
+        self.vvclazz = [VVClazz vvclazzWithClazz:self.clazz];
     }
     self.isSimpleValueClazz = self.vvclazz.isSimpleValueClazz;
     self.isArrayClazz = self.vvclazz.isArrayClazz;

@@ -1,5 +1,5 @@
 //
-// Created by Tank on 2019-07-03.
+// Created by Tank on 2019-07-08.
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
@@ -7,6 +7,6 @@
 #import "VVClazz.h"
 
 
-@interface VVDBClazzID : VVClazz
+@interface VVClazzNSArray : VVClazz
 
 @end

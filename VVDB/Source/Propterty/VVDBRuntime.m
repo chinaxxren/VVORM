@@ -5,7 +5,7 @@
 
 #import "VVDBRuntime.h"
 
-#import "VVDBClazz.h"
+#import "VVClazz.h"
 #import "VVNameBuilder.h"
 #import "VVDBRuntimeProperty.h"
 #import "VVDBConditionModel.h"
@@ -18,14 +18,14 @@
 
 @implementation VVDBRuntime
 
-- (instancetype)initWithClazz:(Class)clazz osclazz:(VVDBClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
+- (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
     if (self = [super init]) {
         [self setupWithClazz:clazz osclazz:osclazz nameBuilder:nameBuilder];
     }
     return self;
 }
 
-- (void)setupWithClazz:(Class)clazz osclazz:(VVDBClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
+- (void)setupWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
     // clazz
     self.clazz = clazz;
     self.clazzName = NSStringFromClass(clazz);

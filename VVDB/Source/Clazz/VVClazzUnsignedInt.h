@@ -7,6 +7,6 @@
 #import "VVClazz.h"
 
 
-@interface VVDBClazzID : VVClazz
+@interface VVClazzUnsignedInt : VVClazz
 
 @end
