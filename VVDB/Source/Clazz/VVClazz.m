@@ -144,7 +144,6 @@
     [osclazzsArray addObject:osclazz];
 }
 
-
 + (VVClazz *)vvclazzWithClazz:(Class)clazz {
     NSMutableDictionary *osclazzs = [self vvclazzs];
     VVClazz *osclazz = osclazzs[NSStringFromClass(clazz)];
