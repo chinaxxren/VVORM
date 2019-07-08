@@ -3,9 +3,9 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBReferenceModel.h"
+#import "VVReferenceModel.h"
 
 
-@implementation VVDBReferenceModel
+@implementation VVReferenceModel
 
 @end

@@ -3,15 +3,15 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBObserver.h"
+#import "VVObserver.h"
 
-#import "VVDBNotificationCenter.h"
-#import "NSObject+VVDB.h"
+#import "VVNotificationCenter.h"
+#import "NSObject+VVTabel.h"
 
-@implementation VVDBObserver
+@implementation VVObserver
 
 - (void)dealloc {
-    [[VVDBNotificationCenter defaultCenter] removeObserver:self];
+    [[VVNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)received:(NSNotification *)notification {

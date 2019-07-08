@@ -8,7 +8,7 @@
 @class VVDBRuntime;
 
 
-@interface VVDBMigrationRuntime : NSObject
+@interface VVMigrationRuntime : NSObject
 
 @property(nonatomic, copy) NSString *clazzName;
 @property(nonatomic, strong) NSMutableDictionary *attributes;

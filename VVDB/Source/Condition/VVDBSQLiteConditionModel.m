@@ -3,9 +3,9 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVStoreSQLiteConditionModel.h"
+#import "VVDBSQLiteConditionModel.h"
 
 
-@implementation VVStoreSQLiteConditionModel
+@implementation VVDBSQLiteConditionModel
 
 @end

@@ -3,11 +3,11 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBNameBuilder.h"
+#import "VVNameBuilder.h"
 #import "VVModelInterface.h"
 
 
-@implementation VVDBNameBuilder
+@implementation VVNameBuilder
 
 - (NSString *)tableName:(Class)clazz {
     NSString *tableName = nil;
@@ -39,7 +39,7 @@
 - (NSString *)columnName:(NSString *)name clazz:(Class)clazz {
     NSString *columnName = name;
     if ([clazz conformsToProtocol:@protocol(VVModelInterface)]) {
-        if ([clazz respondsToSelector:@selector(VVTableName)]) {
+        if ([clazz respondsToSelector:@selector(VVColumnName:)]) {
             columnName = (NSString *) [clazz performSelector:@selector(VVColumnName:) withObject:name];
         }
     }

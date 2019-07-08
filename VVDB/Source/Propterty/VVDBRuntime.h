@@ -4,19 +4,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VVDBModelInterface.h"
+#import "VVModelInterface.h"
 
 @protocol VVIgnoreAttribute;
 
 @class VVDBClazz;
-@class VVDBNameBuilder;
-@class VVStoreRuntimeProperty;
+@class VVNameBuilder;
+@class VVDBRuntimeProperty;
 @class VVDBConditionModel;
 
-@interface VVStoreRuntime : NSObject <VVModelInterface>
+@interface VVDBRuntime : NSObject <VVModelInterface>
 
 //
-- (instancetype)initWithClazz:(Class)clazz osclazz:(VVDBClazz *)osclazz nameBuilder:(VVDBNameBuilder *)nameBuilder;
+- (instancetype)initWithClazz:(Class)clazz osclazz:(VVDBClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder;
 
 // class information
 @property(nonatomic, assign) Class clazz;
@@ -27,7 +27,7 @@
 @property(nonatomic, assign) BOOL isRelationshipClazz;
 
 // attribute inforamtion
-@property(nonatomic, strong) VVStoreRuntimeProperty <VVIgnoreAttribute> *rowidAttribute;
+@property(nonatomic, strong) VVDBRuntimeProperty <VVIgnoreAttribute> *rowidAttribute;
 @property(nonatomic, strong) NSArray *attributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *identificationAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *insertAttributes;

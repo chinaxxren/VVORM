@@ -7,7 +7,7 @@
 #import "VVObserver.h"
 
 
-@interface VVDBNotificationCenter : NSNotificationCenter
+@interface VVNotificationCenter : NSNotificationCenter
 
 + (instancetype)sharedInstance;
 

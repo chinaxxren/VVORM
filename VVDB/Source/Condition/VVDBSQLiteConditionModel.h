@@ -8,7 +8,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VVStoreSQLiteConditionModel : NSObject
+@interface VVDBSQLiteConditionModel : NSObject
 
 @property(nonatomic, copy) NSString *where;
 @property(nonatomic, strong) NSArray *parameters;

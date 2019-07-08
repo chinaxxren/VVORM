@@ -3,10 +3,9 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBSQLiteColumnModel.h"
+#import "VVSQLiteColumnModel.h"
 
 
-@implementation VVDBSQLiteColumnModel {
+@implementation VVSQLiteColumnModel
 
-}
 @end

@@ -8,7 +8,7 @@
 @class VVMigrationTable;
 
 
-@interface VVDBMigrationQueryBuilder : NSObject
+@interface VVMigrationQueryBuilder : NSObject
 
 + (NSString *)updateRelationshipToTableName:(NSString *)tableName clazzName:(NSString *)clazzName;
 

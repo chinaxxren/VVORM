@@ -5,8 +5,46 @@
 
 #import "VVDBClazzNSMutableString.h"
 
+#import <FMDB/FMResultSet.h>
 
-@implementation VVDBClazzNSMutableString {
+#import "VVDBConst.h"
+#import "VVDBRuntimeProperty.h"
 
+@implementation VVDBClazzNSMutableString
+
+- (Class)superClazz {
+    return [NSMutableString class];
 }
+
+- (NSString *)attributeType {
+    return NSStringFromClass([self superClazz]);
+}
+
+- (BOOL)isSimpleValueClazz {
+    return YES;
+}
+
+- (BOOL)isPrimaryClazz {
+    return YES;
+}
+
+- (NSArray *)storeValuesWithValue:(NSMutableString *)value attribute:(VVDBRuntimeProperty *)attribute {
+    if (value) {
+        return @[value];
+    }
+    return @[[NSNull null]];
+}
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+    NSString *string = [resultSet stringForColumn:attribute.columnName];
+    if (string) {
+        return [NSMutableString stringWithString:string];
+    }
+    return nil;
+}
+
+- (NSString *)sqliteDataTypeName {
+    return SQLITE_DATA_TYPE_TEXT;
+}
+
 @end

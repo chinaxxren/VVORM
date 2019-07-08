@@ -3,10 +3,10 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBMigrationRuntimeProperty.h"
+#import "VVMigrationRuntimeProperty.h"
 #import "VVDBRuntimeProperty.h"
 
 
-@implementation VVDBMigrationRuntimeProperty
+@implementation VVMigrationRuntimeProperty
 
 @end

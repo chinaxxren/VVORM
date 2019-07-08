@@ -5,8 +5,32 @@
 
 #import "VVDBClazzUnsignedLongLong.h"
 
+#import <FMDB/FMResultSet.h>
 
-@implementation VVDBClazzUnsignedLongLong {
+#import "VVDBConst.h"
+#import "VVDBRuntimeProperty.h"
 
+@implementation VVDBClazzUnsignedLongLong
+
+- (NSString *)attributeType {
+    return [NSString stringWithFormat:@"%s", @encode(unsigned long long)];
 }
+
+- (BOOL)isSimpleValueClazz {
+    return YES;
+}
+
+- (NSArray *)storeValuesWithValue:(NSNumber *)value attribute:(VVDBRuntimeProperty *)attribute {
+    return @[value];
+}
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+    unsigned long long int value = [resultSet unsignedLongLongIntForColumn:attribute.columnName];
+    return @(value);
+}
+
+- (NSString *)sqliteDataTypeName {
+    return SQLITE_DATA_TYPE_INTEGER;
+}
+
 @end

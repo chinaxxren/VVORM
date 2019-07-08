@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VVDBReferenceModel : NSObject
+@interface VVReferenceModel : NSObject
 
 @property(nonatomic, strong) NSNumber *rowid;
 

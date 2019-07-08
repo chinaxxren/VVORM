@@ -3,7 +3,7 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBMigration.h"
+#import "VVMigration.h"
 
 #import <FMDB/FMDatabase.h>
 
@@ -38,7 +38,7 @@
 
 @end
 
-@implementation VVDBMigration
+@implementation VVMigration
 
 - (BOOL)migrate:(FMDatabase *)db error:(NSError **)error {
 

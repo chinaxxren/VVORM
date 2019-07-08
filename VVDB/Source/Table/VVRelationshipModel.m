@@ -3,10 +3,10 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBRelationshipModel.h"
+#import "VVRelationshipModel.h"
 
 
-@implementation VVDBRelationshipModel
+@implementation VVRelationshipModel
 
 + (NSString *)VVTableName {
     return @"__ObjectStoreRelationship__";

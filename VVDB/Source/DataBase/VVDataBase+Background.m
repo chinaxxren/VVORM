@@ -187,7 +187,7 @@
     }];
 }
 
-- (void)inTransactionInBackground:(void (^)(VVDataBase *os, BOOL *rollback))block {
+- (void)inTransactionInBackground:(void (^)(VVDataBase *dataBase, BOOL *rollback))block {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         [self inTransaction:block];
@@ -229,6 +229,5 @@
         }];
     }];
 }
-
 
 @end

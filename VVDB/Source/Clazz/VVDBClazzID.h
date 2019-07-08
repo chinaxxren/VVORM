@@ -7,6 +7,6 @@
 #import "VVDBClazz.h"
 
 
-@interface VVStoreClazzID : VVDBClazz
+@interface VVDBClazzID : VVDBClazz
 
 @end

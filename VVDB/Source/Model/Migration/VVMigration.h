@@ -7,6 +7,6 @@
 #import "VVReferenceMapper.h"
 
 
-@interface VVDBMigration : VVReferenceMapper
+@interface VVMigration : VVReferenceMapper
 
 @end

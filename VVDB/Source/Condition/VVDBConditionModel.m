@@ -3,24 +3,24 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVStoreConditionModel.h"
+#import "VVDBConditionModel.h"
 
-#import "VVStoreSQLiteConditionModel.h"
-#import "VVStoreReferenceConditionModel.h"
+#import "VVDBSQLiteConditionModel.h"
+#import "VVDBReferenceConditionModel.h"
 
-@interface VVStoreConditionModel ()
+@interface VVDBConditionModel ()
 
-@property(nonatomic, strong) VVStoreSQLiteConditionModel *sqlite;
-@property(nonatomic, strong) VVStoreReferenceConditionModel *reference;
+@property(nonatomic, strong) VVDBSQLiteConditionModel *sqlite;
+@property(nonatomic, strong) VVDBReferenceConditionModel *reference;
 
 @end
 
-@implementation VVStoreConditionModel
+@implementation VVDBConditionModel
 
 + (instancetype)condition {
-    VVStoreConditionModel *condition = [[self alloc] init];
-    condition.sqlite = [[VVStoreSQLiteConditionModel alloc] init];
-    condition.reference = [[VVStoreReferenceConditionModel alloc] init];
+    VVDBConditionModel *condition = [[self alloc] init];
+    condition.sqlite = [[VVDBSQLiteConditionModel alloc] init];
+    condition.reference = [[VVDBReferenceConditionModel alloc] init];
     return condition;
 }
 

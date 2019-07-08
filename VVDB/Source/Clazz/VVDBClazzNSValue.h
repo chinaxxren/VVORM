@@ -4,7 +4,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VVDBClazz.h"
 
 
-@interface VVDBClazzNSValue : NSObject
+@interface NSValueConverter : NSObject <NSCoding>
+
++ (NSData *)convertedDataWithValue:(NSValue *)value;
+
++ (NSValue *)valueWithConvertedData:(NSData *)convertedData;
+
+@end
+
+@interface VVDBClazzNSValue : VVDBClazz
+
 @end

@@ -3,7 +3,7 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBMigrationQueryBuilder.h"
+#import "VVMigrationQueryBuilder.h"
 #import "VVMigrationTable.h"
 
 
@@ -13,7 +13,7 @@
 #import "VVMigrationRuntimeProperty.h"
 #import "VVDBRuntimeProperty.h"
 
-@implementation VVDBMigrationQueryBuilder
+@implementation VVMigrationQueryBuilder
 
 #pragma mark migration
 

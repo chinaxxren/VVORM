@@ -6,20 +6,60 @@
 #import "VVDataBaseManager.h"
 
 #import "VVDataBase.h"
-#import "VVCurrentDatabase.h"
 
+@interface VVDataBaseManager ()
+
+@property(nonatomic, strong) NSMutableDictionary<NSString *, VVDataBase *> *dbDict;
+
+@end
 
 @implementation VVDataBaseManager
 
-+ (VVDataBase *)loadDataBaseWithPath:(NSString *)dbPath {
-    NSError *error;
-    VVDataBase *dataBase = [VVDataBase openWithPath:dbPath error:&error];
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.dbDict = [NSMutableDictionary<NSString *, VVDataBase *> new];
+    }
 
+    return self;
+}
+
++ (instancetype)share {
+    static VVDataBaseManager *manager;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [VVDataBaseManager new];
+    });
+
+    return manager;
+}
+
+- (VVDataBase *)getDataBase:(NSString *)name {
+    @synchronized (self) {
+        if (!name) {
+            return nil;
+        }
+
+        VVDataBase *dataBase = self.dbDict[name];
+        if (dataBase) {
+            return dataBase;
+        }
+
+        NSString *path = [VVDataBaseManager dataBasePathWithName:name];
+        if (!path) {
+            return nil;
+        }
+
+        dataBase = [VVDataBaseManager dataBaseWithPath:path];
+        if (!dataBase) {
+            return nil;
+        }
+        self.dbDict[name] = dataBase;
 #if DEBUG
-    NSLog(@"database error %@", error);
+        NSLog(@"db path %@", path);
 #endif
-
-    return dataBase;
+        return dataBase;
+    }
 }
 
 + (NSString *)dataBasePathWithName:(NSString *)name {
@@ -27,17 +67,31 @@
     [direct stringByAppendingPathComponent:@"db"];
     NSFileManager *defaultManager = [NSFileManager defaultManager];
     if (![defaultManager fileExistsAtPath:direct]) {
-        [defaultManager createDirectoryAtPath:direct withIntermediateDirectories:YES attributes:nil error:NULL];
+        NSError *error;
+        [defaultManager createDirectoryAtPath:direct withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error) {
+            NSLog(@"database error %@", error);
+            return nil;
+        }
     }
 
     NSString *dbPath = [direct stringByAppendingFormat:@"/%@.sqlite", name];
     return dbPath;
 }
 
-- (void)loadDataBase:(NSString *)name {
-    NSString *path = [VVDataBaseManager dataBasePathWithName:name];
-    VVDataBase *dataBase = [VVDataBaseManager loadDataBaseWithPath:path];
-    [VVCurrentDatabase setupWithDataBase:dataBase];
++ (VVDataBase *)dataBaseWithPath:(NSString *)dbPath {
+    NSError *error;
+    VVDataBase *dataBase = [VVDataBase openWithPath:dbPath error:&error];
+    if (error) {
+        NSLog(@"database error %@", error);
+        return nil;
+    }
+
+    return dataBase;
+}
+
++ (VVDataBase *)getDataBase:(NSString *)name {
+    return [[VVDataBaseManager share] getDataBase:name];
 }
 
 @end

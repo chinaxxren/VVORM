@@ -148,9 +148,11 @@
 }
 
 - (void)transactionDidBegin:(FMDatabase *)db {
+
 }
 
 - (void)transactionDidEnd:(FMDatabase *)db {
+
 }
 
 #pragma mark transaction
@@ -163,6 +165,10 @@
 }
 
 #pragma mark exists, count, min, max methods
+
+- (NSNumber *)existsObject:(NSObject *)object {
+    return [self existsObject:object error:nil];
+}
 
 - (NSNumber *)existsObject:(NSObject *)object error:(NSError **)error {
     __block NSError *err = nil;
@@ -180,6 +186,10 @@
         *error = err;
     }
     return exists;
+}
+
+- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self count:clazz condition:condition error:nil];
 }
 
 - (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
@@ -200,6 +210,10 @@
     return value;
 }
 
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self max:columnName class:clazz condition:condition error:nil];
+}
+
 - (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
@@ -216,6 +230,10 @@
         *error = err;
     }
     return value;
+}
+
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self min:columnName class:clazz condition:condition error:nil];
 }
 
 - (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
@@ -236,6 +254,10 @@
     return value;
 }
 
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self total:columnName class:clazz condition:condition error:nil];
+}
+
 - (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
@@ -254,6 +276,10 @@
     return value;
 }
 
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self sum:columnName class:clazz condition:condition error:nil];
+}
+
 - (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block id value = nil;
@@ -270,6 +296,10 @@
         *error = err;
     }
     return value;
+}
+
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self avg:columnName class:clazz condition:condition error:nil];
 }
 
 - (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
@@ -293,6 +323,10 @@
 
 #pragma mark fetch count methods
 
+- (NSNumber *)referencedCount:(NSObject *)object {
+    return [self referencedCount:object error:nil];
+}
+
 - (NSNumber *)referencedCount:(NSObject *)object error:(NSError **)error {
     __block NSError *err = nil;
     __block NSNumber *value = nil;
@@ -309,6 +343,10 @@
         *error = err;
     }
     return value;
+}
+
+- (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object {
+    return [self fetchReferencingObjectsTo:object error:nil];
 }
 
 - (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object error:(NSError **)error {
@@ -331,6 +369,10 @@
 
 
 #pragma mark fetch methods
+
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self fetchObjects:clazz condition:condition error:nil];
+}
 
 - (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
@@ -368,6 +410,10 @@
     return [self fetchObjects:clazz condition:condition error:error];
 }
 
+- (id)refreshObject:(NSObject *)object {
+    return [self referencedCount:object error:nil];
+}
+
 - (id)refreshObject:(NSObject *)object error:(NSError **)error {
     __block NSError *err = nil;
     __block NSObject *latestObject = nil;
@@ -389,6 +435,10 @@
 
 #pragma mark save methods
 
+- (BOOL)saveObjects:(NSArray *)objects {
+    return [self saveObjects:objects error:nil];
+}
+
 - (BOOL)saveObjects:(NSArray *)objects error:(NSError **)error {
     if (![[objects class] isSubclassOfClass:[NSArray class]]) {
         return NO;
@@ -409,6 +459,10 @@
         *error = err;
     }
     return ret;
+}
+
+- (BOOL)saveObject:(NSObject *)object {
+    return [self saveObject:object error:nil];
 }
 
 - (BOOL)saveObject:(NSObject *)object error:(NSError **)error {
@@ -433,6 +487,10 @@
 }
 
 #pragma mark delete methods
+
+- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition {
+    return [self deleteObjects:clazz condition:condition error:nil];
+}
 
 - (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
@@ -461,6 +519,10 @@
     return [self deleteObjects:clazz condition:condition error:error];
 }
 
+- (BOOL)deleteObject:(NSObject *)object {
+    return [self deleteObject:object error:nil];
+}
+
 - (BOOL)deleteObject:(NSObject *)object error:(NSError **)error {
     if (!object) {
         return NO;
@@ -481,6 +543,10 @@
         *error = err;
     }
     return ret;
+}
+
+- (BOOL)deleteObjects:(NSArray *)objects {
+    return [self deleteObjects:objects error:nil];
 }
 
 - (BOOL)deleteObjects:(NSArray *)objects error:(NSError **)error {
@@ -506,6 +572,10 @@
 
 #pragma register methods
 
+- (BOOL)registerClass:(Class)clazz {
+    return [self registerClass:clazz error:nil];
+}
+
 - (BOOL)registerClass:(Class)clazz error:(NSError **)error {
     __block NSError *err = nil;
     __block BOOL ret = NO;
@@ -525,6 +595,10 @@
         *error = err;
     }
     return ret;
+}
+
+- (BOOL)unRegisterClass:(Class)clazz {
+    return [self unRegisterClass:clazz error:nil];
 }
 
 - (BOOL)unRegisterClass:(Class)clazz error:(NSError **)error {

@@ -5,8 +5,32 @@
 
 #import "VVDBClazzC99Bool.h"
 
+#import <FMDB/FMResultSet.h>
 
-@implementation VVDBClazzC99Bool {
+#import "VVDBConst.h"
+#import "VVDBRuntimeProperty.h"
 
+@implementation VVDBClazzC99Bool
+
+- (NSString *)attributeType {
+    return [NSString stringWithFormat:@"%s", @encode(bool)];
 }
+
+- (BOOL)isSimpleValueClazz {
+    return YES;
+}
+
+- (NSArray *)storeValuesWithValue:(NSNumber *)value attribute:(VVDBRuntimeProperty *)attribute {
+    return @[value];
+}
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+    int value = [resultSet intForColumn:attribute.columnName];
+    return @(value);
+}
+
+- (NSString *)sqliteDataTypeName {
+    return SQLITE_DATA_TYPE_NUMERIC;
+}
+
 @end

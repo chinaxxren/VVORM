@@ -4,7 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VVDBClazz.h"
 
 
-@interface VVDBClazzC99Bool : NSObject
+@interface VVDBClazzC99Bool : VVDBClazz
+
 @end

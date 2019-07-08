@@ -3,7 +3,7 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBModelMapper.h"
+#import "VVModelMapper.h"
 
 #import <FMDB/FMDatabaseQueue.h>
 #import <FMDB/FMDatabaseAdditions.h>
@@ -11,14 +11,14 @@
 #import "VVDBConditionModel.h"
 #import "VVModelInterface.h"
 #import "VVDBRuntimeProperty.h"
-#import "VVDBRelationshipModel.h"
+#import "VVRelationshipModel.h"
 #import "VVDBRuntime.h"
 #import "VVDBSQLiteConditionModel.h"
 #import "VVSQLiteColumnModel.h"
 #import "FMDatabase+indexInfo.h"
-#import "NSObject+VVDB.h"
+#import "NSObject+VVTabel.h"
 
-@implementation VVDBModelMapper
+@implementation VVModelMapper
 
 - (BOOL)createTable:(VVDBRuntime *)runtime db:(FMDatabase *)db {
     BOOL tableExists = [db tableExists:runtime.tableName];
@@ -400,7 +400,7 @@
 }
 
 - (BOOL)insertRelationshipObjectsWithRelationshipObjects:(NSArray *)relationshipObjects db:(FMDatabase *)db {
-    for (VVDBRelationshipModel *relationshipObject in relationshipObjects) {
+    for (VVRelationshipModel *relationshipObject in relationshipObjects) {
         [self insertOrUpdate:relationshipObject db:db];
         if ([self hadError:db]) {
             return NO;
@@ -446,7 +446,7 @@
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithRelationshipObject:(VVDBRelationshipModel *)relationshipObject db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithRelationshipObject:(VVRelationshipModel *)relationshipObject db:(FMDatabase *)db {
     VVDBConditionModel *condition = [VVDBConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ? and toClassName = ? and toRowid = ?";
     condition.sqlite.parameters = @[relationshipObject.fromClassName, relationshipObject.fromAttributeName, relationshipObject.fromRowid, relationshipObject.toClassName, relationshipObject.toRowid];

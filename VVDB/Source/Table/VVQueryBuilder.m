@@ -3,21 +3,21 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBQueryBuilder.h"
+#import "VVQueryBuilder.h"
 
-#import "VVDBQueryBuilder.h"
+#import "VVQueryBuilder.h"
 #import "VVDBRuntime.h"
 #import "VVDBRuntimeProperty.h"
-#import "VVDBNameBuilder.h"
+#import "VVNameBuilder.h"
 #import "VVRelationshipModel.h"
 #import "VVDBConditionModel.h"
 #import "VVSQLiteColumnModel.h"
-#import "VVDBMigrationTable.h"
+#import "VVMigrationTable.h"
 #import "VVDBSQLiteConditionModel.h"
 #import "VVDBReferenceConditionModel.h"
-#import "NSObject+VVDB.h"
+#import "NSObject+VVTabel.h"
 
-@implementation VVDBQueryBuilder
+@implementation VVQueryBuilder
 
 #pragma mark per runtime
 

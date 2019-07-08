@@ -18,39 +18,75 @@
 
 - (void)inTransaction:(void (^)(VVDataBase *dataBase, BOOL *rollback))block;
 
+- (BOOL)saveObject:(NSObject *)object;
+
 - (BOOL)saveObject:(NSObject *)object error:(NSError **)error;
+
+- (BOOL)saveObjects:(NSArray *)objects;
 
 - (BOOL)saveObjects:(NSArray *)objects error:(NSError **)error;
 
+- (BOOL)deleteObject:(NSObject *)object;
+
 - (BOOL)deleteObject:(NSObject *)object error:(NSError **)error;
+
+- (BOOL)deleteObjects:(NSArray *)objects;
 
 - (BOOL)deleteObjects:(NSArray *)objects error:(NSError **)error;
 
+- (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition;
+
 - (BOOL)deleteObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+
+- (id)refreshObject:(NSObject *)object;
 
 - (id)refreshObject:(NSObject *)object error:(NSError **)error;
 
+- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition;
+
 - (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+
+- (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object;
 
 - (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object error:(NSError **)error;
 
+- (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition;
+
 - (NSNumber *)count:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+
+- (NSNumber *)referencedCount:(NSObject *)object;
 
 - (NSNumber *)referencedCount:(NSObject *)object error:(NSError **)error;
 
+- (NSNumber *)existsObject:(NSObject *)object;
+
 - (NSNumber *)existsObject:(NSObject *)object error:(NSError **)error;
+
+- (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
 
 - (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
 
+- (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+
 - (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+
+- (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
 
 - (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
 
+- (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
+
 - (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
+
+- (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition;
 
 - (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVDBConditionModel *)condition error:(NSError **)error;
 
+- (BOOL)registerClass:(Class)clazz;
+
 - (BOOL)registerClass:(Class)clazz error:(NSError **)error;
+
+- (BOOL)unRegisterClass:(Class)clazz;
 
 - (BOOL)unRegisterClass:(Class)clazz error:(NSError **)error;
 

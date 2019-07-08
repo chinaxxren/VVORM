@@ -5,5 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import <FMDB/FMDatabase.h>
+
 @interface FMDatabase (IndexInfo)
+
+- (BOOL)indexExists:(NSString *)indexName;
+
+- (NSArray *)columnNamesWithIndexName:(NSString *)indexName;
+
 @end

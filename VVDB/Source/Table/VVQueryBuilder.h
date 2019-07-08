@@ -8,10 +8,10 @@
 @class VVDBRuntime;
 @class VVDBRuntimeProperty;
 @class VVDBConditionModel;
-@class VVDBNameBuilder;
-@class VVDBSQLiteColumnModel;
+@class VVNameBuilder;
+@class VVSQLiteColumnModel;
 
-@interface VVDBQueryBuilder : NSObject
+@interface VVQueryBuilder : NSObject
 
 + (NSString *)selectStatement:(VVDBRuntime *)runtime;
 
@@ -57,7 +57,7 @@
 
 + (NSString *)uniqueConditionStatement:(VVDBRuntime *)runtime;
 
-+ (NSString *)alterTableAddColumnStatement:(NSString *)tableName sqliteColumn:(VVDBSQLiteColumnModel *)sqliteColumn;
++ (NSString *)alterTableAddColumnStatement:(NSString *)tableName sqliteColumn:(VVSQLiteColumnModel *)sqliteColumn;
 
 + (NSString *)maxStatement:(VVDBRuntime *)runtime columnName:(NSString *)columnName;
 

@@ -7,7 +7,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VVDBMigrationTable : NSObject
+@interface VVMigrationTable : NSObject
 
 @property(nonatomic, assign) BOOL deleted;
 @property(nonatomic, copy) NSString *tableName;

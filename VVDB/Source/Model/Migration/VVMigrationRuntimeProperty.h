@@ -8,7 +8,7 @@
 @class VVDBRuntimeProperty;
 
 
-@interface VVDBMigrationRuntimeProperty : NSObject
+@interface VVMigrationRuntimeProperty : NSObject
 
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, strong) VVDBRuntimeProperty *previousAttribute;

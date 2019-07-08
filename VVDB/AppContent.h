@@ -5,6 +5,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class VVDataBase;
 
-@interface AppDB : NSObject
+
+@interface AppContent : NSObject
+
++ (VVDataBase *)user;
+
++ (VVDataBase *)global;
+
 @end

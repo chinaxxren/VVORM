@@ -3,16 +3,21 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "AppContext.h"
+#import "AppContent.h"
 
 #import "VVDataBase.h"
 #import "VVDataBaseManager.h"
 
 
-@implementation AppContext
+@implementation AppContent
 
-+ (VVDataBase *)database {
-    VVDataBase *dataBase = [VVDataBaseManager getDataBase:@"test"];
++ (VVDataBase *)user {
+    VVDataBase *dataBase = [VVDataBaseManager getDataBase:@"login"];
+    return dataBase;
+}
+
++ (VVDataBase *)global {
+    VVDataBase *dataBase = [VVDataBaseManager getDataBase:@"global"];
     return dataBase;
 }
 

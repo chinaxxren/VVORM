@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface VVDBNameBuilder : NSObject
+@interface VVNameBuilder : NSObject
 
 @property(nonatomic, strong) NSString *ignorePrefixName;
 @property(nonatomic, strong) NSString *ignoreSuffixName;

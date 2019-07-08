@@ -5,8 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class VVStoreRuntimeProperty;
 @class FMResultSet;
+@class VVDBRuntimeProperty;
 
 @protocol VVStoreClazzProtocol <NSObject>
 
@@ -36,26 +36,26 @@
 
 - (NSArray *)keysWithObject:(id)object;
 
-- (NSArray *)storeValuesWithValue:(id)value attribute:(VVStoreRuntimeProperty *)attribute;
+- (NSArray *)storeValuesWithValue:(id)value attribute:(VVDBRuntimeProperty *)attribute;
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVStoreRuntimeProperty *)attribute;
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute;
 
 - (NSString *)sqliteDataTypeName;
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVStoreRuntimeProperty *)attribute;
+- (NSArray *)sqliteColumnsWithAttribute:(VVDBRuntimeProperty *)attribute;
 
 - (NSArray *)requiredPropertyList;
 
 @end
 
 
-@interface VVStoreClazz : NSObject <VVStoreClazzProtocol>
+@interface VVDBClazz : NSObject <VVStoreClazzProtocol>
 
-+ (VVStoreClazz *)osclazzWithClazz:(Class)clazz;
++ (VVDBClazz *)vvclazzWithClazz:(Class)clazz;
 
-+ (VVStoreClazz *)osclazzWithPrimitiveEncodingCode:(NSString *)primitiveEncodingCode;
++ (VVDBClazz *)vvclazzWithPrimitiveEncodingCode:(NSString *)primitiveEncodingCode;
 
-+ (VVStoreClazz *)osclazzWithStructureName:(NSString *)StructureName;
++ (VVDBClazz *)vvclazzWithStructureName:(NSString *)StructureName;
 
 + (void)addClazz:(Class)clazz;
 

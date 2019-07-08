@@ -6,7 +6,11 @@
 #import "VVDBConst.h"
 
 
-@implementation VVDBConst {
-
-}
-@end
+NSString *const SQLITE_DATA_TYPE_NONE = @"NONE";
+NSString *const SQLITE_DATA_TYPE_BLOB = @"BLOB";
+NSString *const SQLITE_DATA_TYPE_REAL = @"REAL";
+NSString *const SQLITE_DATA_TYPE_INTEGER = @"INTEGER";
+NSString *const SQLITE_DATA_TYPE_NUMERIC = @"NUMERIC";
+NSString *const SQLITE_DATA_TYPE_DATETIME = @"DATE";
+NSString *const SQLITE_DATA_TYPE_BOOL = @"INTEGER";
+NSString *const SQLITE_DATA_TYPE_TEXT = @"TEXT";

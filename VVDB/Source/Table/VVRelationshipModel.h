@@ -7,7 +7,7 @@
 #import "VVModelInterface.h"
 
 
-@interface VVDBRelationshipModel : NSObject <VVModelInterface>
+@interface VVRelationshipModel : NSObject <VVModelInterface>
 
 @property(nonatomic, strong) NSString <VVIdenticalAttribute> *fromClassName;
 @property(nonatomic, strong) NSString *fromTableName;

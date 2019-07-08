@@ -6,5 +6,59 @@
 #import <Foundation/Foundation.h>
 
 
-@interface VVDBRuntimeProperty : NSObject
+#import "VVModelInterface.h"
+
+@class VVDBConditionModel;
+@class VVDBRuntime;
+@class VVNameBuilder;
+@class VVDBClazz;
+@class VVSQLiteColumnModel;
+@class FMResultSet;
+@class VVProperty;
+
+@interface VVDBRuntimeProperty : NSObject <VVModelInterface>
+
++ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVDBRuntime *)runtime nameBuilder:(VVNameBuilder *)nameBuilder;
+
+// sqlite information
+@property(nonatomic, copy) NSString *tableName;
+@property(nonatomic, copy) NSString *columnName;
+@property(nonatomic, strong) NSArray <VVSerializableAttribute> *sqliteColumns;
+
+// name informations
+@property(nonatomic, copy) NSString *clazzName;
+@property(nonatomic, copy) NSString *name;
+@property(nonatomic, copy) NSString *attributeType;
+
+// class type information
+@property(nonatomic, assign) Class clazz;
+@property(nonatomic, assign) BOOL isSimpleValueClazz;
+@property(nonatomic, assign) BOOL isArrayClazz;
+@property(nonatomic, assign) BOOL isObjectClazz;
+@property(nonatomic, assign) BOOL isPrimaryClazz;
+@property(nonatomic, assign) BOOL isValid;
+
+// attribute informations
+@property(nonatomic, assign) BOOL identicalAttribute;
+@property(nonatomic, assign) BOOL ignoreAttribute;
+@property(nonatomic, assign) BOOL weakReferenceAttribute;
+@property(nonatomic, assign) BOOL notUpdateIfValueIsNullAttribute;
+@property(nonatomic, assign) BOOL serializableAttribute;
+@property(nonatomic, assign) BOOL fetchOnRefreshingAttribute;
+@property(nonatomic, assign) BOOL onceUpdateAttribute;
+
+// data type information
+@property(nonatomic, assign) BOOL isRelationshipClazz;
+
+//
+@property(nonatomic, strong) VVDBClazz <VVSerializableAttribute> *vvclazz;
+
+// mapper methods
+- (NSArray *)storeValuesWithObject:(NSObject *)object;
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet;
+
+// statement methods
+- (NSString *)alterTableAddColumnStatement:(VVSQLiteColumnModel *)sqliteColumn;
+
 @end

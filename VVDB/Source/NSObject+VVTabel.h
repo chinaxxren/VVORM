@@ -7,7 +7,7 @@
 
 @class VVDBRuntime;
 
-@interface NSObject (VVDB)
+@interface NSObject (VVTabel)
 
 @property(nonatomic, strong) NSNumber *rowid;
 @property(nonatomic, strong) VVDBRuntime *VVRuntime;

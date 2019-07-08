@@ -4,11 +4,11 @@
 //
 
 
-#import "NSObject+VVDBObserver.h"
+#import "NSObject+VVObserver.h"
 
 #import <objc/runtime.h>
 
-@implementation NSObject (VVDBObserver)
+@implementation NSObject (VVObserver)
 
 - (NSMutableArray *)VVDBbservers {
     return objc_getAssociatedObject(self, @selector(setVVDBbservers:));

@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (VVDBObserver)
+@interface NSObject (VVObserver)
 
 @property(nonatomic, strong) NSMutableArray *VVDBbservers;
 

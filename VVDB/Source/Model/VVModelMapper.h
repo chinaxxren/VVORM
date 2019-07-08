@@ -5,6 +5,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VVDBModelMapper : NSObject
+@interface VVModelMapper : NSObject
 
 @end

@@ -5,8 +5,47 @@
 
 #import "VVDBClazzNSDecimalNumber.h"
 
+#import <FMDB/FMResultSet.h>
 
-@implementation VVDBClazzNSDecimalNumber {
+#import "VVDBConst.h"
+#import "VVDBRuntimeProperty.h"
 
+@implementation VVDBClazzNSDecimalNumber
+
+- (Class)superClazz {
+    return [NSDecimalNumber class];
 }
+
+- (NSString *)attributeType {
+    return NSStringFromClass([self superClazz]);
+}
+
+- (BOOL)isSimpleValueClazz {
+    return YES;
+}
+
+- (BOOL)isPrimaryClazz {
+    return YES;
+}
+
+- (NSArray *)storeValuesWithValue:(NSDecimalNumber *)value attribute:(VVDBRuntimeProperty *)attribute {
+    if (value) {
+        return @[value];
+    }
+    return @[[NSNull null]];
+}
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+    NSNumber *value = [resultSet objectForColumn:attribute.columnName];
+    if ([[value class] isSubclassOfClass:[NSNumber class]]) {
+        NSDecimalNumber *decimalValue = [NSDecimalNumber decimalNumberWithDecimal:[@([value doubleValue]) decimalValue]];
+        return decimalValue;
+    }
+    return nil;
+}
+
+- (NSString *)sqliteDataTypeName {
+    return SQLITE_DATA_TYPE_REAL;
+}
+
 @end

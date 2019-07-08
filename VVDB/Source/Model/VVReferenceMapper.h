@@ -4,9 +4,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VVDBModelMapper.h"
+#import "VVModelMapper.h"
 
-@interface VVDBReferenceMapper : VVDBModelMapper
+@interface VVReferenceMapper : VVModelMapper
 
 @property(nonatomic, assign) BOOL disableNotifications;
 

@@ -3,9 +3,9 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVStoreReferenceConditionModel.h"
+#import "VVDBReferenceConditionModel.h"
 
 
-@implementation VVStoreReferenceConditionModel
+@implementation VVDBReferenceConditionModel
 
 @end

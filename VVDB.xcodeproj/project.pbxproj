@@ -7,141 +7,549 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B972048C22CC4CFE00F29567 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B972048B22CC4CFE00F29567 /* AppDelegate.m */; };
-		B972048F22CC4CFE00F29567 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B972048E22CC4CFE00F29567 /* ViewController.m */; };
-		B972049222CC4CFE00F29567 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B972049022CC4CFE00F29567 /* Main.storyboard */; };
-		B972049422CC4D0000F29567 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B972049322CC4D0000F29567 /* Assets.xcassets */; };
-		B972049722CC4D0000F29567 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B972049522CC4D0000F29567 /* LaunchScreen.storyboard */; };
-		B972049A22CC4D0000F29567 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B972049922CC4D0000F29567 /* main.m */; };
-		B97204A422CC4D0000F29567 /* VVDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B97204A322CC4D0000F29567 /* VVDBTests.m */; };
-		B97204AF22CC4D0000F29567 /* VVDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B97204AE22CC4D0000F29567 /* VVDBUITests.m */; };
+		0072D251CF346E1CC8F7BDDC73F31D51 /* VVDBClazzNSDecimalNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C31DE9851D8167AF3FBBAD0137271BB /* VVDBClazzNSDecimalNumber.m */; };
+		0784F5EF99E35B42836EE15500CE3314 /* VVDBClazzNSValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F9EA57920052E14B22FECF96E569C9 /* VVDBClazzNSValue.m */; };
+		08195E2A54C717ECD8D56CF6A7F00B9C /* VVDBClazzNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 66A7B26C7D33D0EF995812F57EB20461 /* VVDBClazzNSDate.m */; };
+		0C3F4F4B931EF0CAC43E068339EDA574 /* VVModelMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */; };
+		11C7F252D3C5D2F5023AD65032F56E12 /* VVDBClazzNSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E86DAFB8A9DC35AC01F17B5DFD44C2D5 /* VVDBClazzNSNumber.m */; };
+		15E16AF6B3486627A156E3EAA0FB24F0 /* VVDBClazzNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E26AA3522D3E6136393E1EC33A6D09 /* VVDBClazzNSObject.m */; };
+		16C5F6A6A9732C7B0419B46605CF554B /* VVDBClazzNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE0AAB0726B2BFEF446B7154E3171D /* VVDBClazzNSString.m */; };
+		19965B25577AFB3703AB564C9133D1F5 /* VVPropertyEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */; };
+		1B1EF78B2F9C9D463D8FA61736BE8AF5 /* VVDBClazzDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FF78BCCB99C2D3F355ADCE35D7E08 /* VVDBClazzDouble.m */; };
+		1BC653BA033BC1B90F11F026DDD1D1CA /* VVQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */; };
+		1D274A312E0FC8BFA7666A3F71D98526 /* VVRelationshipModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVRelationshipModel.m */; };
+		209F73D0ECFE6C064B5B8575717B43EE /* VVObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */; };
+		247BAB9CBDFCBE34F4C2C14BE40D0A53 /* VVDBClazzUnsignedLongLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E5B266F7DF8D9C49C44E19B4864E7A /* VVDBClazzUnsignedLongLong.m */; };
+		259DE4522BC59A9ED54A554E3F96D237 /* VVSQLiteColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD35ECA0CA56E0AE8916ADDDC3CABAF /* VVSQLiteColumnModel.m */; };
+		25EABAD7865D721DAE3346F1D610BE80 /* VVDBClazzInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AB5414D9B3700BEF4CBF7F90F77776 /* VVDBClazzInt.m */; };
+		28CCF33C12093431FF49ACC6CDFFDE94 /* VVDBClazzLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 695600F794B6BEF3735C5E9A6FB0FC98 /* VVDBClazzLong.m */; };
+		2AE07510DEB054F063A20CEF71723A43 /* VVDBClazzNSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = DE57A814BF77EEA86BCB4C8027AE4B62 /* VVDBClazzNSURL.m */; };
+		31A30F0A3249EA0226D8D48B3CFDB58D /* libPods-VVDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */; };
+		34958DC58BDCA2DADA265E77B212EEC9 /* NSObject+VVObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */; };
+		3B03CCFB928F4DA2E1DA6D5EBB51C2AD /* VVMigrationRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = A1175FBC4B771C8CA261FC43969BF64F /* VVMigrationRuntimeProperty.m */; };
+		3E8CD03112F8D5ADF1A4CD8391C858C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F98CF2D76778DA50805B2D3FD7DCB717 /* AppDelegate.m */; };
+		423741FC72A6AAADC258CD2C3C4DFC54 /* VVDataBase+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = F75279EB2C9F5D097DB27DB3B5F06F03 /* VVDataBase+Background.m */; };
+		42A3BD9C6CBE3EF597CFB96DC9D6B99C /* VVDBClazzUnsignedInt.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EBD62AFC707F384B93F3BA357691EB /* VVDBClazzUnsignedInt.m */; };
+		42BFEE6EA0A2FA2E51D4F9076F7273E8 /* NSObject+VVAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2034607297348F23EF86BD05D50B0FCB /* NSObject+VVAutoCoding.m */; };
+		458343C864CBFB4DCFC451E6946D0710 /* VVReferenceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F92FEA4C5A99AD74EB0705724423DC85 /* VVReferenceModel.m */; };
+		50E385A0BFC3C668F55E845B330CA476 /* VVDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 390A285824180866C81C764ED9EBBE47 /* VVDataBase.m */; };
+		516FCD01AD52D71873F80C74A2CA5878 /* VVDBClazzUnsignedShort.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8C5BFC48A830B6184F54F44A125FB9 /* VVDBClazzUnsignedShort.m */; };
+		528E99E6FF8DD4E052568395C92A574A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E42C65E4C74123084718BBE0243B94F /* LaunchScreen.storyboard */; };
+		5576F09C554B460BEE177E15F032F776 /* VVDBSQLiteConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7A7A79E331E21B9F1788080DFA8F54 /* VVDBSQLiteConditionModel.m */; };
+		58B37021C4F079AA59B5F841B44198BD /* FMDatabase+IndexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */; };
+		59A2A71B738F47F1C0AC1CB8DB8A5D4B /* VVPropertyType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */; };
+		5D58494A88F8729E88B77250494AD719 /* VVNameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 150E2D670D7B9708F1F54228D20A2A3E /* VVNameBuilder.m */; };
+		5F2FCA20DC41A152B1223A918EA85118 /* NSObject+VVTabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */; };
+		68C926F19C0C1B56EB1D3DC5BD7093EF /* VVDBRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FF729B2E6F20FA45C89E2571F2ED4 /* VVDBRuntimeProperty.m */; };
+		6C742A8FF92A97D985A1C1A5E24B560D /* VVNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */; };
+		6E778E77F2B27512B9711C6D09E03549 /* VVDBClazzShort.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A67C09C8F6983E851EAFB80A15F4A /* VVDBClazzShort.m */; };
+		7F3FCC3D8EC94540292B5084AF3C370C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */; };
+		8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */; };
+		80F15BA08D4FA78BB72560473F42B750 /* VVDBClazzNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1399488AA7AE22913FE9F551E8141381 /* VVDBClazzNSArray.m */; };
+		812280B370803134C8FCDB5A2FFFB5FC /* VVDBClazzUnsignedLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FF3818E740BA1A74EE4CC0C63C3C6B /* VVDBClazzUnsignedLong.m */; };
+		84ACD60EBCA64DCD1D5A633C835F9E5C /* VVDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */; };
+		8CDA0571237342E5A03DD77071A5C2BB /* VVReferenceMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */; };
+		99C83C176DE9D7644C9F3267C9E84D01 /* VVMigrationRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */; };
+		A25CC0A975321809D8176FD69F1CCCC7 /* VVDBClazzUnsignedChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 273DDFC9E73861205003873C7ED930C2 /* VVDBClazzUnsignedChar.m */; };
+		A64664786A0FB2D1DBFC29003F7144DF /* VVDBConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D3227278834726943CF1224C018448 /* VVDBConditionModel.m */; };
+		B295FC18C83206BC1D78D394C4425BF7 /* VVDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */; };
+		B2D44EF72AC93331D57D08C388DAE2AC /* VVDBClazzFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB180F6248CF61F87FC530DAB141C77 /* VVDBClazzFloat.m */; };
+		B7F2DF745967DDC02D27639D650F572A /* VVDBRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = D95605962711DC4BBBCB2C0851DE8804 /* VVDBRuntime.m */; };
+		B90E134D330A9EAEAA3976B2973A552C /* VVDBClazzLongLong.m in Sources */ = {isa = PBXBuildFile; fileRef = 074D876D437F523CCFC85AA9F296267D /* VVDBClazzLongLong.m */; };
+		BC2FDFC523CA4D49D4E9F52FE3878CF4 /* VVDBClazzNSMutableString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8B69C000BF7F53D55B8BA60466A69E /* VVDBClazzNSMutableString.m */; };
+		BEE3BA1C738973518506664D11AA8A26 /* VVClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */; };
+		BF464AF3F9669C0E0B23D8A7A00B6503 /* VVMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8388B4F82123657399D0D11578F790 /* VVMigration.m */; };
+		C12964776AE287EA25127E22F05FC159 /* VVDBClazzSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EBC89A31DFE7754A4C100619E256893 /* VVDBClazzSerialize.m */; };
+		C2DADAB7ED28DF7AE0489E2826B48239 /* VVDBClazz.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2147734F354FB17CF6E7044A31E936 /* VVDBClazz.m */; };
+		C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */; };
+		C3AE6513A089734A83A16FC4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE60ECF1D259B7B50DA3FB /* User.m */; };
+		C3AE652E33E525D77C6237B5 /* VVDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE64582165A3D54881A411 /* VVDataBaseManager.m */; };
+		C3AE65F64A07F79B6C09FB17 /* AppContent.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6726AD9D6F568BBE13E9 /* AppContent.m */; };
+		C3AE6B4862F0893D76EC27D3 /* Download.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE604D0B9CA12385E82247 /* Download.m */; };
+		CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50569A531FAE0EB9692310D615EC246E /* ViewController.m */; };
+		D0C35F0C65C4F8A6B72CD5CC6F30D6CC /* VVProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AF1F60C58D243DC9B88FF9945D2909 /* VVProperty.m */; };
+		D0F864B4F52F05D40E80EF4EABA632D1 /* VVDBClazzID.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FE97A8B32F11BCB31166D59482BCAE /* VVDBClazzID.m */; };
+		D8D0DD38FDFF6A2045C73B24019C1193 /* VVDBClazzNSData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAC4EF0F1359B824D35A1C40C53E70 /* VVDBClazzNSData.m */; };
+		E5708548C98FD6B10D0AA99E73E145C7 /* VVDBReferenceConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */; };
+		EACFDBCD736B40E03A9C3960A5F4992F /* VVDBClazzChar.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D89F3B8B37C3D82736B706569BB111 /* VVDBClazzChar.m */; };
+		EC65E887CC6996CF72F868843A3E5A74 /* VVDBClazzC99Bool.m in Sources */ = {isa = PBXBuildFile; fileRef = 748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzC99Bool.m */; };
+		F01AB146650361C14B744484C9DDFE6C /* VVMigrationTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F0ECC971FE769BFF30F2E899F1FD39E1 /* VVMigrationTable.m */; };
+		F064103AE9FF1F6722E5BAA61177C8FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */; };
+		F0A08DEE637180A8C7C58B5FF6544F85 /* VVDBClazzNSNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 46DB3D33DAD722DE90E6CD1031BB7533 /* VVDBClazzNSNull.m */; };
+		F82E94AB8A316B7B28EACE93A88BFC11 /* VVDBConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFC8702C160D2FBFFC04CD2F7986593 /* VVDBConst.m */; };
+		FBFD9A7217243518F394E91232A1C99A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EAEBFF67C5DD72130A02B6BE92368F6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B97204A022CC4D0000F29567 /* PBXContainerItemProxy */ = {
+		5CB77FAB02DD5EE9DF060E732CA21EA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B972047F22CC4CFE00F29567 /* Project object */;
+			containerPortal = 11DB34C583BC2AF8463707E8426669DD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B972048622CC4CFE00F29567;
+			remoteGlobalIDString = 98DC8D40D2442EB491152386566B9EEB;
 			remoteInfo = VVDB;
 		};
-		B97204AB22CC4D0000F29567 /* PBXContainerItemProxy */ = {
+		A1C5D897C260B14F0A7D5932280D0E71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B972047F22CC4CFE00F29567 /* Project object */;
+			containerPortal = 11DB34C583BC2AF8463707E8426669DD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B972048622CC4CFE00F29567;
+			remoteGlobalIDString = 98DC8D40D2442EB491152386566B9EEB;
 			remoteInfo = VVDB;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B972048722CC4CFE00F29567 /* VVDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B972048A22CC4CFE00F29567 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B972048B22CC4CFE00F29567 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B972048D22CC4CFE00F29567 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B972048E22CC4CFE00F29567 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B972049122CC4CFE00F29567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B972049322CC4D0000F29567 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B972049622CC4D0000F29567 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B972049822CC4D0000F29567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B972049922CC4D0000F29567 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B972049F22CC4D0000F29567 /* VVDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B97204A322CC4D0000F29567 /* VVDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBTests.m; sourceTree = "<group>"; };
-		B97204A522CC4D0000F29567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B97204AA22CC4D0000F29567 /* VVDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B97204AE22CC4D0000F29567 /* VVDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBUITests.m; sourceTree = "<group>"; };
-		B97204B022CC4D0000F29567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVDB.release.xcconfig"; path = "Target Support Files/Pods-VVDB/Pods-VVDB.release.xcconfig"; sourceTree = "<group>"; };
+		043FF78BCCB99C2D3F355ADCE35D7E08 /* VVDBClazzDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzDouble.m; sourceTree = "<group>"; };
+		04DAC4EF0F1359B824D35A1C40C53E70 /* VVDBClazzNSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSData.m; sourceTree = "<group>"; };
+		074D876D437F523CCFC85AA9F296267D /* VVDBClazzLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzLongLong.m; sourceTree = "<group>"; };
+		1079BCEDE55CAFDECA3D140BC7FDE6F4 /* VVNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVNotificationCenter.h; sourceTree = "<group>"; };
+		13689AD7C02AB601B61A9F47C1324D3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1399488AA7AE22913FE9F551E8141381 /* VVDBClazzNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSArray.m; sourceTree = "<group>"; };
+		150E2D670D7B9708F1F54228D20A2A3E /* VVNameBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVNameBuilder.m; sourceTree = "<group>"; };
+		17AB5414D9B3700BEF4CBF7F90F77776 /* VVDBClazzInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzInt.m; sourceTree = "<group>"; };
+		1C05566E9314601BD340EDC1BCA5E89E /* VVMigrationTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationTable.h; sourceTree = "<group>"; };
+		1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyType.m; sourceTree = "<group>"; };
+		1CB180F6248CF61F87FC530DAB141C77 /* VVDBClazzFloat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzFloat.m; sourceTree = "<group>"; };
+		1EBC89A31DFE7754A4C100619E256893 /* VVDBClazzSerialize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzSerialize.m; sourceTree = "<group>"; };
+		2034607297348F23EF86BD05D50B0FCB /* NSObject+VVAutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVAutoCoding.m"; sourceTree = "<group>"; };
+		2091D5782BC1299E1865B910A1E3D204 /* NSObject+VVObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVObserver.h"; sourceTree = "<group>"; };
+		2104DD9EB8B6A607F7C0F2F3CB451B85 /* VVDBClazzNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSData.h; sourceTree = "<group>"; };
+		2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyEncoding.m; sourceTree = "<group>"; };
+		24E5B266F7DF8D9C49C44E19B4864E7A /* VVDBClazzUnsignedLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzUnsignedLongLong.m; sourceTree = "<group>"; };
+		26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVObserver.m; sourceTree = "<group>"; };
+		26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationQueryBuilder.m; sourceTree = "<group>"; };
+		273DDFC9E73861205003873C7ED930C2 /* VVDBClazzUnsignedChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzUnsignedChar.m; sourceTree = "<group>"; };
+		29101846270BF95D7850BFC007465AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C6B577D0B56FFAAF463B265F27D1BB1 /* VVDBClazzUnsignedShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzUnsignedShort.h; sourceTree = "<group>"; };
+		2E70C33030D1DC17205FDD395065DE9B /* VVSQLiteColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVSQLiteColumnModel.h; sourceTree = "<group>"; };
+		2FFC8702C160D2FBFFC04CD2F7986593 /* VVDBConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBConst.m; sourceTree = "<group>"; };
+		301630BB39D34EEC8ADA38824B98CA5A /* VVDBClazzNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSDate.h; sourceTree = "<group>"; };
+		327F3C9746B6F0459EFC31116F68D5DE /* VVDBClazzUnsignedLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzUnsignedLong.h; sourceTree = "<group>"; };
+		3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		338FDF52E5F5EA2DAA721FBBCA823CE9 /* VVDBClazzNSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSValue.h; sourceTree = "<group>"; };
+		390A285824180866C81C764ED9EBBE47 /* VVDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBase.m; sourceTree = "<group>"; };
+		39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		418D11855E37148D089973728C50BDBB /* VVDBClazzInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzInt.h; sourceTree = "<group>"; };
+		444A2716663CA0A4CCB72ABF524618DA /* VVRelationshipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRelationshipModel.h; sourceTree = "<group>"; };
+		44FDFAF78F184A464EB01CCCDC2B077A /* VVDBClazz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazz.h; sourceTree = "<group>"; };
+		46DB3D33DAD722DE90E6CD1031BB7533 /* VVDBClazzNSNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSNull.m; sourceTree = "<group>"; };
+		4A6ED129B1511F8E27210AABB080F2BE /* VVPropertyEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyEncoding.h; sourceTree = "<group>"; };
+		4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVObserver.m"; sourceTree = "<group>"; };
+		4B7A7A79E331E21B9F1788080DFA8F54 /* VVDBSQLiteConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBSQLiteConditionModel.m; sourceTree = "<group>"; };
+		4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClassProperty.m; sourceTree = "<group>"; };
+		4E5E7CBA5402CDEAD1A52DD01D9E7526 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBReferenceConditionModel.m; sourceTree = "<group>"; };
+		50569A531FAE0EB9692310D615EC246E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		50D07794EB8240DE31E3664B1229EA1A /* VVReferenceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceModel.h; sourceTree = "<group>"; };
+		53AF1F60C58D243DC9B88FF9945D2909 /* VVProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVProperty.m; sourceTree = "<group>"; };
+		56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVNotificationCenter.m; sourceTree = "<group>"; };
+		56CEE965F095E12DEAD13681033B4F47 /* VVDBClazzID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzID.h; sourceTree = "<group>"; };
+		58342F4AFC544C31BD035E4DD1D8E8F5 /* VVDBClazzLongLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzLongLong.h; sourceTree = "<group>"; };
+		584FF729B2E6F20FA45C89E2571F2ED4 /* VVDBRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBRuntimeProperty.m; sourceTree = "<group>"; };
+		5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VVDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVModelMapper.m; sourceTree = "<group>"; };
+		59FF3818E740BA1A74EE4CC0C63C3C6B /* VVDBClazzUnsignedLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzUnsignedLong.m; sourceTree = "<group>"; };
+		5B8D8FFFBA897CED68463951EF07DEC7 /* VVDBClazzNSNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSNull.h; sourceTree = "<group>"; };
+		5BDC01C9493A57C761C2CC02BC1EDDCC /* NSObject+VVTabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVTabel.h"; sourceTree = "<group>"; };
+		5F3725921DE611A3168B38C9CE90318A /* VVModelMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelMapper.h; sourceTree = "<group>"; };
+		5FB3E43AB43742D2BEED8131325EDDE1 /* VVDBClazzNSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSArray.h; sourceTree = "<group>"; };
+		64FFEE72924127A183DB7064E657A426 /* VVDBReferenceConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBReferenceConditionModel.h; sourceTree = "<group>"; };
+		66A7B26C7D33D0EF995812F57EB20461 /* VVDBClazzNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSDate.m; sourceTree = "<group>"; };
+		695600F794B6BEF3735C5E9A6FB0FC98 /* VVDBClazzLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzLong.m; sourceTree = "<group>"; };
+		6A2147734F354FB17CF6E7044A31E936 /* VVDBClazz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazz.m; sourceTree = "<group>"; };
+		6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVQueryBuilder.m; sourceTree = "<group>"; };
+		6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVRelationshipModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRelationshipModel.m; sourceTree = "<group>"; };
+		7057288CB7D896AB146B89EBB8D44A3E /* VVReferenceMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceMapper.h; sourceTree = "<group>"; };
+		748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzC99Bool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzC99Bool.m; sourceTree = "<group>"; };
+		74EBD62AFC707F384B93F3BA357691EB /* VVDBClazzUnsignedInt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzUnsignedInt.m; sourceTree = "<group>"; };
+		75EA71FCCAB899369929FDAEC40D33B8 /* VVDBSQLiteConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBSQLiteConditionModel.h; sourceTree = "<group>"; };
+		77F9EA57920052E14B22FECF96E569C9 /* VVDBClazzNSValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSValue.m; sourceTree = "<group>"; };
+		792650FAC93A8C8D738927AA4BB81E59 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7C31DE9851D8167AF3FBBAD0137271BB /* VVDBClazzNSDecimalNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSDecimalNumber.m; sourceTree = "<group>"; };
+		81990509E773828D6B9A0FEB85C12CF6 /* VVDBRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBRuntime.h; sourceTree = "<group>"; };
+		8243A4E30BF427DBCF0FC8FB751DFCE2 /* VVDBClazzSerialize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzSerialize.h; sourceTree = "<group>"; };
+		84DF07B5ED2B7DF80BD92F77D2494775 /* VVModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelInterface.h; sourceTree = "<group>"; };
+		886A4D0365E5B5D68A8F7EC340D9B5B0 /* VVDBClazzFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzFloat.h; sourceTree = "<group>"; };
+		8A7473BC3FDB186D2EAD727C2F010930 /* VVDBClazzNSURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSURL.h; sourceTree = "<group>"; };
+		8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBUITests.m; sourceTree = "<group>"; };
+		8B8B69C000BF7F53D55B8BA60466A69E /* VVDBClazzNSMutableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSMutableString.m; sourceTree = "<group>"; };
+		8C94BD02511712F07B7C75819EDC6765 /* VVDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBase.h; sourceTree = "<group>"; };
+		8D46171DAEC577D90FEC65DDD6DB7755 /* VVPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyType.h; sourceTree = "<group>"; };
+		8DE9EEA50C45E9C9C18E08F310C46B50 /* VVDBClazzLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzLong.h; sourceTree = "<group>"; };
+		9001D9524CC1DDA385E703FFA7DF7371 /* VVMigrationQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationQueryBuilder.h; sourceTree = "<group>"; };
+		90D89F3B8B37C3D82736B706569BB111 /* VVDBClazzChar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzChar.m; sourceTree = "<group>"; };
+		933E601DEAA65BADE2E24FCDC9038364 /* VVDBRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBRuntimeProperty.h; sourceTree = "<group>"; };
+		9735B52B9C7022FA7182D506D6D789C3 /* VVDBClazzC99Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzC99Bool.h; sourceTree = "<group>"; };
+		98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVTabel.m"; sourceTree = "<group>"; };
+		98FA70E616F93E376B8A1043FDEEB0E9 /* VVDataBase+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VVDataBase+Background.h"; sourceTree = "<group>"; };
+		99DF0317FF7D1D4CAA3B8838F764805A /* VVObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVObserver.h; sourceTree = "<group>"; };
+		9B8388B4F82123657399D0D11578F790 /* VVMigration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigration.m; sourceTree = "<group>"; };
+		A1175FBC4B771C8CA261FC43969BF64F /* VVMigrationRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntimeProperty.m; sourceTree = "<group>"; };
+		A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBTests.m; sourceTree = "<group>"; };
+		A5FF295DBFB9393D515D302A5D44804D /* VVDBClazzChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzChar.h; sourceTree = "<group>"; };
+		AAB5BC4A3FCCD29A9B6A8A47AAF9AF6D /* VVDBClazzNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSObject.h; sourceTree = "<group>"; };
+		ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AEEDD62D25D03473934269764CEFDA8F /* VVDBClazzDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzDouble.h; sourceTree = "<group>"; };
+		AF8C5BFC48A830B6184F54F44A125FB9 /* VVDBClazzUnsignedShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzUnsignedShort.m; sourceTree = "<group>"; };
+		B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B103E653D8329C6C9D2115C71A43E934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7810777C8E04FCA47F165B3EC83CB3B /* VVClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClassProperty.h; sourceTree = "<group>"; };
+		BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntime.m; sourceTree = "<group>"; };
+		C2600E5FC975816167ED8D0DFB926120 /* FMDatabase+IndexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+IndexInfo.h"; sourceTree = "<group>"; };
+		C3AE604D0B9CA12385E82247 /* Download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Download.m; sourceTree = "<group>"; };
+		C3AE60ECF1D259B7B50DA3FB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C3AE64582165A3D54881A411 /* VVDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBaseManager.m; sourceTree = "<group>"; };
+		C3AE66A0422A5FF3835F8D0C /* Download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Download.h; sourceTree = "<group>"; };
+		C3AE6726AD9D6F568BBE13E9 /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
+		C3AE6A86A28DB3128AE83406 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C3AE6ABD6FFA3C7DD30CDA2C /* AppContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppContent.h; sourceTree = "<group>"; };
+		C3AE6B12356CB74E9F98DAED /* VVDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBaseManager.h; sourceTree = "<group>"; };
+		C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4765467939FA9D01160618217427865 /* VVMigrationRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationRuntimeProperty.h; sourceTree = "<group>"; };
+		C52DEBCF9CDAF3A52E6610D200FCC672 /* VVDBClazzUnsignedInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzUnsignedInt.h; sourceTree = "<group>"; };
+		C6565B0B6C92DE67A53A69CDB0F0626A /* VVDBClazzNSDecimalNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSDecimalNumber.h; sourceTree = "<group>"; };
+		C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVDB.debug.xcconfig"; path = "Target Support Files/Pods-VVDB/Pods-VVDB.debug.xcconfig"; sourceTree = "<group>"; };
+		C9FE7DEC2F92C4E112328E340FAAA2FB /* VVDBClazzShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzShort.h; sourceTree = "<group>"; };
+		CC97AA83733A16B4BE0FC0CFE76F976F /* VVDBClazzNSMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSMutableString.h; sourceTree = "<group>"; };
+		CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+IndexInfo.m"; sourceTree = "<group>"; };
+		D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2A7BD02EEFDC8C6991E8C304752FBA5 /* VVQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVQueryBuilder.h; sourceTree = "<group>"; };
+		D4FE97A8B32F11BCB31166D59482BCAE /* VVDBClazzID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzID.m; sourceTree = "<group>"; };
+		D7D3227278834726943CF1224C018448 /* VVDBConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBConditionModel.m; sourceTree = "<group>"; };
+		D95605962711DC4BBBCB2C0851DE8804 /* VVDBRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBRuntime.m; sourceTree = "<group>"; };
+		DC1A67C09C8F6983E851EAFB80A15F4A /* VVDBClazzShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzShort.m; sourceTree = "<group>"; };
+		DE57A814BF77EEA86BCB4C8027AE4B62 /* VVDBClazzNSURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSURL.m; sourceTree = "<group>"; };
+		DE5BD6C3A056C45C7F7CF94AF1595DB7 /* VVDBClazzUnsignedLongLong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzUnsignedLongLong.h; sourceTree = "<group>"; };
+		E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceMapper.m; sourceTree = "<group>"; };
+		E11F7F548827D13EAA14F63A9FE0E950 /* VVMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigration.h; sourceTree = "<group>"; };
+		E1E26AA3522D3E6136393E1EC33A6D09 /* VVDBClazzNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSObject.m; sourceTree = "<group>"; };
+		E22F18F85678F4BC99158B21281B7BFF /* VVProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVProperty.h; sourceTree = "<group>"; };
+		E3B3C11B25253B24F9EBB154EE2848FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E53F040918DCE7D2975B994DCF047EF6 /* VVDBClazzNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSString.h; sourceTree = "<group>"; };
+		E5FE0AAB0726B2BFEF446B7154E3171D /* VVDBClazzNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSString.m; sourceTree = "<group>"; };
+		E6AB09AA52292268D1CC3C6F4AA4EA16 /* VVDBClazzNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzNSNumber.h; sourceTree = "<group>"; };
+		E74BC94A4DD4AB35F92DA90A3805C20A /* VVNameBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVNameBuilder.h; sourceTree = "<group>"; };
+		E86DAFB8A9DC35AC01F17B5DFD44C2D5 /* VVDBClazzNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDBClazzNSNumber.m; sourceTree = "<group>"; };
+		EB778877FCC42799029314BF498B61D7 /* VVDBConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBConst.h; sourceTree = "<group>"; };
+		EFE4816C95F557AA57261A37C6741711 /* VVMigrationRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationRuntime.h; sourceTree = "<group>"; };
+		F0ECC971FE769BFF30F2E899F1FD39E1 /* VVMigrationTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationTable.m; sourceTree = "<group>"; };
+		F75279EB2C9F5D097DB27DB3B5F06F03 /* VVDataBase+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VVDataBase+Background.m"; sourceTree = "<group>"; };
+		F76605C06410951C6B97F85C60FBE2DD /* NSObject+VVAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVAutoCoding.h"; sourceTree = "<group>"; };
+		F78F940D7A9A68513EB4A9662A65672C /* VVDBClazzUnsignedChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBClazzUnsignedChar.h; sourceTree = "<group>"; };
+		F92FEA4C5A99AD74EB0705724423DC85 /* VVReferenceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceModel.m; sourceTree = "<group>"; };
+		F98CF2D76778DA50805B2D3FD7DCB717 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FBD35ECA0CA56E0AE8916ADDDC3CABAF /* VVSQLiteColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSQLiteColumnModel.m; sourceTree = "<group>"; };
+		FBD58F37A61F673558A6045F5A3DEA0F /* VVDBConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDBConditionModel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B972048422CC4CFE00F29567 /* Frameworks */ = {
+		3B114D4DA3FA2E994A8E2B7FE1BCCF3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B972049C22CC4D0000F29567 /* Frameworks */ = {
+		61C1B3035DA9485780CEEC4F8E29757D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B97204A722CC4D0000F29567 /* Frameworks */ = {
+		6FD0B1589831A6339AF6274919DDB96E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A30F0A3249EA0226D8D48B3CFDB58D /* libPods-VVDB.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B972047E22CC4CFE00F29567 = {
+		06EF2BAFE5B84542CF39371CD8B4DC5D /* Condition */ = {
 			isa = PBXGroup;
 			children = (
-				B972048922CC4CFE00F29567 /* VVDB */,
-				B97204A222CC4D0000F29567 /* VVDBTests */,
-				B97204AD22CC4D0000F29567 /* VVDBUITests */,
-				B972048822CC4CFE00F29567 /* Products */,
+				FBD58F37A61F673558A6045F5A3DEA0F /* VVDBConditionModel.h */,
+				D7D3227278834726943CF1224C018448 /* VVDBConditionModel.m */,
+				64FFEE72924127A183DB7064E657A426 /* VVDBReferenceConditionModel.h */,
+				4F1164334852F63A9987854DF68FDF05 /* VVDBReferenceConditionModel.m */,
+				75EA71FCCAB899369929FDAEC40D33B8 /* VVDBSQLiteConditionModel.h */,
+				4B7A7A79E331E21B9F1788080DFA8F54 /* VVDBSQLiteConditionModel.m */,
 			);
+			path = Condition;
 			sourceTree = "<group>";
 		};
-		B972048822CC4CFE00F29567 /* Products */ = {
+		2AE417007AA176A67F82142D8E71CC46 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B972048722CC4CFE00F29567 /* VVDB.app */,
-				B972049F22CC4D0000F29567 /* VVDBTests.xctest */,
-				B97204AA22CC4D0000F29567 /* VVDBUITests.xctest */,
+				D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */,
+				B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */,
+				39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B972048922CC4CFE00F29567 /* VVDB */ = {
+		304F333625AF8938AEAE855DA2BA6D89 /* Propterty */ = {
 			isa = PBXGroup;
 			children = (
-				B972048A22CC4CFE00F29567 /* AppDelegate.h */,
-				B972048B22CC4CFE00F29567 /* AppDelegate.m */,
-				B972048D22CC4CFE00F29567 /* ViewController.h */,
-				B972048E22CC4CFE00F29567 /* ViewController.m */,
-				B972049022CC4CFE00F29567 /* Main.storyboard */,
-				B972049322CC4D0000F29567 /* Assets.xcassets */,
-				B972049522CC4D0000F29567 /* LaunchScreen.storyboard */,
-				B972049822CC4D0000F29567 /* Info.plist */,
-				B972049922CC4D0000F29567 /* main.m */,
+				B7810777C8E04FCA47F165B3EC83CB3B /* VVClassProperty.h */,
+				4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */,
+				81990509E773828D6B9A0FEB85C12CF6 /* VVDBRuntime.h */,
+				D95605962711DC4BBBCB2C0851DE8804 /* VVDBRuntime.m */,
+				E22F18F85678F4BC99158B21281B7BFF /* VVProperty.h */,
+				53AF1F60C58D243DC9B88FF9945D2909 /* VVProperty.m */,
+				4A6ED129B1511F8E27210AABB080F2BE /* VVPropertyEncoding.h */,
+				2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */,
+				8D46171DAEC577D90FEC65DDD6DB7755 /* VVPropertyType.h */,
+				1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */,
 			);
-			path = VVDB;
+			path = Propterty;
 			sourceTree = "<group>";
 		};
-		B97204A222CC4D0000F29567 /* VVDBTests */ = {
+		368079EB873524017FCAE8E34E8A66FC /* VVDBUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B97204A322CC4D0000F29567 /* VVDBTests.m */,
-				B97204A522CC4D0000F29567 /* Info.plist */,
+				B103E653D8329C6C9D2115C71A43E934 /* Info.plist */,
+				8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */,
+			);
+			path = VVDBUITests;
+			sourceTree = "<group>";
+		};
+		370DFF8ADFDB7AB163B90CBA3C520AA8 = {
+			isa = PBXGroup;
+			children = (
+				804BABB59476401FE82CA7DF349EB500 /* Frameworks */,
+				6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */,
+				379BFD789B0DCD6369615C78264254BE /* Pods */,
+				2AE417007AA176A67F82142D8E71CC46 /* Products */,
+				CDE6DDB0454F461FE54FBFAF1AD26361 /* VVDB */,
+				68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVDBTests */,
+				368079EB873524017FCAE8E34E8A66FC /* VVDBUITests */,
+			);
+			sourceTree = "<group>";
+		};
+		379BFD789B0DCD6369615C78264254BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */,
+				0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		52AE3C70395CFD859F723876FEA5DB70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B4378D84A9F3E8E2D01EFA165045088 /* Migration */,
+				5F3725921DE611A3168B38C9CE90318A /* VVModelMapper.h */,
+				59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */,
+				7057288CB7D896AB146B89EBB8D44A3E /* VVReferenceMapper.h */,
+				E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVDBTests */ = {
+			isa = PBXGroup;
+			children = (
+				29101846270BF95D7850BFC007465AF9 /* Info.plist */,
+				A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */,
 			);
 			path = VVDBTests;
 			sourceTree = "<group>";
 		};
-		B97204AD22CC4D0000F29567 /* VVDBUITests */ = {
+		804BABB59476401FE82CA7DF349EB500 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B97204AE22CC4D0000F29567 /* VVDBUITests.m */,
-				B97204B022CC4D0000F29567 /* Info.plist */,
+				5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */,
 			);
-			path = VVDBUITests;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B4378D84A9F3E8E2D01EFA165045088 /* Migration */ = {
+			isa = PBXGroup;
+			children = (
+				E11F7F548827D13EAA14F63A9FE0E950 /* VVMigration.h */,
+				9B8388B4F82123657399D0D11578F790 /* VVMigration.m */,
+				9001D9524CC1DDA385E703FFA7DF7371 /* VVMigrationQueryBuilder.h */,
+				26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */,
+				EFE4816C95F557AA57261A37C6741711 /* VVMigrationRuntime.h */,
+				BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */,
+				C4765467939FA9D01160618217427865 /* VVMigrationRuntimeProperty.h */,
+				A1175FBC4B771C8CA261FC43969BF64F /* VVMigrationRuntimeProperty.m */,
+			);
+			path = Migration;
+			sourceTree = "<group>";
+		};
+		B95044CB076F02259E48DA7734A9007A /* Clazz */ = {
+			isa = PBXGroup;
+			children = (
+				44FDFAF78F184A464EB01CCCDC2B077A /* VVDBClazz.h */,
+				6A2147734F354FB17CF6E7044A31E936 /* VVDBClazz.m */,
+				9735B52B9C7022FA7182D506D6D789C3 /* VVDBClazzC99Bool.h */,
+				748D4763F18407AD410F1FEB8EC969E0 /* VVDBClazzC99Bool.m */,
+				A5FF295DBFB9393D515D302A5D44804D /* VVDBClazzChar.h */,
+				90D89F3B8B37C3D82736B706569BB111 /* VVDBClazzChar.m */,
+				AEEDD62D25D03473934269764CEFDA8F /* VVDBClazzDouble.h */,
+				043FF78BCCB99C2D3F355ADCE35D7E08 /* VVDBClazzDouble.m */,
+				886A4D0365E5B5D68A8F7EC340D9B5B0 /* VVDBClazzFloat.h */,
+				1CB180F6248CF61F87FC530DAB141C77 /* VVDBClazzFloat.m */,
+				56CEE965F095E12DEAD13681033B4F47 /* VVDBClazzID.h */,
+				D4FE97A8B32F11BCB31166D59482BCAE /* VVDBClazzID.m */,
+				418D11855E37148D089973728C50BDBB /* VVDBClazzInt.h */,
+				17AB5414D9B3700BEF4CBF7F90F77776 /* VVDBClazzInt.m */,
+				8DE9EEA50C45E9C9C18E08F310C46B50 /* VVDBClazzLong.h */,
+				695600F794B6BEF3735C5E9A6FB0FC98 /* VVDBClazzLong.m */,
+				58342F4AFC544C31BD035E4DD1D8E8F5 /* VVDBClazzLongLong.h */,
+				074D876D437F523CCFC85AA9F296267D /* VVDBClazzLongLong.m */,
+				5FB3E43AB43742D2BEED8131325EDDE1 /* VVDBClazzNSArray.h */,
+				1399488AA7AE22913FE9F551E8141381 /* VVDBClazzNSArray.m */,
+				2104DD9EB8B6A607F7C0F2F3CB451B85 /* VVDBClazzNSData.h */,
+				04DAC4EF0F1359B824D35A1C40C53E70 /* VVDBClazzNSData.m */,
+				301630BB39D34EEC8ADA38824B98CA5A /* VVDBClazzNSDate.h */,
+				66A7B26C7D33D0EF995812F57EB20461 /* VVDBClazzNSDate.m */,
+				C6565B0B6C92DE67A53A69CDB0F0626A /* VVDBClazzNSDecimalNumber.h */,
+				7C31DE9851D8167AF3FBBAD0137271BB /* VVDBClazzNSDecimalNumber.m */,
+				CC97AA83733A16B4BE0FC0CFE76F976F /* VVDBClazzNSMutableString.h */,
+				8B8B69C000BF7F53D55B8BA60466A69E /* VVDBClazzNSMutableString.m */,
+				5B8D8FFFBA897CED68463951EF07DEC7 /* VVDBClazzNSNull.h */,
+				46DB3D33DAD722DE90E6CD1031BB7533 /* VVDBClazzNSNull.m */,
+				E6AB09AA52292268D1CC3C6F4AA4EA16 /* VVDBClazzNSNumber.h */,
+				E86DAFB8A9DC35AC01F17B5DFD44C2D5 /* VVDBClazzNSNumber.m */,
+				AAB5BC4A3FCCD29A9B6A8A47AAF9AF6D /* VVDBClazzNSObject.h */,
+				E1E26AA3522D3E6136393E1EC33A6D09 /* VVDBClazzNSObject.m */,
+				E53F040918DCE7D2975B994DCF047EF6 /* VVDBClazzNSString.h */,
+				E5FE0AAB0726B2BFEF446B7154E3171D /* VVDBClazzNSString.m */,
+				8A7473BC3FDB186D2EAD727C2F010930 /* VVDBClazzNSURL.h */,
+				DE57A814BF77EEA86BCB4C8027AE4B62 /* VVDBClazzNSURL.m */,
+				338FDF52E5F5EA2DAA721FBBCA823CE9 /* VVDBClazzNSValue.h */,
+				77F9EA57920052E14B22FECF96E569C9 /* VVDBClazzNSValue.m */,
+				8243A4E30BF427DBCF0FC8FB751DFCE2 /* VVDBClazzSerialize.h */,
+				1EBC89A31DFE7754A4C100619E256893 /* VVDBClazzSerialize.m */,
+				C9FE7DEC2F92C4E112328E340FAAA2FB /* VVDBClazzShort.h */,
+				DC1A67C09C8F6983E851EAFB80A15F4A /* VVDBClazzShort.m */,
+				F78F940D7A9A68513EB4A9662A65672C /* VVDBClazzUnsignedChar.h */,
+				273DDFC9E73861205003873C7ED930C2 /* VVDBClazzUnsignedChar.m */,
+				C52DEBCF9CDAF3A52E6610D200FCC672 /* VVDBClazzUnsignedInt.h */,
+				74EBD62AFC707F384B93F3BA357691EB /* VVDBClazzUnsignedInt.m */,
+				327F3C9746B6F0459EFC31116F68D5DE /* VVDBClazzUnsignedLong.h */,
+				59FF3818E740BA1A74EE4CC0C63C3C6B /* VVDBClazzUnsignedLong.m */,
+				DE5BD6C3A056C45C7F7CF94AF1595DB7 /* VVDBClazzUnsignedLongLong.h */,
+				24E5B266F7DF8D9C49C44E19B4864E7A /* VVDBClazzUnsignedLongLong.m */,
+				2C6B577D0B56FFAAF463B265F27D1BB1 /* VVDBClazzUnsignedShort.h */,
+				AF8C5BFC48A830B6184F54F44A125FB9 /* VVDBClazzUnsignedShort.m */,
+				EB778877FCC42799029314BF498B61D7 /* VVDBConst.h */,
+				2FFC8702C160D2FBFFC04CD2F7986593 /* VVDBConst.m */,
+				933E601DEAA65BADE2E24FCDC9038364 /* VVDBRuntimeProperty.h */,
+				584FF729B2E6F20FA45C89E2571F2ED4 /* VVDBRuntimeProperty.m */,
+			);
+			path = Clazz;
+			sourceTree = "<group>";
+		};
+		C7EA33761BE579F94D25251A6B128C11 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B95044CB076F02259E48DA7734A9007A /* Clazz */,
+				06EF2BAFE5B84542CF39371CD8B4DC5D /* Condition */,
+				CF71FE68AE71CB34F9ED7BA896486EC5 /* DataBase */,
+				52AE3C70395CFD859F723876FEA5DB70 /* Model */,
+				E22680F744378DEC8FB8BB7B39617771 /* Notice */,
+				304F333625AF8938AEAE855DA2BA6D89 /* Propterty */,
+				DAD824F5F925D128473A048FA0321B5F /* Table */,
+				C2600E5FC975816167ED8D0DFB926120 /* FMDatabase+IndexInfo.h */,
+				CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */,
+				F76605C06410951C6B97F85C60FBE2DD /* NSObject+VVAutoCoding.h */,
+				2034607297348F23EF86BD05D50B0FCB /* NSObject+VVAutoCoding.m */,
+				5BDC01C9493A57C761C2CC02BC1EDDCC /* NSObject+VVTabel.h */,
+				98CF74E527D4AA4D2D8F467EC00910CB /* NSObject+VVTabel.m */,
+				84DF07B5ED2B7DF80BD92F77D2494775 /* VVModelInterface.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CDE6DDB0454F461FE54FBFAF1AD26361 /* VVDB */ = {
+			isa = PBXGroup;
+			children = (
+				C7EA33761BE579F94D25251A6B128C11 /* Source */,
+				792650FAC93A8C8D738927AA4BB81E59 /* AppDelegate.h */,
+				F98CF2D76778DA50805B2D3FD7DCB717 /* AppDelegate.m */,
+				ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */,
+				C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */,
+				1E42C65E4C74123084718BBE0243B94F /* LaunchScreen.storyboard */,
+				9EAEBFF67C5DD72130A02B6BE92368F6 /* Main.storyboard */,
+				4E5E7CBA5402CDEAD1A52DD01D9E7526 /* ViewController.h */,
+				50569A531FAE0EB9692310D615EC246E /* ViewController.m */,
+				3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */,
+				C3AE60ECF1D259B7B50DA3FB /* User.m */,
+				C3AE6A86A28DB3128AE83406 /* User.h */,
+				C3AE6726AD9D6F568BBE13E9 /* AppContent.m */,
+				C3AE6ABD6FFA3C7DD30CDA2C /* AppContent.h */,
+				C3AE604D0B9CA12385E82247 /* Download.m */,
+				C3AE66A0422A5FF3835F8D0C /* Download.h */,
+			);
+			path = VVDB;
+			sourceTree = "<group>";
+		};
+		CF71FE68AE71CB34F9ED7BA896486EC5 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				98FA70E616F93E376B8A1043FDEEB0E9 /* VVDataBase+Background.h */,
+				F75279EB2C9F5D097DB27DB3B5F06F03 /* VVDataBase+Background.m */,
+				8C94BD02511712F07B7C75819EDC6765 /* VVDataBase.h */,
+				390A285824180866C81C764ED9EBBE47 /* VVDataBase.m */,
+				C3AE64582165A3D54881A411 /* VVDataBaseManager.m */,
+				C3AE6B12356CB74E9F98DAED /* VVDataBaseManager.h */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		DAD824F5F925D128473A048FA0321B5F /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				1C05566E9314601BD340EDC1BCA5E89E /* VVMigrationTable.h */,
+				F0ECC971FE769BFF30F2E899F1FD39E1 /* VVMigrationTable.m */,
+				E74BC94A4DD4AB35F92DA90A3805C20A /* VVNameBuilder.h */,
+				150E2D670D7B9708F1F54228D20A2A3E /* VVNameBuilder.m */,
+				D2A7BD02EEFDC8C6991E8C304752FBA5 /* VVQueryBuilder.h */,
+				6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */,
+				50D07794EB8240DE31E3664B1229EA1A /* VVReferenceModel.h */,
+				F92FEA4C5A99AD74EB0705724423DC85 /* VVReferenceModel.m */,
+				444A2716663CA0A4CCB72ABF524618DA /* VVRelationshipModel.h */,
+				6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVRelationshipModel.m */,
+				2E70C33030D1DC17205FDD395065DE9B /* VVSQLiteColumnModel.h */,
+				FBD35ECA0CA56E0AE8916ADDDC3CABAF /* VVSQLiteColumnModel.m */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		E22680F744378DEC8FB8BB7B39617771 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				2091D5782BC1299E1865B910A1E3D204 /* NSObject+VVObserver.h */,
+				4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */,
+				1079BCEDE55CAFDECA3D140BC7FDE6F4 /* VVNotificationCenter.h */,
+				56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */,
+				99DF0317FF7D1D4CAA3B8838F764805A /* VVObserver.h */,
+				26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */,
+			);
+			path = Notice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B972048622CC4CFE00F29567 /* VVDB */ = {
+		98DC8D40D2442EB491152386566B9EEB /* VVDB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B97204B322CC4D0000F29567 /* Build configuration list for PBXNativeTarget "VVDB" */;
+			buildConfigurationList = 73E678FB564B343F243003301C01697C /* Build configuration list for PBXNativeTarget "VVDB" */;
 			buildPhases = (
-				B972048322CC4CFE00F29567 /* Sources */,
-				B972048422CC4CFE00F29567 /* Frameworks */,
-				B972048522CC4CFE00F29567 /* Resources */,
+				32AE369EC65751A5227499F7BB8744DD /* [CP] Check Pods Manifest.lock */,
+				E94B081A8B4F30C42DA1E8F5EA254F03 /* Sources */,
+				6FD0B1589831A6339AF6274919DDB96E /* Frameworks */,
+				B8E4FC073C02C027505E17C372EC47C1 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -149,68 +557,68 @@
 			);
 			name = VVDB;
 			productName = VVDB;
-			productReference = B972048722CC4CFE00F29567 /* VVDB.app */;
+			productReference = D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B972049E22CC4D0000F29567 /* VVDBTests */ = {
+		AB9642C3700948D86541F64CB743A22A /* VVDBTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B97204B622CC4D0000F29567 /* Build configuration list for PBXNativeTarget "VVDBTests" */;
+			buildConfigurationList = C8150DC55A31847AFCFE91566CD8646D /* Build configuration list for PBXNativeTarget "VVDBTests" */;
 			buildPhases = (
-				B972049B22CC4D0000F29567 /* Sources */,
-				B972049C22CC4D0000F29567 /* Frameworks */,
-				B972049D22CC4D0000F29567 /* Resources */,
+				3EA5F706EB9B781C36CCCFE60531C407 /* Sources */,
+				61C1B3035DA9485780CEEC4F8E29757D /* Frameworks */,
+				A4FAB1F4C8FFE3AD0AAB0E6304212A83 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B97204A122CC4D0000F29567 /* PBXTargetDependency */,
+				F33B61FA571DA82E29869627D05E5E9D /* PBXTargetDependency */,
 			);
 			name = VVDBTests;
 			productName = VVDBTests;
-			productReference = B972049F22CC4D0000F29567 /* VVDBTests.xctest */;
+			productReference = B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B97204A922CC4D0000F29567 /* VVDBUITests */ = {
+		AFCE0AF001D796265540E3244C6EA4B6 /* VVDBUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B97204B922CC4D0000F29567 /* Build configuration list for PBXNativeTarget "VVDBUITests" */;
+			buildConfigurationList = 6A44FEC1113AC3B68EA05EED67B00855 /* Build configuration list for PBXNativeTarget "VVDBUITests" */;
 			buildPhases = (
-				B97204A622CC4D0000F29567 /* Sources */,
-				B97204A722CC4D0000F29567 /* Frameworks */,
-				B97204A822CC4D0000F29567 /* Resources */,
+				965C597CEF1033C082D59D3BB087A5D0 /* Sources */,
+				3B114D4DA3FA2E994A8E2B7FE1BCCF3B /* Frameworks */,
+				2CB563633811585B0787E37C88116150 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B97204AC22CC4D0000F29567 /* PBXTargetDependency */,
+				C76CC338FCB9133C08F2ED6E65CCF9FC /* PBXTargetDependency */,
 			);
 			name = VVDBUITests;
 			productName = VVDBUITests;
-			productReference = B97204AA22CC4D0000F29567 /* VVDBUITests.xctest */;
+			productReference = 39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B972047F22CC4CFE00F29567 /* Project object */ = {
+		11DB34C583BC2AF8463707E8426669DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Tank;
 				TargetAttributes = {
-					B972048622CC4CFE00F29567 = {
+					98DC8D40D2442EB491152386566B9EEB = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
-					B972049E22CC4D0000F29567 = {
+					AB9642C3700948D86541F64CB743A22A = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = B972048622CC4CFE00F29567;
+						TestTargetID = 98DC8D40D2442EB491152386566B9EEB;
 					};
-					B97204A922CC4D0000F29567 = {
+					AFCE0AF001D796265540E3244C6EA4B6 = {
 						CreatedOnToolsVersion = 10.2.1;
-						TestTargetID = B972048622CC4CFE00F29567;
+						TestTargetID = 98DC8D40D2442EB491152386566B9EEB;
 					};
 				};
 			};
-			buildConfigurationList = B972048222CC4CFE00F29567 /* Build configuration list for PBXProject "VVDB" */;
+			buildConfigurationList = 147F54EDAB35A9D0DE4F94EF0DAED0A3 /* Build configuration list for PBXProject "VVDB" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -218,108 +626,354 @@
 				en,
 				Base,
 			);
-			mainGroup = B972047E22CC4CFE00F29567;
-			productRefGroup = B972048822CC4CFE00F29567 /* Products */;
+			mainGroup = 370DFF8ADFDB7AB163B90CBA3C520AA8;
+			productRefGroup = 2AE417007AA176A67F82142D8E71CC46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B972048622CC4CFE00F29567 /* VVDB */,
-				B972049E22CC4D0000F29567 /* VVDBTests */,
-				B97204A922CC4D0000F29567 /* VVDBUITests */,
+				98DC8D40D2442EB491152386566B9EEB /* VVDB */,
+				AB9642C3700948D86541F64CB743A22A /* VVDBTests */,
+				AFCE0AF001D796265540E3244C6EA4B6 /* VVDBUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B972048522CC4CFE00F29567 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B972049722CC4D0000F29567 /* LaunchScreen.storyboard in Resources */,
-				B972049422CC4D0000F29567 /* Assets.xcassets in Resources */,
-				B972049222CC4CFE00F29567 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B972049D22CC4D0000F29567 /* Resources */ = {
+		2CB563633811585B0787E37C88116150 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B97204A822CC4D0000F29567 /* Resources */ = {
+		A4FAB1F4C8FFE3AD0AAB0E6304212A83 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8E4FC073C02C027505E17C372EC47C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F064103AE9FF1F6722E5BAA61177C8FF /* Assets.xcassets in Resources */,
+				528E99E6FF8DD4E052568395C92A574A /* LaunchScreen.storyboard in Resources */,
+				FBFD9A7217243518F394E91232A1C99A /* Main.storyboard in Resources */,
+				7F3FCC3D8EC94540292B5084AF3C370C /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32AE369EC65751A5227499F7BB8744DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VVDB-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		B972048322CC4CFE00F29567 /* Sources */ = {
+		3EA5F706EB9B781C36CCCFE60531C407 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B972048F22CC4CFE00F29567 /* ViewController.m in Sources */,
-				B972049A22CC4D0000F29567 /* main.m in Sources */,
-				B972048C22CC4CFE00F29567 /* AppDelegate.m in Sources */,
+				B295FC18C83206BC1D78D394C4425BF7 /* VVDBTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B972049B22CC4D0000F29567 /* Sources */ = {
+		965C597CEF1033C082D59D3BB087A5D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97204A422CC4D0000F29567 /* VVDBTests.m in Sources */,
+				84ACD60EBCA64DCD1D5A633C835F9E5C /* VVDBUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B97204A622CC4D0000F29567 /* Sources */ = {
+		E94B081A8B4F30C42DA1E8F5EA254F03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97204AF22CC4D0000F29567 /* VVDBUITests.m in Sources */,
+				3E8CD03112F8D5ADF1A4CD8391C858C4 /* AppDelegate.m in Sources */,
+				58B37021C4F079AA59B5F841B44198BD /* FMDatabase+IndexInfo.m in Sources */,
+				42BFEE6EA0A2FA2E51D4F9076F7273E8 /* NSObject+VVAutoCoding.m in Sources */,
+				5F2FCA20DC41A152B1223A918EA85118 /* NSObject+VVTabel.m in Sources */,
+				34958DC58BDCA2DADA265E77B212EEC9 /* NSObject+VVObserver.m in Sources */,
+				BEE3BA1C738973518506664D11AA8A26 /* VVClassProperty.m in Sources */,
+				C2DADAB7ED28DF7AE0489E2826B48239 /* VVDBClazz.m in Sources */,
+				EC65E887CC6996CF72F868843A3E5A74 /* VVDBClazzC99Bool.m in Sources */,
+				EACFDBCD736B40E03A9C3960A5F4992F /* VVDBClazzChar.m in Sources */,
+				1B1EF78B2F9C9D463D8FA61736BE8AF5 /* VVDBClazzDouble.m in Sources */,
+				B2D44EF72AC93331D57D08C388DAE2AC /* VVDBClazzFloat.m in Sources */,
+				D0F864B4F52F05D40E80EF4EABA632D1 /* VVDBClazzID.m in Sources */,
+				25EABAD7865D721DAE3346F1D610BE80 /* VVDBClazzInt.m in Sources */,
+				28CCF33C12093431FF49ACC6CDFFDE94 /* VVDBClazzLong.m in Sources */,
+				B90E134D330A9EAEAA3976B2973A552C /* VVDBClazzLongLong.m in Sources */,
+				80F15BA08D4FA78BB72560473F42B750 /* VVDBClazzNSArray.m in Sources */,
+				D8D0DD38FDFF6A2045C73B24019C1193 /* VVDBClazzNSData.m in Sources */,
+				08195E2A54C717ECD8D56CF6A7F00B9C /* VVDBClazzNSDate.m in Sources */,
+				0072D251CF346E1CC8F7BDDC73F31D51 /* VVDBClazzNSDecimalNumber.m in Sources */,
+				BC2FDFC523CA4D49D4E9F52FE3878CF4 /* VVDBClazzNSMutableString.m in Sources */,
+				F0A08DEE637180A8C7C58B5FF6544F85 /* VVDBClazzNSNull.m in Sources */,
+				11C7F252D3C5D2F5023AD65032F56E12 /* VVDBClazzNSNumber.m in Sources */,
+				15E16AF6B3486627A156E3EAA0FB24F0 /* VVDBClazzNSObject.m in Sources */,
+				16C5F6A6A9732C7B0419B46605CF554B /* VVDBClazzNSString.m in Sources */,
+				2AE07510DEB054F063A20CEF71723A43 /* VVDBClazzNSURL.m in Sources */,
+				0784F5EF99E35B42836EE15500CE3314 /* VVDBClazzNSValue.m in Sources */,
+				C12964776AE287EA25127E22F05FC159 /* VVDBClazzSerialize.m in Sources */,
+				6E778E77F2B27512B9711C6D09E03549 /* VVDBClazzShort.m in Sources */,
+				A25CC0A975321809D8176FD69F1CCCC7 /* VVDBClazzUnsignedChar.m in Sources */,
+				42A3BD9C6CBE3EF597CFB96DC9D6B99C /* VVDBClazzUnsignedInt.m in Sources */,
+				812280B370803134C8FCDB5A2FFFB5FC /* VVDBClazzUnsignedLong.m in Sources */,
+				247BAB9CBDFCBE34F4C2C14BE40D0A53 /* VVDBClazzUnsignedLongLong.m in Sources */,
+				516FCD01AD52D71873F80C74A2CA5878 /* VVDBClazzUnsignedShort.m in Sources */,
+				A64664786A0FB2D1DBFC29003F7144DF /* VVDBConditionModel.m in Sources */,
+				F82E94AB8A316B7B28EACE93A88BFC11 /* VVDBConst.m in Sources */,
+				E5708548C98FD6B10D0AA99E73E145C7 /* VVDBReferenceConditionModel.m in Sources */,
+				B7F2DF745967DDC02D27639D650F572A /* VVDBRuntime.m in Sources */,
+				68C926F19C0C1B56EB1D3DC5BD7093EF /* VVDBRuntimeProperty.m in Sources */,
+				5576F09C554B460BEE177E15F032F776 /* VVDBSQLiteConditionModel.m in Sources */,
+				423741FC72A6AAADC258CD2C3C4DFC54 /* VVDataBase+Background.m in Sources */,
+				50E385A0BFC3C668F55E845B330CA476 /* VVDataBase.m in Sources */,
+				BF464AF3F9669C0E0B23D8A7A00B6503 /* VVMigration.m in Sources */,
+				C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */,
+				99C83C176DE9D7644C9F3267C9E84D01 /* VVMigrationRuntime.m in Sources */,
+				3B03CCFB928F4DA2E1DA6D5EBB51C2AD /* VVMigrationRuntimeProperty.m in Sources */,
+				F01AB146650361C14B744484C9DDFE6C /* VVMigrationTable.m in Sources */,
+				0C3F4F4B931EF0CAC43E068339EDA574 /* VVModelMapper.m in Sources */,
+				5D58494A88F8729E88B77250494AD719 /* VVNameBuilder.m in Sources */,
+				6C742A8FF92A97D985A1C1A5E24B560D /* VVNotificationCenter.m in Sources */,
+				209F73D0ECFE6C064B5B8575717B43EE /* VVObserver.m in Sources */,
+				D0C35F0C65C4F8A6B72CD5CC6F30D6CC /* VVProperty.m in Sources */,
+				19965B25577AFB3703AB564C9133D1F5 /* VVPropertyEncoding.m in Sources */,
+				59A2A71B738F47F1C0AC1CB8DB8A5D4B /* VVPropertyType.m in Sources */,
+				1BC653BA033BC1B90F11F026DDD1D1CA /* VVQueryBuilder.m in Sources */,
+				8CDA0571237342E5A03DD77071A5C2BB /* VVReferenceMapper.m in Sources */,
+				458343C864CBFB4DCFC451E6946D0710 /* VVReferenceModel.m in Sources */,
+				1D274A312E0FC8BFA7666A3F71D98526 /* VVRelationshipModel.m in Sources */,
+				259DE4522BC59A9ED54A554E3F96D237 /* VVSQLiteColumnModel.m in Sources */,
+				CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */,
+				8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */,
+				C3AE652E33E525D77C6237B5 /* VVDataBaseManager.m in Sources */,
+				C3AE6513A089734A83A16FC4 /* User.m in Sources */,
+				C3AE65F64A07F79B6C09FB17 /* AppContent.m in Sources */,
+				C3AE6B4862F0893D76EC27D3 /* Download.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B97204A122CC4D0000F29567 /* PBXTargetDependency */ = {
+		C76CC338FCB9133C08F2ED6E65CCF9FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B972048622CC4CFE00F29567 /* VVDB */;
-			targetProxy = B97204A022CC4D0000F29567 /* PBXContainerItemProxy */;
+			target = 98DC8D40D2442EB491152386566B9EEB /* VVDB */;
+			targetProxy = A1C5D897C260B14F0A7D5932280D0E71 /* PBXContainerItemProxy */;
 		};
-		B97204AC22CC4D0000F29567 /* PBXTargetDependency */ = {
+		F33B61FA571DA82E29869627D05E5E9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B972048622CC4CFE00F29567 /* VVDB */;
-			targetProxy = B97204AB22CC4D0000F29567 /* PBXContainerItemProxy */;
+			target = 98DC8D40D2442EB491152386566B9EEB /* VVDB */;
+			targetProxy = 5CB77FAB02DD5EE9DF060E732CA21EA5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B972049022CC4CFE00F29567 /* Main.storyboard */ = {
+		1E42C65E4C74123084718BBE0243B94F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B972049122CC4CFE00F29567 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B972049522CC4D0000F29567 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B972049622CC4D0000F29567 /* Base */,
+				13689AD7C02AB601B61A9F47C1324D3D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9EAEBFF67C5DD72130A02B6BE92368F6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3B3C11B25253B24F9EBB154EE2848FF /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B97204B122CC4D0000F29567 /* Debug */ = {
+		22DB379A80DBFE8D364BC9E429635873 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VVDBUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VVDB;
+			};
+			name = Release;
+		};
+		23EB8853401E3D6AD6A1E7622AF5483F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VVDBUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VVDB;
+			};
+			name = Debug;
+		};
+		532BB4EADD1DCF5681202B95BC114A26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VVDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVDB.app/VVDB";
+			};
+			name = Release;
+		};
+		5388C2C0B9C53967A1D868188870D3CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = VVDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVDB.app/VVDB";
+			};
+			name = Debug;
+		};
+		62451565214C5767139F73FDE6F23C1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8RJFY6RH2;
+				INFOPLIST_FILE = VVDB/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C0448C0763913E6AFE4EC1F3D190CC48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8RJFY6RH2;
+				INFOPLIST_FILE = VVDB/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0FDA73D621813CC14EA77364BD61943 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D59095539F1426A239234F75F5A02C71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -378,201 +1032,46 @@
 			};
 			name = Debug;
 		};
-		B97204B222CC4D0000F29567 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B97204B422CC4D0000F29567 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = VVDB/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B97204B522CC4D0000F29567 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = VVDB/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDB;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		B97204B722CC4D0000F29567 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = VVDBTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVDB.app/VVDB";
-			};
-			name = Debug;
-		};
-		B97204B822CC4D0000F29567 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = VVDBTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVDB.app/VVDB";
-			};
-			name = Release;
-		};
-		B97204BA22CC4D0000F29567 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = VVDBUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VVDB;
-			};
-			name = Debug;
-		};
-		B97204BB22CC4D0000F29567 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = VVDBUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VVDB;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B972048222CC4CFE00F29567 /* Build configuration list for PBXProject "VVDB" */ = {
+		147F54EDAB35A9D0DE4F94EF0DAED0A3 /* Build configuration list for PBXProject "VVDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B97204B122CC4D0000F29567 /* Debug */,
-				B97204B222CC4D0000F29567 /* Release */,
+				D59095539F1426A239234F75F5A02C71 /* Debug */,
+				C0FDA73D621813CC14EA77364BD61943 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B97204B322CC4D0000F29567 /* Build configuration list for PBXNativeTarget "VVDB" */ = {
+		6A44FEC1113AC3B68EA05EED67B00855 /* Build configuration list for PBXNativeTarget "VVDBUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B97204B422CC4D0000F29567 /* Debug */,
-				B97204B522CC4D0000F29567 /* Release */,
+				23EB8853401E3D6AD6A1E7622AF5483F /* Debug */,
+				22DB379A80DBFE8D364BC9E429635873 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B97204B622CC4D0000F29567 /* Build configuration list for PBXNativeTarget "VVDBTests" */ = {
+		73E678FB564B343F243003301C01697C /* Build configuration list for PBXNativeTarget "VVDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B97204B722CC4D0000F29567 /* Debug */,
-				B97204B822CC4D0000F29567 /* Release */,
+				C0448C0763913E6AFE4EC1F3D190CC48 /* Debug */,
+				62451565214C5767139F73FDE6F23C1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B97204B922CC4D0000F29567 /* Build configuration list for PBXNativeTarget "VVDBUITests" */ = {
+		C8150DC55A31847AFCFE91566CD8646D /* Build configuration list for PBXNativeTarget "VVDBTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B97204BA22CC4D0000F29567 /* Debug */,
-				B97204BB22CC4D0000F29567 /* Release */,
+				5388C2C0B9C53967A1D868188870D3CC /* Debug */,
+				532BB4EADD1DCF5681202B95BC114A26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B972047F22CC4CFE00F29567 /* Project object */;
+	rootObject = 11DB34C583BC2AF8463707E8426669DD /* Project object */;
 }

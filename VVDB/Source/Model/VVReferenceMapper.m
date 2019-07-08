@@ -3,7 +3,7 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBReferenceMapper.h"
+#import "VVReferenceMapper.h"
 
 #import <FMDB/FMDatabaseQueue.h>
 #import <FMDB/FMDatabase.h>
@@ -16,10 +16,10 @@
 #import "VVNameBuilder.h"
 #import "VVDBClazz.h"
 #import "VVNotificationCenter.h"
-#import "NSObject+VVDB.h"
+#import "NSObject+VVTabel.h"
 #import "VVDBReferenceConditionModel.h"
 
-@interface VVDBModelMapper (Protected)
+@interface VVModelMapper (Protected)
 
 - (NSNumber *)avg:(VVDBRuntime *)runtime columnName:(NSString *)columnName condition:(VVDBConditionModel *)condition db:(FMDatabase *)db;
 
@@ -93,13 +93,13 @@
 
 @end
 
-@interface VVDBReferenceMapper ()
+@interface VVReferenceMapper ()
 @property(nonatomic, strong) VVNameBuilder *nameBuilder;
 @property(nonatomic, strong) NSMutableDictionary *registedClazzes;
 @property(nonatomic, strong) NSMutableDictionary *registedRuntimes;
 @end
 
-@implementation VVDBReferenceMapper
+@implementation VVReferenceMapper
 
 + (NSString *)ignorePrefixName {
     return nil;
@@ -989,7 +989,7 @@
     }
 
     Class targetClazz = NULL;
-    VVDBClazz *osclazz = [VVDBClazz osclazzWithClazz:clazz];
+    VVDBClazz *osclazz = [VVDBClazz vvclazzWithClazz:clazz];
     if (osclazz.isObjectClazz) {
         targetClazz = clazz;
     } else {

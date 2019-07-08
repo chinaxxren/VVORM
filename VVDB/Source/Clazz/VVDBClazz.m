@@ -3,12 +3,38 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVStoreClazz.h"
-#import "VVStoreRuntimeProperty.h"
-#import "VVStoreSQLiteColumnModel.h"
+#import "VVDBClazz.h"
 
+#import "VVDBRuntimeProperty.h"
+#import "VVSQLiteColumnModel.h"
+#import "VVDBClazzNSMutableString.h"
+#import "VVDBClazzID.h"
+#import "VVDBClazzNSObject.h"
+#import "VVDBClazzNSValue.h"
+#import "VVDBClazzNSDate.h"
+#import "VVDBClazzNSURL.h"
+#import "VVDBClazzNSString.h"
+#import "VVDBClazzNSDecimalNumber.h"
+#import "VVDBClazzNSNumber.h"
+#import "VVDBClazzNSData.h"
+#import "VVDBClazzNSNull.h"
+#import "VVDBClazzC99Bool.h"
+#import "VVDBClazzInt.h"
+#import "VVDBClazzChar.h"
+#import "VVDBClazzLong.h"
+#import "VVDBClazzLongLong.h"
+#import "VVDBClazzUnsignedInt.h"
+#import "VVDBClazzUnsignedShort.h"
+#import "VVDBClazzUnsignedChar.h"
+#import "VVDBClazzUnsignedLong.h"
+#import "VVDBClazzUnsignedLongLong.h"
+#import "VVDBClazzFloat.h"
+#import "VVDBClazzShort.h"
+#import "VVDBClazzDouble.h"
+#import "VVDBClazzSerialize.h"
+#import "VVDBClazzNSArray.h"
 
-@implementation VVStoreClazz
+@implementation VVDBClazz
 
 
 #pragma mark override methods, properties
@@ -45,8 +71,8 @@
     return nil;
 }
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVStoreRuntimeProperty *)attribute {
-    VVStoreSQLiteColumnModel *sqliteColumn = [[VVStoreSQLiteColumnModel alloc] init];
+- (NSArray *)sqliteColumnsWithAttribute:(VVDBRuntimeProperty *)attribute {
+    VVSQLiteColumnModel *sqliteColumn = [[VVSQLiteColumnModel alloc] init];
     sqliteColumn.columnName = attribute.columnName;
     sqliteColumn.dataTypeName = [self sqliteDataTypeName];
     return @[sqliteColumn];
@@ -56,84 +82,85 @@
 #pragma mark constractor
 
 + (NSMutableArray *)osclazzsArray {
-    static NSMutableArray *_osclazzs = nil;
-    if (!_osclazzs) {
+    static NSMutableArray *_vvclazzs = nil;
+    if (!_vvclazzs) {
         @synchronized (self) {
-            _osclazzs = [NSMutableArray array];
+            _vvclazzs = [NSMutableArray array];
         }
     }
-    return _osclazzs;
+    return _vvclazzs;
 }
 
-+ (NSMutableDictionary *)osclazzs {
-    static NSMutableDictionary *_osclazzs = nil;
-    if (!_osclazzs) {
++ (NSMutableDictionary *)vvclazzs {
+    static NSMutableDictionary *_clazzs = nil;
+    if (!_clazzs) {
         @synchronized (self) {
-            NSMutableArray *osclazzsArray = [self osclazzsArray];
-            _osclazzs = [NSMutableDictionary dictionary];
-//            [self addOSClazz:[VVStoreClazzNSMutableString class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSMutableArray class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSMutableDictionary class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSMutableSet class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSMutableOrderedSet class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSDate class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSURL class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSString class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSDecimalNumber class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSNumber class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSData class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUIColor class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUIImage class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSImage class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSValue class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSNull class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSArray class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSDictionary class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSSet class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSOrderedSet class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzC99Bool class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzInt class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzChar class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzLong class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzLongLong class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUnsignedInt class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUnsignedShort class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUnsignedChar class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUnsignedLong class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUnsignedLongLong class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzFloat class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzShort class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzDouble class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzUnsignedChar class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzCGRect class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzCGSize class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzCGPoint class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzNSRange class] osclazzsArray:osclazzsArray];
-//            [self addOSClazz:[VVStoreClazzSerialize class] osclazzsArray:osclazzsArray];
+            NSMutableArray *clazzsArray = [self osclazzsArray];
+            _clazzs = [NSMutableDictionary dictionary];
+            [self addOSClazz:[VVDBClazzNSMutableString class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSDate class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSURL class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSString class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSDecimalNumber class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSNumber class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSData class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSValue class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSNull class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzC99Bool class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzInt class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzChar class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzLong class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzLongLong class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzUnsignedInt class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzUnsignedShort class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzUnsignedChar class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzUnsignedLong class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzUnsignedLongLong class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzFloat class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzShort class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzDouble class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzSerialize class] vvclazzsArray:clazzsArray];
+            [self addOSClazz:[VVDBClazzNSArray class] vvclazzsArray:clazzsArray];
+
+//            [self addOSClazz:[VVDBClazzNSMutableArray class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSMutableDictionary class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSMutableSet class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSMutableOrderedSet class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzUIColor class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzUIImage class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSImage class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSDictionary class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSSet class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSOrderedSet class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzCGRect class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzCGSize class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzCGPoint class] osclazzsArray:osclazzsArray];
+//            [self addOSClazz:[VVDBClazzNSRange class] osclazzsArray:osclazzsArray];
         }
     }
-    return _osclazzs;
+
+    return _clazzs;
 }
 
 + (void)addClazz:(Class)clazz {
-    if (![clazz isSubclassOfClass:[VVStoreClazz class]]) {
+    if (![clazz isSubclassOfClass:[VVDBClazz class]]) {
         return;
     }
     @synchronized (self) {
         NSMutableArray *osclazzsArray = [self osclazzsArray];
-        [self addOSClazz:clazz osclazzsArray:osclazzsArray];
+        [self addOSClazz:clazz vvclazzsArray:osclazzsArray];
     }
 }
 
-+ (void)addOSClazz:(Class)clazz osclazzsArray:(NSMutableArray *)osclazzsArray {
-    VVStoreClazz *osclazz = [[clazz alloc] init];
++ (void)addOSClazz:(Class)clazz vvclazzsArray:(NSMutableArray *)osclazzsArray {
+    VVDBClazz *osclazz = [[clazz alloc] init];
     [osclazzsArray addObject:osclazz];
 }
 
 
-+ (VVStoreClazz *)osclazzWithClazz:(Class)clazz {
-    NSMutableDictionary *osclazzs = [self osclazzs];
-    VVStoreClazz *osclazz = osclazzs[NSStringFromClass(clazz)];
++ (VVDBClazz *)vvclazzWithClazz:(Class)clazz {
+    NSMutableDictionary *osclazzs = [self vvclazzs];
+    VVDBClazz *osclazz = osclazzs[NSStringFromClass(clazz)];
     if (osclazz) {
         return osclazz;
     }
@@ -141,7 +168,7 @@
     if (!clazz) {
         return [self clazzIdInstance];
     }
-    for (VVStoreClazz *osclazz in osclazzsArray) {
+    for (VVDBClazz *osclazz in osclazzsArray) {
         if (osclazz.superClazz != [NSObject class]) {
             if ([osclazz isSubClazz:clazz]) {
                 osclazzs[NSStringFromClass(clazz)] = osclazz;
@@ -154,65 +181,72 @@
     return osclazz;
 }
 
-+ (VVStoreClazzID *)clazzIdInstance {
-    static id _clazzIdInstance = nil;
-    @synchronized (self) {
++ (VVDBClazzID *)clazzIdInstance {
+    static VVDBClazzID *_clazzIdInstance = nil;
+    static dispatch_once_t dispatchOnce;
+    dispatch_once(&dispatchOnce, ^{
         if (!_clazzIdInstance) {
-            _clazzIdInstance = [[VVStoreClazzID alloc] init];
+            _clazzIdInstance = [[VVDBClazzID alloc] init];
         }
-        return _clazzIdInstance;
-    }
+    });
+
+    return _clazzIdInstance;
 }
 
-+ (VVStoreClazzNSObject *)clazzNSObjectInstance {
-    static id _clazzNSObjectInstance = nil;
-    @synchronized (self) {
++ (VVDBClazzNSObject *)clazzNSObjectInstance {
+    static VVDBClazzNSObject *_clazzNSObjectInstance = nil;
+    static dispatch_once_t dispatchOnce;
+    dispatch_once(&dispatchOnce, ^{
         if (!_clazzNSObjectInstance) {
-            _clazzNSObjectInstance = [[VVStoreClazzNSObject alloc] init];
+            _clazzNSObjectInstance = [[VVDBClazzNSObject alloc] init];
         }
-        return _clazzNSObjectInstance;
-    }
+    });
+
+    return _clazzNSObjectInstance;
 }
 
-+ (VVStoreClazz *)osclazzWithPrimitiveEncodingCode:(NSString *)primitiveEncodingCode {
++ (VVDBClazz *)vvclazzWithPrimitiveEncodingCode:(NSString *)primitiveEncodingCode {
     NSString *key = primitiveEncodingCode;
-    NSMutableDictionary *osclazzs = [self osclazzs];
-    VVStoreClazz *osclazz = [osclazzs objectForKey:key];
+    NSMutableDictionary *osclazzs = [self vvclazzs];
+    VVDBClazz *osclazz = osclazzs[key];
     if (!osclazz) {
         NSMutableArray *osclazzsArray = [self osclazzsArray];
-        for (VVStoreClazz *newosclazz in osclazzsArray) {
+        for (VVDBClazz *newosclazz in osclazzsArray) {
             if ([newosclazz.attributeType isEqualToString:key]) {
                 osclazz = newosclazz;
                 break;
             }
         }
         if (osclazz) {
-            [osclazzs setObject:osclazz forKey:key];
+            osclazzs[key] = osclazz;
         }
     }
     return osclazz;
 }
 
-+ (VVStoreClazz *)osclazzWithStructureName:(NSString *)StructureName {
++ (VVDBClazz *)vvclazzWithStructureName:(NSString *)StructureName {
     NSString *key = StructureName;
-    NSMutableDictionary *osclazzs = [self osclazzs];
-    VVStoreClazz *osclazz = [osclazzs objectForKey:key];
-    if (!osclazz) {
-        NSMutableArray *osclazzsArray = [self osclazzsArray];
-        for (VVStoreClazz *newosclazz in osclazzsArray) {
-            if ([newosclazz.attributeType isEqualToString:key]) {
-                osclazz = newosclazz;
+    NSMutableDictionary *vvclazzs = [self vvclazzs];
+    VVDBClazz *vvclazz = vvclazzs[key];
+    if (!vvclazz) {
+        NSMutableArray *vvclazzsArray = [self osclazzsArray];
+        for (VVDBClazz *newvvclazz in vvclazzsArray) {
+            if ([newvvclazz.attributeType isEqualToString:key]) {
+                vvclazz = newvvclazz;
                 break;
             }
         }
-        if (!osclazz) {
-            osclazz = [[VVStoreClazzNSValue alloc] init];
+
+        if (!vvclazz) {
+            vvclazz = [[VVDBClazzNSValue alloc] init];
         }
-        if (osclazz) {
-            [osclazzs setObject:osclazz forKey:key];
+
+        if (vvclazz) {
+            vvclazzs[key] = vvclazz;
         }
     }
-    return osclazz;
+
+    return vvclazz;
 }
 
 @end

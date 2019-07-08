@@ -5,8 +5,44 @@
 
 #import "VVDBClazzNSDate.h"
 
+#import <FMDB/FMResultSet.h>
 
-@implementation VVDBClazzNSDate {
+#import "VVDBConst.h"
+#import "VVDBRuntimeProperty.h"
 
+@implementation VVDBClazzNSDate
+
+- (Class)superClazz {
+    return [NSDate class];
 }
+
+- (NSString *)attributeType {
+    return NSStringFromClass([self superClazz]);
+}
+
+- (BOOL)isSimpleValueClazz {
+    return YES;
+}
+
+- (BOOL)isPrimaryClazz {
+    return YES;
+}
+
+- (NSArray *)storeValuesWithValue:(NSDate *)value attribute:(VVDBRuntimeProperty *)attribute {
+    if (value) {
+        return @[value];
+    }
+    return @[[NSNull null]];
+}
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+    NSDate *value = [resultSet dateForColumn:attribute.columnName];
+    return value;
+}
+
+- (NSString *)sqliteDataTypeName {
+    return SQLITE_DATA_TYPE_DATETIME;
+}
+
 @end
+

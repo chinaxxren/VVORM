@@ -8,7 +8,7 @@
 
 @interface VVDataBase (Background)
 
-- (void)inTransactionInBackground:(void (^)(VVDataBase *os, BOOL *rollback))block;
+- (void)inTransactionInBackground:(void (^)(VVDataBase *dataBase, BOOL *rollback))block;
 
 - (void)saveObjectInBackground:(NSObject *)object completionBlock:(void (^)(NSError *error))completionBlock;
 

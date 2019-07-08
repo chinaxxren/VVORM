@@ -11,7 +11,7 @@ typedef NS_ENUM(NSInteger, VVDBNotificationType) {
     VVDBNotificationTypeDeleted
 };
 
-@interface VVDBObserver : NSObject
+@interface VVObserver : NSObject
 
 @property(nonatomic, strong) NSObject *object;
 @property(nonatomic, strong) NSObject *target;

@@ -6,7 +6,35 @@
 #import "VVDBClazzNSNull.h"
 
 
-@implementation VVDBClazzNSNull {
+#import <FMDB/FMResultSet.h>
 
+#import "VVDBConst.h"
+#import "VVDBRuntimeProperty.h"
+
+@implementation VVDBClazzNSNull
+
+- (Class)superClazz {
+    return [NSNull class];
 }
+
+- (NSString *)attributeType {
+    return NSStringFromClass([self superClazz]);
+}
+
+- (BOOL)isSimpleValueClazz {
+    return YES;
+}
+
+- (NSArray *)storeValuesWithValue:(id)value attribute:(VVDBRuntimeProperty *)attribute {
+    return @[[NSNull null]];
+}
+
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVDBRuntimeProperty *)attribute {
+    return [NSNull null];
+}
+
+- (NSString *)sqliteDataTypeName {
+    return SQLITE_DATA_TYPE_BLOB;
+}
+
 @end

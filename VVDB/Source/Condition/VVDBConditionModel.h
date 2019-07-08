@@ -5,14 +5,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class VVStoreSQLiteConditionModel;
-@class VVStoreReferenceConditionModel;
+@class VVDBSQLiteConditionModel;
+@class VVDBReferenceConditionModel;
 
 
-@interface VVStoreConditionModel : NSObject
+@interface VVDBConditionModel : NSObject
 
-@property(nonatomic, readonly) VVStoreSQLiteConditionModel *sqlite;
-@property(nonatomic, readonly) VVStoreReferenceConditionModel *reference;
+@property(nonatomic, readonly) VVDBSQLiteConditionModel *sqlite;
+@property(nonatomic, readonly) VVDBReferenceConditionModel *reference;
 
 + (instancetype)condition;
 

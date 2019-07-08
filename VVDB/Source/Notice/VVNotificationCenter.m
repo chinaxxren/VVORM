@@ -3,18 +3,18 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDBNotificationCenter.h"
+#import "VVNotificationCenter.h"
 
-#import "NSObject+VVDB.h"
-#import "NSObject+VVDBObserver.h"
+#import "NSObject+VVTabel.h"
+#import "NSObject+VVObserver.h"
 
-@implementation VVDBNotificationCenter
+@implementation VVNotificationCenter
 
 + (instancetype)sharedInstance {
     @synchronized (self) {
         static id _sharedInstance = nil;
         if (!_sharedInstance) {
-            _sharedInstance = [[VVDBNotificationCenter alloc] init];
+            _sharedInstance = [[VVNotificationCenter alloc] init];
         }
         return _sharedInstance;
     }

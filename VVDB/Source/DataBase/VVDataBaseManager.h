@@ -5,6 +5,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class VVDataBase;
 
-@interface VVDBManager : NSObject
+
+@interface VVDataBaseManager : NSObject
+
++ (instancetype)share;
+
+- (VVDataBase *)getDataBase:(NSString *)name;
+
++ (VVDataBase *)getDataBase:(NSString *)name;
+
 @end
