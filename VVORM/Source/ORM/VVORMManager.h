@@ -8,10 +8,12 @@
 @class VVORM;
 
 
-@interface AppContent : NSObject
+@interface VVORMManager : NSObject
 
-+ (VVORM *)user;
++ (instancetype)share;
 
-+ (VVORM *)global;
+- (VVORM *)getDataBase:(NSString *)name;
+
++ (VVORM *)getDataBase:(NSString *)name;
 
 @end

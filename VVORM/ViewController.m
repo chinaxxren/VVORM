@@ -10,7 +10,7 @@
 
 #import "User.h"
 #import "AppContent.h"
-#import "VVDataBase.h"
+#import "VVORM.h"
 #import "Download.h"
 
 @interface ViewController ()
@@ -37,7 +37,7 @@
 
     user.download = download;
 
-    VVDataBase *userDB = [AppContent user];
+    VVORM *userDB = [AppContent user];
     [userDB saveObject:user];
 
     NSNumber *count = [userDB count:[User class] condition:nil];
@@ -53,7 +53,7 @@
     download.name = @"dwonload-1";
     download.size = 1024;
 
-    VVDataBase *globalDB = [AppContent global];
+    VVORM *globalDB = [AppContent global];
     [globalDB saveObject:download];
 
     NSNumber *count = [globalDB count:[Download class] condition:nil];

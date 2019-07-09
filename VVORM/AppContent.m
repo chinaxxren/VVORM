@@ -5,19 +5,19 @@
 
 #import "AppContent.h"
 
-#import "VVDataBase.h"
-#import "VVDataBaseManager.h"
+#import "VVORM.h"
+#import "VVORMManager.h"
 
 
 @implementation AppContent
 
-+ (VVDataBase *)user {
-    VVDataBase *dataBase = [VVDataBaseManager getDataBase:@"login"];
++ (VVORM *)user {
+    VVORM *dataBase = [VVORMManager getDataBase:@"login"];
     return dataBase;
 }
 
-+ (VVDataBase *)global {
-    VVDataBase *dataBase = [VVDataBaseManager getDataBase:@"global"];
++ (VVORM *)global {
+    VVORM *dataBase = [VVORMManager getDataBase:@"global"];
     return dataBase;
 }
 

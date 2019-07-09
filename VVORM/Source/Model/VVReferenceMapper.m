@@ -544,7 +544,7 @@
                         NSEnumerator *enumerator = nil;
                         NSArray *keys = nil;
                         NSInteger attributeSequence = 1;
-                        NSNumber *attributeLevel = [NSNumber numberWithUnsignedInteger:[processingInAttributeObject.parentRelationship.attributeLevel unsignedIntegerValue] + 1];
+                        NSNumber *attributeLevel = @([processingInAttributeObject.parentRelationship.attributeLevel unsignedIntegerValue] + 1);
                         NSNumber *attributeParentLevel = processingInAttributeObject.parentRelationship.attributeLevel;
                         NSNumber *attributeParentSequence = processingInAttributeObject.parentRelationship.attributeSequence;
                         if (!attributeParentLevel) {
@@ -599,7 +599,7 @@
                                 relationshipObject.toRowid = @0;
                                 relationshipObject.attributeValue = attributeValue;
                                 relationshipObject.attributeLevel = attributeLevel;
-                                relationshipObject.attributeSequence = [NSNumber numberWithInteger:attributeSequence];
+                                relationshipObject.attributeSequence = @(attributeSequence);
                                 relationshipObject.attributeParentLevel = attributeParentLevel;
                                 relationshipObject.attributeParentSequence = attributeParentSequence;
                                 relationshipObject.attributeFromObject = targetObject;

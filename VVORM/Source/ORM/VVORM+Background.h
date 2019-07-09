@@ -4,11 +4,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VVDataBase.h"
+#import "VVORM.h"
 
-@interface VVDataBase (Background)
+@interface VVORM (Background)
 
-- (void)inTransactionInBackground:(void (^)(VVDataBase *dataBase, BOOL *rollback))block;
+- (void)inTransactionInBackground:(void (^)(VVORM *dataBase, BOOL *rollback))block;
 
 - (void)saveObjectInBackground:(NSObject *)object completionBlock:(void (^)(NSError *error))completionBlock;
 

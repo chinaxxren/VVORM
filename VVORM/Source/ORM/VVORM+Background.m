@@ -3,9 +3,9 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDataBase+Background.h"
+#import "VVORM+Background.h"
 
-@implementation VVDataBase (Background)
+@implementation VVORM (Background)
 
 - (void)saveObjectInBackground:(NSObject *)object completionBlock:(void (^)(NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -187,7 +187,7 @@
     }];
 }
 
-- (void)inTransactionInBackground:(void (^)(VVDataBase *dataBase, BOOL *rollback))block {
+- (void)inTransactionInBackground:(void (^)(VVORM *dataBase, BOOL *rollback))block {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         [self inTransaction:block];

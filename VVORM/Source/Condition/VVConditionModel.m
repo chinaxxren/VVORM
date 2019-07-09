@@ -19,8 +19,8 @@
 
 + (instancetype)condition {
     VVConditionModel *condition = [[self alloc] init];
-    condition.sqlite = [[VVSQLiteConditionModel alloc] init];
-    condition.reference = [[VVReferenceConditionModel alloc] init];
+    condition.sqlite = [VVSQLiteConditionModel new];
+    condition.reference = [VVReferenceConditionModel new];
     return condition;
 }
 

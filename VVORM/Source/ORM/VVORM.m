@@ -3,7 +3,7 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDataBase.h"
+#import "VVORM.h"
 
 #import <FMDB/FMDatabaseQueue.h>
 #import <sqlite3.h>
@@ -64,16 +64,16 @@
 @end
 
 
-@interface VVDataBase ()
+@interface VVORM ()
 
-@property(nonatomic, weak) VVDataBase *weakSelf;
+@property(nonatomic, weak) VVORM *weakSelf;
 @property(nonatomic, strong) FMDatabaseQueue *dbQueue;
 @property(nonatomic, strong) FMDatabase *db;
 @property(nonatomic, assign) BOOL rollback;
 
 @end
 
-@implementation VVDataBase
+@implementation VVORM
 
 #pragma mark constractor method
 
@@ -94,7 +94,7 @@
         return nil;
     }
 
-    VVDataBase *os = [[self alloc] init];
+    VVORM *os = [[self alloc] init];
     os.dbQueue = dbQueue;
     os.db = nil;
     os.weakSelf = os;
@@ -157,8 +157,8 @@
 
 #pragma mark transaction
 
-- (void)inTransaction:(void (^)(VVDataBase *dataBase, BOOL *rollback))block {
-    __weak VVDataBase *weakSelf = self;
+- (void)inTransaction:(void (^)(VVORM *dataBase, BOOL *rollback))block {
+    __weak VVORM *weakSelf = self;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
         block(weakSelf, rollback);
     }];

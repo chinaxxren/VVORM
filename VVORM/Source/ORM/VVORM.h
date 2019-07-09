@@ -12,11 +12,11 @@
 @class FMDatabaseQueue;
 @class FMDatabase;
 
-@interface VVDataBase : VVMigration
+@interface VVORM : VVMigration
 
 + (instancetype)openWithPath:(NSString *)path error:(NSError **)error;
 
-- (void)inTransaction:(void (^)(VVDataBase *dataBase, BOOL *rollback))block;
+- (void)inTransaction:(void (^)(VVORM *dataBase, BOOL *rollback))block;
 
 - (BOOL)saveObject:(NSObject *)object;
 
@@ -99,7 +99,7 @@
 
 @end
 
-@interface VVDataBase (Additional)
+@interface VVORM (Additional)
 
 @property(nonatomic, readonly) FMDatabaseQueue *dbQueue;
 

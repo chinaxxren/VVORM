@@ -93,10 +93,10 @@
     NSMutableArray *updateAttributes = [NSMutableArray array];
     NSMutableArray *relationshipAttributes = [NSMutableArray array];
     NSMutableArray *simpleValueAttributes = [NSMutableArray array];
-    for (VVProperty *property in propertyList) {
-        VVRuntimeProperty *runtimeAttribute = [VVRuntimeProperty propertyWithBZProperty:property runtime:self nameBuilder:nameBuilder];
+    for (VVProperty *vvproperty in propertyList) {
+        VVRuntimeProperty *runtimeAttribute = [VVRuntimeProperty propertyWithBZProperty:vvproperty runtime:self nameBuilder:nameBuilder];
         if (runtimeAttribute.isValid) {
-            if (!runtimeAttribute.ignoreAttribute && !property.propertyType.isReadonly) {
+            if (!runtimeAttribute.ignoreAttribute && !vvproperty.propertyType.isReadonly) {
                 [insertAttributes addObject:runtimeAttribute];
                 if (runtimeAttribute.identicalAttribute) {
                     [identicalAttributes addObject:runtimeAttribute];

@@ -3,54 +3,54 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVDataBaseManager.h"
+#import "VVORMManager.h"
 
-#import "VVDataBase.h"
+#import "VVORM.h"
 
-@interface VVDataBaseManager ()
+@interface VVORMManager ()
 
-@property(nonatomic, strong) NSMutableDictionary<NSString *, VVDataBase *> *dbDict;
+@property(nonatomic, strong) NSMutableDictionary<NSString *, VVORM *> *dbDict;
 
 @end
 
-@implementation VVDataBaseManager
+@implementation VVORMManager
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.dbDict = [NSMutableDictionary<NSString *, VVDataBase *> new];
+        self.dbDict = [NSMutableDictionary<NSString *, VVORM *> new];
     }
 
     return self;
 }
 
 + (instancetype)share {
-    static VVDataBaseManager *manager;
+    static VVORMManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [VVDataBaseManager new];
+        manager = [VVORMManager new];
     });
 
     return manager;
 }
 
-- (VVDataBase *)getDataBase:(NSString *)name {
+- (VVORM *)getDataBase:(NSString *)name {
     @synchronized (self) {
         if (!name) {
             return nil;
         }
 
-        VVDataBase *dataBase = self.dbDict[name];
+        VVORM *dataBase = self.dbDict[name];
         if (dataBase) {
             return dataBase;
         }
 
-        NSString *path = [VVDataBaseManager dataBasePathWithName:name];
+        NSString *path = [VVORMManager dataBasePathWithName:name];
         if (!path) {
             return nil;
         }
 
-        dataBase = [VVDataBaseManager dataBaseWithPath:path];
+        dataBase = [VVORMManager dataBaseWithPath:path];
         if (!dataBase) {
             return nil;
         }
@@ -79,9 +79,9 @@
     return dbPath;
 }
 
-+ (VVDataBase *)dataBaseWithPath:(NSString *)dbPath {
++ (VVORM *)dataBaseWithPath:(NSString *)dbPath {
     NSError *error;
-    VVDataBase *dataBase = [VVDataBase openWithPath:dbPath error:&error];
+    VVORM *dataBase = [VVORM openWithPath:dbPath error:&error];
     if (error) {
         NSLog(@"database error %@", error);
         return nil;
@@ -90,8 +90,8 @@
     return dataBase;
 }
 
-+ (VVDataBase *)getDataBase:(NSString *)name {
-    return [[VVDataBaseManager share] getDataBase:name];
++ (VVORM *)getDataBase:(NSString *)name {
+    return [[VVORMManager share] getDataBase:name];
 }
 
 @end
