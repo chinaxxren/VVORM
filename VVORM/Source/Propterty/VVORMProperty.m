@@ -4,10 +4,10 @@
 //
 
 
-#import "VVRuntimeProperty.h"
+#import "VVORMProperty.h"
 
 #import "VVClazz.h"
-#import "VVRuntime.h"
+#import "VVORMClass.h"
 #import "VVNameBuilder.h"
 #import "VVQueryBuilder.h"
 #import "VVProperty.h"
@@ -16,20 +16,20 @@
 #import "VVPropertyType.h"
 
 
-@implementation VVRuntimeProperty
+@implementation VVORMProperty
 
-+ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVRuntime *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
++ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
     return [[self alloc] initWithBZProperty:bzproperty runtime:runtime nameBuilder:nameBuilder];
 }
 
-- (instancetype)initWithBZProperty:(VVProperty *)bzproperty runtime:(VVRuntime *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
+- (instancetype)initWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
     if (self = [super init]) {
         [self setupWithBZProperty:bzproperty runtime:runtime nameBuilder:nameBuilder];
     }
     return self;
 }
 
-- (void)setupWithBZProperty:(VVProperty *)bzproperty runtime:(VVRuntime *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
+- (void)setupWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
     BOOL isPrimitive = NO;
     BOOL isStructure = NO;
     BOOL isObject = NO;
@@ -208,7 +208,7 @@
 #pragma mark
 
 + (NSString *)VVTableName {
-    return @"__VVRuntimeProperty__";
+    return @"__VVORMProperty__";
 }
 
 @end

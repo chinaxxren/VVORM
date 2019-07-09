@@ -9,16 +9,16 @@
 #import "VVModelInterface.h"
 
 @class VVConditionModel;
-@class VVRuntime;
+@class VVORMClass;
 @class VVNameBuilder;
 @class VVClazz;
 @class VVSQLiteColumnModel;
 @class FMResultSet;
 @class VVProperty;
 
-@interface VVRuntimeProperty : NSObject <VVModelInterface>
+@interface VVORMProperty : NSObject <VVModelInterface>
 
-+ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVRuntime *)runtime nameBuilder:(VVNameBuilder *)nameBuilder;
++ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder;
 
 // sqlite information
 @property(nonatomic, copy) NSString *tableName;

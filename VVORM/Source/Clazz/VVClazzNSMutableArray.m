@@ -7,7 +7,7 @@
 
 #import <FMDB/FMResultSet.h>
 
-#import "VVRuntimeProperty.h"
+#import "VVORMProperty.h"
 #import "VVSqliteConst.h"
 
 @implementation VVClazzNSMutableArray
@@ -40,8 +40,8 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVRuntimeProperty *)attribute {
-    return @[@"__VVRelationship__"];
+- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVORMProperty *)attribute {
+    return @[@"__VVORMRelationship__"];
 }
 
 - (NSString *)sqliteDataTypeName {

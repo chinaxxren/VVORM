@@ -3,13 +3,13 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVRelationshipModel.h"
+#import "VVORMRelationship.h"
 
 
-@implementation VVRelationshipModel
+@implementation VVORMRelationship
 
 + (NSString *)VVTableName {
-    return @"__VVRelationship__";
+    return @"__VVORMRelationship__";
 }
 
 @end

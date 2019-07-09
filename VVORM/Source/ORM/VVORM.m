@@ -9,9 +9,9 @@
 #import <sqlite3.h>
 
 #import "VVModelInterface.h"
-#import "VVRelationshipModel.h"
-#import "VVRuntime.h"
-#import "VVRuntimeProperty.h"
+#import "VVORMRelationship.h"
+#import "VVORMClass.h"
+#import "VVORMProperty.h"
 #import "VVSQLiteConditionModel.h"
 
 @interface VVMigration (Protected)
@@ -50,17 +50,17 @@
 
 - (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (VVRuntime *)runtime:(Class)clazz;
+- (VVORMClass *)runtime:(Class)clazz;
 
-- (BOOL)registerRuntime:(VVRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)registerRuntime:(VVORMClass *)runtime db:(FMDatabase *)db error:(NSError **)error;
 
-- (BOOL)unRegisterRuntime:(VVRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)unRegisterRuntime:(VVORMClass *)runtime db:(FMDatabase *)db error:(NSError **)error;
 
 - (void)setUnRegistedAllRuntimeFlag;
 
-- (void)setRegistedRuntimeFlag:(VVRuntime *)runtime;
+- (void)setRegistedRuntimeFlag:(VVORMClass *)runtime;
 
-- (void)setUnRegistedRuntimeFlag:(VVRuntime *)runtime;
+- (void)setUnRegistedRuntimeFlag:(VVORMClass *)runtime;
 @end
 
 
@@ -100,17 +100,17 @@
     os.weakSelf = os;
 
     NSError *err = nil;
-    [os registerClass:[VVRelationshipModel class] error:&err];
+    [os registerClass:[VVORMRelationship class] error:&err];
     if (err) {
         *error = err;
         return nil;
     }
-    [os registerClass:[VVRuntime class] error:&err];
+    [os registerClass:[VVORMClass class] error:&err];
     if (err) {
         *error = err;
         return nil;
     }
-    [os registerClass:[VVRuntimeProperty class] error:&err];
+    [os registerClass:[VVORMProperty class] error:&err];
     if (err) {
         *error = err;
         return nil;
@@ -580,7 +580,7 @@
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        VVRuntime *runtime = [self runtime:clazz];
+        VVORMClass *runtime = [self runtime:clazz];
         ret = [_weakSelf registerRuntime:runtime db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];
@@ -605,7 +605,7 @@
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        VVRuntime *runtime = [self runtime:clazz];
+        VVORMClass *runtime = [self runtime:clazz];
         ret = [_weakSelf unRegisterRuntime:runtime db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];

@@ -6,7 +6,7 @@
 #import "VVClazzNSObject.h"
 
 #import "VVSqliteConst.h"
-#import "VVRuntimeProperty.h"
+#import "VVORMProperty.h"
 
 @implementation VVClazzNSObject
 
@@ -43,8 +43,8 @@
     [object setValue:value forKeyPath:key];
 }
 
-- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVRuntimeProperty *)attribute {
-    return @[@"__VVRelationship__"];
+- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVORMProperty *)attribute {
+    return @[@"__VVORMRelationship__"];
 }
 
 - (NSString *)sqliteDataTypeName {

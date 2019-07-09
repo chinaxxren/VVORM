@@ -3,11 +3,11 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVRuntime.h"
+#import "VVORMClass.h"
 
 #import "VVClazz.h"
 #import "VVNameBuilder.h"
-#import "VVRuntimeProperty.h"
+#import "VVORMProperty.h"
 #import "VVConditionModel.h"
 #import "VVSQLiteConditionModel.h"
 #import "VVQueryBuilder.h"
@@ -16,7 +16,7 @@
 #import "VVProperty.h"
 #import "VVPropertyType.h"
 
-@implementation VVRuntime
+@implementation VVORMClass
 
 - (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
     if (self = [super init]) {
@@ -94,7 +94,7 @@
     NSMutableArray *relationshipAttributes = [NSMutableArray array];
     NSMutableArray *simpleValueAttributes = [NSMutableArray array];
     for (VVProperty *vvproperty in propertyList) {
-        VVRuntimeProperty *runtimeAttribute = [VVRuntimeProperty propertyWithBZProperty:vvproperty runtime:self nameBuilder:nameBuilder];
+        VVORMProperty *runtimeAttribute = [VVORMProperty propertyWithBZProperty:vvproperty runtime:self nameBuilder:nameBuilder];
         if (runtimeAttribute.isValid) {
             if (!runtimeAttribute.ignoreAttribute && !vvproperty.propertyType.isReadonly) {
                 [insertAttributes addObject:runtimeAttribute];
@@ -118,7 +118,7 @@
     }
 
     VVClassProperty *referenceRuntime = [VVClassProperty runtimeWithClass:[VVReferenceModel class]];
-    VVRuntimeProperty *rowidAttribute = [VVRuntimeProperty propertyWithBZProperty:referenceRuntime.propertyList.firstObject runtime:self nameBuilder:nameBuilder];
+    VVORMProperty *rowidAttribute = [VVORMProperty propertyWithBZProperty:referenceRuntime.propertyList.firstObject runtime:self nameBuilder:nameBuilder];
     NSMutableArray *attributes = [NSMutableArray array];
     [attributes addObject:rowidAttribute];
     [attributes addObjectsFromArray:insertAttributes];
@@ -206,7 +206,7 @@
 - (NSString *)updateStatementWithObject:(NSObject *)object condition:(VVConditionModel *)condition {
     if (self.hasNotUpdateIfValueIsNullAttribute) {
         NSMutableArray *attributes = [NSMutableArray array];
-        for (VVRuntimeProperty *attribute in self.updateAttributes) {
+        for (VVORMProperty *attribute in self.updateAttributes) {
             NSValue *value = [object valueForKey:attribute.name];
             if (value) {
                 [attributes addObject:attribute];
@@ -316,7 +316,7 @@
 
 - (NSMutableArray *)insertAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVRuntimeProperty *attribute in self.insertAttributes) {
+    for (VVORMProperty *attribute in self.insertAttributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -324,7 +324,7 @@
 
 - (NSMutableArray *)insertOrIgnoreAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVRuntimeProperty *attribute in self.insertAttributes) {
+    for (VVORMProperty *attribute in self.insertAttributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -332,7 +332,7 @@
 
 - (NSMutableArray *)insertOrReplaceAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVRuntimeProperty *attribute in self.attributes) {
+    for (VVORMProperty *attribute in self.attributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -341,7 +341,7 @@
 - (NSMutableArray *)updateAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
     if (self.hasNotUpdateIfValueIsNullAttribute) {
-        for (VVRuntimeProperty *attribute in self.updateAttributes) {
+        for (VVORMProperty *attribute in self.updateAttributes) {
             NSObject *value = [object valueForKey:attribute.name];
             if (value) {
                 NSArray *values = [attribute storeValuesWithObject:object];
@@ -349,7 +349,7 @@
             }
         }
     } else {
-        for (VVRuntimeProperty *attribute in self.updateAttributes) {
+        for (VVORMProperty *attribute in self.updateAttributes) {
             NSArray *values = [attribute storeValuesWithObject:object];
             [parameters addObjectsFromArray:values];
         }
@@ -359,7 +359,7 @@
 
 - (NSMutableArray *)identificationAttributesParameters:(NSObject *)object {
     NSMutableArray *parameters = [NSMutableArray array];
-    for (VVRuntimeProperty *attribute in self.identificationAttributes) {
+    for (VVORMProperty *attribute in self.identificationAttributes) {
         [parameters addObjectsFromArray:[attribute storeValuesWithObject:object]];
     }
     return parameters;
@@ -394,7 +394,7 @@
 
 
 + (NSString *)VVTableName {
-    return @"__VVRuntime__";
+    return @"__VVModelRuntime__";
 }
 
 @end

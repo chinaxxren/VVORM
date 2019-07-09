@@ -7,20 +7,20 @@
 #import "VVModelInterface.h"
 
 
-@interface VVRelationshipModel : NSObject <VVModelInterface>
+@interface VVORMRelationship : NSObject <VVModelInterface>
 
-@property(nonatomic, strong) NSString <VVIdenticalAttribute> *fromClassName;
-@property(nonatomic, strong) NSString *fromTableName;
-@property(nonatomic, strong) NSString <VVIdenticalAttribute> *fromAttributeName;
+@property(nonatomic, copy) NSString <VVIdenticalAttribute> *fromClassName;
+@property(nonatomic, copy) NSString *fromTableName;
+@property(nonatomic, copy) NSString <VVIdenticalAttribute> *fromAttributeName;
 @property(nonatomic, strong) NSNumber <VVIdenticalAttribute> *fromRowid;
-@property(nonatomic, strong) NSString <VVIdenticalAttribute> *toClassName;
-@property(nonatomic, strong) NSString *toTableName;
+@property(nonatomic, copy) NSString <VVIdenticalAttribute> *toClassName;
+@property(nonatomic, copy) NSString *toTableName;
 @property(nonatomic, strong) NSNumber <VVIdenticalAttribute> *toRowid;
 @property(nonatomic, strong) NSNumber <VVIdenticalAttribute> *attributeLevel;
 @property(nonatomic, strong) NSNumber <VVIdenticalAttribute> *attributeSequence;
 @property(nonatomic, strong) NSNumber *attributeParentLevel;
 @property(nonatomic, strong) NSNumber *attributeParentSequence;
-@property(nonatomic, strong) NSString *attributeKey;
+@property(nonatomic, copy) NSString *attributeKey;
 @property(nonatomic, strong) id attributeValue;
 @property(nonatomic, strong) NSObject <VVIgnoreAttribute> *attributeFromObject;
 @property(nonatomic, strong) NSObject <VVIgnoreAttribute> *attributeToObject;

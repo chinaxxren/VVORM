@@ -4,7 +4,7 @@
 //
 
 #import "VVMigrationRuntime.h"
-#import "VVRuntime.h"
+#import "VVORMClass.h"
 
 
 @implementation VVMigrationRuntime

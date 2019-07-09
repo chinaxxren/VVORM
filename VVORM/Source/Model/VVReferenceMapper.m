@@ -9,10 +9,10 @@
 #import <FMDB/FMDatabase.h>
 
 #import "VVModelInterface.h"
-#import "VVRelationshipModel.h"
+#import "VVORMRelationship.h"
 #import "VVConditionModel.h"
-#import "VVRuntime.h"
-#import "VVRuntimeProperty.h"
+#import "VVORMClass.h"
+#import "VVORMProperty.h"
 #import "VVNameBuilder.h"
 #import "VVClazz.h"
 #import "VVNotificationCenter.h"
@@ -21,51 +21,51 @@
 
 @interface VVModelMapper (Protected)
 
-- (NSNumber *)avg:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSNumber *)avg:(VVORMClass *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
-- (NSNumber *)total:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSNumber *)total:(VVORMClass *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
-- (NSNumber *)sum:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSNumber *)sum:(VVORMClass *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
-- (NSNumber *)min:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSNumber *)min:(VVORMClass *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
-- (NSNumber *)max:(VVRuntime *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSNumber *)max:(VVORMClass *)runtime columnName:(NSString *)columnName condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
-- (NSNumber *)count:(VVRuntime *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSNumber *)count:(VVORMClass *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
 - (BOOL)insertOrUpdate:(NSObject *)object db:(FMDatabase *)db;
 
 - (BOOL)deleteFrom:(NSObject *)object db:(FMDatabase *)db;
 
-- (BOOL)deleteFrom:(VVRuntime *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (BOOL)deleteFrom:(VVORMClass *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
-- (NSMutableArray *)select:(VVRuntime *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db;
+- (NSMutableArray *)select:(VVORMClass *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
 - (void)updateSimpleValueWithObject:(NSObject *)object db:(FMDatabase *)db;
 
 - (NSNumber *)referencedCount:(NSObject *)object db:(FMDatabase *)db;
 
-- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVRuntimeProperty *)attribute relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
 - (BOOL)insertRelationshipObjectsWithRelationshipObjects:(NSArray *)relationshipObjects db:(FMDatabase *)db;
 
-- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVRuntimeProperty *)attribute relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
-- (BOOL)deleteRelationshipObjectsWithRelationshipObject:(VVRelationshipModel *)relationshipObject db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithRelationshipObject:(VVORMRelationship *)relationshipObject db:(FMDatabase *)db;
 
-- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
-- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
-- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
 - (void)updateRowid:(NSObject *)object db:(FMDatabase *)db;
 
 - (void)updateRowidWithObjects:(NSArray *)objects db:(FMDatabase *)db;
 
-- (BOOL)dropTable:(VVRuntime *)runtime db:(FMDatabase *)db;
+- (BOOL)dropTable:(VVORMClass *)runtime db:(FMDatabase *)db;
 
-- (BOOL)createTable:(VVRuntime *)runtime db:(FMDatabase *)db;
+- (BOOL)createTable:(VVORMClass *)runtime db:(FMDatabase *)db;
 
 @end
 
@@ -73,7 +73,7 @@
 @interface BZProcessingModel : NSObject
 
 @property(nonatomic, strong) NSObject *targetObject;
-@property(nonatomic, strong) VVRuntimeProperty *attribute;
+@property(nonatomic, strong) VVORMProperty *attribute;
 @property(nonatomic, strong) NSMutableArray *relationshipObjects;
 
 @end
@@ -85,7 +85,7 @@
 @interface BZProcessingInAttributeModel : NSObject
 
 @property(nonatomic, strong) NSObject *targetObjectInAttribute;
-@property(nonatomic, strong) VVRelationshipModel *parentRelationship;
+@property(nonatomic, strong) VVORMRelationship *parentRelationship;
 
 @end
 
@@ -94,9 +94,11 @@
 @end
 
 @interface VVReferenceMapper ()
+
 @property(nonatomic, strong) VVNameBuilder *nameBuilder;
 @property(nonatomic, strong) NSMutableDictionary *registedClazzes;
 @property(nonatomic, strong) NSMutableDictionary *registedRuntimes;
+
 @end
 
 @implementation VVReferenceMapper
@@ -128,7 +130,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSNumber *value = [self max:runtime columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -140,7 +142,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSNumber *value = [self min:runtime columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -152,7 +154,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSNumber *value = [self avg:runtime columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -164,7 +166,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSNumber *value = [self total:runtime columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -176,7 +178,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSNumber *value = [self sum:runtime columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -219,7 +221,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSNumber *count = [self count:runtime condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -278,7 +280,7 @@
     if (![self updateConditionRuntime:condition db:db error:error]) {
         return nil;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:clazz db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:clazz db:db error:error];
     NSMutableArray *list = [self select:runtime condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
@@ -301,7 +303,7 @@
     if (!object.rowid) {
         return nil;
     }
-    VVRuntime *relationshipRuntime = [self runtimeWithClazz:[VVRelationshipModel class] db:db error:error];
+    VVORMClass *relationshipRuntime = [self runtimeWithClazz:[VVORMRelationship class] db:db error:error];
     if ([self hadError:db error:error]) {
         return nil;
     }
@@ -310,10 +312,10 @@
         return nil;
     }
     NSMutableArray *list = [NSMutableArray array];
-    for (VVRelationshipModel *relationshipObject in relationshipObjects) {
+    for (VVORMRelationship *relationshipObject in relationshipObjects) {
         Class targetClazz = NSClassFromString(relationshipObject.fromClassName);
         if (targetClazz) {
-            VVRuntime *runtime = [self runtimeWithClazz:targetClazz db:db error:error];
+            VVORMClass *runtime = [self runtimeWithClazz:targetClazz db:db error:error];
             if ([self hadError:db error:error]) {
                 return nil;
             }
@@ -348,7 +350,7 @@
             }
         }
     }
-    VVRuntime *relationshipRuntime = [self runtimeWithClazz:[VVRelationshipModel class] db:db error:error];
+    VVORMClass *relationshipRuntime = [self runtimeWithClazz:[VVORMRelationship class] db:db error:error];
     if ([self hadError:db error:error]) {
         return nil;
     }
@@ -357,7 +359,7 @@
         // each object
         NSObject *targetObject = [targetObjects lastObject];
         // each object-attribute
-        for (VVRuntimeProperty *attribute in targetObject.VVRuntime.relationshipAttributes) {
+        for (VVORMProperty *attribute in targetObject.VVRuntime.relationshipAttributes) {
             BOOL ignoreFetch = NO;
             if (attribute.fetchOnRefreshingAttribute) {
                 if (!(refreshing && [objects containsObject:targetObject])) {
@@ -369,9 +371,9 @@
                 processingObject.targetObject = targetObject;
                 processingObject.attribute = attribute;
                 processingObject.relationshipObjects = [self relationshipObjectsWithObject:targetObject attribute:attribute relationshipRuntime:relationshipRuntime db:db];
-                for (VVRelationshipModel *relationshipObject in processingObject.relationshipObjects) {
+                for (VVORMRelationship *relationshipObject in processingObject.relationshipObjects) {
                     Class attributeClazz = NSClassFromString(relationshipObject.toClassName);
-                    VVRuntime *runtime = [self runtimeWithClazz:attributeClazz db:db error:error];
+                    VVORMClass *runtime = [self runtimeWithClazz:attributeClazz db:db error:error];
                     if ([self hadError:db error:error]) {
                         return nil;
                     }
@@ -395,7 +397,7 @@
                     } else if (runtime.isArrayClazz) {
                         NSMutableArray *objects = [NSMutableArray array];
                         NSMutableArray *keys = [NSMutableArray array];
-                        for (VVRelationshipModel *child in processingObject.relationshipObjects) {
+                        for (VVORMRelationship *child in processingObject.relationshipObjects) {
                             if ([child.attributeParentLevel isEqualToNumber:relationshipObject.attributeLevel]) {
                                 if ([child.attributeParentSequence isEqualToNumber:relationshipObject.attributeSequence]) {
                                     if (child.attributeValue) {
@@ -481,7 +483,7 @@
         NSObject *targetObject = [targetObjects lastObject];
         if (![processedObjects valueForKey:targetObject.VVHashForSave]) {
             [processedObjects setValue:targetObject forKey:targetObject.VVHashForSave];
-            for (VVRuntimeProperty *attribute in targetObject.VVRuntime.relationshipAttributes) {
+            for (VVORMProperty *attribute in targetObject.VVRuntime.relationshipAttributes) {
                 NSObject *targetObjectInAttribute = [targetObject valueForKey:attribute.name];
                 BZProcessingModel *processingObject = [[BZProcessingModel alloc] init];
                 processingObject.targetObject = targetObject;
@@ -491,7 +493,7 @@
                     NSMutableArray *processingInAttributeObjects = [NSMutableArray array];
                     NSMutableArray *allRelationshipObjects = [NSMutableArray array];
 
-                    VVRuntime *runtime;
+                    VVORMClass *runtime;
                     if (attribute.clazz) {
                         runtime = [self runtimeWithClazz:attribute.clazz db:db error:error];
                         if ([self hadError:db error:error]) {
@@ -504,7 +506,7 @@
                         }
                     }
                     if (runtime.isArrayClazz) {
-                        VVRelationshipModel *topRelationshipObject = [[VVRelationshipModel alloc] init];
+                        VVORMRelationship *topRelationshipObject = [[VVORMRelationship alloc] init];
                         topRelationshipObject.fromClassName = targetObject.VVRuntime.clazzName;
                         topRelationshipObject.fromTableName = targetObject.VVRuntime.tableName;
                         topRelationshipObject.fromAttributeName = attribute.name;
@@ -554,7 +556,7 @@
                             attributeParentSequence = @0;
                         }
 
-                        VVRuntime *runtime = [self runtimeWithClazz:processingInAttributeObject.targetObjectInAttribute.class db:db error:error];
+                        VVORMClass *runtime = [self runtimeWithClazz:processingInAttributeObject.targetObjectInAttribute.class db:db error:error];
                         if ([self hadError:db error:error]) {
                             return NO;
                         }
@@ -565,7 +567,7 @@
                         }
                         for (NSObject *attributeObjectInEnumerator in enumerator) {
                             Class attributeClazzInEnumerator = [attributeObjectInEnumerator class];
-                            VVRuntime *attributeRuntimeInEnumerator = [self runtimeWithClazz:attributeClazzInEnumerator db:db error:error];
+                            VVORMClass *attributeRuntimeInEnumerator = [self runtimeWithClazz:attributeClazzInEnumerator db:db error:error];
                             if ([self hadError:db error:error]) {
                                 return NO;
                             }
@@ -589,7 +591,7 @@
                                     attributeObjectClassName = attributeRuntimeInEnumerator.clazzName;
                                     attributeValue = attributeObjectInEnumerator;
                                 }
-                                VVRelationshipModel *relationshipObject = [[VVRelationshipModel alloc] init];
+                                VVORMRelationship *relationshipObject = [[VVORMRelationship alloc] init];
                                 relationshipObject.fromClassName = targetObject.VVRuntime.clazzName;
                                 relationshipObject.fromTableName = targetObject.VVRuntime.tableName;
                                 relationshipObject.fromAttributeName = attribute.name;
@@ -617,7 +619,7 @@
                                 attributeSequence++;
                             }
                         }
-                        for (VVRelationshipModel *relationshipObject in relationshipObjects) {
+                        for (VVORMRelationship *relationshipObject in relationshipObjects) {
                             if (relationshipObject.attributeToObject.VVRuntime.isArrayClazz) {
                                 BZProcessingInAttributeModel *processingInAttributeObject = [[BZProcessingInAttributeModel alloc] init];
                                 processingInAttributeObject.parentRelationship = relationshipObject;
@@ -649,12 +651,12 @@
     }
 
     // save relationship
-    VVRuntime *relationshipRuntime = [self runtimeWithClazz:[VVRelationshipModel class] db:db error:error];
+    VVORMClass *relationshipRuntime = [self runtimeWithClazz:[VVORMRelationship class] db:db error:error];
     if ([self hadError:db error:error]) {
         return NO;
     }
     for (BZProcessingModel *processingObject in processingObjects) {
-        for (VVRelationshipModel *relationshipObject in processingObject.relationshipObjects) {
+        for (VVORMRelationship *relationshipObject in processingObject.relationshipObjects) {
             relationshipObject.VVRuntime = relationshipRuntime;
             relationshipObject.fromRowid = relationshipObject.attributeFromObject.rowid;
             if (relationshipObject.attributeToObject) {
@@ -665,7 +667,7 @@
         }
     }
     for (BZProcessingModel *processingObject in processingObjects) {
-        for (VVRelationshipModel *relationshipObject in processingObject.relationshipObjects) {
+        for (VVORMRelationship *relationshipObject in processingObject.relationshipObjects) {
             [self deleteRelationshipObjectsWithRelationshipObject:relationshipObject db:db];
             if ([self hadError:db error:error]) {
                 return NO;
@@ -676,10 +678,10 @@
             return NO;
         }
         if (!processingObject.attribute.weakReferenceAttribute) {
-            for (VVRelationshipModel *relationshipObject in relationshipObjects) {
+            for (VVORMRelationship *relationshipObject in relationshipObjects) {
                 if (relationshipObject.toTableName) {
                     Class targetClazz = NSClassFromString(relationshipObject.toClassName);
-                    VVRuntime *targetRuntime = [self runtimeWithClazz:targetClazz db:db error:error];
+                    VVORMClass *targetRuntime = [self runtimeWithClazz:targetClazz db:db error:error];
                     if ([self hadError:db error:error]) {
                         return NO;
                     }
@@ -792,7 +794,7 @@
         NSObject *targetObject = [targetObjects lastObject];
         if (![processedObjects valueForKey:targetObject.VVHashForSave]) {
             [processedObjects setValue:targetObject forKey:targetObject.VVHashForSave];
-            for (VVRuntimeProperty *attribute in targetObject.VVRuntime.relationshipAttributes) {
+            for (VVORMProperty *attribute in targetObject.VVRuntime.relationshipAttributes) {
                 if (!attribute.weakReferenceAttribute) {
                     NSObject *tagetObjectInAttribute = [targetObject valueForKey:attribute.name];
                     if (tagetObjectInAttribute) {
@@ -809,7 +811,7 @@
                             if (tagetObjectInAttribute.VVRuntime.isRelationshipClazz) {
                                 NSEnumerator *enumerator = [tagetObjectInAttribute.VVRuntime objectEnumeratorWithObject:tagetObjectInAttribute];
                                 for (NSObject *tagetObjectInEnumeratorInAttribute in enumerator) {
-                                    VVRuntime *runtime = [self runtimeWithClazz:[tagetObjectInEnumeratorInAttribute class] db:db error:error];
+                                    VVORMClass *runtime = [self runtimeWithClazz:[tagetObjectInEnumeratorInAttribute class] db:db error:error];
                                     if (runtime.isObjectClazz) {
                                         tagetObjectInEnumeratorInAttribute.VVRuntime = runtime;
                                         [targetObjects addObject:tagetObjectInEnumeratorInAttribute];
@@ -829,7 +831,7 @@
     }
 
     // delete objects
-    VVRuntime *relationshipRuntime = [self runtimeWithClazz:[VVRelationshipModel class] db:db error:error];
+    VVORMClass *relationshipRuntime = [self runtimeWithClazz:[VVORMRelationship class] db:db error:error];
     if ([self hadError:db error:error]) {
         return NO;
     }
@@ -853,10 +855,10 @@
         if ([self hadError:db error:error]) {
             return NO;
         }
-        for (VVRelationshipModel *relationshipObject in relationshipObjects) {
+        for (VVORMRelationship *relationshipObject in relationshipObjects) {
             Class targetClazz = NSClassFromString(relationshipObject.fromClassName);
             if (targetClazz) {
-                VVRuntime *runtime = [self runtimeWithClazz:targetClazz db:db error:error];
+                VVORMClass *runtime = [self runtimeWithClazz:targetClazz db:db error:error];
                 if ([self hadError:db error:error]) {
                     return NO;
                 }
@@ -948,7 +950,7 @@
     if (object.VVRuntime) {
         return YES;
     }
-    VVRuntime *runtime = [self runtimeWithClazz:[object class] db:db error:error];
+    VVORMClass *runtime = [self runtimeWithClazz:[object class] db:db error:error];
     if (!runtime) {
         return NO;
     }
@@ -957,8 +959,8 @@
 }
 
 
-- (VVRuntime *)runtimeWithClazz:(Class)clazz db:(FMDatabase *)db error:(NSError **)error {
-    VVRuntime *runtime = [self runtime:clazz];
+- (VVORMClass *)runtimeWithClazz:(Class)clazz db:(FMDatabase *)db error:(NSError **)error {
+    VVORMClass *runtime = [self runtime:clazz];
     if (!runtime) {
         return nil;
     }
@@ -983,7 +985,7 @@
 }
 
 
-- (VVRuntime *)runtime:(Class)clazz {
+- (VVORMClass *)runtime:(Class)clazz {
     if (clazz == NULL) {
         return nil;
     }
@@ -996,20 +998,20 @@
         targetClazz = osclazz.superClazz;
     }
 
-    VVRuntime *runtime = self.registedRuntimes[NSStringFromClass(targetClazz)];
+    VVORMClass *runtime = self.registedRuntimes[NSStringFromClass(targetClazz)];
     if (!runtime) {
-        runtime = [[VVRuntime alloc] initWithClazz:targetClazz osclazz:osclazz nameBuilder:self.nameBuilder];
+        runtime = [[VVORMClass alloc] initWithClazz:targetClazz osclazz:osclazz nameBuilder:self.nameBuilder];
         self.registedRuntimes[NSStringFromClass(targetClazz)] = runtime;
     }
     return runtime;
 
 }
 
-- (void)setRegistedRuntimeFlag:(VVRuntime *)runtime {
+- (void)setRegistedRuntimeFlag:(VVORMClass *)runtime {
     self.registedClazzes[runtime.clazzName] = @(YES);
 }
 
-- (void)setUnRegistedRuntimeFlag:(VVRuntime *)runtime {
+- (void)setUnRegistedRuntimeFlag:(VVORMClass *)runtime {
     [self.registedClazzes removeObjectForKey:runtime.clazzName];
 }
 
@@ -1019,7 +1021,7 @@
     }
 }
 
-- (BOOL)registerRuntime:(VVRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error {
+- (BOOL)registerRuntime:(VVORMClass *)runtime db:(FMDatabase *)db error:(NSError **)error {
     NSNumber *registed = self.registedClazzes[runtime.clazzName];
     if (registed) {
         return YES;
@@ -1030,13 +1032,13 @@
         if ([self hadError:db error:error]) {
             return NO;
         }
-        if (runtime.clazz == [VVRelationshipModel class]) {
+        if (runtime.clazz == [VVORMRelationship class]) {
             return YES;
         }
-        if (runtime.clazz == [VVRuntime class]) {
+        if (runtime.clazz == [VVORMClass class]) {
             return YES;
         }
-        if (runtime.clazz == [VVRuntimeProperty class]) {
+        if (runtime.clazz == [VVORMProperty class]) {
             return YES;
         }
         if (![self updateRuntime:runtime db:db error:error]) {
@@ -1057,7 +1059,7 @@
 }
 
 
-- (BOOL)unRegisterRuntime:(VVRuntime *)runtime db:(FMDatabase *)db error:(NSError **)error {
+- (BOOL)unRegisterRuntime:(VVORMClass *)runtime db:(FMDatabase *)db error:(NSError **)error {
     NSNumber *registed = self.registedClazzes[runtime.clazzName];
     if (!registed.boolValue) {
         return YES;

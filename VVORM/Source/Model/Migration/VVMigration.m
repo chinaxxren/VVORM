@@ -7,9 +7,9 @@
 
 #import <FMDB/FMDatabase.h>
 
-#import "VVRuntime.h"
-#import "VVRuntimeProperty.h"
-#import "VVRelationshipModel.h"
+#import "VVORMClass.h"
+#import "VVORMProperty.h"
+#import "VVORMRelationship.h"
 #import "VVMigrationRuntime.h"
 #import "VVMigrationRuntimeProperty.h"
 #import "VVMigrationTable.h"
@@ -24,7 +24,7 @@
 
 - (BOOL)deleteObjects:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error;
 
-- (VVRuntime *)runtime:(Class)clazz;
+- (VVORMClass *)runtime:(Class)clazz;
 
 - (BOOL)hadError:(FMDatabase *)db error:(NSError **)error;
 
@@ -32,9 +32,9 @@
 
 @interface VVModelMapper (Private)
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVRuntimeProperty *)attribute relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipRuntime:(VVRuntime *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
 
 @end
 
@@ -44,22 +44,22 @@
 
     // Get previous class and current class information
     NSMutableDictionary *currentRuntimes = [NSMutableDictionary dictionary];
-    NSMutableArray *previousRuntimes = [self fetchObjects:[VVRuntime class] condition:nil db:db error:error];
-    for (VVRuntime *runtime in previousRuntimes) {
+    NSMutableArray *previousRuntimes = [self fetchObjects:[VVORMClass class] condition:nil db:db error:error];
+    for (VVORMClass *runtime in previousRuntimes) {
         Class clazz = NSClassFromString(runtime.clazzName);
         if (clazz) {
-            VVRuntime *currentRuntime = [self runtime:clazz];
+            VVORMClass *currentRuntime = [self runtime:clazz];
             currentRuntimes[currentRuntime.clazzName] = currentRuntime;
         }
     }
 
     // create migration list
     NSMutableDictionary *migrationRuntimes = [NSMutableDictionary dictionary];
-    for (VVRuntime *runtime in previousRuntimes) {
+    for (VVORMClass *runtime in previousRuntimes) {
         VVMigrationRuntime *migrationRuntime = [[VVMigrationRuntime alloc] init];
         migrationRuntime.clazzName = runtime.clazzName;
         migrationRuntime.previousRuntime = runtime;
-        VVRuntime *latestRuntime = currentRuntimes[runtime.clazzName];
+        VVORMClass *latestRuntime = currentRuntimes[runtime.clazzName];
         migrationRuntime.latestRuntime = latestRuntime;
         migrationRuntime.attributes = [NSMutableDictionary dictionary];
         migrationRuntimes[migrationRuntime.clazzName] = migrationRuntime;
@@ -67,8 +67,8 @@
 
     // create migration property list
     for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
-        VVRuntime *latestRuntime = migrationRuntime.latestRuntime;
-        for (VVRuntimeProperty *attribute in latestRuntime.attributes) {
+        VVORMClass *latestRuntime = migrationRuntime.latestRuntime;
+        for (VVORMProperty *attribute in latestRuntime.attributes) {
             VVMigrationRuntimeProperty *migrationAttribute = migrationRuntime.attributes[attribute.name];
             if (!migrationAttribute) {
                 migrationAttribute = [[VVMigrationRuntimeProperty alloc] init];
@@ -77,8 +77,8 @@
             }
             migrationAttribute.latestAttbiute = attribute;
         }
-        VVRuntime *previousRuntime = migrationRuntime.previousRuntime;
-        for (VVRuntimeProperty *attribute in previousRuntime.attributes) {
+        VVORMClass *previousRuntime = migrationRuntime.previousRuntime;
+        for (VVORMProperty *attribute in previousRuntime.attributes) {
             VVMigrationRuntimeProperty *migrationAttribute = migrationRuntime.attributes[attribute.name];
             if (!migrationAttribute) {
                 migrationAttribute = [[VVMigrationRuntimeProperty alloc] init];
@@ -188,7 +188,7 @@
     // start migration
 
     // delete relationship information
-    VVRuntime *relationshipRuntime = [self runtime:[VVRelationshipModel class]];
+    VVORMClass *relationshipRuntime = [self runtime:[VVORMRelationship class]];
     for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
         if (migrationRuntime.changed) {
             for (VVMigrationRuntimeProperty *attribute in migrationRuntime.attributes.allValues) {

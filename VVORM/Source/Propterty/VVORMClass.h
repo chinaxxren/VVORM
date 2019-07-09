@@ -10,10 +10,10 @@
 
 @class VVClazz;
 @class VVNameBuilder;
-@class VVRuntimeProperty;
+@class VVORMProperty;
 @class VVConditionModel;
 
-@interface VVRuntime : NSObject <VVModelInterface>
+@interface VVORMClass : NSObject <VVModelInterface>
 
 //
 - (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder;
@@ -27,7 +27,7 @@
 @property(nonatomic, assign) BOOL isRelationshipClazz;
 
 // attribute inforamtion
-@property(nonatomic, strong) VVRuntimeProperty <VVIgnoreAttribute> *rowidAttribute;
+@property(nonatomic, strong) VVORMProperty <VVIgnoreAttribute> *rowidAttribute;
 @property(nonatomic, strong) NSArray *attributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *identificationAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *insertAttributes;
