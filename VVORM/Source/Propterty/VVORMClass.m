@@ -394,7 +394,7 @@
 
 
 + (NSString *)VVTableName {
-    return @"__VVModelRuntime__";
+    return @"__VVORMClass__";
 }
 
 @end
