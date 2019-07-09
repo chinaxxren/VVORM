@@ -196,7 +196,7 @@
 		ADA9B878E6AB8932B7DDB9906D322C76 /* VVDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBaseManager.h; sourceTree = "<group>"; };
 		ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B032801A372085E9C650F893EC942991 /* VVORMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVORMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B103E653D8329C6C9D2115C71A43E934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B103E653D8329C6C9D2115C71A43E934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		B33CE696E106F312007F6446EE7FC449 /* VVClazzNSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSValue.h; sourceTree = "<group>"; };
 		B7810777C8E04FCA47F165B3EC83CB3B /* VVClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClassProperty.h; sourceTree = "<group>"; };
 		BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntime.m; sourceTree = "<group>"; };
@@ -316,13 +316,13 @@
 			path = Propterty;
 			sourceTree = "<group>";
 		};
-		368079EB873524017FCAE8E34E8A66FC /* VVDBUITests */ = {
+		368079EB873524017FCAE8E34E8A66FC /* VVORMUITests */ = {
 			isa = PBXGroup;
 			children = (
 				B103E653D8329C6C9D2115C71A43E934 /* Info.plist */,
 				8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVORMUITests.m */,
 			);
-			path = VVDBUITests;
+			path = VVORMUITests;
 			sourceTree = "<group>";
 		};
 		370DFF8ADFDB7AB163B90CBA3C520AA8 = {
@@ -334,7 +334,7 @@
 				2AE417007AA176A67F82142D8E71CC46 /* Products */,
 				CDE6DDB0454F461FE54FBFAF1AD26361 /* VVORM */,
 				68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVORMTests */,
-				368079EB873524017FCAE8E34E8A66FC /* VVDBUITests */,
+				368079EB873524017FCAE8E34E8A66FC /* VVORMUITests */,
 			);
 			sourceTree = "<group>";
 		};
