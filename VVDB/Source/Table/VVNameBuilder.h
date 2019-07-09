@@ -8,8 +8,8 @@
 
 @interface VVNameBuilder : NSObject
 
-@property(nonatomic, strong) NSString *ignorePrefixName;
-@property(nonatomic, strong) NSString *ignoreSuffixName;
+@property(nonatomic, copy) NSString *ignorePrefixName;
+@property(nonatomic, copy) NSString *ignoreSuffixName;
 
 - (NSString *)tableName:(Class)clazz;
 

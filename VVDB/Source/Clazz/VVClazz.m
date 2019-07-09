@@ -81,51 +81,52 @@
 
 #pragma mark constractor
 
-+ (NSMutableArray *)osclazzsArray {
++ (NSMutableArray *)vvclazzsArray {
     static NSMutableArray *_vvclazzs = nil;
-    if (!_vvclazzs) {
-        @synchronized (self) {
+    @synchronized (self) {
+        if (!_vvclazzs) {
             _vvclazzs = [NSMutableArray array];
+
+            [self addVVClazz:[VVClazzNSMutableString class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSDate class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSURL class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSString class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSDecimalNumber class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSNumber class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSData class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSValue class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSNull class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzShort class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzBool class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzInt class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzChar class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzLong class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzLongLong class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzUnsignedInt class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzUnsignedShort class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzUnsignedChar class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzUnsignedLong class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzUnsignedLongLong class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzFloat class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzDouble class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzSerialize class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSArray class] vvclazzsArray:_vvclazzs];
+            [self addVVClazz:[VVClazzNSMutableArray class] vvclazzsArray:_vvclazzs];
         }
     }
+
     return _vvclazzs;
 }
 
-+ (NSMutableDictionary *)vvclazzs {
-    static NSMutableDictionary *_clazzs = nil;
-    if (!_clazzs) {
-        @synchronized (self) {
-            NSMutableArray *clazzsArray = [self osclazzsArray];
-            _clazzs = [NSMutableDictionary dictionary];
-            [self addOSClazz:[VVClazzNSMutableString class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSDate class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSURL class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSString class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSDecimalNumber class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSNumber class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSData class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSValue class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSNull class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzShort class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzBool class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzInt class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzChar class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzLong class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzLongLong class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzUnsignedInt class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzUnsignedShort class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzUnsignedChar class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzUnsignedLong class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzUnsignedLongLong class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzFloat class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzDouble class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzSerialize class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSArray class] vvclazzsArray:clazzsArray];
-            [self addOSClazz:[VVClazzNSMutableArray class] vvclazzsArray:clazzsArray];
++ (NSMutableDictionary *)vvclazzDict {
+    static NSMutableDictionary *_clazzDict = nil;
+    @synchronized (self) {
+        if (!_clazzDict) {
+            _clazzDict = [NSMutableDictionary dictionary];
         }
     }
 
-    return _clazzs;
+    return _clazzDict;
 }
 
 + (void)addClazz:(Class)clazz {
@@ -133,37 +134,37 @@
         return;
     }
     @synchronized (self) {
-        NSMutableArray *osclazzsArray = [self osclazzsArray];
-        [self addOSClazz:clazz vvclazzsArray:osclazzsArray];
+        NSMutableArray *vvclazzsArray = [self vvclazzsArray];
+        [self addVVClazz:clazz vvclazzsArray:vvclazzsArray];
     }
 }
 
-+ (void)addOSClazz:(Class)clazz vvclazzsArray:(NSMutableArray *)osclazzsArray {
-    VVClazz *osclazz = [[clazz alloc] init];
-    [osclazzsArray addObject:osclazz];
++ (void)addVVClazz:(Class)clazz vvclazzsArray:(NSMutableArray *)vvclazzsArray {
+    VVClazz *vvclazz = [[clazz alloc] init];
+    [vvclazzsArray addObject:vvclazz];
 }
 
 + (VVClazz *)vvclazzWithClazz:(Class)clazz {
-    NSMutableDictionary *osclazzs = [self vvclazzs];
-    VVClazz *osclazz = osclazzs[NSStringFromClass(clazz)];
-    if (osclazz) {
-        return osclazz;
+    NSMutableDictionary *clazzDict = [self vvclazzDict];
+    VVClazz *typeClazz = clazzDict[NSStringFromClass(clazz)];
+    if (typeClazz) {
+        return typeClazz;
     }
-    NSMutableArray *osclazzsArray = [self osclazzsArray];
+    NSMutableArray *vvclazzsArray = [self vvclazzsArray];
     if (!clazz) {
         return [self clazzIdInstance];
     }
-    for (VVClazz *osclazz in osclazzsArray) {
-        if (osclazz.superClazz != [NSObject class]) {
-            if ([osclazz isSubClazz:clazz]) {
-                osclazzs[NSStringFromClass(clazz)] = osclazz;
-                return osclazz;
+    for (VVClazz *vvclazz in vvclazzsArray) {
+        if (vvclazz.superClazz != [NSObject class]) {
+            if ([vvclazz isSubClazz:clazz]) {
+                clazzDict[NSStringFromClass(clazz)] = vvclazz;
+                return vvclazz;
             }
         }
     }
-    osclazz = [self clazzNSObjectInstance];
-    osclazzs[NSStringFromClass(clazz)] = osclazz;
-    return osclazz;
+    typeClazz = [self clazzNSObjectInstance];
+    clazzDict[NSStringFromClass(clazz)] = typeClazz;
+    return typeClazz;
 }
 
 + (VVClazzID *)clazzIdInstance {
@@ -192,29 +193,29 @@
 
 + (VVClazz *)vvclazzWithPrimitiveEncodingCode:(NSString *)primitiveEncodingCode {
     NSString *key = primitiveEncodingCode;
-    NSMutableDictionary *osclazzs = [self vvclazzs];
-    VVClazz *osclazz = osclazzs[key];
-    if (!osclazz) {
-        NSMutableArray *osclazzsArray = [self osclazzsArray];
-        for (VVClazz *newosclazz in osclazzsArray) {
-            if ([newosclazz.attributeType isEqualToString:key]) {
-                osclazz = newosclazz;
+    NSMutableDictionary *vvclazzs = [self vvclazzDict];
+    VVClazz *vvclazz = vvclazzs[key];
+    if (!vvclazz) {
+        NSMutableArray *vvclazzsArray = [self vvclazzsArray];
+        for (VVClazz *newvvclazz in vvclazzsArray) {
+            if ([newvvclazz.attributeType isEqualToString:key]) {
+                vvclazz = newvvclazz;
                 break;
             }
         }
-        if (osclazz) {
-            osclazzs[key] = osclazz;
+        if (vvclazz) {
+            vvclazzs[key] = vvclazz;
         }
     }
-    return osclazz;
+    return vvclazz;
 }
 
 + (VVClazz *)vvclazzWithStructureName:(NSString *)StructureName {
     NSString *key = StructureName;
-    NSMutableDictionary *vvclazzs = [self vvclazzs];
+    NSMutableDictionary *vvclazzs = [self vvclazzDict];
     VVClazz *vvclazz = vvclazzs[key];
     if (!vvclazz) {
-        NSMutableArray *vvclazzsArray = [self osclazzsArray];
+        NSMutableArray *vvclazzsArray = [self vvclazzsArray];
         for (VVClazz *newvvclazz in vvclazzsArray) {
             if ([newvvclazz.attributeType isEqualToString:key]) {
                 vvclazz = newvvclazz;
