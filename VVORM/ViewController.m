@@ -23,13 +23,19 @@
     [super viewDidLoad];
 
     [self testUser];
-    [self testGlobal];
+//    [self testGlobal];
 }
 
 - (void)testUser {
     User *user = [User new];
-    user.name = @"user-1";
-    user.age = 18;
+    user.name = @"user-2";
+    user.age = 17;
+
+    Download *download = [Download new];
+    download.name = @"dwonload~2";
+    download.size = 12;
+
+    user.download = download;
 
     VVDataBase *userDB = [AppContent user];
     [userDB saveObject:user];

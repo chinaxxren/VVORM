@@ -1,6 +1,6 @@
 //
-//  VVDBUITests.m
-//  VVDBUITests
+//  VVORMUITests.m
+//  VVORMUITests
 //
 //  Created by Tank on 2019/7/3.
 //  Copyright © 2019 Tank. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface VVDBUITests : XCTestCase
+@interface VVORMUITests : XCTestCase
 
 @end
 
-@implementation VVDBUITests
+@implementation VVORMUITests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

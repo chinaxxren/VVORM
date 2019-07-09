@@ -54,8 +54,8 @@
             [sqlInsert appendString:@","];
         }
     }
-    [sqlInsert appendString:@"__createdAt__"];
-    [sqlInsert appendString:@",__updatedAt__"];
+    [sqlInsert appendString:@"__created_at__"];
+    [sqlInsert appendString:@",__updated_at__"];
     [sqlInsert appendString:@")"];
     NSMutableString *sqlSelect = [NSMutableString string];
     [sqlSelect appendString:@" "];
@@ -69,8 +69,8 @@
             [sqlSelect appendString:@","];
         }];
     }
-    [sqlSelect appendString:@"__createdAt__"];
-    [sqlSelect appendString:@",__updatedAt__"];
+    [sqlSelect appendString:@"__created_at__"];
+    [sqlSelect appendString:@",__updated_at__"];
     [sqlSelect appendString:@" "];
     [sqlSelect appendString:@"FROM"];
     [sqlSelect appendString:@" "];

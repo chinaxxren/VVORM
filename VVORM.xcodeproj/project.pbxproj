@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C3F4F4B931EF0CAC43E068339EDA574 /* VVModelMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */; };
 		161B159F4FE6D2C78311E47675E36D92 /* VVClazzSerialize.m in Sources */ = {isa = PBXBuildFile; fileRef = E94F317CA8D82C9474BC5F152DF06698 /* VVClazzSerialize.m */; };
+		193D39A68D5504B9CC380610 /* libPods-VVORM.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 484D6DDA78BCEF8DF872B240 /* libPods-VVORM.a */; };
 		19965B25577AFB3703AB564C9133D1F5 /* VVPropertyEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 2158B4E18036EEE35409799ACD1E0D47 /* VVPropertyEncoding.m */; };
 		19E69C4CA10BC9AECD5417C8C485D99A /* VVClazzNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = E33F75911D1885607DBCD09E0D1ABDB7 /* VVClazzNSString.m */; };
 		1BC653BA033BC1B90F11F026DDD1D1CA /* VVQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */; };
@@ -18,7 +19,6 @@
 		209F73D0ECFE6C064B5B8575717B43EE /* VVObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */; };
 		2503397848CA8E5D61996C1BC44C1642 /* VVClazzFloat.m in Sources */ = {isa = PBXBuildFile; fileRef = E33EDE085C022874020D3E8101106144 /* VVClazzFloat.m */; };
 		259DE4522BC59A9ED54A554E3F96D237 /* VVSQLiteColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD35ECA0CA56E0AE8916ADDDC3CABAF /* VVSQLiteColumnModel.m */; };
-		31A30F0A3249EA0226D8D48B3CFDB58D /* libPods-VVDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */; };
 		33E948311833DD95CD67C588FA0BBF11 /* VVDataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E8DB1829DF16D9A6A174FE11468B2 /* VVDataBaseManager.m */; };
 		34958DC58BDCA2DADA265E77B212EEC9 /* NSObject+VVObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */; };
 		3776A399E0FB01AB13BEED706EC58E9D /* VVClazzUnsignedLong.m in Sources */ = {isa = PBXBuildFile; fileRef = D74B06436E24529FFD7E32690820DE55 /* VVClazzUnsignedLong.m */; };
@@ -42,7 +42,6 @@
 		5D58494A88F8729E88B77250494AD719 /* VVNameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 150E2D670D7B9708F1F54228D20A2A3E /* VVNameBuilder.m */; };
 		5DCD150FE633BD23F7459F89C9D23B83 /* VVClazzNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F247B51B5161E8FBD1C1DD56A2718C10 /* VVClazzNSObject.m */; };
 		6313D9EEC344B5CCB0E2759166C8F1F0 /* NSObject+VVTabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0526E71B1E97F43330757F52F7B8B2 /* NSObject+VVTabel.m */; };
-		68C926F19C0C1B56EB1D3DC5BD7093EF /* VVRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 584FF729B2E6F20FA45C89E2571F2ED4 /* VVRuntimeProperty.m */; };
 		6965D56A5044CD6CEDA9CECCC0398FCB /* VVRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B104FAA04F01FBDE569F4D073CE3BE /* VVRuntime.m */; };
 		6C742A8FF92A97D985A1C1A5E24B560D /* VVNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */; };
 		6C8C933C894503470C03B2F8D2BA8FC6 /* VVDataBase+Background.m in Sources */ = {isa = PBXBuildFile; fileRef = 585D803FDB2FA117FFE3B75F0D8D7991 /* VVDataBase+Background.m */; };
@@ -52,7 +51,7 @@
 		7F3FCC3D8EC94540292B5084AF3C370C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */; };
 		8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */; };
 		80838AA06B51E6E33F123FC2A9D0E62E /* VVClazzNSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 52527FCB7A04B8827A61AC3CB6876010 /* VVClazzNSURL.m */; };
-		84ACD60EBCA64DCD1D5A633C835F9E5C /* VVDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */; };
+		84ACD60EBCA64DCD1D5A633C835F9E5C /* VVORMUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVORMUITests.m */; };
 		85B4123B0BB06600135608206223D9BE /* VVClazzShort.m in Sources */ = {isa = PBXBuildFile; fileRef = 66F24AF9460460222BD433E3ACDDBE80 /* VVClazzShort.m */; };
 		86EAD7C2CFF88978D7B336225DAAB7FD /* VVClazzChar.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B9C0B7B45C3F2639A001F231304473 /* VVClazzChar.m */; };
 		8CDA0571237342E5A03DD77071A5C2BB /* VVReferenceMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */; };
@@ -66,6 +65,7 @@
 		BF464AF3F9669C0E0B23D8A7A00B6503 /* VVMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8388B4F82123657399D0D11578F790 /* VVMigration.m */; };
 		C09326C64D582D2A11293EFBD489F42D /* VVClazzLong.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8A739670EAAE70D36EC0D7A87A4296 /* VVClazzLong.m */; };
 		C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */; };
+		C3AE62EE54235ECFCA82F70C /* VVRuntimeProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6548BB984326A3C9F9BE /* VVRuntimeProperty.m */; };
 		C3AE663F2A09F66076F67E0B /* VVClazzNSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6ABDF16A08A9D5B28421 /* VVClazzNSMutableArray.m */; };
 		CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50569A531FAE0EB9692310D615EC246E /* ViewController.m */; };
 		CD03E642C378FDAB01575FF1D306E702 /* VVClazzNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 500846FAEF3F47468DE4B82D6450C416 /* VVClazzNSArray.m */; };
@@ -117,7 +117,7 @@
 		2493C36114ED758A23179551F60E6635 /* VVClazzUnsignedInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedInt.h; sourceTree = "<group>"; };
 		26332DA0D92C6C11CD019F5909170A68 /* VVObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVObserver.m; sourceTree = "<group>"; };
 		26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationQueryBuilder.m; sourceTree = "<group>"; };
-		29101846270BF95D7850BFC007465AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29101846270BF95D7850BFC007465AF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		2D3A9D65875812738A829917CAEF1E7E /* VVRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRuntime.h; sourceTree = "<group>"; };
 		2E332AA7F5C210D749E79E400678D41A /* VVClazzID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzID.m; sourceTree = "<group>"; };
 		2E57E842386F230A197816A23C3A6077 /* VVDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBase.h; sourceTree = "<group>"; };
@@ -126,12 +126,13 @@
 		2FFC8702C160D2FBFFC04CD2F7986593 /* VVSqliteConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSqliteConst.m; sourceTree = "<group>"; };
 		3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3645937D1C39EA2CB2D9781D42AFF36C /* VVClazzUnsignedShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedShort.h; sourceTree = "<group>"; };
-		39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39F4BAACEB356BD9B3F663AD15242D63 /* VVORMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVORMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D0526E71B1E97F43330757F52F7B8B2 /* NSObject+VVTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVTabel.m"; sourceTree = "<group>"; };
 		3FC00E4A1CCFA0A6E02519CD414677C9 /* VVClazzNSMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSMutableString.h; sourceTree = "<group>"; };
 		429BA5A44A28453E189B638C01871397 /* VVClazzChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzChar.h; sourceTree = "<group>"; };
 		42CB8CA57D5AFBBDF97AE134B880FEB8 /* VVClazz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazz.m; sourceTree = "<group>"; };
 		444A2716663CA0A4CCB72ABF524618DA /* VVRelationshipModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRelationshipModel.h; sourceTree = "<group>"; };
+		484D6DDA78BCEF8DF872B240 /* libPods-VVORM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VVORM.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		491530E84F58697F6AEB8C85C1392C15 /* VVClazzNSDecimalNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSDecimalNumber.m; sourceTree = "<group>"; };
 		4A6ED129B1511F8E27210AABB080F2BE /* VVPropertyEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyEncoding.h; sourceTree = "<group>"; };
 		4A8B931ED153214C6A89AE48A06443DC /* NSObject+VVObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVObserver.m"; sourceTree = "<group>"; };
@@ -149,9 +150,7 @@
 		5614B46A0718165EAE1B02598E211F31 /* VVClazzUnsignedLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedLongLong.m; sourceTree = "<group>"; };
 		56A4B99F6FADAFB81D634B2DB369F4B4 /* VVNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVNotificationCenter.m; sourceTree = "<group>"; };
 		58452E4CD824CE81A660E5B76B4E0D74 /* VVClazzNSNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSNull.m; sourceTree = "<group>"; };
-		584FF729B2E6F20FA45C89E2571F2ED4 /* VVRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRuntimeProperty.m; sourceTree = "<group>"; };
 		585D803FDB2FA117FFE3B75F0D8D7991 /* VVDataBase+Background.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VVDataBase+Background.m"; sourceTree = "<group>"; };
-		5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VVDB.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59A172E33E34085661204AD1E19DF8CE /* VVModelMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVModelMapper.m; sourceTree = "<group>"; };
 		5B5CC188BF4D6E8C0BB48E5BFF16E46C /* VVClazzInt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzInt.h; sourceTree = "<group>"; };
 		5BDF54E838A9C10EE94189F9FD4387F4 /* VVClazzUnsignedChar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzUnsignedChar.h; sourceTree = "<group>"; };
@@ -175,14 +174,13 @@
 		8388897B4FB72E7D3A651887027F08F4 /* VVDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBase.m; sourceTree = "<group>"; };
 		84DF07B5ED2B7DF80BD92F77D2494775 /* VVModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelInterface.h; sourceTree = "<group>"; };
 		89FF1411C18556C0AA4E2F712BA71320 /* VVClazzShort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzShort.h; sourceTree = "<group>"; };
-		8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBUITests.m; sourceTree = "<group>"; };
+		8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVORMUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVORMUITests.m; sourceTree = "<group>"; };
 		8D221B4B0A0DB82C19AA844CB6418151 /* VVClazzNSMutableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSMutableString.m; sourceTree = "<group>"; };
 		8D46171DAEC577D90FEC65DDD6DB7755 /* VVPropertyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyType.h; sourceTree = "<group>"; };
 		9001D9524CC1DDA385E703FFA7DF7371 /* VVMigrationQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationQueryBuilder.h; sourceTree = "<group>"; };
 		90F86A2FFEBEE7D6691B213FC4EAE9CD /* VVClazzNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSDate.m; sourceTree = "<group>"; };
 		9255F8082A507C0978C683686B8B5EED /* NSObject+VVTabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVTabel.h"; sourceTree = "<group>"; };
 		9264CE8F0C15F2D84F7B8281EE1694C5 /* VVClazzNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSObject.h; sourceTree = "<group>"; };
-		933E601DEAA65BADE2E24FCDC9038364 /* VVRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRuntimeProperty.h; sourceTree = "<group>"; };
 		93B5F8C8567CE117012413AD41F331BC /* VVSQLiteConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSQLiteConditionModel.m; sourceTree = "<group>"; };
 		959E8DB1829DF16D9A6A174FE11468B2 /* VVDataBaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVDataBaseManager.m; sourceTree = "<group>"; };
 		99DF0317FF7D1D4CAA3B8838F764805A /* VVObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVObserver.h; sourceTree = "<group>"; };
@@ -192,15 +190,19 @@
 		A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVDBTests.m; sourceTree = "<group>"; };
 		A34374CE8CCA22E77C4E90E3A247D944 /* VVClazzNSDecimalNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSDecimalNumber.h; sourceTree = "<group>"; };
 		A3EA685B7823C66A93E178C35D110BEC /* AppContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppContent.m; sourceTree = "<group>"; };
+		AB66685A7E0B83CD9CFF7E6D /* Pods-VVORM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVORM.debug.xcconfig"; path = "Target Support Files/Pods-VVORM/Pods-VVORM.debug.xcconfig"; sourceTree = "<group>"; };
+		ABBE686532C1706BF1DB01D7 /* Pods-VVORM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VVORM.release.xcconfig"; path = "Target Support Files/Pods-VVORM/Pods-VVORM.release.xcconfig"; sourceTree = "<group>"; };
 		AC82A3E3B0E93FAF5AD14F733982E541 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		ADA9B878E6AB8932B7DDB9906D322C76 /* VVDataBaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVDataBaseManager.h; sourceTree = "<group>"; };
 		ADACABFFF248DA8E936A33D5EAEF111D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B032801A372085E9C650F893EC942991 /* VVORMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VVORMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B103E653D8329C6C9D2115C71A43E934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B33CE696E106F312007F6446EE7FC449 /* VVClazzNSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSValue.h; sourceTree = "<group>"; };
 		B7810777C8E04FCA47F165B3EC83CB3B /* VVClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClassProperty.h; sourceTree = "<group>"; };
 		BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntime.m; sourceTree = "<group>"; };
 		C2600E5FC975816167ED8D0DFB926120 /* FMDatabase+IndexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+IndexInfo.h"; sourceTree = "<group>"; };
+		C3AE6548BB984326A3C9F9BE /* VVRuntimeProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVRuntimeProperty.m; sourceTree = "<group>"; };
+		C3AE69E7DEAB49A59048C8D5 /* VVRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVRuntimeProperty.h; sourceTree = "<group>"; };
 		C3AE6ABDF16A08A9D5B28421 /* VVClazzNSMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSMutableArray.m; sourceTree = "<group>"; };
 		C3AE6B16C211A49C757F5BC3 /* VVClazzNSMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSMutableArray.h; sourceTree = "<group>"; };
 		C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -210,7 +212,7 @@
 		CC0E5B4C505B0822A487ACDF7CA1451F /* VVClazzID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzID.h; sourceTree = "<group>"; };
 		CD6CFD0A07D17532F91177BADD7D8399 /* VVClazzNSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSArray.h; sourceTree = "<group>"; };
 		CFFA7A3E836EDDD29726E8304D135B9F /* FMDatabase+IndexInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+IndexInfo.m"; sourceTree = "<group>"; };
-		D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08313258A7D5F5F057C99E06DDD9DED /* VVORM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VVORM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A7BD02EEFDC8C6991E8C304752FBA5 /* VVQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVQueryBuilder.h; sourceTree = "<group>"; };
 		D41670B95DEF09B9F93302488DC8B256 /* VVClazzNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSData.h; sourceTree = "<group>"; };
 		D6BA031EE2600B792409242C98AA9367 /* VVClazzBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzBool.h; sourceTree = "<group>"; };
@@ -265,7 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A30F0A3249EA0226D8D48B3CFDB58D /* libPods-VVDB.a in Frameworks */,
+				193D39A68D5504B9CC380610 /* libPods-VVORM.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,9 +290,9 @@
 		2AE417007AA176A67F82142D8E71CC46 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */,
-				B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */,
-				39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */,
+				D08313258A7D5F5F057C99E06DDD9DED /* VVORM.app */,
+				B032801A372085E9C650F893EC942991 /* VVORMTests.xctest */,
+				39F4BAACEB356BD9B3F663AD15242D63 /* VVORMUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,6 +310,8 @@
 				1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */,
 				2D3A9D65875812738A829917CAEF1E7E /* VVRuntime.h */,
 				E6B104FAA04F01FBDE569F4D073CE3BE /* VVRuntime.m */,
+				C3AE6548BB984326A3C9F9BE /* VVRuntimeProperty.m */,
+				C3AE69E7DEAB49A59048C8D5 /* VVRuntimeProperty.h */,
 			);
 			path = Propterty;
 			sourceTree = "<group>";
@@ -316,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				B103E653D8329C6C9D2115C71A43E934 /* Info.plist */,
-				8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVDBUITests.m */,
+				8AB02C0850CBBF844A64CFF7CDAC9EF3 /* VVORMUITests.m */,
 			);
 			path = VVDBUITests;
 			sourceTree = "<group>";
@@ -328,8 +332,8 @@
 				6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */,
 				379BFD789B0DCD6369615C78264254BE /* Pods */,
 				2AE417007AA176A67F82142D8E71CC46 /* Products */,
-				CDE6DDB0454F461FE54FBFAF1AD26361 /* VVDB */,
-				68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVDBTests */,
+				CDE6DDB0454F461FE54FBFAF1AD26361 /* VVORM */,
+				68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVORMTests */,
 				368079EB873524017FCAE8E34E8A66FC /* VVDBUITests */,
 			);
 			sourceTree = "<group>";
@@ -339,6 +343,8 @@
 			children = (
 				C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */,
 				0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */,
+				AB66685A7E0B83CD9CFF7E6D /* Pods-VVORM.debug.xcconfig */,
+				ABBE686532C1706BF1DB01D7 /* Pods-VVORM.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -355,19 +361,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVDBTests */ = {
+		68BFE6BFBA7AEE5AC32CA329D4F5F487 /* VVORMTests */ = {
 			isa = PBXGroup;
 			children = (
 				29101846270BF95D7850BFC007465AF9 /* Info.plist */,
 				A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */,
 			);
-			path = VVDBTests;
+			path = VVORMTests;
 			sourceTree = "<group>";
 		};
 		804BABB59476401FE82CA7DF349EB500 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5920F57F7DBBDBA232EB9262ED973137 /* libPods-VVDB.a */,
+				484D6DDA78BCEF8DF872B240 /* libPods-VVORM.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -459,8 +465,6 @@
 				10DA1FB899E9E80C1EE490B4EE8522F3 /* VVClazzUnsignedShort.m */,
 				EB778877FCC42799029314BF498B61D7 /* VVSqliteConst.h */,
 				2FFC8702C160D2FBFFC04CD2F7986593 /* VVSqliteConst.m */,
-				933E601DEAA65BADE2E24FCDC9038364 /* VVRuntimeProperty.h */,
-				584FF729B2E6F20FA45C89E2571F2ED4 /* VVRuntimeProperty.m */,
 				C3AE6ABDF16A08A9D5B28421 /* VVClazzNSMutableArray.m */,
 				C3AE6B16C211A49C757F5BC3 /* VVClazzNSMutableArray.h */,
 			);
@@ -488,7 +492,7 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		CDE6DDB0454F461FE54FBFAF1AD26361 /* VVDB */ = {
+		CDE6DDB0454F461FE54FBFAF1AD26361 /* VVORM */ = {
 			isa = PBXGroup;
 			children = (
 				C7EA33761BE579F94D25251A6B128C11 /* Source */,
@@ -508,7 +512,7 @@
 				50569A531FAE0EB9692310D615EC246E /* ViewController.m */,
 				3287F2C4CCF9EC27D9E10B13F78E2844 /* main.m */,
 			);
-			path = VVDB;
+			path = VVORM;
 			sourceTree = "<group>";
 		};
 		DAD824F5F925D128473A048FA0321B5F /* Table */ = {
@@ -546,9 +550,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		98DC8D40D2442EB491152386566B9EEB /* VVDB */ = {
+		98DC8D40D2442EB491152386566B9EEB /* VVORM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 73E678FB564B343F243003301C01697C /* Build configuration list for PBXNativeTarget "VVDB" */;
+			buildConfigurationList = 73E678FB564B343F243003301C01697C /* Build configuration list for PBXNativeTarget "VVORM" */;
 			buildPhases = (
 				32AE369EC65751A5227499F7BB8744DD /* [CP] Check Pods Manifest.lock */,
 				E94B081A8B4F30C42DA1E8F5EA254F03 /* Sources */,
@@ -559,14 +563,14 @@
 			);
 			dependencies = (
 			);
-			name = VVDB;
+			name = VVORM;
 			productName = VVDB;
-			productReference = D08313258A7D5F5F057C99E06DDD9DED /* VVDB.app */;
+			productReference = D08313258A7D5F5F057C99E06DDD9DED /* VVORM.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AB9642C3700948D86541F64CB743A22A /* VVDBTests */ = {
+		AB9642C3700948D86541F64CB743A22A /* VVORMTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C8150DC55A31847AFCFE91566CD8646D /* Build configuration list for PBXNativeTarget "VVDBTests" */;
+			buildConfigurationList = C8150DC55A31847AFCFE91566CD8646D /* Build configuration list for PBXNativeTarget "VVORMTests" */;
 			buildPhases = (
 				3EA5F706EB9B781C36CCCFE60531C407 /* Sources */,
 				61C1B3035DA9485780CEEC4F8E29757D /* Frameworks */,
@@ -577,14 +581,14 @@
 			dependencies = (
 				F33B61FA571DA82E29869627D05E5E9D /* PBXTargetDependency */,
 			);
-			name = VVDBTests;
+			name = VVORMTests;
 			productName = VVDBTests;
-			productReference = B032801A372085E9C650F893EC942991 /* VVDBTests.xctest */;
+			productReference = B032801A372085E9C650F893EC942991 /* VVORMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		AFCE0AF001D796265540E3244C6EA4B6 /* VVDBUITests */ = {
+		AFCE0AF001D796265540E3244C6EA4B6 /* VVORMUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6A44FEC1113AC3B68EA05EED67B00855 /* Build configuration list for PBXNativeTarget "VVDBUITests" */;
+			buildConfigurationList = 6A44FEC1113AC3B68EA05EED67B00855 /* Build configuration list for PBXNativeTarget "VVORMUITests" */;
 			buildPhases = (
 				965C597CEF1033C082D59D3BB087A5D0 /* Sources */,
 				3B114D4DA3FA2E994A8E2B7FE1BCCF3B /* Frameworks */,
@@ -595,9 +599,9 @@
 			dependencies = (
 				C76CC338FCB9133C08F2ED6E65CCF9FC /* PBXTargetDependency */,
 			);
-			name = VVDBUITests;
+			name = VVORMUITests;
 			productName = VVDBUITests;
-			productReference = 39F4BAACEB356BD9B3F663AD15242D63 /* VVDBUITests.xctest */;
+			productReference = 39F4BAACEB356BD9B3F663AD15242D63 /* VVORMUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -622,7 +626,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 147F54EDAB35A9D0DE4F94EF0DAED0A3 /* Build configuration list for PBXProject "VVDB" */;
+			buildConfigurationList = 147F54EDAB35A9D0DE4F94EF0DAED0A3 /* Build configuration list for PBXProject "VVORM" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -635,9 +639,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				98DC8D40D2442EB491152386566B9EEB /* VVDB */,
-				AB9642C3700948D86541F64CB743A22A /* VVDBTests */,
-				AFCE0AF001D796265540E3244C6EA4B6 /* VVDBUITests */,
+				98DC8D40D2442EB491152386566B9EEB /* VVORM */,
+				AB9642C3700948D86541F64CB743A22A /* VVORMTests */,
+				AFCE0AF001D796265540E3244C6EA4B6 /* VVORMUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -686,7 +690,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VVDB-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VVORM-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -708,7 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84ACD60EBCA64DCD1D5A633C835F9E5C /* VVDBUITests.m in Sources */,
+				84ACD60EBCA64DCD1D5A633C835F9E5C /* VVORMUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,7 +758,6 @@
 				5A7058A5765EBF6E7B0D219E42AC2869 /* VVClazzUnsignedShort.m in Sources */,
 				709057EFB2823DC01B118D77096A36F1 /* VVConditionModel.m in Sources */,
 				F82E94AB8A316B7B28EACE93A88BFC11 /* VVSqliteConst.m in Sources */,
-				68C926F19C0C1B56EB1D3DC5BD7093EF /* VVRuntimeProperty.m in Sources */,
 				6C8C933C894503470C03B2F8D2BA8FC6 /* VVDataBase+Background.m in Sources */,
 				D01E620A56587FE19FA75A293891AC00 /* VVDataBase.m in Sources */,
 				33E948311833DD95CD67C588FA0BBF11 /* VVDataBaseManager.m in Sources */,
@@ -781,6 +784,7 @@
 				CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */,
 				8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */,
 				C3AE663F2A09F66076F67E0B /* VVClazzNSMutableArray.m in Sources */,
+				C3AE62EE54235ECFCA82F70C /* VVRuntimeProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,12 +793,12 @@
 /* Begin PBXTargetDependency section */
 		C76CC338FCB9133C08F2ED6E65CCF9FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 98DC8D40D2442EB491152386566B9EEB /* VVDB */;
+			target = 98DC8D40D2442EB491152386566B9EEB /* VVORM */;
 			targetProxy = A1C5D897C260B14F0A7D5932280D0E71 /* PBXContainerItemProxy */;
 		};
 		F33B61FA571DA82E29869627D05E5E9D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 98DC8D40D2442EB491152386566B9EEB /* VVDB */;
+			target = 98DC8D40D2442EB491152386566B9EEB /* VVORM */;
 			targetProxy = 5CB77FAB02DD5EE9DF060E732CA21EA5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -867,7 +871,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVDB.app/VVDB";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVORM.app/VVORM";
 			};
 			name = Release;
 		};
@@ -885,13 +889,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.waqu.db.VVDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVDB.app/VVDB";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VVORM.app/VVORM";
 			};
 			name = Debug;
 		};
 		62451565214C5767139F73FDE6F23C1B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0093C9EAC1806A3D5F0BEC62E425C817 /* Pods-VVDB.release.xcconfig */;
+			baseConfigurationReference = ABBE686532C1706BF1DB01D7 /* Pods-VVORM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -909,7 +913,7 @@
 		};
 		C0448C0763913E6AFE4EC1F3D190CC48 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C916F35932D00B65EE366059F43CC290 /* Pods-VVDB.debug.xcconfig */;
+			baseConfigurationReference = AB66685A7E0B83CD9CFF7E6D /* Pods-VVORM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1040,7 +1044,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		147F54EDAB35A9D0DE4F94EF0DAED0A3 /* Build configuration list for PBXProject "VVDB" */ = {
+		147F54EDAB35A9D0DE4F94EF0DAED0A3 /* Build configuration list for PBXProject "VVORM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D59095539F1426A239234F75F5A02C71 /* Debug */,
@@ -1049,7 +1053,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6A44FEC1113AC3B68EA05EED67B00855 /* Build configuration list for PBXNativeTarget "VVDBUITests" */ = {
+		6A44FEC1113AC3B68EA05EED67B00855 /* Build configuration list for PBXNativeTarget "VVORMUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23EB8853401E3D6AD6A1E7622AF5483F /* Debug */,
@@ -1058,7 +1062,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		73E678FB564B343F243003301C01697C /* Build configuration list for PBXNativeTarget "VVDB" */ = {
+		73E678FB564B343F243003301C01697C /* Build configuration list for PBXNativeTarget "VVORM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0448C0763913E6AFE4EC1F3D190CC48 /* Debug */,
@@ -1067,7 +1071,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8150DC55A31847AFCFE91566CD8646D /* Build configuration list for PBXNativeTarget "VVDBTests" */ = {
+		C8150DC55A31847AFCFE91566CD8646D /* Build configuration list for PBXNativeTarget "VVORMTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5388C2C0B9C53967A1D868188870D3CC /* Debug */,

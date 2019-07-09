@@ -5,9 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class Download;
+
 
 @interface User : NSObject
 
+@property(nonatomic, strong) Download *download;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, assign) NSInteger age;
 

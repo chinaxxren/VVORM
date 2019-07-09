@@ -146,7 +146,6 @@
     // sqlite
     self.columnName = [nameBuilder columnName:bzproperty.name clazz:runtime.clazz];
     self.sqliteColumns = [self.vvclazz sqliteColumnsWithAttribute:self];
-
 }
 
 - (BOOL)isPrimitiveWithBZPropertyEncoding:(VVPropertyEncoding *)encoding {

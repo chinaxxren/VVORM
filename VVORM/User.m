@@ -4,9 +4,9 @@
 //
 
 #import "User.h"
+#import "Download.h"
 
 
-@implementation User {
+@implementation User
 
-}
 @end

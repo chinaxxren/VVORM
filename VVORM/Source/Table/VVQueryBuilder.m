@@ -83,7 +83,7 @@
         [sql appendString:@" = ?"];
         [sql appendString:@","];
     }
-    [sql appendString:@"__updatedAt__ = datetime('now')"];
+    [sql appendString:@"__updated_at__ = datetime('now')"];
     return [NSString stringWithString:sql];
 }
 
@@ -104,8 +104,8 @@
         [sqlNames appendString:@","];
         [sqlValues appendString:@","];
     }
-    [sqlNames appendString:@"__createdAt__"];
-    [sqlNames appendString:@",__updatedAt__"];
+    [sqlNames appendString:@"__created_at__"];
+    [sqlNames appendString:@",__updated_at__"];
     [sqlValues appendString:@"datetime('now')"];
     [sqlValues appendString:@",datetime('now')"];
     [sqlNames appendString:@")"];
@@ -133,8 +133,8 @@
         [sqlNames appendString:@","];
         [sqlValues appendString:@","];
     }
-    [sqlNames appendString:@"__createdAt__"];
-    [sqlNames appendString:@",__updatedAt__"];
+    [sqlNames appendString:@"__created_at__"];
+    [sqlNames appendString:@",__updated_at__"];
     [sqlValues appendString:@"datetime('now')"];
     [sqlValues appendString:@",datetime('now')"];
     [sqlNames appendString:@")"];
@@ -162,8 +162,8 @@
         [sqlNames appendString:@","];
         [sqlValues appendString:@","];
     }
-    [sqlNames appendString:@"__createdAt__"];
-    [sqlNames appendString:@",__updatedAt__"];
+    [sqlNames appendString:@"__created_at__"];
+    [sqlNames appendString:@",__updated_at__"];
     [sqlValues appendString:@"datetime('now')"];
     [sqlValues appendString:@",datetime('now')"];
     [sqlNames appendString:@")"];
@@ -205,9 +205,9 @@
         [sql appendString:sqliteColumn.dataTypeName];
         [sql appendString:@","];
     }
-    [sql appendString:@"__createdAt__ "];
+    [sql appendString:@"__created_at__ "];
     [sql appendString:@"DATE"];
-    [sql appendString:@",__updatedAt__ "];
+    [sql appendString:@",__updated_at__ "];
     [sql appendString:@"DATE"];
     [sql appendString:@")"];
     return [NSString stringWithString:sql];
