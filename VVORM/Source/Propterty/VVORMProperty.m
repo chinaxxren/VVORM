@@ -18,18 +18,18 @@
 
 @implementation VVORMProperty
 
-+ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
-    return [[self alloc] initWithBZProperty:bzproperty runtime:runtime nameBuilder:nameBuilder];
++ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty ormClass:(VVORMClass *)ormClass nameBuilder:(VVNameBuilder *)nameBuilder {
+    return [[self alloc] initWithBZProperty:bzproperty ormClass:ormClass nameBuilder:nameBuilder];
 }
 
-- (instancetype)initWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
+- (instancetype)initWithBZProperty:(VVProperty *)bzproperty ormClass:(VVORMClass *)ormClass nameBuilder:(VVNameBuilder *)nameBuilder {
     if (self = [super init]) {
-        [self setupWithBZProperty:bzproperty runtime:runtime nameBuilder:nameBuilder];
+        [self setupWithBZProperty:bzproperty ormClass:ormClass nameBuilder:nameBuilder];
     }
     return self;
 }
 
-- (void)setupWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder {
+- (void)setupWithBZProperty:(VVProperty *)bzproperty ormClass:(VVORMClass *)ormClass nameBuilder:(VVNameBuilder *)nameBuilder {
     BOOL isPrimitive = NO;
     BOOL isStructure = NO;
     BOOL isObject = NO;
@@ -37,7 +37,7 @@
 
     // name
     self.name = bzproperty.name;
-    self.tableName = runtime.tableName;
+    self.tableName = ormClass.tableName;
 
     // data type
     if (bzproperty.propertyEncoding.isObject) {
@@ -75,9 +75,9 @@
     self.fetchOnRefreshingAttribute = [self boolWithProtocol:@protocol(VVFetchOnRefreshingAttribute) bzproperty:bzproperty];
     self.onceUpdateAttribute = [self boolWithProtocol:@protocol(VVOnceUpdateAttribute) bzproperty:bzproperty];
 
-    if ([runtime.clazz conformsToProtocol:@protocol(VVModelInterface)]) {
+    if ([ormClass.clazz conformsToProtocol:@protocol(VVModelInterface)]) {
 
-        Class clazz = runtime.clazz;
+        Class clazz = ormClass.clazz;
         if ([clazz respondsToSelector:@selector(attributeIsVVIdenticalAttribute:)]) {
             self.identicalAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVIdenticalAttribute:) withObject:self.name];
         }
@@ -144,7 +144,7 @@
     }
 
     // sqlite
-    self.columnName = [nameBuilder columnName:bzproperty.name clazz:runtime.clazz];
+    self.columnName = [nameBuilder columnName:bzproperty.name clazz:ormClass.clazz];
     self.sqliteColumns = [self.vvclazz sqliteColumnsWithAttribute:self];
 }
 

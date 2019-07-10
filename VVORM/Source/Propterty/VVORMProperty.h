@@ -18,7 +18,7 @@
 
 @interface VVORMProperty : NSObject <VVModelInterface>
 
-+ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty runtime:(VVORMClass *)runtime nameBuilder:(VVNameBuilder *)nameBuilder;
++ (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty ormClass:(VVORMClass *)ormClass nameBuilder:(VVNameBuilder *)nameBuilder;
 
 // sqlite information
 @property(nonatomic, copy) NSString *tableName;

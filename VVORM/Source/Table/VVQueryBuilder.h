@@ -13,39 +13,39 @@
 
 @interface VVQueryBuilder : NSObject
 
-+ (NSString *)selectStatement:(VVORMClass *)runtime;
++ (NSString *)selectStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)selectRowidStatement:(VVORMClass *)runtime;
++ (NSString *)selectRowidStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)updateStatement:(VVORMClass *)runtime;
++ (NSString *)updateStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)updateStatement:(VVORMClass *)runtime attributes:(NSArray *)attributes;
++ (NSString *)updateStatement:(VVORMClass *)ormClass attributes:(NSArray *)attributes;
 
-+ (NSString *)insertIntoStatement:(VVORMClass *)runtime;
++ (NSString *)insertIntoStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)insertOrReplaceIntoStatement:(VVORMClass *)runtime;
++ (NSString *)insertOrReplaceIntoStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)insertOrIgnoreIntoStatement:(VVORMClass *)runtime;
++ (NSString *)insertOrIgnoreIntoStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)deleteFromStatement:(VVORMClass *)runtime;
++ (NSString *)deleteFromStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)createTableStatement:(VVORMClass *)runtime;
++ (NSString *)createTableStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)dropTableStatement:(VVORMClass *)runtime;
++ (NSString *)dropTableStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)createUniqueIndexStatement:(VVORMClass *)runtime;
++ (NSString *)createUniqueIndexStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)dropIndexStatement:(VVORMClass *)runtime;
++ (NSString *)dropIndexStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)referencedCountStatement:(VVORMClass *)runtime;
++ (NSString *)referencedCountStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)countStatement:(VVORMClass *)runtime;
++ (NSString *)countStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)uniqueIndexName:(VVORMClass *)runtime;
++ (NSString *)uniqueIndexName:(VVORMClass *)ormClass;
 
 + (NSString *)selectConditionStatement:(VVConditionModel *)condition;
 
-+ (NSString *)selectConditionStatement:(VVConditionModel *)condition runtime:(VVORMClass *)runtime;
++ (NSString *)selectConditionStatement:(VVConditionModel *)condition ormClass:(VVORMClass *)ormClass;
 
 + (NSString *)selectConditionOptionStatement:(VVConditionModel *)condition;
 
@@ -55,19 +55,19 @@
 
 + (NSString *)rowidConditionStatement;
 
-+ (NSString *)uniqueConditionStatement:(VVORMClass *)runtime;
++ (NSString *)uniqueConditionStatement:(VVORMClass *)ormClass;
 
 + (NSString *)alterTableAddColumnStatement:(NSString *)tableName sqliteColumn:(VVSQLiteColumnModel *)sqliteColumn;
 
-+ (NSString *)maxStatement:(VVORMClass *)runtime columnName:(NSString *)columnName;
++ (NSString *)maxStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
 
-+ (NSString *)minStatement:(VVORMClass *)runtime columnName:(NSString *)columnName;
++ (NSString *)minStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
 
-+ (NSString *)avgStatement:(VVORMClass *)runtime columnName:(NSString *)columnName;
++ (NSString *)avgStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
 
-+ (NSString *)totalStatement:(VVORMClass *)runtime columnName:(NSString *)columnName;
++ (NSString *)totalStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
 
-+ (NSString *)sumStatement:(VVORMClass *)runtime columnName:(NSString *)columnName;
++ (NSString *)sumStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
 
 
 + (NSString *)createTableStatement:(NSString *)tableName fullTextSearch3:(BOOL)fullTextSearch3 fullTextSearch4:(BOOL)fullTextSearch4 sqliteColumns:(NSArray *)sqliteColumns;

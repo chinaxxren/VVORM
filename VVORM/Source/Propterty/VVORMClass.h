@@ -51,7 +51,7 @@
 @property(nonatomic, assign) BOOL cascadeNotification;
 
 //
-@property(nonatomic, strong) VVClazz <VVSerializableAttribute> *osclazz;
+@property(nonatomic, strong) VVClazz <VVSerializableAttribute> *vvclazz;
 
 // for response
 @property(atomic, strong) NSString *tableName;

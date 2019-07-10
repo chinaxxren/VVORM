@@ -20,22 +20,22 @@
 
 - (instancetype)initWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
     if (self = [super init]) {
-        [self setupWithClazz:clazz osclazz:osclazz nameBuilder:nameBuilder];
+        [self setupWithClazz:clazz vvclazz:osclazz nameBuilder:nameBuilder];
     }
     return self;
 }
 
-- (void)setupWithClazz:(Class)clazz osclazz:(VVClazz *)osclazz nameBuilder:(VVNameBuilder *)nameBuilder {
+- (void)setupWithClazz:(Class)clazz vvclazz:(VVClazz *)vvclazz nameBuilder:(VVNameBuilder *)nameBuilder {
     // clazz
     self.clazz = clazz;
     self.clazzName = NSStringFromClass(clazz);
 
     // mapper
-    self.osclazz = osclazz;
-    self.isArrayClazz = self.osclazz.isArrayClazz;
-    self.isObjectClazz = self.osclazz.isObjectClazz;
-    self.isSimpleValueClazz = self.osclazz.isSimpleValueClazz;
-    self.isRelationshipClazz = self.osclazz.isRelationshipClazz;
+    self.vvclazz = vvclazz;
+    self.isArrayClazz = self.vvclazz.isArrayClazz;
+    self.isObjectClazz = self.vvclazz.isObjectClazz;
+    self.isSimpleValueClazz = self.vvclazz.isSimpleValueClazz;
+    self.isRelationshipClazz = self.vvclazz.isRelationshipClazz;
 
     if (!self.isObjectClazz) {
         return;
@@ -63,17 +63,17 @@
     // attributes
     VVClassProperty *bzruntime = nil;
     if ([self.clazz conformsToProtocol:@protocol(VVIgnoreSuperClass)]) {
-        bzruntime = [VVClassProperty runtimeWithClass:self.clazz superClazz:self.osclazz.superClazz];
+        bzruntime = [VVClassProperty runtimeWithClass:self.clazz superClazz:self.vvclazz.superClazz];
     } else {
-        bzruntime = [VVClassProperty runtimeSuperClassWithClass:self.clazz superClazz:self.osclazz.superClazz];
+        bzruntime = [VVClassProperty runtimeSuperClassWithClass:self.clazz superClazz:self.vvclazz.superClazz];
     }
     NSMutableArray *propertyList = [NSMutableArray array];
-    NSArray *requiredPropertyListOnEachClazz = [self.osclazz requiredPropertyList];
+    NSArray *requiredPropertyListOnEachClazz = [self.vvclazz requiredPropertyList];
     if (requiredPropertyListOnEachClazz) {
         [propertyList addObjectsFromArray:requiredPropertyListOnEachClazz];
     }
-    for (VVProperty *property in bzruntime.propertyList) {
-        NSString *from = [property.name uppercaseString];
+    for (VVProperty *prop in bzruntime.propertyList) {
+        NSString *from = [prop.name uppercaseString];
         if (![from isEqualToString:@"ROWID"]) {
             BOOL exists = NO;
             for (VVProperty *existingProperty in propertyList) {
@@ -84,7 +84,7 @@
                 }
             }
             if (!exists) {
-                [propertyList addObject:property];
+                [propertyList addObject:prop];
             }
         }
     }
@@ -94,31 +94,31 @@
     NSMutableArray *relationshipAttributes = [NSMutableArray array];
     NSMutableArray *simpleValueAttributes = [NSMutableArray array];
     for (VVProperty *vvproperty in propertyList) {
-        VVORMProperty *runtimeAttribute = [VVORMProperty propertyWithBZProperty:vvproperty runtime:self nameBuilder:nameBuilder];
-        if (runtimeAttribute.isValid) {
-            if (!runtimeAttribute.ignoreAttribute && !vvproperty.propertyType.isReadonly) {
-                [insertAttributes addObject:runtimeAttribute];
-                if (runtimeAttribute.identicalAttribute) {
-                    [identicalAttributes addObject:runtimeAttribute];
+        VVORMProperty *ormAttribute = [VVORMProperty propertyWithBZProperty:vvproperty ormClass:self nameBuilder:nameBuilder];
+        if (ormAttribute.isValid) {
+            if (!ormAttribute.ignoreAttribute && !vvproperty.propertyType.isReadonly) {
+                [insertAttributes addObject:ormAttribute];
+                if (ormAttribute.identicalAttribute) {
+                    [identicalAttributes addObject:ormAttribute];
                 }
-                if (!runtimeAttribute.onceUpdateAttribute) {
-                    [updateAttributes addObject:runtimeAttribute];
+                if (!ormAttribute.onceUpdateAttribute) {
+                    [updateAttributes addObject:ormAttribute];
                 }
-                if (runtimeAttribute.notUpdateIfValueIsNullAttribute) {
+                if (ormAttribute.notUpdateIfValueIsNullAttribute) {
                     self.hasNotUpdateIfValueIsNullAttribute = YES;
                 }
-                if (runtimeAttribute.isRelationshipClazz) {
-                    [relationshipAttributes addObject:runtimeAttribute];
+                if (ormAttribute.isRelationshipClazz) {
+                    [relationshipAttributes addObject:ormAttribute];
                 }
-                if (runtimeAttribute.isSimpleValueClazz) {
-                    [simpleValueAttributes addObject:runtimeAttribute];
+                if (ormAttribute.isSimpleValueClazz) {
+                    [simpleValueAttributes addObject:ormAttribute];
                 }
             }
         }
     }
 
     VVClassProperty *referenceRuntime = [VVClassProperty runtimeWithClass:[VVReferenceModel class]];
-    VVORMProperty *rowidAttribute = [VVORMProperty propertyWithBZProperty:referenceRuntime.propertyList.firstObject runtime:self nameBuilder:nameBuilder];
+    VVORMProperty *rowidAttribute = [VVORMProperty propertyWithBZProperty:referenceRuntime.propertyList.firstObject ormClass:self nameBuilder:nameBuilder];
     NSMutableArray *attributes = [NSMutableArray array];
     [attributes addObject:rowidAttribute];
     [attributes addObjectsFromArray:insertAttributes];
@@ -227,7 +227,7 @@
 - (NSString *)selectStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.selectTemplateStatement];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     [sql appendString:[VVQueryBuilder selectConditionOptionStatement:condition]];
     return [NSString stringWithString:sql];
 }
@@ -248,7 +248,7 @@
 }
 
 - (NSString *)referencedCountStatementWithCondition:(VVConditionModel *)condition {
-    NSString *conditionStatement = [VVQueryBuilder selectConditionStatement:condition runtime:self];
+    NSString *conditionStatement = [VVQueryBuilder selectConditionStatement:condition ormClass:self];
     NSString *sql = self.referencedCountTemplateStatement;
     sql = [NSString stringWithFormat:sql, conditionStatement];
     return sql;
@@ -257,42 +257,42 @@
 - (NSString *)countStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.countTemplateStatement];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     return [NSString stringWithString:sql];
 }
 
 - (NSString *)minStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder minStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     return sql;
 }
 
 - (NSString *)maxStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder maxStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     return sql;
 }
 
 - (NSString *)avgStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder avgStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     return sql;
 }
 
 - (NSString *)totalStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder totalStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     return sql;
 }
 
 - (NSString *)sumStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder sumStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition runtime:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
     return sql;
 }
 
@@ -375,19 +375,19 @@
 #pragma mark value mapper
 
 - (id)object {
-    return [self.osclazz objectWithClazz:self.clazz];
+    return [self.vvclazz objectWithClazz:self.clazz];
 }
 
 - (NSEnumerator *)objectEnumeratorWithObject:(id)object {
-    return [self.osclazz objectEnumeratorWithObject:object];
+    return [self.vvclazz objectEnumeratorWithObject:object];
 }
 
 - (NSArray *)keysWithObject:(id)object {
-    return [self.osclazz keysWithObject:object];
+    return [self.vvclazz keysWithObject:object];
 }
 
 - (id)objectWithObjects:(NSArray *)objects keys:(NSArray *)keys initializingOptions:(NSString *)initializingOptions {
-    return [self.osclazz objectWithObjects:objects keys:keys initializingOptions:initializingOptions];
+    return [self.vvclazz objectWithObjects:objects keys:keys initializingOptions:initializingOptions];
 }
 
 #

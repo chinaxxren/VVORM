@@ -78,7 +78,6 @@
     return @[sqliteColumn];
 }
 
-
 #pragma mark constractor
 
 + (NSMutableArray *)vvclazzsArray {
