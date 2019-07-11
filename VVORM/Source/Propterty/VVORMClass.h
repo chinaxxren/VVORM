@@ -24,7 +24,6 @@
 @property(nonatomic, assign) BOOL isArrayClazz;
 @property(nonatomic, assign) BOOL isSimpleValueClazz;
 @property(nonatomic, assign) BOOL isObjectClazz;
-@property(nonatomic, assign) BOOL isRelationshipClazz;
 
 // attribute inforamtion
 @property(nonatomic, strong) VVORMProperty <VVIgnoreAttribute> *rowidAttribute;
@@ -32,23 +31,16 @@
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *identificationAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *insertAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *updateAttributes;
-@property(nonatomic, strong) NSArray <VVIgnoreAttribute> *relationshipAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *simpleValueAttributes;
 
 // class options
 @property(nonatomic, assign) BOOL fullTextSearch3;
 @property(nonatomic, assign) BOOL fullTextSearch4;
-@property(nonatomic, assign) BOOL modelDidLoad;
-@property(nonatomic, assign) BOOL modelDidSave;
-@property(nonatomic, assign) BOOL modelDidDelete;
 
 // for response
 @property(nonatomic, assign) BOOL hasIdentificationAttributes;
-@property(nonatomic, assign) BOOL hasRelationshipAttributes;
 @property(nonatomic, assign) BOOL insertPerformance;
 @property(nonatomic, assign) BOOL updatePerformance;
-@property(nonatomic, assign) BOOL notification;
-@property(nonatomic, assign) BOOL cascadeNotification;
 
 //
 @property(nonatomic, strong) VVClazz <VVSerializableAttribute> *vvclazz;
@@ -67,7 +59,6 @@
 @property(nonatomic, strong) NSString *createUniqueIndexTemplateStatement;
 @property(nonatomic, strong) NSString *dropIndexTemplateStatement;
 @property(nonatomic, strong) NSString *countTemplateStatement;
-@property(nonatomic, strong) NSString *referencedCountTemplateStatement;
 @property(nonatomic, strong) NSString *uniqueIndexNameTemplateStatement;
 @property(nonatomic, assign) BOOL hasNotUpdateIfValueIsNullAttribute;
 

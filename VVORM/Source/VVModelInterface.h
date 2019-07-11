@@ -5,13 +5,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-@protocol VVNotification
-@end
-
-@protocol VVCascadeNotification
-@end
-
 @protocol VVIgnoreSuperClass
 @end
 
@@ -33,12 +26,6 @@
 @protocol VVIgnoreAttribute
 @end
 
-@protocol VVWeakReferenceAttribute
-@end
-
-@protocol VVFetchOnRefreshingAttribute
-@end
-
 @protocol VVNotUpdateIfValueIsNullAttribute
 @end
 
@@ -48,7 +35,6 @@
 @protocol VVOnceUpdateAttribute
 @end
 
-
 @protocol VVModelInterface <NSObject>
 
 @optional
@@ -57,17 +43,9 @@
 
 + (NSString *)VVColumnName:(NSString *)attributeName;
 
-- (void)VVModelDidLoad;
-
-- (void)VVModelDidSave;
-
-- (void)VVModelDidDelete;
-
 + (BOOL)attributeIsVVIdenticalAttribute:(NSString *)attributeName;
 
 + (BOOL)attributeIsVVIgnoreAttribute:(NSString *)attributeName;
-
-+ (BOOL)attributeIsVVWeakReferenceAttribute:(NSString *)attributeName;
 
 + (BOOL)attributeIsVVFetchOnRefreshingAttribute:(NSString *)attributeName;
 
@@ -79,17 +57,13 @@
 
 @end
 
-@interface NSObject (VVAttributeProtocol) <VVCascadeNotification,
-        VVNotification,
-        VVIgnoreSuperClass,
+@interface NSObject (VVAttributeProtocol) <VVIgnoreSuperClass,
         VVFullTextSearch3,
         VVFullTextSearch4,
         VVInsertPerformance,
         VVUpdatePerformance,
         VVIdenticalAttribute,
         VVIgnoreAttribute,
-        VVWeakReferenceAttribute,
-        VVFetchOnRefreshingAttribute,
         VVNotUpdateIfValueIsNullAttribute,
         VVSerializableAttribute,
         VVOnceUpdateAttribute>

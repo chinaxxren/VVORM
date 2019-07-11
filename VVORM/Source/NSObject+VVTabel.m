@@ -19,23 +19,12 @@
     objc_setAssociatedObject(self, _cmd, rowid, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (VVORMClass *)VVORMClass {
-    return objc_getAssociatedObject(self, @selector(setVVORMClass:));
+- (VVORMClass *)ormClass {
+    return objc_getAssociatedObject(self, @selector(setOrmClass:));
 }
 
-- (void)setVVORMClass:(VVORMClass *)runtime {
+- (void)setOrmClass:(VVORMClass *)runtime {
     objc_setAssociatedObject(self, _cmd, runtime, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (NSString *)VVHashForSave {
-    NSNumber *number = @([self hash]);
-    NSString *hash = [NSString stringWithFormat:@"%@", [number stringValue]];
-    return hash;
-}
-
-- (NSString *)VVHashForFetch {
-    NSString *hash = [NSString stringWithFormat:@"%@-%@", NSStringFromClass([self class]), [self.rowid stringValue]];
-    return hash;
 }
 
 - (BOOL)isEqualToVVObject:(NSObject *)object {

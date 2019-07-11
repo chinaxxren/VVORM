@@ -35,7 +35,6 @@
     self.isArrayClazz = self.vvclazz.isArrayClazz;
     self.isObjectClazz = self.vvclazz.isObjectClazz;
     self.isSimpleValueClazz = self.vvclazz.isSimpleValueClazz;
-    self.isRelationshipClazz = self.vvclazz.isRelationshipClazz;
 
     if (!self.isObjectClazz) {
         return;
@@ -47,18 +46,6 @@
     // class options
     self.fullTextSearch3 = [self.clazz conformsToProtocol:@protocol(VVFullTextSearch3)];
     self.fullTextSearch4 = [self.clazz conformsToProtocol:@protocol(VVFullTextSearch4)];
-    if ([self.clazz conformsToProtocol:@protocol(VVModelInterface)]) {
-        NSObject *object = [[self.clazz alloc] init];
-        if ([object respondsToSelector:@selector(VVModelDidSave)]) {
-            self.modelDidSave = YES;
-        }
-        if ([object respondsToSelector:@selector(VVModelDidDelete)]) {
-            self.modelDidDelete = YES;
-        }
-        if ([object respondsToSelector:@selector(VVModelDidLoad)]) {
-            self.modelDidLoad = YES;
-        }
-    }
 
     // attributes
     VVClassProperty *bzruntime = nil;
@@ -129,7 +116,6 @@
     self.insertAttributes = [NSArray arrayWithArray:insertAttributes];
     self.updateAttributes = [NSArray arrayWithArray:updateAttributes];
     self.identificationAttributes = [NSArray arrayWithArray:identicalAttributes];
-    self.relationshipAttributes = [NSArray arrayWithArray:relationshipAttributes];
     self.simpleValueAttributes = [NSArray arrayWithArray:simpleValueAttributes];
 
     // response
@@ -138,15 +124,8 @@
     } else {
         self.hasIdentificationAttributes = NO;
     }
-    if (self.relationshipAttributes.count > 0) {
-        self.hasRelationshipAttributes = YES;
-    } else {
-        self.hasRelationshipAttributes = NO;
-    }
     self.insertPerformance = [self.clazz conformsToProtocol:@protocol(VVInsertPerformance)];
     self.updatePerformance = [self.clazz conformsToProtocol:@protocol(VVUpdatePerformance)];
-    self.notification = [self.clazz conformsToProtocol:@protocol(VVNotification)];
-    self.cascadeNotification = [self.clazz conformsToProtocol:@protocol(VVCascadeNotification)];
 
     if (self.insertPerformance == NO && self.updatePerformance == NO) {
         self.insertPerformance = YES;
@@ -165,7 +144,6 @@
     self.createUniqueIndexTemplateStatement = [VVQueryBuilder createUniqueIndexStatement:self];
     self.dropIndexTemplateStatement = [VVQueryBuilder dropIndexStatement:self];
     self.countTemplateStatement = [VVQueryBuilder countStatement:self];
-    self.referencedCountTemplateStatement = [VVQueryBuilder referencedCountStatement:self];
     self.uniqueIndexNameTemplateStatement = [VVQueryBuilder uniqueIndexName:self];
 }
 

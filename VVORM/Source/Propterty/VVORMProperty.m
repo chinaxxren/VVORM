@@ -69,10 +69,8 @@
     // attribute options
     self.identicalAttribute = [self boolWithProtocol:@protocol(VVIdenticalAttribute) bzproperty:bzproperty];
     self.ignoreAttribute = [self boolWithProtocol:@protocol(VVIgnoreAttribute) bzproperty:bzproperty];
-    self.weakReferenceAttribute = [self boolWithProtocol:@protocol(VVWeakReferenceAttribute) bzproperty:bzproperty];
     self.notUpdateIfValueIsNullAttribute = [self boolWithProtocol:@protocol(VVNotUpdateIfValueIsNullAttribute) bzproperty:bzproperty];
     self.serializableAttribute = [self boolWithProtocol:@protocol(VVSerializableAttribute) bzproperty:bzproperty];
-    self.fetchOnRefreshingAttribute = [self boolWithProtocol:@protocol(VVFetchOnRefreshingAttribute) bzproperty:bzproperty];
     self.onceUpdateAttribute = [self boolWithProtocol:@protocol(VVOnceUpdateAttribute) bzproperty:bzproperty];
 
     if ([ormClass.clazz conformsToProtocol:@protocol(VVModelInterface)]) {
@@ -83,9 +81,6 @@
         }
         if ([clazz respondsToSelector:@selector(attributeIsVVIgnoreAttribute:)]) {
             self.ignoreAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVIgnoreAttribute:) withObject:self.name];
-        }
-        if ([clazz respondsToSelector:@selector(attributeIsVVWeakReferenceAttribute:)]) {
-            self.weakReferenceAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVWeakReferenceAttribute:) withObject:self.name];
         }
         if ([clazz respondsToSelector:@selector(attributeIsVVNotUpdateIfValueIsNullAttribute:)]) {
             self.notUpdateIfValueIsNullAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVNotUpdateIfValueIsNullAttribute:) withObject:self.name];

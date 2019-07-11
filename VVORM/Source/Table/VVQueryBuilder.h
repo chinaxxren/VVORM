@@ -37,8 +37,6 @@
 
 + (NSString *)dropIndexStatement:(VVORMClass *)ormClass;
 
-+ (NSString *)referencedCountStatement:(VVORMClass *)ormClass;
-
 + (NSString *)countStatement:(VVORMClass *)ormClass;
 
 + (NSString *)uniqueIndexName:(VVORMClass *)ormClass;
@@ -66,7 +64,6 @@
 + (NSString *)totalStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
 
 + (NSString *)sumStatement:(VVORMClass *)ormClass columnName:(NSString *)columnName;
-
 
 + (NSString *)createTableStatement:(NSString *)tableName fullTextSearch3:(BOOL)fullTextSearch3 fullTextSearch4:(BOOL)fullTextSearch4 sqliteColumns:(NSArray *)sqliteColumns;
 

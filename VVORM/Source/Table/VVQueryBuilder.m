@@ -10,8 +10,6 @@
 #import "VVConditionModel.h"
 #import "VVSQLiteColumnModel.h"
 #import "VVSQLiteConditionModel.h"
-#import "VVReferenceConditionModel.h"
-#import "NSObject+VVTabel.h"
 
 @implementation VVQueryBuilder
 
@@ -255,17 +253,6 @@
     [sql appendString:@"DROP INDEX IF EXISTS "];
     [sql appendString:tableName];
     [sql appendString:@"_IDX"];
-    return [NSString stringWithString:sql];
-}
-
-+ (NSString *)referencedCountStatement:(VVORMClass *)ormClass {
-    NSString *tableName = @"__VVORMRelationship__";
-    NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@"SELECT COUNT(*) FROM ("];
-    [sql appendString:@"SELECT DISTINCT fromTableName,fromRowid FROM "];
-    [sql appendString:tableName];
-    [sql appendString:@"%@ "];
-    [sql appendString:@") TBL "];
     return [NSString stringWithString:sql];
 }
 

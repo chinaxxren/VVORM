@@ -6,7 +6,6 @@
 #import "VVReferenceMapper.h"
 
 #import <FMDB/FMDatabaseQueue.h>
-#import <FMDB/FMDatabase.h>
 
 #import "VVModelInterface.h"
 #import "VVConditionModel.h"
@@ -150,13 +149,13 @@
     }
     VVConditionModel *condition = nil;
     if (object.rowid) {
-        condition = [object.VVORMClass rowidCondition:object];
-    } else if (object.VVORMClass.hasIdentificationAttributes) {
-        condition = [object.VVORMClass uniqueCondition:object];
+        condition = [object.ormClass rowidCondition:object];
+    } else if (object.ormClass.hasIdentificationAttributes) {
+        condition = [object.ormClass uniqueCondition:object];
     } else {
         return nil;
     }
-    NSNumber *count = [self count:object.VVORMClass condition:condition db:db];
+    NSNumber *count = [self count:object.ormClass condition:condition db:db];
     if ([self hadError:db error:error]) {
         return nil;
     }
@@ -279,14 +278,14 @@
 }
 
 - (BOOL)updateORMClass:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error {
-    if (object.VVORMClass) {
+    if (object.ormClass) {
         return YES;
     }
     VVORMClass *ormClass = [self ormWithClazz:[object class] db:db error:error];
     if (!ormClass) {
         return NO;
     }
-    object.VVORMClass = ormClass;
+    object.ormClass = ormClass;
     return YES;
 }
 

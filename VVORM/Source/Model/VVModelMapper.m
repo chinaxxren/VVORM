@@ -175,8 +175,8 @@
     }
     while ([rs next]) {
         NSObject *targetObject = [ormClass object];
-        targetObject.VVORMClass = ormClass;
-        for (VVORMProperty *attribute in targetObject.VVORMClass.simpleValueAttributes) {
+        targetObject.ormClass = ormClass;
+        for (VVORMProperty *attribute in targetObject.ormClass.simpleValueAttributes) {
             NSObject *value = [attribute valueWithResultSet:rs];
             [targetObject setValue:value forKey:attribute.name];
         }
@@ -193,8 +193,8 @@
         if (changes == 0) {
             [self insertByRowId:object db:db];
         }
-    } else if (object.VVORMClass.hasIdentificationAttributes) {
-        if (object.VVORMClass.insertPerformance) {
+    } else if (object.ormClass.hasIdentificationAttributes) {
+        if (object.ormClass.insertPerformance) {
             [self insertByIdentificationAttributes:object db:db];
             if (!object.rowid) {
                 [self updateByIdentificationAttributes:object db:db];
@@ -212,8 +212,8 @@
 }
 
 - (BOOL)insertByRowId:(NSObject *)object db:(FMDatabase *)db {
-    NSString *sql = [object.VVORMClass insertOrReplaceIntoStatement];
-    NSMutableArray *parameters = [object.VVORMClass insertOrReplaceAttributesParameters:object];
+    NSString *sql = [object.ormClass insertOrReplaceIntoStatement];
+    NSMutableArray *parameters = [object.ormClass insertOrReplaceAttributesParameters:object];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -222,10 +222,10 @@
 }
 
 - (BOOL)updateByRowId:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVORMClass rowidCondition:object];
-    NSString *sql = [object.VVORMClass updateStatementWithObject:object condition:condition];
+    VVConditionModel *condition = [object.ormClass rowidCondition:object];
+    NSString *sql = [object.ormClass updateStatementWithObject:object condition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
-    [parameters addObjectsFromArray:[object.VVORMClass updateAttributesParameters:object]];
+    [parameters addObjectsFromArray:[object.ormClass updateAttributesParameters:object]];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
@@ -235,8 +235,8 @@
 }
 
 - (BOOL)insertByIdentificationAttributes:(NSObject *)object db:(FMDatabase *)db {
-    NSString *sql = [object.VVORMClass insertOrIgnoreIntoStatement];
-    NSMutableArray *parameters = [object.VVORMClass insertOrIgnoreAttributesParameters:object];
+    NSString *sql = [object.ormClass insertOrIgnoreIntoStatement];
+    NSMutableArray *parameters = [object.ormClass insertOrIgnoreAttributesParameters:object];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -250,10 +250,10 @@
 }
 
 - (BOOL)updateByIdentificationAttributes:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVORMClass uniqueCondition:object];
-    NSString *sql = [object.VVORMClass updateStatementWithObject:object condition:condition];
+    VVConditionModel *condition = [object.ormClass uniqueCondition:object];
+    NSString *sql = [object.ormClass updateStatementWithObject:object condition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
-    [parameters addObjectsFromArray:[object.VVORMClass updateAttributesParameters:object]];
+    [parameters addObjectsFromArray:[object.ormClass updateAttributesParameters:object]];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
@@ -264,8 +264,8 @@
 }
 
 - (BOOL)insert:(NSObject *)object db:(FMDatabase *)db {
-    NSString *sql = [object.VVORMClass insertIntoStatement];
-    NSMutableArray *parameters = [object.VVORMClass insertAttributesParameters:object];
+    NSString *sql = [object.ormClass insertIntoStatement];
+    NSMutableArray *parameters = [object.ormClass insertAttributesParameters:object];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -279,10 +279,10 @@
 }
 
 - (BOOL)deleteFrom:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVORMClass rowidCondition:object];
+    VVConditionModel *condition = [object.ormClass rowidCondition:object];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
-    NSString *sql = [object.VVORMClass deleteFromStatementWithCondition:condition];
+    NSString *sql = [object.ormClass deleteFromStatementWithCondition:condition];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -306,14 +306,14 @@
 - (void)updateRowid:(NSObject *)object db:(FMDatabase *)db {
     if (object.rowid) {
         return;
-    } else if (!object.VVORMClass.hasIdentificationAttributes) {
+    } else if (!object.ormClass.hasIdentificationAttributes) {
         return;
     }
-    VVConditionModel *condition = [object.VVORMClass uniqueCondition:object];
-    NSString *sql = [object.VVORMClass selectRowidStatement:condition];
+    VVConditionModel *condition = [object.ormClass uniqueCondition:object];
+    NSString *sql = [object.ormClass selectRowidStatement:condition];
     FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
     while (rs.next) {
-        object.rowid = [object.VVORMClass.rowidAttribute valueWithResultSet:rs];
+        object.rowid = [object.ormClass.rowidAttribute valueWithResultSet:rs];
         break;
     }
     [rs close];
