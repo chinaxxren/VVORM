@@ -378,6 +378,7 @@
                     if ([self hadError:db error:error]) {
                         return nil;
                     }
+
                     if (ormClass.isObjectClazz) {
                         NSObject *object = [ormClass object];
                         object.rowid = relationshipObject.toRowid;

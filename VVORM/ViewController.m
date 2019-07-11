@@ -49,20 +49,27 @@ uint64_t vv_getCurrentTime() {
 
     uint64_t begin = vv_getCurrentTime();
 
-    for (int i = 0; i < 1000; i++) {
+//    NSMutableArray *users = [NSMutableArray array];
+
+    for (int i = 0; i < 1; i++) {
         User *user = [User new];
-        user.uid = [NSUUID UUID].UUIDString;
-        user.name = [NSString stringWithFormat:@"user-%lld", i];
+//        user.uid = [NSUUID UUID].UUIDString;
+        user.uid = [NSString stringWithFormat:@"uid-%i", i];
+        user.name = [NSString stringWithFormat:@"user-%i", i];
         user.age = 171;
 
         Download *download = [Download new];
-        download.did = [NSUUID UUID].UUIDString;
-        download.name = [NSString stringWithFormat:@"download-%lld", i];
+//        download.did = [NSUUID UUID].UUIDString;
+        download.did = [NSString stringWithFormat:@"did-%i", i];
+        download.name = [NSString stringWithFormat:@"download-%i", i];
         download.size = 121;
 
         user.download = download;
+//        [users addObject:user];
         [orm saveObject:user];
     }
+
+//    [orm saveObjects:users];
 
     NSLog(@"%lld", vv_getCurrentTime() - begin);
 
@@ -94,6 +101,7 @@ uint64_t vv_getCurrentTime() {
 //    [self testUser];
 
     VVORM *orm = [AppContent current];
+
 //    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
 //    NSLog(@"%@", downloads);
 
