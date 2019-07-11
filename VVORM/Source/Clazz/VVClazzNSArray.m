@@ -6,7 +6,6 @@
 #import "VVClazzNSArray.h"
 #import "VVSqliteConst.h"
 
-
 @implementation VVClazzNSArray
 
 - (NSEnumerator *)objectEnumeratorWithObject:(NSArray *)object {
@@ -38,7 +37,7 @@
 }
 
 - (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVORMProperty *)attribute {
-    return @[@"__VVORMRelationship__"];
+    return @[@"NSArray"];
 }
 
 - (NSString *)sqliteDataTypeName {

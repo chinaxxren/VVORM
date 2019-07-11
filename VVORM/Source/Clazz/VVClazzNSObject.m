@@ -44,7 +44,7 @@
 }
 
 - (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVORMProperty *)attribute {
-    return @[@"__VVORMRelationship__"];
+    return @[@"NSObject"];
 }
 
 - (NSString *)sqliteDataTypeName {
