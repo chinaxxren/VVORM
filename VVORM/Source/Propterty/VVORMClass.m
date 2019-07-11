@@ -239,7 +239,6 @@
     return [NSString stringWithString:sql];
 }
 
-
 - (NSString *)deleteFromStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.deleteFromTemplateStatement];

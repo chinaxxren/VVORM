@@ -159,7 +159,7 @@
 		5F3725921DE611A3168B38C9CE90318A /* VVModelMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelMapper.h; sourceTree = "<group>"; };
 		628B4EA0832359B0ADFC52DF8973AAF1 /* VVClazzBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzBool.m; sourceTree = "<group>"; };
 		66F24AF9460460222BD433E3ACDDBE80 /* VVClazzShort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzShort.m; sourceTree = "<group>"; };
-		6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		6CB76B06F244F729058DC7ED0EE76E15 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6DC78D2BE3803542919735BFC255128A /* VVClazzLongLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzLongLong.m; sourceTree = "<group>"; };
 		6DE5C17B79165914BEBB06B74EDD751F /* VVQueryBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVQueryBuilder.m; sourceTree = "<group>"; };
 		6EE4D4A022DEEBBCF48553D75D0BFC06 /* VVORMRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVORMRelationship.m; sourceTree = "<group>"; };

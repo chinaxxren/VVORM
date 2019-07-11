@@ -24,7 +24,7 @@
 
 - (BOOL)deleteObjects:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error;
 
-- (VVORMClass *)runtime:(Class)clazz;
+- (VVORMClass *)ormClass:(Class)clazz;
 
 - (BOOL)hadError:(FMDatabase *)db error:(NSError **)error;
 
@@ -32,9 +32,9 @@
 
 @interface VVModelMapper (Private)
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db;
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db;
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db;
 
 @end
 
@@ -48,7 +48,7 @@
     for (VVORMClass *runtime in previousRuntimes) {
         Class clazz = NSClassFromString(runtime.clazzName);
         if (clazz) {
-            VVORMClass *currentRuntime = [self runtime:clazz];
+            VVORMClass *currentRuntime = [self ormClass:clazz];
             currentRuntimes[currentRuntime.clazzName] = currentRuntime;
         }
     }
@@ -188,7 +188,7 @@
     // start migration
 
     // delete relationship information
-    VVORMClass *relationshipRuntime = [self runtime:[VVORMRelationship class]];
+    VVORMClass *relationshipRuntime = [self ormClass:[VVORMRelationship class]];
     for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
         if (migrationRuntime.changed) {
             for (VVMigrationRuntimeProperty *attribute in migrationRuntime.attributes.allValues) {
@@ -203,11 +203,11 @@
                     }
                 }
                 if (deleteRelashionship) {
-                    [self deleteRelationshipObjectsWithClazzName:migrationRuntime.clazzName attribute:attribute.previousAttribute relationshipRuntime:relationshipRuntime db:db];
+                    [self deleteRelationshipObjectsWithClazzName:migrationRuntime.clazzName attribute:attribute.previousAttribute relationshipORMClass:relationshipRuntime db:db];
                 }
             }
         } else if (migrationRuntime.deleted) {
-            [self deleteRelationshipObjectsWithClazzName:migrationRuntime.clazzName relationshipRuntime:relationshipRuntime db:db];
+            [self deleteRelationshipObjectsWithClazzName:migrationRuntime.clazzName relationshipORMClass:relationshipRuntime db:db];
         }
     }
 

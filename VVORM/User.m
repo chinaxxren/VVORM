@@ -9,4 +9,8 @@
 
 @implementation User
 
++ (NSString *)VVTableName {
+    return @"my_user";
+}
+
 @end

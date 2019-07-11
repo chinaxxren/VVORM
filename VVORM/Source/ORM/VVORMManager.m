@@ -34,7 +34,7 @@
     return manager;
 }
 
-- (VVORM *)getDataBase:(NSString *)name {
+- (VVORM *)getORM:(NSString *)name {
     @synchronized (self) {
         if (!name) {
             return nil;
@@ -45,12 +45,12 @@
             return dataBase;
         }
 
-        NSString *path = [VVORMManager dataBasePathWithName:name];
+        NSString *path = [VVORMManager ormPathWithName:name];
         if (!path) {
             return nil;
         }
 
-        dataBase = [VVORMManager dataBaseWithPath:path];
+        dataBase = [VVORMManager ormWithPath:path];
         if (!dataBase) {
             return nil;
         }
@@ -62,7 +62,7 @@
     }
 }
 
-+ (NSString *)dataBasePathWithName:(NSString *)name {
++ (NSString *)ormPathWithName:(NSString *)name {
     NSString *direct = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     [direct stringByAppendingPathComponent:@"db"];
     NSFileManager *defaultManager = [NSFileManager defaultManager];
@@ -79,19 +79,19 @@
     return dbPath;
 }
 
-+ (VVORM *)dataBaseWithPath:(NSString *)dbPath {
++ (VVORM *)ormWithPath:(NSString *)dbPath {
     NSError *error;
     VVORM *dataBase = [VVORM openWithPath:dbPath error:&error];
     if (error) {
-        NSLog(@"database error %@", error);
+        NSLog(@"orm error %@", error);
         return nil;
     }
 
     return dataBase;
 }
 
-+ (VVORM *)getDataBase:(NSString *)name {
-    return [[VVORMManager share] getDataBase:name];
++ (VVORM *)getORM:(NSString *)name {
+    return [[VVORMManager share] getORM:name];
 }
 
 @end

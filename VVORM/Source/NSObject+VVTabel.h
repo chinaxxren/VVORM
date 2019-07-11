@@ -10,7 +10,7 @@
 @interface NSObject (VVTabel)
 
 @property(nonatomic, strong) NSNumber *rowid;
-@property(nonatomic, strong) VVORMClass *VVRuntime;
+@property(nonatomic, strong) VVORMClass *VVORMClass;
 @property(nonatomic, readonly) NSString *VVHashForSave;
 @property(nonatomic, readonly) NSString *VVHashForFetch;
 

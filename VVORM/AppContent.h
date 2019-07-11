@@ -10,7 +10,7 @@
 
 @interface AppContent : NSObject
 
-+ (VVORM *)user;
++ (VVORM *)current;
 
 + (VVORM *)global;
 

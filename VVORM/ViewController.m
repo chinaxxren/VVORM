@@ -6,6 +6,7 @@
 //  Copyright © 2019 Tank. All rights reserved.
 //
 
+#import <sys/time.h>
 #import "ViewController.h"
 
 #import "User.h"
@@ -22,30 +23,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self testUser];
+    VVORM *orm = [AppContent current];
+    [orm registerClass:[User class]];
+
+//    [orm registerClass:[Download class]];
+//    Download *download = [Download new];
+//    download.did = [NSUUID UUID].UUIDString;
+//    download.name = @"dwonload~222";
+//    download.size = 121;
+//    [orm saveObject:download];
+
 //    [self testGlobal];
+    [self testUser];
+}
+
+uint64_t vv_getCurrentTime() {
+    struct timeval te;
+    gettimeofday(&te, NULL);
+    uint64_t microseconds = (uint64_t) (te.tv_sec * 1000 * 1000LL + te.tv_usec);
+    return microseconds;
 }
 
 - (void)testUser {
-    User *user = [User new];
-    user.name = @"user-2";
-    user.age = 17;
+    VVORM *orm = [AppContent current];
 
-    Download *download = [Download new];
-    download.name = @"dwonload~2";
-    download.size = 12;
+    uint64_t begin = vv_getCurrentTime();
 
-    user.download = download;
+    for (int i = 0; i < 1000; i++) {
+        User *user = [User new];
+        user.uid = [NSUUID UUID].UUIDString;
+        user.name = [NSString stringWithFormat:@"user-%lld", i];
+        user.age = 171;
 
-    VVORM *userDB = [AppContent user];
-    [userDB saveObject:user];
+        Download *download = [Download new];
+        download.did = [NSUUID UUID].UUIDString;
+        download.name = [NSString stringWithFormat:@"download-%lld", i];
+        download.size = 121;
 
-    NSNumber *count = [userDB count:[User class] condition:nil];
+        user.download = download;
+        [orm saveObject:user];
+    }
+
+    NSLog(@"%lld", vv_getCurrentTime() - begin);
+
+//    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
+//    NSLog(@"%@", downloads);
+
+    NSNumber *count = [orm count:[Download class] condition:nil];
     NSLog(@"count->%@", count);
-
-    NSMutableArray *users = [userDB fetchObjects:[User class] condition:nil];
-    user = [users firstObject];
-    NSLog(@"name->%@", user.name);
 }
 
 - (void)testGlobal {
@@ -53,16 +78,30 @@
     download.name = @"dwonload-1";
     download.size = 1024;
 
-    VVORM *globalDB = [AppContent global];
-    [globalDB saveObject:download];
+    VVORM *orm = [AppContent global];
+    [orm saveObject:download];
 
-    NSNumber *count = [globalDB count:[Download class] condition:nil];
+    NSNumber *count = [orm count:[Download class] condition:nil];
     NSLog(@"count->%@", count);
 
-    NSMutableArray *downloads = [globalDB fetchObjects:[Download class] condition:nil];
+    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
     download = [downloads firstObject];
     NSLog(@"name->%@", download.name);
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+//    [self testUser];
+
+    VVORM *orm = [AppContent current];
+//    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
+//    NSLog(@"%@", downloads);
+
+    uint64_t begin = vv_getCurrentTime();
+    NSMutableArray *users = [orm fetchObjects:[User class] condition:nil];
+    NSLog(@"%lld", vv_getCurrentTime() - begin);
+    User *user = [users firstObject];
+    NSLog(@"name->%@", user.name);
+}
 
 @end

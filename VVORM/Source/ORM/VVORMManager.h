@@ -12,8 +12,8 @@
 
 + (instancetype)share;
 
-- (VVORM *)getDataBase:(NSString *)name;
+- (VVORM *)getORM:(NSString *)name;
 
-+ (VVORM *)getDataBase:(NSString *)name;
++ (VVORM *)getORM:(NSString *)name;
 
 @end

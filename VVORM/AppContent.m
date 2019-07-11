@@ -11,13 +11,13 @@
 
 @implementation AppContent
 
-+ (VVORM *)user {
-    VVORM *dataBase = [VVORMManager getDataBase:@"login"];
++ (VVORM *)current {
+    VVORM *dataBase = [VVORMManager getORM:@"login"];
     return dataBase;
 }
 
 + (VVORM *)global {
-    VVORM *dataBase = [VVORMManager getDataBase:@"global"];
+    VVORM *dataBase = [VVORMManager getORM:@"global"];
     return dataBase;
 }
 

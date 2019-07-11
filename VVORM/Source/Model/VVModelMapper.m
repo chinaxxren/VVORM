@@ -20,56 +20,58 @@
 
 @implementation VVModelMapper
 
-- (BOOL)createTable:(VVORMClass *)runtime db:(FMDatabase *)db {
-    BOOL tableExists = [db tableExists:runtime.tableName];
+- (BOOL)createTable:(VVORMClass *)ormClass db:(FMDatabase *)db {
+    BOOL tableExists = [db tableExists:ormClass.tableName];
     if (!tableExists) {
-        [db executeUpdate:[runtime createTableStatement]];
+        [db executeUpdate:[ormClass createTableStatement]];
         if ([self hadError:db]) {
             return NO;
         }
-        if (!runtime.fullTextSearch3 && !runtime.fullTextSearch4 && runtime.hasIdentificationAttributes) {
-            [db executeUpdate:[runtime createUniqueIndexStatement]];
+
+        if (!ormClass.fullTextSearch3 && !ormClass.fullTextSearch4 && ormClass.hasIdentificationAttributes) {
+            [db executeUpdate:[ormClass createUniqueIndexStatement]];
             if ([self hadError:db]) {
                 return NO;
             }
         }
+
     } else {
-        for (VVORMProperty *attribute in runtime.insertAttributes) {
-            for (VVSQLiteColumnModel *sqliteColumn in attribute.sqliteColumns) {
-                if (![db columnExists:sqliteColumn.columnName inTableWithName:runtime.tableName]) {
-                    NSString *sql = [attribute alterTableAddColumnStatement:sqliteColumn];
+        for (VVORMProperty *ormProperty in ormClass.insertAttributes) {
+            for (VVSQLiteColumnModel *sqliteColumn in ormProperty.sqliteColumns) {
+                if (![db columnExists:sqliteColumn.columnName inTableWithName:ormClass.tableName]) {
+                    NSString *sql = [ormProperty alterTableAddColumnStatement:sqliteColumn];
                     [db executeUpdate:sql];
                     if ([self hadError:db]) {
                         return NO;
                     }
                 }
             }
-
         }
-        if (!runtime.hasIdentificationAttributes || runtime.fullTextSearch3 || runtime.fullTextSearch4) {
-            BOOL indexExists = [db indexExists:runtime.uniqueIndexName];
+
+        if (!ormClass.hasIdentificationAttributes || ormClass.fullTextSearch3 || ormClass.fullTextSearch4) {
+            BOOL indexExists = [db indexExists:ormClass.uniqueIndexName];
             if (indexExists) {
-                [db executeUpdate:[runtime dropUniqueIndexStatement]];
+                [db executeUpdate:[ormClass dropUniqueIndexStatement]];
                 if ([self hadError:db]) {
                     return NO;
                 }
             }
 
         } else {
-            BOOL indexExists = [db indexExists:runtime.uniqueIndexName];
+            BOOL indexExists = [db indexExists:ormClass.uniqueIndexName];
             if (!indexExists) {
-                [db executeUpdate:[runtime createUniqueIndexStatement]];
+                [db executeUpdate:[ormClass createUniqueIndexStatement]];
                 if ([self hadError:db]) {
                     return NO;
                 }
             } else {
                 BOOL changed = NO;
-                NSArray *columnNames = [db columnNamesWithIndexName:runtime.uniqueIndexName];
-                if (columnNames.count != runtime.identificationAttributes.count) {
+                NSArray *columnNames = [db columnNamesWithIndexName:ormClass.uniqueIndexName];
+                if (columnNames.count != ormClass.identificationAttributes.count) {
                     changed = YES;
                 } else {
                     for (NSInteger i = 0; i < columnNames.count; i++) {
-                        VVORMProperty *attribute = runtime.identificationAttributes[i];
+                        VVORMProperty *attribute = ormClass.identificationAttributes[i];
                         NSString *columnNameFrom = columnNames[i];
                         NSString *columnNameTo = attribute.name;
                         if (![columnNameFrom isEqualToString:columnNameTo]) {
@@ -79,11 +81,11 @@
                     }
                 }
                 if (changed) {
-                    [db executeUpdate:[runtime dropUniqueIndexStatement]];
+                    [db executeUpdate:[ormClass dropUniqueIndexStatement]];
                     if ([self hadError:db]) {
                         return NO;
                     }
-                    [db executeUpdate:[runtime createUniqueIndexStatement]];
+                    [db executeUpdate:[ormClass createUniqueIndexStatement]];
                     if ([self hadError:db]) {
                         return NO;
                     }
@@ -167,8 +169,8 @@
     }
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"toTableName = ? and toRowid = ?";
-    condition.sqlite.parameters = @[object.VVRuntime.tableName, object.rowid];
-    NSString *sql = [object.VVRuntime referencedCountStatementWithCondition:condition];
+    condition.sqlite.parameters = @[object.VVORMClass.tableName, object.rowid];
+    NSString *sql = [object.VVORMClass referencedCountStatementWithCondition:condition];
     FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
     if ([self hadError:db]) {
         return nil;
@@ -183,8 +185,8 @@
 
 #pragma mark insert, update, delete
 
-- (NSMutableArray *)select:(VVORMClass *)runtime condition:(VVConditionModel *)condition db:(FMDatabase *)db {
-    NSString *sql = [runtime selectStatementWithCondition:condition];
+- (NSMutableArray *)select:(VVORMClass *)ormClass condition:(VVConditionModel *)condition db:(FMDatabase *)db {
+    NSString *sql = [ormClass selectStatementWithCondition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
 
@@ -194,9 +196,9 @@
         return nil;
     }
     while ([rs next]) {
-        NSObject *targetObject = [runtime object];
-        targetObject.VVRuntime = runtime;
-        for (VVORMProperty *attribute in targetObject.VVRuntime.simpleValueAttributes) {
+        NSObject *targetObject = [ormClass object];
+        targetObject.VVORMClass = ormClass;
+        for (VVORMProperty *attribute in targetObject.VVORMClass.simpleValueAttributes) {
             NSObject *value = [attribute valueWithResultSet:rs];
             [targetObject setValue:value forKey:attribute.name];
         }
@@ -213,8 +215,8 @@
         if (changes == 0) {
             [self insertByRowId:object db:db];
         }
-    } else if (object.VVRuntime.hasIdentificationAttributes) {
-        if (object.VVRuntime.insertPerformance) {
+    } else if (object.VVORMClass.hasIdentificationAttributes) {
+        if (object.VVORMClass.insertPerformance) {
             [self insertByIdentificationAttributes:object db:db];
             if (!object.rowid) {
                 [self updateByIdentificationAttributes:object db:db];
@@ -232,8 +234,8 @@
 }
 
 - (BOOL)insertByRowId:(NSObject *)object db:(FMDatabase *)db {
-    NSString *sql = [object.VVRuntime insertOrReplaceIntoStatement];
-    NSMutableArray *parameters = [object.VVRuntime insertOrReplaceAttributesParameters:object];
+    NSString *sql = [object.VVORMClass insertOrReplaceIntoStatement];
+    NSMutableArray *parameters = [object.VVORMClass insertOrReplaceAttributesParameters:object];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -242,10 +244,10 @@
 }
 
 - (BOOL)updateByRowId:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVRuntime rowidCondition:object];
-    NSString *sql = [object.VVRuntime updateStatementWithObject:object condition:condition];
+    VVConditionModel *condition = [object.VVORMClass rowidCondition:object];
+    NSString *sql = [object.VVORMClass updateStatementWithObject:object condition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
-    [parameters addObjectsFromArray:[object.VVRuntime updateAttributesParameters:object]];
+    [parameters addObjectsFromArray:[object.VVORMClass updateAttributesParameters:object]];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
@@ -255,8 +257,8 @@
 }
 
 - (BOOL)insertByIdentificationAttributes:(NSObject *)object db:(FMDatabase *)db {
-    NSString *sql = [object.VVRuntime insertOrIgnoreIntoStatement];
-    NSMutableArray *parameters = [object.VVRuntime insertOrIgnoreAttributesParameters:object];
+    NSString *sql = [object.VVORMClass insertOrIgnoreIntoStatement];
+    NSMutableArray *parameters = [object.VVORMClass insertOrIgnoreAttributesParameters:object];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -270,10 +272,10 @@
 }
 
 - (BOOL)updateByIdentificationAttributes:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVRuntime uniqueCondition:object];
-    NSString *sql = [object.VVRuntime updateStatementWithObject:object condition:condition];
+    VVConditionModel *condition = [object.VVORMClass uniqueCondition:object];
+    NSString *sql = [object.VVORMClass updateStatementWithObject:object condition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
-    [parameters addObjectsFromArray:[object.VVRuntime updateAttributesParameters:object]];
+    [parameters addObjectsFromArray:[object.VVORMClass updateAttributesParameters:object]];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
@@ -284,8 +286,8 @@
 }
 
 - (BOOL)insert:(NSObject *)object db:(FMDatabase *)db {
-    NSString *sql = [object.VVRuntime insertIntoStatement];
-    NSMutableArray *parameters = [object.VVRuntime insertAttributesParameters:object];
+    NSString *sql = [object.VVORMClass insertIntoStatement];
+    NSMutableArray *parameters = [object.VVORMClass insertAttributesParameters:object];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -299,10 +301,10 @@
 }
 
 - (BOOL)deleteFrom:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVRuntime rowidCondition:object];
+    VVConditionModel *condition = [object.VVORMClass rowidCondition:object];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
-    NSString *sql = [object.VVRuntime deleteFromStatementWithCondition:condition];
+    NSString *sql = [object.VVORMClass deleteFromStatementWithCondition:condition];
     [db executeUpdate:sql withArgumentsInArray:parameters];
     if ([self hadError:db]) {
         return NO;
@@ -327,14 +329,14 @@
 - (void)updateRowid:(NSObject *)object db:(FMDatabase *)db {
     if (object.rowid) {
         return;
-    } else if (!object.VVRuntime.hasIdentificationAttributes) {
+    } else if (!object.VVORMClass.hasIdentificationAttributes) {
         return;
     }
-    VVConditionModel *condition = [object.VVRuntime uniqueCondition:object];
-    NSString *sql = [object.VVRuntime selectRowidStatement:condition];
+    VVConditionModel *condition = [object.VVORMClass uniqueCondition:object];
+    NSString *sql = [object.VVORMClass selectRowidStatement:condition];
     FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
     while (rs.next) {
-        object.rowid = [object.VVRuntime.rowidAttribute valueWithResultSet:rs];
+        object.rowid = [object.VVORMClass.rowidAttribute valueWithResultSet:rs];
         break;
     }
     [rs close];
@@ -348,16 +350,16 @@
 }
 
 - (void)updateSimpleValueWithObject:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVRuntime rowidCondition:object];
+    VVConditionModel *condition = [object.VVORMClass rowidCondition:object];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
-    NSString *sql = [object.VVRuntime selectStatementWithCondition:condition];
+    NSString *sql = [object.VVORMClass selectStatementWithCondition:condition];
     FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
     if ([self hadError:db]) {
         return;
     }
     while ([rs next]) {
-        for (VVORMProperty *attribute in object.VVRuntime.simpleValueAttributes) {
+        for (VVORMProperty *attribute in object.VVORMClass.simpleValueAttributes) {
             if (!attribute.isRelationshipClazz) {
                 NSObject *value = [attribute valueWithResultSet:rs];
                 [object setValue:value forKey:attribute.name];
@@ -371,7 +373,7 @@
 
 #pragma mark relationship methods
 
-- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     NSString *fromClassName = NSStringFromClass([object class]);
     NSString *fromAttributeName = attribute.name;
     NSNumber *fromRowid = object.rowid;
@@ -380,19 +382,19 @@
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ?";
     condition.sqlite.orderBy = @"attributeLevel desc,attributeSequence asc,attributeParentLevel desc,attributeParentSequence asc";
     condition.sqlite.parameters = parameters;
-    return [self relationshipObjectsWithCondition:condition relationshipRuntime:relationshipRuntime db:db];
+    return [self relationshipObjectsWithCondition:condition relationshipORMClass:relationshipORMClass db:db];
 }
 
-- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"toClassName = ? and toRowid = ?";
     condition.sqlite.orderBy = @"toClassName,toRowid";
     condition.sqlite.parameters = @[NSStringFromClass([toObject class]), toObject.rowid];
-    return [self relationshipObjectsWithCondition:condition relationshipRuntime:relationshipRuntime db:db];
+    return [self relationshipObjectsWithCondition:condition relationshipORMClass:relationshipORMClass db:db];
 }
 
-- (NSMutableArray *)relationshipObjectsWithCondition:(VVConditionModel *)condition relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
-    NSMutableArray *list = [self select:relationshipRuntime condition:condition db:db];
+- (NSMutableArray *)relationshipObjectsWithCondition:(VVConditionModel *)condition relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
+    NSMutableArray *list = [self select:relationshipORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return nil;
     }
@@ -409,37 +411,37 @@
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     NSString *className = NSStringFromClass([object class]);
     NSString *attributeName = attribute.name;
     NSNumber *rowid = object.rowid;
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ?";
     condition.sqlite.parameters = @[className, attributeName, rowid];
-    [self deleteFrom:relationshipRuntime condition:condition db:db];
+    [self deleteFrom:relationshipORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return NO;
     }
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     NSString *attributeName = attribute.name;
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ?";
     condition.sqlite.parameters = @[className, attributeName];
-    [self deleteFrom:relationshipRuntime condition:condition db:db];
+    [self deleteFrom:relationshipORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return NO;
     }
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ?";
     condition.sqlite.parameters = @[className];
-    [self deleteFrom:relationshipRuntime condition:condition db:db];
+    [self deleteFrom:relationshipORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return NO;
     }
@@ -450,7 +452,7 @@
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ? and toClassName = ? and toRowid = ?";
     condition.sqlite.parameters = @[relationshipObject.fromClassName, relationshipObject.fromAttributeName, relationshipObject.fromRowid, relationshipObject.toClassName, relationshipObject.toRowid];
-    [self deleteFrom:relationshipObject.VVRuntime condition:condition db:db];
+    [self deleteFrom:relationshipObject.VVORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return NO;
     }
@@ -458,30 +460,29 @@
 }
 
 
-- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     NSString *className = NSStringFromClass([object class]);
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"(fromClassName = ? and fromRowid = ?)";
     condition.sqlite.parameters = @[className, object.rowid, className, object.rowid];
-    [self deleteFrom:relationshipRuntime condition:condition db:db];
+    [self deleteFrom:relationshipORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return NO;
     }
     return YES;
 }
 
-- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipRuntime:(VVORMClass *)relationshipRuntime db:(FMDatabase *)db {
+- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
     NSString *className = NSStringFromClass([object class]);
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = @"(toClassName = ? and toRowid = ?)";
     condition.sqlite.parameters = @[className, object.rowid, className, object.rowid];
-    [self deleteFrom:relationshipRuntime condition:condition db:db];
+    [self deleteFrom:relationshipORMClass condition:condition db:db];
     if ([self hadError:db]) {
         return NO;
     }
     return YES;
 }
-
 
 - (BOOL)hadError:(FMDatabase *)db {
     if ([db hadError]) {

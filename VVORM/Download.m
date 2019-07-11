@@ -4,6 +4,7 @@
 //
 
 #import "Download.h"
+#import "VVModelInterface.h"
 
 
 @implementation Download {

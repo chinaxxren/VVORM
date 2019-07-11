@@ -19,11 +19,11 @@
     objc_setAssociatedObject(self, _cmd, rowid, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (VVORMClass *)VVRuntime {
-    return objc_getAssociatedObject(self, @selector(setVVRuntime:));
+- (VVORMClass *)VVORMClass {
+    return objc_getAssociatedObject(self, @selector(setVVORMClass:));
 }
 
-- (void)setVVRuntime:(VVORMClass *)runtime {
+- (void)setVVORMClass:(VVORMClass *)runtime {
     objc_setAssociatedObject(self, _cmd, runtime, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

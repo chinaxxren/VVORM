@@ -5,9 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol VVIdenticalAttribute;
+
 
 @interface Download : NSObject
 
+@property(nonatomic, copy) NSString <VVIdenticalAttribute> *did;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, assign) NSInteger size;
 

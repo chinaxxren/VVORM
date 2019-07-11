@@ -50,17 +50,18 @@
 
 - (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (VVORMClass *)runtime:(Class)clazz;
+- (VVORMClass *)ormClass:(Class)clazz;
 
-- (BOOL)registerRuntime:(VVORMClass *)runtime db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)registerORMClass:(VVORMClass *)ormClass db:(FMDatabase *)db error:(NSError **)error;
 
-- (BOOL)unRegisterRuntime:(VVORMClass *)runtime db:(FMDatabase *)db error:(NSError **)error;
+- (BOOL)unRegisterORMClass:(VVORMClass *)ormClass db:(FMDatabase *)db error:(NSError **)error;
 
 - (void)setUnRegistedAllRuntimeFlag;
 
-- (void)setRegistedRuntimeFlag:(VVORMClass *)runtime;
+- (void)setRegistedORMClassFlag:(VVORMClass *)ormClass;
 
-- (void)setUnRegistedRuntimeFlag:(VVORMClass *)runtime;
+- (void)setUnRegistedORMClassFlag:(VVORMClass *)ormClass;
+
 @end
 
 
@@ -135,6 +136,7 @@
             [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                 [_weakSelf transactionDidBegin:db];
                 _weakSelf.db = db;
+//                db.traceExecution = YES;
                 [db setShouldCacheStatements:YES];
                 block(db, rollback);
                 if (*rollback) {
@@ -580,15 +582,15 @@
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        VVORMClass *runtime = [self runtime:clazz];
-        ret = [_weakSelf registerRuntime:runtime db:db error:&err];
+        VVORMClass *ormClass = [self ormClass:clazz];
+        ret = [_weakSelf registerORMClass:ormClass db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];
         }
         if (err) {
             *rollback = YES;
         }
-        [self setRegistedRuntimeFlag:runtime];
+        [self setRegistedORMClassFlag:ormClass];
         return;
     }];
     if (error) {
@@ -605,15 +607,15 @@
     __block NSError *err = nil;
     __block BOOL ret = NO;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        VVORMClass *runtime = [self runtime:clazz];
-        ret = [_weakSelf unRegisterRuntime:runtime db:db error:&err];
+        VVORMClass *ormClass = [self ormClass:clazz];
+        ret = [_weakSelf unRegisterORMClass:ormClass db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];
         }
         if (err) {
             *rollback = YES;
         }
-        [self setUnRegistedRuntimeFlag:runtime];
+        [self setUnRegistedORMClassFlag:ormClass];
         return;
     }];
     if (error) {

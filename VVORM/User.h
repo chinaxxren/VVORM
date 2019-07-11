@@ -4,15 +4,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VVModelInterface.h"
 
 @class Download;
 
 
-@interface User : NSObject
+@interface User : NSObject <VVModelInterface>
 
-@property(nonatomic, strong) Download *download;
+@property(nonatomic, copy) NSString<VVIdenticalAttribute> *uid;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, assign) NSInteger age;
-
+@property(nonatomic, strong) Download *download;
 
 @end
