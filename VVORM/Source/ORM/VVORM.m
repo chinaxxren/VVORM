@@ -88,18 +88,18 @@
         return nil;
     }
 
-    VVORM *os = [[self alloc] init];
-    os.dbQueue = dbQueue;
-    os.db = nil;
-    os.weakSelf = os;
+    VVORM *orm = [[self alloc] init];
+    orm.dbQueue = dbQueue;
+    orm.db = nil;
+    orm.weakSelf = orm;
 
     NSError *err = nil;
-    [os registerClass:[VVORMClass class] error:&err];
+    [orm registerClass:[VVORMClass class] error:&err];
     if (err) {
         *error = err;
         return nil;
     }
-    return os;
+    return orm;
 }
 
 + (FMDatabaseQueue *)dbQueueWithPath:(NSString *)path {

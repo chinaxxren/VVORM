@@ -67,9 +67,9 @@
     if (clazz) {
         NSObject *value = [resultSet objectForColumn:attribute.columnName];
         if (value) {
-            VVClazz *osclazz = [VVClazz vvclazzWithClazz:clazz];
-            if (osclazz.isSimpleValueClazz) {
-                NSObject *value = [osclazz valueWithResultSet:resultSet attribute:attribute];
+            VVClazz *vvclazz = [VVClazz vvclazzWithClazz:clazz];
+            if (vvclazz.isSimpleValueClazz) {
+                NSObject *value = [vvclazz valueWithResultSet:resultSet attribute:attribute];
                 return value;
             }
         }
