@@ -250,6 +250,10 @@
         }
     }
 
+    for (NSObject *targetObject in objects) {
+        targetObject.rowid = nil;
+    }
+
     return YES;
 }
 
