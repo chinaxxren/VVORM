@@ -5,14 +5,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class VVORMProperty;
+@class VVPropertyInfo;
 
 
 @interface VVMigrationRuntimeProperty : NSObject
 
 @property(nonatomic, copy) NSString *name;
-@property(nonatomic, strong) VVORMProperty *previousAttribute;
-@property(nonatomic, strong) VVORMProperty *latestAttbiute;
+@property(nonatomic, strong) VVPropertyInfo *previousAttribute;
+@property(nonatomic, strong) VVPropertyInfo *latestAttbiute;
 @property(nonatomic, assign) BOOL added;
 @property(nonatomic, assign) BOOL deleted;
 @property(nonatomic, assign) BOOL typeChanged;

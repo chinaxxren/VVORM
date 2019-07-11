@@ -4,7 +4,7 @@
 //
 
 #import "VVMigrationRuntimeProperty.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 
 @implementation VVMigrationRuntimeProperty

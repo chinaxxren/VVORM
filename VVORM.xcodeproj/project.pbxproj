@@ -62,7 +62,7 @@
 		BF464AF3F9669C0E0B23D8A7A00B6503 /* VVMigration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8388B4F82123657399D0D11578F790 /* VVMigration.m */; };
 		C09326C64D582D2A11293EFBD489F42D /* VVClazzLong.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8A739670EAAE70D36EC0D7A87A4296 /* VVClazzLong.m */; };
 		C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */; };
-		C3AE62EE54235ECFCA82F70C /* VVORMProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6548BB984326A3C9F9BE /* VVORMProperty.m */; };
+		C3AE62EE54235ECFCA82F70C /* VVPropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6548BB984326A3C9F9BE /* VVPropertyInfo.m */; };
 		CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50569A531FAE0EB9692310D615EC246E /* ViewController.m */; };
 		CD03E642C378FDAB01575FF1D306E702 /* VVClazzNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 500846FAEF3F47468DE4B82D6450C416 /* VVClazzNSArray.m */; };
 		D01E620A56587FE19FA75A293891AC00 /* VVORM.m in Sources */ = {isa = PBXBuildFile; fileRef = 8388897B4FB72E7D3A651887027F08F4 /* VVORM.m */; };
@@ -191,8 +191,8 @@
 		B97761F322D73AB400690893 /* VVClazzNSMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSMutableArray.h; sourceTree = "<group>"; };
 		BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntime.m; sourceTree = "<group>"; };
 		C2600E5FC975816167ED8D0DFB926120 /* FMDatabase+IndexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+IndexInfo.h"; sourceTree = "<group>"; };
-		C3AE6548BB984326A3C9F9BE /* VVORMProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVORMProperty.m; sourceTree = "<group>"; };
-		C3AE69E7DEAB49A59048C8D5 /* VVORMProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVORMProperty.h; sourceTree = "<group>"; };
+		C3AE6548BB984326A3C9F9BE /* VVPropertyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyInfo.m; sourceTree = "<group>"; };
+		C3AE69E7DEAB49A59048C8D5 /* VVPropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyInfo.h; sourceTree = "<group>"; };
 		C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4765467939FA9D01160618217427865 /* VVMigrationRuntimeProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigrationRuntimeProperty.h; sourceTree = "<group>"; };
 		C8659F64DB01AC80AAB35CD984777531 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -298,8 +298,8 @@
 				1C6087132C37F9262CC59E9502BE8248 /* VVPropertyType.m */,
 				2D3A9D65875812738A829917CAEF1E7E /* VVORMClass.h */,
 				E6B104FAA04F01FBDE569F4D073CE3BE /* VVORMClass.m */,
-				C3AE6548BB984326A3C9F9BE /* VVORMProperty.m */,
-				C3AE69E7DEAB49A59048C8D5 /* VVORMProperty.h */,
+				C3AE6548BB984326A3C9F9BE /* VVPropertyInfo.m */,
+				C3AE69E7DEAB49A59048C8D5 /* VVPropertyInfo.h */,
 			);
 			path = Propterty;
 			sourceTree = "<group>";
@@ -752,7 +752,7 @@
 				D0DAA6EB8BE41791E6C9BF4949005DDC /* VVSQLiteConditionModel.m in Sources */,
 				CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */,
 				8002546F6FC3BA3ED75E54204916B571 /* main.m in Sources */,
-				C3AE62EE54235ECFCA82F70C /* VVORMProperty.m in Sources */,
+				C3AE62EE54235ECFCA82F70C /* VVPropertyInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

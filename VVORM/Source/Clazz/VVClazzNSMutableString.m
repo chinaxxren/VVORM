@@ -8,7 +8,7 @@
 #import <FMDB/FMResultSet.h>
 
 #import "VVSqliteConst.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @implementation VVClazzNSMutableString
 
@@ -28,14 +28,14 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSMutableString *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSMutableString *)value attribute:(VVPropertyInfo *)attribute {
     if (value) {
         return @[value];
     }
     return @[[NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVORMProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVPropertyInfo *)attribute {
     NSString *string = [resultSet stringForColumn:attribute.columnName];
     if (string) {
         return [NSMutableString stringWithString:string];

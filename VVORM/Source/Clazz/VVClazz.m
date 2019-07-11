@@ -5,7 +5,7 @@
 
 #import "VVClazz.h"
 
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVSQLiteColumnModel.h"
 #import "VVClazzID.h"
 #import "VVClazzNSMutableString.h"
@@ -71,7 +71,7 @@
     return nil;
 }
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVORMProperty *)attribute {
+- (NSArray *)sqliteColumnsWithAttribute:(VVPropertyInfo *)attribute {
     VVSQLiteColumnModel *sqliteColumn = [[VVSQLiteColumnModel alloc] init];
     sqliteColumn.columnName = attribute.columnName;
     sqliteColumn.dataTypeName = [self sqliteDataTypeName];

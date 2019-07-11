@@ -4,7 +4,7 @@
 //
 
 
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 #import "VVClazz.h"
 #import "VVORMClass.h"
@@ -16,7 +16,7 @@
 #import "VVPropertyType.h"
 
 
-@implementation VVORMProperty
+@implementation VVPropertyInfo
 
 + (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty ormClass:(VVORMClass *)ormClass nameBuilder:(VVNameBuilder *)nameBuilder {
     return [[self alloc] initWithBZProperty:bzproperty ormClass:ormClass nameBuilder:nameBuilder];
@@ -198,12 +198,6 @@
 
 - (id)valueWithResultSet:(FMResultSet *)resultSet {
     return [self.vvclazz valueWithResultSet:resultSet attribute:self];
-}
-
-#pragma mark
-
-+ (NSString *)VVTableName {
-    return @"__VVORMProperty__";
 }
 
 @end

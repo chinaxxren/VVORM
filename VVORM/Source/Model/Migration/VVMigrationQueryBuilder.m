@@ -9,7 +9,7 @@
 #import "VVSQLiteColumnModel.h"
 #import "VVQueryBuilder.h"
 #import "VVMigrationRuntimeProperty.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @implementation VVMigrationQueryBuilder
 

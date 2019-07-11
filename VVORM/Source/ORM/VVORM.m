@@ -10,7 +10,7 @@
 
 #import "VVModelInterface.h"
 #import "VVORMClass.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVSQLiteConditionModel.h"
 
 @interface VVMigration (Protected)
@@ -95,11 +95,6 @@
 
     NSError *err = nil;
     [os registerClass:[VVORMClass class] error:&err];
-    if (err) {
-        *error = err;
-        return nil;
-    }
-    [os registerClass:[VVORMProperty class] error:&err];
     if (err) {
         *error = err;
         return nil;

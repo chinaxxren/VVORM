@@ -9,7 +9,7 @@
 
 #import "VVSqliteConst.h"
 #import "VVSQLiteColumnModel.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @implementation VVClazzID
 
@@ -33,7 +33,7 @@
     return YES;
 }
 
-- (NSArray *)sqliteColumnsWithAttribute:(VVORMProperty *)attribute {
+- (NSArray *)sqliteColumnsWithAttribute:(VVPropertyInfo *)attribute {
     VVSQLiteColumnModel *value = [[VVSQLiteColumnModel alloc] init];
     value.columnName = attribute.columnName;
     value.dataTypeName = SQLITE_DATA_TYPE_NONE;
@@ -45,7 +45,7 @@
     return @[value, attributeType];
 }
 
-- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVPropertyInfo *)attribute {
     NSString *attributeType = nil;
     if (value) {
         VVClazz *osclazz = [VVClazz vvclazzWithClazz:[value class]];
@@ -60,12 +60,12 @@
     return @[[NSNull null], [NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVORMProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVPropertyInfo *)attribute {
     NSString *attributeTypeColumnName = [NSString stringWithFormat:@"%@_attributeType", attribute.columnName];
     NSString *attributeType = [resultSet stringForColumn:attributeTypeColumnName];
     Class clazz = NSClassFromString(attributeType);
     if (clazz) {
-        NSObject *value = [resultSet objectForColumnName:attribute.columnName];
+        NSObject *value = [resultSet objectForColumn:attribute.columnName];
         if (value) {
             VVClazz *osclazz = [VVClazz vvclazzWithClazz:clazz];
             if (osclazz.isSimpleValueClazz) {

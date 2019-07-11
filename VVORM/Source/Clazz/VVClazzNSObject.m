@@ -6,18 +6,9 @@
 #import "VVClazzNSObject.h"
 
 #import "VVSqliteConst.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @implementation VVClazzNSObject
-
-- (NSEnumerator *)objectEnumeratorWithObject:(NSArray *)object {
-    NSArray *array = @[object];
-    return [array objectEnumerator];
-}
-
-- (NSArray *)keysWithObject:(id)object {
-    return nil;
-}
 
 - (id)objectWithClazz:(Class)clazz {
     return [[clazz alloc] init];
@@ -39,11 +30,7 @@
     return YES;
 }
 
-- (void)setValue:(id)value object:(id)object forKey:(NSString *)key {
-    [object setValue:value forKeyPath:key];
-}
-
-- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSObject *)value attribute:(VVPropertyInfo *)attribute {
     return @[@"NSObject"];
 }
 

@@ -6,7 +6,7 @@
 #import "VVQueryBuilder.h"
 
 #import "VVORMClass.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVConditionModel.h"
 #import "VVSQLiteColumnModel.h"
 #import "VVSQLiteConditionModel.h"
@@ -17,7 +17,7 @@
 
 + (NSArray *)sqliteColumnsWithAttributes:(NSArray *)attributes {
     NSMutableArray *sqliteColumns = [NSMutableArray array];
-    for (VVORMProperty *attribute in attributes) {
+    for (VVPropertyInfo *attribute in attributes) {
         [sqliteColumns addObjectsFromArray:attribute.sqliteColumns];
     }
     return sqliteColumns;

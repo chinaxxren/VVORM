@@ -10,7 +10,7 @@
 #import "VVModelInterface.h"
 #import "VVConditionModel.h"
 #import "VVORMClass.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVNameBuilder.h"
 #import "VVClazz.h"
 #import "NSObject+VVTabel.h"
@@ -366,7 +366,7 @@
         if (ormClass.clazz == [VVORMClass class]) {
             return YES;
         }
-        if (ormClass.clazz == [VVORMProperty class]) {
+        if (ormClass.clazz == [VVPropertyInfo class]) {
             return YES;
         }
         if (![self updateORMClass:ormClass db:db error:error]) {

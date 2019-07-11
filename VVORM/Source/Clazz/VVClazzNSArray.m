@@ -8,18 +8,6 @@
 
 @implementation VVClazzNSArray
 
-- (NSEnumerator *)objectEnumeratorWithObject:(NSArray *)object {
-    return [object objectEnumerator];
-}
-
-- (NSArray *)keysWithObject:(id)object {
-    return nil;
-}
-
-- (id)objectWithObjects:(NSArray *)objects keys:(NSArray *)keys initializingOptions:(NSString *)initializingOptions {
-    return [NSArray arrayWithArray:objects];
-}
-
 - (Class)superClazz {
     return [NSArray class];
 }
@@ -36,7 +24,7 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVPropertyInfo *)attribute {
     return @[@"NSArray"];
 }
 

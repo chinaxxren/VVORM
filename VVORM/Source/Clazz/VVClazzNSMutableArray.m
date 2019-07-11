@@ -7,22 +7,10 @@
 
 #import <FMDB/FMResultSet.h>
 
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVSqliteConst.h"
 
 @implementation VVClazzNSMutableArray
-
-- (NSEnumerator *)objectEnumeratorWithObject:(NSMutableArray *)object {
-    return [object objectEnumerator];
-}
-
-- (NSArray *)keysWithObject:(id)object {
-    return nil;
-}
-
-- (id)objectWithObjects:(NSArray *)objects keys:(NSArray *)keys initializingOptions:(NSString *)initializingOptions {
-    return [NSMutableArray arrayWithArray:objects];
-}
 
 - (Class)superClazz {
     return [NSMutableArray class];
@@ -40,7 +28,7 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSArray *)value attribute:(VVPropertyInfo *)attribute {
     return @[@"NSMutableArray"];
 }
 

@@ -10,7 +10,7 @@
 
 @class VVClazz;
 @class VVNameBuilder;
-@class VVORMProperty;
+@class VVPropertyInfo;
 @class VVConditionModel;
 
 @interface VVORMClass : NSObject <VVModelInterface>
@@ -26,7 +26,7 @@
 @property(nonatomic, assign) BOOL isObjectClazz;
 
 // attribute inforamtion
-@property(nonatomic, strong) VVORMProperty <VVIgnoreAttribute> *rowidAttribute;
+@property(nonatomic, strong) VVPropertyInfo <VVIgnoreAttribute> *rowidAttribute;
 @property(nonatomic, strong) NSArray *attributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *identificationAttributes;
 @property(nonatomic, strong) NSArray <VVIgnoreAttribute> *insertAttributes;
@@ -112,13 +112,6 @@
 - (NSMutableArray *)insertAttributesParameters:(NSObject *)object;
 
 - (NSMutableArray *)updateAttributesParameters:(NSObject *)object;
-
-// for value in array
-- (NSEnumerator *)objectEnumeratorWithObject:(id)object;
-
-- (NSArray *)keysWithObject:(id)object;
-
-- (id)objectWithObjects:(NSArray *)objects keys:(NSArray *)keys initializingOptions:(NSString *)initializingOptions;
 
 - (id)object;
 

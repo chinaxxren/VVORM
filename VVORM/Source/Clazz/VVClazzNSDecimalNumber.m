@@ -8,7 +8,7 @@
 #import <FMDB/FMResultSet.h>
 
 #import "VVSqliteConst.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @implementation VVClazzNSDecimalNumber
 
@@ -28,14 +28,14 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSDecimalNumber *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSDecimalNumber *)value attribute:(VVPropertyInfo *)attribute {
     if (value) {
         return @[value];
     }
     return @[[NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVORMProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVPropertyInfo *)attribute {
     NSNumber *value = [resultSet objectForColumn:attribute.columnName];
     if ([[value class] isSubclassOfClass:[NSNumber class]]) {
         NSDecimalNumber *decimalValue = [NSDecimalNumber decimalNumberWithDecimal:[@([value doubleValue]) decimalValue]];

@@ -10,7 +10,7 @@
 
 #import "VVConditionModel.h"
 #import "VVModelInterface.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVORMClass.h"
 #import "VVSQLiteConditionModel.h"
 #import "VVSQLiteColumnModel.h"
@@ -35,7 +35,7 @@
         }
 
     } else {
-        for (VVORMProperty *ormProperty in ormClass.insertAttributes) {
+        for (VVPropertyInfo *ormProperty in ormClass.insertAttributes) {
             for (VVSQLiteColumnModel *sqliteColumn in ormProperty.sqliteColumns) {
                 if (![db columnExists:sqliteColumn.columnName inTableWithName:ormClass.tableName]) {
                     NSString *sql = [ormProperty alterTableAddColumnStatement:sqliteColumn];
@@ -70,7 +70,7 @@
                     changed = YES;
                 } else {
                     for (NSInteger i = 0; i < columnNames.count; i++) {
-                        VVORMProperty *attribute = ormClass.identificationAttributes[i];
+                        VVPropertyInfo *attribute = ormClass.identificationAttributes[i];
                         NSString *columnNameFrom = columnNames[i];
                         NSString *columnNameTo = attribute.name;
                         if (![columnNameFrom isEqualToString:columnNameTo]) {
@@ -176,7 +176,7 @@
     while ([rs next]) {
         NSObject *targetObject = [ormClass object];
         targetObject.ormClass = ormClass;
-        for (VVORMProperty *attribute in targetObject.ormClass.simpleValueAttributes) {
+        for (VVPropertyInfo *attribute in targetObject.ormClass.simpleValueAttributes) {
             NSObject *value = [attribute valueWithResultSet:rs];
             [targetObject setValue:value forKey:attribute.name];
         }

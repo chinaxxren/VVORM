@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 @class VVORMClass;
-@class VVORMProperty;
+@class VVPropertyInfo;
 @class VVConditionModel;
 @class VVNameBuilder;
 @class VVSQLiteColumnModel;

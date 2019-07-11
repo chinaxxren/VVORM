@@ -8,7 +8,7 @@
 #import <FMDB/FMResultSet.h>
 
 #import "VVSqliteConst.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @interface NSValueConverter ()
 
@@ -85,14 +85,14 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSValue *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSValue *)value attribute:(VVPropertyInfo *)attribute {
     if (value) {
         return @[[NSValueConverter convertedDataWithValue:value]];
     }
     return @[[NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVORMProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVPropertyInfo *)attribute {
     NSData *value = [resultSet objectForColumn:attribute.columnName];
     if (value && [[value class] isSubclassOfClass:[NSData class]]) {
         return [NSValueConverter valueWithConvertedData:value];

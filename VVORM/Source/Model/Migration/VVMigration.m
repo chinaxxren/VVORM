@@ -8,7 +8,7 @@
 #import <FMDB/FMDatabase.h>
 
 #import "VVORMClass.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 #import "VVMigrationRuntime.h"
 #import "VVMigrationRuntimeProperty.h"
 #import "VVMigrationTable.h"
@@ -59,7 +59,7 @@
     // create migration property list
     for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
         VVORMClass *latestRuntime = migrationRuntime.latestRuntime;
-        for (VVORMProperty *attribute in latestRuntime.attributes) {
+        for (VVPropertyInfo *attribute in latestRuntime.attributes) {
             VVMigrationRuntimeProperty *migrationAttribute = migrationRuntime.attributes[attribute.name];
             if (!migrationAttribute) {
                 migrationAttribute = [[VVMigrationRuntimeProperty alloc] init];
@@ -69,7 +69,7 @@
             migrationAttribute.latestAttbiute = attribute;
         }
         VVORMClass *previousRuntime = migrationRuntime.previousRuntime;
-        for (VVORMProperty *attribute in previousRuntime.attributes) {
+        for (VVPropertyInfo *attribute in previousRuntime.attributes) {
             VVMigrationRuntimeProperty *migrationAttribute = migrationRuntime.attributes[attribute.name];
             if (!migrationAttribute) {
                 migrationAttribute = [[VVMigrationRuntimeProperty alloc] init];

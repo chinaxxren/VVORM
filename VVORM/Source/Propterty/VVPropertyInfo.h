@@ -16,7 +16,7 @@
 @class FMResultSet;
 @class VVProperty;
 
-@interface VVORMProperty : NSObject <VVModelInterface>
+@interface VVPropertyInfo : NSObject
 
 + (instancetype)propertyWithBZProperty:(VVProperty *)bzproperty ormClass:(VVORMClass *)ormClass nameBuilder:(VVNameBuilder *)nameBuilder;
 

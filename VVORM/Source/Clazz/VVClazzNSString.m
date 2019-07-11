@@ -9,7 +9,7 @@
 #import <FMDB/FMResultSet.h>
 
 #import "VVSqliteConst.h"
-#import "VVORMProperty.h"
+#import "VVPropertyInfo.h"
 
 @implementation VVClazzNSString
 
@@ -29,14 +29,14 @@
     return YES;
 }
 
-- (NSArray *)storeValuesWithValue:(NSString *)value attribute:(VVORMProperty *)attribute {
+- (NSArray *)storeValuesWithValue:(NSString *)value attribute:(VVPropertyInfo *)attribute {
     if (value) {
         return @[value];
     }
     return @[[NSNull null]];
 }
 
-- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVORMProperty *)attribute {
+- (id)valueWithResultSet:(FMResultSet *)resultSet attribute:(VVPropertyInfo *)attribute {
     NSString *value = [resultSet stringForColumn:attribute.columnName];
     return value;
 }
