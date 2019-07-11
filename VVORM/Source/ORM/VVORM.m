@@ -124,7 +124,7 @@
             [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                 [_weakSelf transactionDidBegin:db];
                 _weakSelf.db = db;
-//                db.traceExecution = YES;
+                db.traceExecution = _weakSelf.traceExecution;
                 [db setShouldCacheStatements:YES];
                 block(db, rollback);
                 if (*rollback) {

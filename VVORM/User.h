@@ -13,6 +13,7 @@
 
 @property(nonatomic, copy) NSString<VVIdenticalAttribute> *uid;
 @property(nonatomic, copy) NSString *name;
+@property(nonatomic, copy) NSString *city;
 @property(nonatomic, assign) NSInteger age;
 @property(nonatomic, strong) Download *download;
 

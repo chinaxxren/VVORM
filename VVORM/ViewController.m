@@ -58,6 +58,7 @@ uint64_t vv_getCurrentTime() {
 //        user.uid = [NSUUID UUID].UUIDString;
         user.uid = [NSString stringWithFormat:@"uid->%i", i];
         user.name = [NSString stringWithFormat:@"user>>%i", i];
+        user.city = [NSString stringWithFormat:@"city->%i", i];
         user.age = 171;
 
         Download *download = [Download new];
@@ -83,7 +84,7 @@ uint64_t vv_getCurrentTime() {
 
     NSMutableArray *users = [orm findObjects:[User class] condition:nil];
     User *user = [users lastObject];
-    NSLog(@"name->%@", user.name);
+    NSLog(@"name->%@", user.city);
 }
 
 - (void)testGlobal {

@@ -14,6 +14,8 @@
 
 @interface VVORM : VVMigration
 
+@property(nonatomic, assign) BOOL traceExecution;
+
 + (instancetype)openWithPath:(NSString *)path error:(NSError **)error;
 
 - (void)inTransaction:(void (^)(VVORM *dataBase, BOOL *rollback))block;
