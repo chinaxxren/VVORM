@@ -36,13 +36,7 @@
 
 - (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
-- (NSNumber *)referencedCount:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error;
-
-- (NSMutableArray *)fetchReferencingObjectsWithToObject:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error;
-
-- (NSArray *)refreshObject:(NSObject *)object db:(FMDatabase *)db error:(NSError **)error;
-
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
 - (BOOL)saveObjects:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error;
 
@@ -136,7 +130,7 @@
             [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
                 [_weakSelf transactionDidBegin:db];
                 _weakSelf.db = db;
-                db.traceExecution = YES;
+//                db.traceExecution = YES;
                 [db setShouldCacheStatements:YES];
                 block(db, rollback);
                 if (*rollback) {
@@ -322,65 +316,17 @@
     return value;
 }
 
-
-#pragma mark fetch count methods
-
-- (NSNumber *)referencedCount:(NSObject *)object {
-    return [self referencedCount:object error:nil];
-}
-
-- (NSNumber *)referencedCount:(NSObject *)object error:(NSError **)error {
-    __block NSError *err = nil;
-    __block NSNumber *value = nil;
-    [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        value = [_weakSelf referencedCount:object db:db error:&err];
-        if ([db hadError]) {
-            err = [db lastError];
-        }
-        if (err) {
-            *rollback = YES;
-        }
-    }];
-    if (error) {
-        *error = err;
-    }
-    return value;
-}
-
-- (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object {
-    return [self fetchReferencingObjectsTo:object error:nil];
-}
-
-- (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object error:(NSError **)error {
-    __block NSError *err = nil;
-    __block NSMutableArray *list = nil;
-    [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        list = [_weakSelf fetchReferencingObjectsWithToObject:object db:db error:&err];
-        if ([db hadError]) {
-            err = [db lastError];
-        }
-        if (err) {
-            *rollback = YES;
-        }
-    }];
-    if (error) {
-        *error = err;
-    }
-    return list;
-}
-
-
 #pragma mark fetch methods
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition {
-    return [self fetchObjects:clazz condition:condition error:nil];
+- (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition {
+    return [self findObjects:clazz condition:condition error:nil];
 }
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
+- (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error {
     __block NSError *err = nil;
     __block NSMutableArray *value = nil;
     [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        value = [_weakSelf fetchObjects:clazz condition:condition db:db error:&err];
+        value = [_weakSelf findObjects:clazz condition:condition db:db error:&err];
         if ([db hadError]) {
             err = [db lastError];
         }
@@ -394,46 +340,23 @@
     return value;
 }
 
-- (NSMutableArray *)fetchObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy error:(NSError **)error {
+- (NSMutableArray *)findObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy error:(NSError **)error {
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;
-    return [self fetchObjects:clazz condition:condition error:error];
+    return [self findObjects:clazz condition:condition error:error];
 }
 
-- (NSMutableArray *)fetchObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy offset:(NSNumber *)offset limit:(NSNumber *)limit error:(NSError **)error {
+- (NSMutableArray *)findObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy offset:(NSNumber *)offset limit:(NSNumber *)limit error:(NSError **)error {
     VVConditionModel *condition = [VVConditionModel condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;
     condition.sqlite.offset = offset;
     condition.sqlite.limit = limit;
-    return [self fetchObjects:clazz condition:condition error:error];
+    return [self findObjects:clazz condition:condition error:error];
 }
-
-- (id)refreshObject:(NSObject *)object {
-    return [self referencedCount:object error:nil];
-}
-
-- (id)refreshObject:(NSObject *)object error:(NSError **)error {
-    __block NSError *err = nil;
-    __block NSObject *latestObject = nil;
-    [self inTransactionWithBlock:^(FMDatabase *db, BOOL *rollback) {
-        latestObject = [_weakSelf refreshObject:object db:db error:&err];
-        if ([db hadError]) {
-            err = [db lastError];
-        }
-        if (err) {
-            *rollback = YES;
-        }
-    }];
-    if (error) {
-        *error = err;
-    }
-    return latestObject;
-}
-
 
 #pragma mark save methods
 

@@ -67,50 +67,14 @@
     }];
 }
 
-- (void)refreshObjectInBackground:(NSObject *)object completionBlock:(void (^)(id object, NSError *error))completionBlock; {
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperationWithBlock:^{
-        NSError *error = nil;
-        NSObject *refreshedObject = [self refreshObject:object error:&error];
-        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-        [mainQueue addOperationWithBlock:^{
-            completionBlock(refreshedObject, error);
-        }];
-    }];
-}
-
 - (void)fetchObjectsInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
         NSError *error = nil;
-        NSArray *objects = [self fetchObjects:clazz condition:condition error:&error];
+        NSArray *objects = [self findObjects:clazz condition:condition error:&error];
         NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
         [mainQueue addOperationWithBlock:^{
             completionBlock(objects, error);
-        }];
-    }];
-}
-
-- (void)fetchReferencingObjectsToInBackground:(NSObject *)object completionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock {
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperationWithBlock:^{
-        NSError *error = nil;
-        NSArray *objects = [self fetchReferencingObjectsTo:object error:&error];
-        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-        [mainQueue addOperationWithBlock:^{
-            completionBlock(objects, error);
-        }];
-    }];
-}
-
-- (void)referencedCountInBackground:(NSObject *)object completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock {
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperationWithBlock:^{
-        NSError *error = nil;
-        NSNumber *value = [self referencedCount:object error:&error];
-        NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
-        [mainQueue addOperationWithBlock:^{
-            completionBlock(value, error);
         }];
     }];
 }

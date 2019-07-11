@@ -6,8 +6,10 @@
 //  Copyright © 2019 Tank. All rights reserved.
 //
 
-#import <sys/time.h>
+
 #import "ViewController.h"
+
+#import <sys/time.h>
 
 #import "User.h"
 #import "AppContent.h"
@@ -54,14 +56,14 @@ uint64_t vv_getCurrentTime() {
     for (int i = 0; i < 1; i++) {
         User *user = [User new];
 //        user.uid = [NSUUID UUID].UUIDString;
-        user.uid = [NSString stringWithFormat:@"uid-%i", i];
-        user.name = [NSString stringWithFormat:@"user-%i", i];
+        user.uid = [NSString stringWithFormat:@"uid->%i", i];
+        user.name = [NSString stringWithFormat:@"user>>%i", i];
         user.age = 171;
 
         Download *download = [Download new];
 //        download.did = [NSUUID UUID].UUIDString;
-        download.did = [NSString stringWithFormat:@"did-%i", i];
-        download.name = [NSString stringWithFormat:@"download-%i", i];
+        download.did = [NSString stringWithFormat:@"did->%i", i];
+        download.name = [NSString stringWithFormat:@"download->%i", i];
         download.size = 121;
 
         user.download = download;
@@ -76,8 +78,12 @@ uint64_t vv_getCurrentTime() {
 //    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
 //    NSLog(@"%@", downloads);
 
-    NSNumber *count = [orm count:[Download class] condition:nil];
+    NSNumber *count = [orm count:[User class] condition:nil];
     NSLog(@"count->%@", count);
+
+    NSMutableArray *users = [orm findObjects:[User class] condition:nil];
+    User *user = [users lastObject];
+    NSLog(@"name->%@", user.name);
 }
 
 - (void)testGlobal {
@@ -91,7 +97,7 @@ uint64_t vv_getCurrentTime() {
     NSNumber *count = [orm count:[Download class] condition:nil];
     NSLog(@"count->%@", count);
 
-    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
+    NSMutableArray *downloads = [orm findObjects:[Download class] condition:nil];
     download = [downloads firstObject];
     NSLog(@"name->%@", download.name);
 }
@@ -106,7 +112,7 @@ uint64_t vv_getCurrentTime() {
 //    NSLog(@"%@", downloads);
 
     uint64_t begin = vv_getCurrentTime();
-    NSMutableArray *users = [orm fetchObjects:[User class] condition:nil];
+    NSMutableArray *users = [orm findObjects:[User class] condition:nil];
     NSLog(@"%lld", vv_getCurrentTime() - begin);
     User *user = [users firstObject];
     NSLog(@"name->%@", user.name);

@@ -18,7 +18,7 @@
 
 @interface VVReferenceMapper (Protected)
 
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
+- (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error;
 
 - (BOOL)saveObjects:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error;
 
@@ -30,21 +30,13 @@
 
 @end
 
-@interface VVModelMapper (Private)
-
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db;
-
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db;
-
-@end
-
 @implementation VVMigration
 
 - (BOOL)migrate:(FMDatabase *)db error:(NSError **)error {
 
     // Get previous class and current class information
     NSMutableDictionary *currentRuntimes = [NSMutableDictionary dictionary];
-    NSMutableArray *previousRuntimes = [self fetchObjects:[VVORMClass class] condition:nil db:db error:error];
+    NSMutableArray *previousRuntimes = [self findObjects:[VVORMClass class] condition:nil db:db error:error];
     for (VVORMClass *runtime in previousRuntimes) {
         Class clazz = NSClassFromString(runtime.clazzName);
         if (clazz) {
@@ -187,30 +179,6 @@
 
     // start migration
 
-    // delete relationship information
-    VVORMClass *relationshipRuntime = [self ormClass:[VVORMRelationship class]];
-    for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
-        if (migrationRuntime.changed) {
-            for (VVMigrationRuntimeProperty *attribute in migrationRuntime.attributes.allValues) {
-                BOOL deleteRelashionship = NO;
-                if (attribute.deleted) {
-                    if (attribute.previousAttribute.isRelationshipClazz) {
-                        deleteRelashionship = YES;
-                    }
-                } else if (attribute.typeChanged) {
-                    if (attribute.previousAttribute.isRelationshipClazz && !attribute.latestAttbiute.isRelationshipClazz) {
-                        deleteRelashionship = YES;
-                    }
-                }
-                if (deleteRelashionship) {
-                    [self deleteRelationshipObjectsWithClazzName:migrationRuntime.clazzName attribute:attribute.previousAttribute relationshipORMClass:relationshipRuntime db:db];
-                }
-            }
-        } else if (migrationRuntime.deleted) {
-            [self deleteRelationshipObjectsWithClazzName:migrationRuntime.clazzName relationshipORMClass:relationshipRuntime db:db];
-        }
-    }
-
     // update runtime information
     for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
         if (migrationRuntime.changed) {
@@ -321,7 +289,6 @@
     }
 
     return YES;
-
 }
 
 - (BOOL)hadError:(FMDatabase *)db error:(NSError **)error {

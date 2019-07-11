@@ -38,26 +38,14 @@
 
 - (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
-- (id)refreshObject:(NSObject *)object;
+- (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition;
 
-- (id)refreshObject:(NSObject *)object error:(NSError **)error;
-
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition;
-
-- (NSMutableArray *)fetchObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
-
-- (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object;
-
-- (NSMutableArray *)fetchReferencingObjectsTo:(NSObject *)object error:(NSError **)error;
+- (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
 
 // 获取个数
 - (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition;
 
 - (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition error:(NSError **)error;
-
-- (NSNumber *)referencedCount:(NSObject *)object;
-
-- (NSNumber *)referencedCount:(NSObject *)object error:(NSError **)error;
 
 - (NSNumber *)existsObject:(NSObject *)object;
 
@@ -107,9 +95,9 @@
 
 - (void)transactionDidEnd:(FMDatabase *)db;
 
-- (NSMutableArray *)fetchObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy error:(NSError **)error;
+- (NSMutableArray *)findObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy error:(NSError **)error;
 
-- (NSMutableArray *)fetchObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy offset:(NSNumber *)offset limit:(NSNumber *)limit error:(NSError **)error;
+- (NSMutableArray *)findObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy offset:(NSNumber *)offset limit:(NSNumber *)limit error:(NSError **)error;
 
 - (BOOL)deleteObjects:(Class)clazz where:(NSString *)where parameters:(NSArray *)parameters error:(NSError **)error;
 

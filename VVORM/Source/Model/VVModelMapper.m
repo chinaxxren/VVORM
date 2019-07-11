@@ -162,30 +162,9 @@
     return value;
 }
 
-- (NSNumber *)referencedCount:(NSObject *)object db:(FMDatabase *)db {
-    [self updateRowid:object db:db];
-    if (!object.rowid) {
-        return nil;
-    }
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"toTableName = ? and toRowid = ?";
-    condition.sqlite.parameters = @[object.VVORMClass.tableName, object.rowid];
-    NSString *sql = [object.VVORMClass referencedCountStatementWithCondition:condition];
-    FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
-    if ([self hadError:db]) {
-        return nil;
-    }
-    NSNumber *value = nil;
-    while (rs.next) {
-        value = [rs objectForColumnIndex:0];
-    }
-    [rs close];
-    return value;
-}
-
 #pragma mark insert, update, delete
 
-- (NSMutableArray *)select:(VVORMClass *)ormClass condition:(VVConditionModel *)condition db:(FMDatabase *)db {
+- (NSMutableArray *)find:(VVORMClass *)ormClass condition:(VVConditionModel *)condition db:(FMDatabase *)db {
     NSString *sql = [ormClass selectStatementWithCondition:condition];
     NSMutableArray *parameters = [NSMutableArray array];
     [parameters addObjectsFromArray:condition.sqlite.parameters];
@@ -323,7 +302,6 @@
     return YES;
 }
 
-
 #pragma mark object update methods
 
 - (void)updateRowid:(NSObject *)object db:(FMDatabase *)db {
@@ -368,120 +346,6 @@
         break;
     }
     [rs close];
-}
-
-
-#pragma mark relationship methods
-
-- (NSMutableArray *)relationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    NSString *fromClassName = NSStringFromClass([object class]);
-    NSString *fromAttributeName = attribute.name;
-    NSNumber *fromRowid = object.rowid;
-    NSArray *parameters = @[fromClassName, fromAttributeName, fromRowid];
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ?";
-    condition.sqlite.orderBy = @"attributeLevel desc,attributeSequence asc,attributeParentLevel desc,attributeParentSequence asc";
-    condition.sqlite.parameters = parameters;
-    return [self relationshipObjectsWithCondition:condition relationshipORMClass:relationshipORMClass db:db];
-}
-
-- (NSMutableArray *)relationshipObjectsWithToObject:(NSObject *)toObject relationshipRuntime:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"toClassName = ? and toRowid = ?";
-    condition.sqlite.orderBy = @"toClassName,toRowid";
-    condition.sqlite.parameters = @[NSStringFromClass([toObject class]), toObject.rowid];
-    return [self relationshipObjectsWithCondition:condition relationshipORMClass:relationshipORMClass db:db];
-}
-
-- (NSMutableArray *)relationshipObjectsWithCondition:(VVConditionModel *)condition relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    NSMutableArray *list = [self select:relationshipORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return nil;
-    }
-    return list;
-}
-
-- (BOOL)insertRelationshipObjectsWithRelationshipObjects:(NSArray *)relationshipObjects db:(FMDatabase *)db {
-    for (VVORMRelationship *relationshipObject in relationshipObjects) {
-        [self insertOrUpdate:relationshipObject db:db];
-        if ([self hadError:db]) {
-            return NO;
-        }
-    }
-    return YES;
-}
-
-- (BOOL)deleteRelationshipObjectsWithObject:(NSObject *)object attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    NSString *className = NSStringFromClass([object class]);
-    NSString *attributeName = attribute.name;
-    NSNumber *rowid = object.rowid;
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ?";
-    condition.sqlite.parameters = @[className, attributeName, rowid];
-    [self deleteFrom:relationshipORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className attribute:(VVORMProperty *)attribute relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    NSString *attributeName = attribute.name;
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ?";
-    condition.sqlite.parameters = @[className, attributeName];
-    [self deleteFrom:relationshipORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)deleteRelationshipObjectsWithClazzName:(NSString *)className relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"fromClassName = ?";
-    condition.sqlite.parameters = @[className];
-    [self deleteFrom:relationshipORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)deleteRelationshipObjectsWithRelationshipObject:(VVORMRelationship *)relationshipObject db:(FMDatabase *)db {
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"fromClassName = ? and fromAttributeName = ? and fromRowid = ? and toClassName = ? and toRowid = ?";
-    condition.sqlite.parameters = @[relationshipObject.fromClassName, relationshipObject.fromAttributeName, relationshipObject.fromRowid, relationshipObject.toClassName, relationshipObject.toRowid];
-    [self deleteFrom:relationshipObject.VVORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return NO;
-    }
-    return YES;
-}
-
-
-- (BOOL)deleteRelationshipObjectsWithFromObject:(NSObject *)object relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    NSString *className = NSStringFromClass([object class]);
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"(fromClassName = ? and fromRowid = ?)";
-    condition.sqlite.parameters = @[className, object.rowid, className, object.rowid];
-    [self deleteFrom:relationshipORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return NO;
-    }
-    return YES;
-}
-
-- (BOOL)deleteRelationshipObjectsWithToObject:(NSObject *)object relationshipORMClass:(VVORMClass *)relationshipORMClass db:(FMDatabase *)db {
-    NSString *className = NSStringFromClass([object class]);
-    VVConditionModel *condition = [VVConditionModel condition];
-    condition.sqlite.where = @"(toClassName = ? and toRowid = ?)";
-    condition.sqlite.parameters = @[className, object.rowid, className, object.rowid];
-    [self deleteFrom:relationshipORMClass condition:condition db:db];
-    if ([self hadError:db]) {
-        return NO;
-    }
-    return YES;
 }
 
 - (BOOL)hadError:(FMDatabase *)db {

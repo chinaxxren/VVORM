@@ -20,15 +20,9 @@
 
 - (void)deleteObjectsInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSError *error))completionBlock;
 
-- (void)refreshObjectInBackground:(NSObject *)object completionBlock:(void (^)(id object, NSError *error))completionBlock;
-
 - (void)fetchObjectsInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock;
 
-- (void)fetchReferencingObjectsToInBackground:(NSObject *)object completionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock;
-
 - (void)countInBackground:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock;
-
-- (void)referencedCountInBackground:(NSObject *)object completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock;
 
 - (void)maxInBackground:(NSString *)attributeName class:(Class)clazz condition:(VVConditionModel *)condition completionBlock:(void (^)(NSNumber *value, NSError *error))completionBlock;
 
