@@ -94,8 +94,6 @@
 
 - (NSString *)deleteFromStatementWithCondition:(VVConditionModel *)condition;
 
-- (NSString *)referencedCountStatementWithCondition:(VVConditionModel *)condition;
-
 - (NSString *)countStatementWithCondition:(VVConditionModel *)condition;
 
 - (NSString *)uniqueIndexName;

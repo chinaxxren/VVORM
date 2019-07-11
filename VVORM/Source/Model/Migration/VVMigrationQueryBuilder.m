@@ -4,11 +4,9 @@
 //
 
 #import "VVMigrationQueryBuilder.h"
+
 #import "VVMigrationTable.h"
-
-
 #import "VVSQLiteColumnModel.h"
-
 #import "VVQueryBuilder.h"
 #import "VVMigrationRuntimeProperty.h"
 #import "VVORMProperty.h"
@@ -16,32 +14,6 @@
 @implementation VVMigrationQueryBuilder
 
 #pragma mark migration
-
-+ (NSString *)updateRelationshipFromTableName:(NSString *)tableName clazzName:(NSString *)clazzName {
-    NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@"UPDATE __VVORMRelationship__ SET fromTableName = "];
-    [sql appendString:@"'"];
-    [sql appendString:tableName];
-    [sql appendString:@"'"];
-    [sql appendString:@" WHERE fromClassName = "];
-    [sql appendString:@"'"];
-    [sql appendString:clazzName];
-    [sql appendString:@"'"];
-    return [NSString stringWithString:sql];
-}
-
-+ (NSString *)updateRelationshipToTableName:(NSString *)tableName clazzName:(NSString *)clazzName {
-    NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@"UPDATE __VVORMRelationship__ SET toTableName = "];
-    [sql appendString:@"'"];
-    [sql appendString:tableName];
-    [sql appendString:@"'"];
-    [sql appendString:@"WHERE toClassName = "];
-    [sql appendString:@"'"];
-    [sql appendString:clazzName];
-    [sql appendString:@"'"];
-    return [NSString stringWithString:sql];
-}
 
 + (NSString *)selectInsertStatementWithToMigrationTable:(VVMigrationTable *)toMigrationTable fromMigrationTable:(VVMigrationTable *)fromMigrationTable {
     NSMutableString *sqlInsert = [NSMutableString string];

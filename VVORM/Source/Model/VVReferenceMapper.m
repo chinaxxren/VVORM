@@ -9,13 +9,11 @@
 #import <FMDB/FMDatabase.h>
 
 #import "VVModelInterface.h"
-#import "VVORMRelationship.h"
 #import "VVConditionModel.h"
 #import "VVORMClass.h"
 #import "VVORMProperty.h"
 #import "VVNameBuilder.h"
 #import "VVClazz.h"
-#import "VVNotificationCenter.h"
 #import "NSObject+VVTabel.h"
 #import "VVReferenceConditionModel.h"
 
@@ -40,8 +38,6 @@
 - (BOOL)deleteFrom:(VVORMClass *)ormClass condition:(VVConditionModel *)condition db:(FMDatabase *)db;
 
 - (NSMutableArray *)find:(VVORMClass *)ormClass condition:(VVConditionModel *)condition db:(FMDatabase *)db;
-
-- (void)updateSimpleValueWithObject:(NSObject *)object db:(FMDatabase *)db;
 
 - (void)updateRowid:(NSObject *)object db:(FMDatabase *)db;
 
@@ -367,9 +363,6 @@
         [self createTable:ormClass db:db];
         if ([self hadError:db error:error]) {
             return NO;
-        }
-        if (ormClass.clazz == [VVORMRelationship class]) {
-            return YES;
         }
         if (ormClass.clazz == [VVORMClass class]) {
             return YES;

@@ -9,7 +9,6 @@
 
 #import "VVORMClass.h"
 #import "VVORMProperty.h"
-#import "VVORMRelationship.h"
 #import "VVMigrationRuntime.h"
 #import "VVMigrationRuntimeProperty.h"
 #import "VVMigrationTable.h"
@@ -191,27 +190,6 @@
             if ([self hadError:db error:error]) {
                 return NO;
             }
-        }
-    }
-
-    // update tableName
-    for (VVMigrationRuntime *migrationRuntime in migrationRuntimes.allValues) {
-        if (migrationRuntime.tableNameChanged) {
-
-            // fromTableName
-            NSString *updateFromTableName = [VVMigrationQueryBuilder updateRelationshipFromTableName:migrationRuntime.latestRuntime.tableName clazzName:migrationRuntime.clazzName];
-            [db executeStatements:updateFromTableName];
-            if ([self hadError:db error:error]) {
-                return NO;
-            }
-
-            // toTableName
-            NSString *updateToTableName = [VVMigrationQueryBuilder updateRelationshipToTableName:migrationRuntime.latestRuntime.tableName clazzName:migrationRuntime.clazzName];
-            [db executeStatements:updateToTableName];
-            if ([self hadError:db error:error]) {
-                return NO;
-            }
-
         }
     }
 

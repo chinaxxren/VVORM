@@ -10,10 +10,6 @@
 
 @interface VVMigrationQueryBuilder : NSObject
 
-+ (NSString *)updateRelationshipToTableName:(NSString *)tableName clazzName:(NSString *)clazzName;
-
-+ (NSString *)updateRelationshipFromTableName:(NSString *)tableName clazzName:(NSString *)clazzName;
-
 + (NSString *)createTempTableStatementWithMigrationTable:(VVMigrationTable *)migrationTable;
 
 + (NSString *)createTemporaryUniqueIndexStatementWithMigrationTable:(VVMigrationTable *)migrationTable;

@@ -11,7 +11,6 @@
 #import "VVConditionModel.h"
 #import "VVModelInterface.h"
 #import "VVORMProperty.h"
-#import "VVORMRelationship.h"
 #import "VVORMClass.h"
 #import "VVSQLiteConditionModel.h"
 #import "VVSQLiteColumnModel.h"
@@ -325,27 +324,6 @@
         [self updateRowid:object db:db];
     }
     return;
-}
-
-- (void)updateSimpleValueWithObject:(NSObject *)object db:(FMDatabase *)db {
-    VVConditionModel *condition = [object.VVORMClass rowidCondition:object];
-    NSMutableArray *parameters = [NSMutableArray array];
-    [parameters addObjectsFromArray:condition.sqlite.parameters];
-    NSString *sql = [object.VVORMClass selectStatementWithCondition:condition];
-    FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:condition.sqlite.parameters];
-    if ([self hadError:db]) {
-        return;
-    }
-    while ([rs next]) {
-        for (VVORMProperty *attribute in object.VVORMClass.simpleValueAttributes) {
-            if (!attribute.isRelationshipClazz) {
-                NSObject *value = [attribute valueWithResultSet:rs];
-                [object setValue:value forKey:attribute.name];
-            }
-        }
-        break;
-    }
-    [rs close];
 }
 
 - (BOOL)hadError:(FMDatabase *)db {

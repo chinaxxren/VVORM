@@ -350,8 +350,8 @@
 
 + (NSString *)selectConditionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@" where "];
     if (condition.sqlite.where) {
+        [sql appendString:@" where "];
         [sql appendString:@" ("];
         [sql appendString:condition.sqlite.where];
         [sql appendString:@" )"];
@@ -377,50 +377,6 @@
         [sql appendString:@" ("];
         [sql appendString:condition.sqlite.where];
         [sql appendString:@" )"];
-    }
-    return [NSString stringWithString:sql];
-}
-
-+ (NSString *)selectConditionStatement:(VVConditionModel *)condition ormClass:(VVORMClass *)ormClass {
-    NSMutableString *sql = [NSMutableString string];
-    if (condition.sqlite.where || condition.reference.from || condition.reference.to) {
-        BOOL firstCondition = YES;
-        [sql appendString:@" where "];
-        if (condition.sqlite.where) {
-            [sql appendString:@" ("];
-            [sql appendString:condition.sqlite.where];
-            [sql appendString:@" )"];
-            firstCondition = NO;
-        }
-        if (condition.reference.from) {
-            if (!firstCondition) {
-                [sql appendString:@" AND "];
-                firstCondition = NO;
-            }
-            NSString *relationshipTableName = @"__VVORMRelationship__";
-            NSString *toTableName = ormClass.tableName;
-            NSString *fromTableName = condition.reference.from.VVORMClass.tableName;
-            NSString *fromRowid = [condition.reference.from.rowid stringValue];
-            if ([NSNull null] == condition.reference.from) {
-                [sql appendString:[NSString stringWithFormat:@" NOT EXISTS (SELECT * FROM %@ r1 WHERE r1.toRowid = %@.rowid AND r1.toTableName = '%@' )", relationshipTableName, toTableName, toTableName]];
-            } else {
-                [sql appendString:[NSString stringWithFormat:@" EXISTS (SELECT * FROM %@ r1 WHERE r1.fromTableName = '%@' and r1.fromRowid = %@ and r1.toRowid = %@.rowid AND r1.toTableName = '%@' )", relationshipTableName, fromTableName, fromRowid, toTableName, toTableName]];
-            }
-        }
-        if (condition.reference.to) {
-            if (!firstCondition) {
-                [sql appendString:@" AND "];
-            }
-            NSString *relationshipTableName = @"__VVORMRelationship__";
-            NSString *fromTableName = ormClass.tableName;
-            NSString *toTableName = condition.reference.to.VVORMClass.tableName;;
-            NSString *toRowid = [condition.reference.to.rowid stringValue];
-            if ([NSNull null] == condition.reference.to) {
-                [sql appendString:[NSString stringWithFormat:@" NOT EXISTS (SELECT * FROM %@ r1 WHERE r1.fromRowid = %@.rowid AND r1.fromTableName = '%@' )", relationshipTableName, fromTableName, fromTableName]];
-            } else {
-                [sql appendString:[NSString stringWithFormat:@" EXISTS (SELECT * FROM %@ r1 WHERE r1.toTableName = '%@' and r1.toRowid = %@ and r1.fromRowid = %@.rowid AND r1.fromTableName = '%@' )", relationshipTableName, toTableName, toRowid, fromTableName, fromTableName]];
-            }
-        }
     }
     return [NSString stringWithString:sql];
 }

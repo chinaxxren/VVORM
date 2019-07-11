@@ -227,7 +227,7 @@
 - (NSString *)selectStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.selectTemplateStatement];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     [sql appendString:[VVQueryBuilder selectConditionOptionStatement:condition]];
     return [NSString stringWithString:sql];
 }
@@ -246,52 +246,45 @@
     return [NSString stringWithString:sql];
 }
 
-- (NSString *)referencedCountStatementWithCondition:(VVConditionModel *)condition {
-    NSString *conditionStatement = [VVQueryBuilder selectConditionStatement:condition ormClass:self];
-    NSString *sql = self.referencedCountTemplateStatement;
-    sql = [NSString stringWithFormat:sql, conditionStatement];
-    return sql;
-}
-
 - (NSString *)countStatementWithCondition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:self.countTemplateStatement];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     return [NSString stringWithString:sql];
 }
 
 - (NSString *)minStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder minStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     return sql;
 }
 
 - (NSString *)maxStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder maxStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     return sql;
 }
 
 - (NSString *)avgStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder avgStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     return sql;
 }
 
 - (NSString *)totalStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder totalStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     return sql;
 }
 
 - (NSString *)sumStatementWithColumnName:(NSString *)columnName condition:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
     [sql appendString:[VVQueryBuilder sumStatement:self columnName:columnName]];
-    [sql appendString:[VVQueryBuilder selectConditionStatement:condition ormClass:self]];
+    [sql appendString:[VVQueryBuilder selectConditionStatement:condition]];
     return sql;
 }
 

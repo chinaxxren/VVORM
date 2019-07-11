@@ -45,8 +45,6 @@
 
 + (NSString *)selectConditionStatement:(VVConditionModel *)condition;
 
-+ (NSString *)selectConditionStatement:(VVConditionModel *)condition ormClass:(VVORMClass *)ormClass;
-
 + (NSString *)selectConditionOptionStatement:(VVConditionModel *)condition;
 
 + (NSString *)deleteConditionStatement:(VVConditionModel *)condition;

@@ -9,7 +9,6 @@
 #import <sqlite3.h>
 
 #import "VVModelInterface.h"
-#import "VVORMRelationship.h"
 #import "VVORMClass.h"
 #import "VVORMProperty.h"
 #import "VVSQLiteConditionModel.h"
@@ -95,11 +94,6 @@
     os.weakSelf = os;
 
     NSError *err = nil;
-    [os registerClass:[VVORMRelationship class] error:&err];
-    if (err) {
-        *error = err;
-        return nil;
-    }
     [os registerClass:[VVORMClass class] error:&err];
     if (err) {
         *error = err;

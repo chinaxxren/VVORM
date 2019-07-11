@@ -8,6 +8,4 @@
 
 @interface VVReferenceMapper : VVModelMapper
 
-@property(nonatomic, assign) BOOL disableNotifications;
-
 @end
