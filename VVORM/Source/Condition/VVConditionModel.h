@@ -6,13 +6,10 @@
 #import <Foundation/Foundation.h>
 
 @class VVSQLiteConditionModel;
-@class VVReferenceConditionModel;
-
 
 @interface VVConditionModel : NSObject
 
 @property(nonatomic, readonly) VVSQLiteConditionModel *sqlite;
-@property(nonatomic, readonly) VVReferenceConditionModel *reference;
 
 + (instancetype)condition;
 

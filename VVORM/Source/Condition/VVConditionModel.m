@@ -6,12 +6,10 @@
 #import "VVConditionModel.h"
 
 #import "VVSQLiteConditionModel.h"
-#import "VVReferenceConditionModel.h"
 
 @interface VVConditionModel ()
 
 @property(nonatomic, strong) VVSQLiteConditionModel *sqlite;
-@property(nonatomic, strong) VVReferenceConditionModel *reference;
 
 @end
 
@@ -20,7 +18,6 @@
 + (instancetype)condition {
     VVConditionModel *condition = [[self alloc] init];
     condition.sqlite = [VVSQLiteConditionModel new];
-    condition.reference = [VVReferenceConditionModel new];
     return condition;
 }
 

@@ -55,7 +55,6 @@
 		99C83C176DE9D7644C9F3267C9E84D01 /* VVMigrationRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */; };
 		A463CDF55161F257E0065458D5152514 /* VVClazzUnsignedInt.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4BE7B87CAD69DDC8E873E05E4A11 /* VVClazzUnsignedInt.m */; };
 		A5188D4F42C62E7245D4754EDCF08FB7 /* VVClazzNSDecimalNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 491530E84F58697F6AEB8C85C1392C15 /* VVClazzNSDecimalNumber.m */; };
-		AB1A2B88F46BFE74609B977D465E9135 /* VVReferenceConditionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8700568BD2ACF79C9D9D95710C0F4C6 /* VVReferenceConditionModel.m */; };
 		B295FC18C83206BC1D78D394C4425BF7 /* VVDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A26B27A4594CDD399A5BA00C49AECFCE /* VVDBTests.m */; };
 		B97761F422D73AB400690893 /* VVClazzNSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = B97761F222D73AB400690893 /* VVClazzNSMutableArray.m */; };
 		BEE3BA1C738973518506664D11AA8A26 /* VVClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */; };
@@ -130,7 +129,6 @@
 		4D277AC12575CCCC19600B0C2914AF6C /* VVClazzNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSDate.h; sourceTree = "<group>"; };
 		4D84AC431F85DB0B0BF79E4772DD2BEA /* VVClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClassProperty.m; sourceTree = "<group>"; };
 		4DBB29877BB5AFAC290E50A8E00CF881 /* VVClazzNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSNumber.h; sourceTree = "<group>"; };
-		4DE9241B0A798BC7B41D28D454E2C2C8 /* VVReferenceConditionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVReferenceConditionModel.h; sourceTree = "<group>"; };
 		4E5E7CBA5402CDEAD1A52DD01D9E7526 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		500846FAEF3F47468DE4B82D6450C416 /* VVClazzNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzNSArray.m; sourceTree = "<group>"; };
 		50569A531FAE0EB9692310D615EC246E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -205,7 +203,6 @@
 		D41670B95DEF09B9F93302488DC8B256 /* VVClazzNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzNSData.h; sourceTree = "<group>"; };
 		D6BA031EE2600B792409242C98AA9367 /* VVClazzBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVClazzBool.h; sourceTree = "<group>"; };
 		D74B06436E24529FFD7E32690820DE55 /* VVClazzUnsignedLong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVClazzUnsignedLong.m; sourceTree = "<group>"; };
-		D8700568BD2ACF79C9D9D95710C0F4C6 /* VVReferenceConditionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceConditionModel.m; sourceTree = "<group>"; };
 		DAFAACEDFC03016D2185A21951261962 /* VVORM+Background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VVORM+Background.h"; sourceTree = "<group>"; };
 		E10D607BB84624D1102B270B398C49D2 /* VVReferenceMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVReferenceMapper.m; sourceTree = "<group>"; };
 		E11F7F548827D13EAA14F63A9FE0E950 /* VVMigration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVMigration.h; sourceTree = "<group>"; };
@@ -267,8 +264,6 @@
 			children = (
 				9A50FD46B294836A690EDDD71D64B598 /* VVConditionModel.h */,
 				13C1C70828BAD257808D98D87170C016 /* VVConditionModel.m */,
-				4DE9241B0A798BC7B41D28D454E2C2C8 /* VVReferenceConditionModel.h */,
-				D8700568BD2ACF79C9D9D95710C0F4C6 /* VVReferenceConditionModel.m */,
 				507A5805F821C049D65427DB64469A69 /* VVSQLiteConditionModel.h */,
 				93B5F8C8567CE117012413AD41F331BC /* VVSQLiteConditionModel.m */,
 			);
@@ -743,7 +738,6 @@
 				19965B25577AFB3703AB564C9133D1F5 /* VVPropertyEncoding.m in Sources */,
 				59A2A71B738F47F1C0AC1CB8DB8A5D4B /* VVPropertyType.m in Sources */,
 				1BC653BA033BC1B90F11F026DDD1D1CA /* VVQueryBuilder.m in Sources */,
-				AB1A2B88F46BFE74609B977D465E9135 /* VVReferenceConditionModel.m in Sources */,
 				B97761F422D73AB400690893 /* VVClazzNSMutableArray.m in Sources */,
 				8CDA0571237342E5A03DD77071A5C2BB /* VVReferenceMapper.m in Sources */,
 				458343C864CBFB4DCFC451E6946D0710 /* VVReferenceModel.m in Sources */,

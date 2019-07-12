@@ -14,7 +14,6 @@
 #import "VVNameBuilder.h"
 #import "VVClazz.h"
 #import "NSObject+VVTabel.h"
-#import "VVReferenceConditionModel.h"
 
 @interface VVModelMapper (Protected)
 
@@ -82,9 +81,6 @@
 #pragma mark group methods
 
 - (NSNumber *)max:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSNumber *value = [self max:ormClass columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -94,9 +90,6 @@
 }
 
 - (NSNumber *)min:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSNumber *value = [self min:ormClass columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -106,9 +99,6 @@
 }
 
 - (NSNumber *)avg:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSNumber *value = [self avg:ormClass columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -118,9 +108,6 @@
 }
 
 - (NSNumber *)total:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSNumber *value = [self total:ormClass columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -130,9 +117,6 @@
 }
 
 - (NSNumber *)sum:(NSString *)columnName class:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSNumber *value = [self sum:ormClass columnName:columnName condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -171,9 +155,6 @@
 #pragma mark count methods
 
 - (NSNumber *)count:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSNumber *count = [self count:ormClass condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -185,9 +166,6 @@
 #pragma mark[fetch methods
 
 - (NSMutableArray *)findObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return nil;
-    }
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     NSMutableArray *list = [self find:ormClass condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -216,10 +194,6 @@
 #pragma mark delete methods
 
 - (BOOL)deleteObjects:(Class)clazz condition:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (![self updateConditionORMClass:condition db:db error:error]) {
-        return NO;
-    }
-
     VVORMClass *ormClass = [self ormWithClazz:clazz db:db error:error];
     [self deleteFrom:ormClass condition:condition db:db];
     if ([self hadError:db error:error]) {
@@ -253,20 +227,6 @@
 }
 
 #pragma mark common
-
-- (BOOL)updateConditionORMClass:(VVConditionModel *)condition db:(FMDatabase *)db error:(NSError **)error {
-    if (condition.reference.from) {
-        if (![self updateORMClass:condition.reference.from db:db error:error]) {
-            return NO;
-        }
-    }
-    if (condition.reference.to) {
-        if (![self updateORMClass:condition.reference.to db:db error:error]) {
-            return NO;
-        }
-    }
-    return YES;
-}
 
 - (BOOL)updateORMClasses:(NSArray *)objects db:(FMDatabase *)db error:(NSError **)error {
     for (NSObject *object in objects) {
