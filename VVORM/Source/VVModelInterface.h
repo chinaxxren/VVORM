@@ -17,11 +17,11 @@
 @protocol VVFullTextSearch4
 @end
 
-// 优先的插入性能
+// 优先的保存
 @protocol VVInsertPerformance
 @end
 
-// 优先的更新性能
+// 优先的更新
 @protocol VVUpdatePerformance
 @end
 
@@ -50,7 +50,6 @@
 
 + (NSString *)VVTableName;
 
-// Change ColumnName
 + (NSString *)VVColumnName:(NSString *)attributeName;
 
 + (BOOL)attributeIsVVIdenticalAttribute:(NSString *)attributeName;
