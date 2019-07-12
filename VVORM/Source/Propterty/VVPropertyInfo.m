@@ -88,17 +88,9 @@
         if ([clazz respondsToSelector:@selector(attributeIsVVSerializableAttribute:)]) {
             self.serializableAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVSerializableAttribute:) withObject:self.name];
         }
-        if ([clazz respondsToSelector:@selector(attributeIsVVFetchOnRefreshingAttribute:)]) {
-            self.fetchOnRefreshingAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVFetchOnRefreshingAttribute:) withObject:self.name];
-        }
         if ([clazz respondsToSelector:@selector(attributeIsVVOnceUpdateAttribute:)]) {
             self.onceUpdateAttribute = (BOOL) [clazz performSelector:@selector(attributeIsVVOnceUpdateAttribute:) withObject:self.name];
         }
-    }
-
-    // weak property will be weak reference attribute
-    if (bzproperty.propertyType.isWeakReference) {
-        self.weakReferenceAttribute = YES;
     }
 
     // structureName
@@ -131,11 +123,6 @@
     // relationship attribute
     if (self.serializableAttribute) {
         self.isRelationshipClazz = NO;
-    }
-
-    // fetchOnRefreshingAttribute
-    if (self.fetchOnRefreshingAttribute) {
-        self.notUpdateIfValueIsNullAttribute = YES;
     }
 
     // sqlite

@@ -41,10 +41,8 @@
 // attribute informations
 @property(nonatomic, assign) BOOL identicalAttribute;
 @property(nonatomic, assign) BOOL ignoreAttribute;
-@property(nonatomic, assign) BOOL weakReferenceAttribute;
 @property(nonatomic, assign) BOOL notUpdateIfValueIsNullAttribute;
 @property(nonatomic, assign) BOOL serializableAttribute;
-@property(nonatomic, assign) BOOL fetchOnRefreshingAttribute;
 @property(nonatomic, assign) BOOL onceUpdateAttribute;
 
 // data type information
