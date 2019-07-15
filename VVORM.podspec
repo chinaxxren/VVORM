@@ -8,7 +8,7 @@ Pod::Spec.new do |spec|
   spec.author       = { "chinaxxren" => "182421693@qq.com" }
   spec.platform     = :ios, "9.0"
   spec.source       = { :git => "https://github.com/chinaxxren/VVORM.git", :tag => "#{spec.version}" }
-  spec.source_files  = "VVORM/Source/**/*.{h.m}"
+  spec.source_files  = "VVORM/Source/**/*.{h,m}"
   spec.frameworks  = "UIKit"
   spec.dependency  "FMDB"
 end
