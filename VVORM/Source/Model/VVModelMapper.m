@@ -14,7 +14,7 @@
 #import "VVORMClass.h"
 #import "VVSQLiteConditionModel.h"
 #import "VVSQLiteColumnModel.h"
-#import "FMDatabase+indexInfo.h"
+#import "FMDatabase+IndexInfo.h"
 #import "NSObject+VVTabel.h"
 
 @implementation VVModelMapper
