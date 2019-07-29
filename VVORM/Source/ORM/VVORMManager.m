@@ -7,6 +7,8 @@
 
 #import "VVORM.h"
 
+#define DEFAULT_DB_DIR @"db"
+
 @interface VVORMManager ()
 
 @property(nonatomic, strong) NSMutableDictionary<NSString *, VVORM *> *dbDict;
@@ -35,6 +37,10 @@
 }
 
 - (VVORM *)getORM:(NSString *)name {
+    return [[self class] getORM:name dir:DEFAULT_DB_DIR];
+}
+
+- (VVORM *)getORM:(NSString *)name dir:(NSString *)dir {
     @synchronized (self) {
         if (!name) {
             return nil;
@@ -45,7 +51,7 @@
             return dataBase;
         }
 
-        NSString *path = [VVORMManager ormPathWithName:name];
+        NSString *path = [VVORMManager ormPathWithName:name dir:dir];
         if (!path) {
             return nil;
         }
@@ -63,8 +69,12 @@
 }
 
 + (NSString *)ormPathWithName:(NSString *)name {
+    return [[self class] ormPathWithName:name dir:DEFAULT_DB_DIR];
+}
+
++ (NSString *)ormPathWithName:(NSString *)name dir:(NSString *)dir {
     NSString *direct = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    [direct stringByAppendingPathComponent:@"db"];
+    [direct stringByAppendingPathComponent:dir];
     NSFileManager *defaultManager = [NSFileManager defaultManager];
     if (![defaultManager fileExistsAtPath:direct]) {
         NSError *error;
@@ -92,6 +102,10 @@
 
 + (VVORM *)getORM:(NSString *)name {
     return [[VVORMManager share] getORM:name];
+}
+
++ (VVORM *)getORM:(NSString *)name dir:(NSString *)dir {
+    return [[VVORMManager share] getORM:name dir:dir];
 }
 
 @end
