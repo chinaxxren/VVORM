@@ -6,48 +6,48 @@
 #import "VVCondition.h"
 
 #import "VVSQLiteConditionModel.h"
-#import "VVConditionModel.h"
+#import "VVCondition.h"
 
 @implementation VVCondition 
 
-+ (VVConditionModel *)where:(NSString *)where {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     return condition;
 }
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     return condition;
 }
 
-+ (VVConditionModel *)where:(NSString *)where orderBy:(NSString *)orderBy {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where orderBy:(NSString *)orderBy {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     condition.sqlite.orderBy = orderBy;
     return condition;
 }
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;
     return condition;
 }
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters limit:(NSNumber *)limit {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters limit:(NSNumber *)limit {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.limit = limit;
     return condition;
 }
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;
@@ -55,8 +55,8 @@
     return condition;
 }
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit offset:(NSNumber *)offset {
-    VVConditionModel *condition = [VVConditionModel condition];
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit offset:(NSNumber *)offset {
+    VVCondition *condition = [VVCondition condition];
     condition.sqlite.where = where;
     condition.sqlite.parameters = parameters;
     condition.sqlite.orderBy = orderBy;

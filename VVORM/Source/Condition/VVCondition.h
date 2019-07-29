@@ -5,22 +5,22 @@
 
 #import <Foundation/Foundation.h>
 
-@class VVConditionModel;
+#import "VVConditionModel.h"
 
-@interface VVCondition : NSObject
+@interface VVCondition : VVConditionModel
 
-+ (VVConditionModel *)where:(NSString *)where;
++ (VVCondition *)where:(NSString *)where;
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters;
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters;
 
-+ (VVConditionModel *)where:(NSString *)where orderBy:(NSString *)orderBy;
++ (VVCondition *)where:(NSString *)where orderBy:(NSString *)orderBy;
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy;
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy;
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters limit:(NSNumber *)limit;
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters limit:(NSNumber *)limit;
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit offset:(NSNumber *)offset;
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit offset:(NSNumber *)offset;
 
-+ (VVConditionModel *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit;
++ (VVCondition *)where:(NSString *)where parameters:(NSArray *)parameters orderBy:(NSString *)orderBy limit:(NSNumber *)limit;
 
 @end
