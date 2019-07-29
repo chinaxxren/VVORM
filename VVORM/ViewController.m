@@ -15,6 +15,7 @@
 #import "AppContent.h"
 #import "VVORM.h"
 #import "Download.h"
+#import "VVCondition.h"
 
 @interface ViewController ()
 
@@ -79,7 +80,7 @@ uint64_t vv_getCurrentTime() {
 //    NSMutableArray *downloads = [orm fetchObjects:[Download class] condition:nil];
 //    NSLog(@"%@", downloads);
 
-    NSNumber *count = [orm count:[User class] condition:nil];
+    NSNumber *count = [orm count:[User class] condition:[VVCondition where:@"age = ? " parameters:@[@171]]];
     NSLog(@"count->%@", count);
 
     NSMutableArray *users = [orm findObjects:[User class] condition:nil];

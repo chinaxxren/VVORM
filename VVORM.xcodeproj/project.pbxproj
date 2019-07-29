@@ -60,6 +60,7 @@
 		C32EE7333E87A732478778B87396E962 /* VVMigrationQueryBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26481974DB7AC2E309620FD0AD15286E /* VVMigrationQueryBuilder.m */; };
 		C3AE62EE54235ECFCA82F70C /* VVPropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6548BB984326A3C9F9BE /* VVPropertyInfo.m */; };
 		C3AE64BAF7B27C5282B83C02 /* FMDatabase+IndexInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE65F9C8EB64EFCF5A89DF /* FMDatabase+IndexInfo.m */; };
+		C3AE68D396BB57FBA4500B1B /* VVCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6BD39D04CB167E8849E8 /* VVCondition.m */; };
 		C3AE6968B900FE8AC8DECED6 /* NSObject+VVTabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE626A157A1E3B14BC6607 /* NSObject+VVTabel.m */; };
 		C3AE6ED7754A8D1547970FF1 /* NSObject+VVAutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = C3AE6453345ACCB1CCC8C441 /* NSObject+VVAutoCoding.m */; };
 		CBBCBC8337F06EAE14A3B77134A4F505 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50569A531FAE0EB9692310D615EC246E /* ViewController.m */; };
@@ -186,11 +187,13 @@
 		BC13AF4BE6C5EB7A96CE54B193BC8447 /* VVMigrationRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMigrationRuntime.m; sourceTree = "<group>"; };
 		C3AE6093C876BB484B9463DE /* NSObject+VVTabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVTabel.h"; sourceTree = "<group>"; };
 		C3AE626A157A1E3B14BC6607 /* NSObject+VVTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVTabel.m"; sourceTree = "<group>"; };
+		C3AE6273C5990DD53003F701 /* VVCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCondition.h; sourceTree = "<group>"; };
 		C3AE62B4D2AB607CB258825B /* VVModelInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVModelInterface.h; sourceTree = "<group>"; };
 		C3AE6453345ACCB1CCC8C441 /* NSObject+VVAutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VVAutoCoding.m"; sourceTree = "<group>"; };
 		C3AE6548BB984326A3C9F9BE /* VVPropertyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVPropertyInfo.m; sourceTree = "<group>"; };
 		C3AE65F9C8EB64EFCF5A89DF /* FMDatabase+IndexInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+IndexInfo.m"; sourceTree = "<group>"; };
 		C3AE69E7DEAB49A59048C8D5 /* VVPropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVPropertyInfo.h; sourceTree = "<group>"; };
+		C3AE6BD39D04CB167E8849E8 /* VVCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCondition.m; sourceTree = "<group>"; };
 		C3AE6BD40319E5F5F5186D57 /* FMDatabase+IndexInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+IndexInfo.h"; sourceTree = "<group>"; };
 		C3AE6F87CC75B03D8BDD75E1 /* NSObject+VVAutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VVAutoCoding.h"; sourceTree = "<group>"; };
 		C40A57A7DC91CC5E9BB9A894DE65A6AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				13C1C70828BAD257808D98D87170C016 /* VVConditionModel.m */,
 				507A5805F821C049D65427DB64469A69 /* VVSQLiteConditionModel.h */,
 				93B5F8C8567CE117012413AD41F331BC /* VVSQLiteConditionModel.m */,
+				C3AE6BD39D04CB167E8849E8 /* VVCondition.m */,
+				C3AE6273C5990DD53003F701 /* VVCondition.h */,
 			);
 			path = Condition;
 			sourceTree = "<group>";
@@ -755,6 +760,7 @@
 				C3AE6968B900FE8AC8DECED6 /* NSObject+VVTabel.m in Sources */,
 				C3AE64BAF7B27C5282B83C02 /* FMDatabase+IndexInfo.m in Sources */,
 				C3AE6ED7754A8D1547970FF1 /* NSObject+VVAutoCoding.m in Sources */,
+				C3AE68D396BB57FBA4500B1B /* VVCondition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
