@@ -12,6 +12,8 @@
 
 + (instancetype)share;
 
++ (NSString *)documentWithDir:(NSString *)dir;
+
 - (VVORM *)getORM:(NSString *)name;
 
 + (VVORM *)getORM:(NSString *)name;

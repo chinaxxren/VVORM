@@ -36,8 +36,13 @@
     return manager;
 }
 
++ (NSString *)documentWithDir:(NSString *)dir {
+    NSString *direct = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    return [direct stringByAppendingPathComponent:dir];
+}
+
 - (VVORM *)getORM:(NSString *)name {
-    return [[self class] getORM:name dir:DEFAULT_DB_DIR];
+    return [[self class] getORM:name dir:[[self class] documentWithDir:DEFAULT_DB_DIR]];
 }
 
 - (VVORM *)getORM:(NSString *)name dir:(NSString *)dir {
@@ -68,24 +73,18 @@
     }
 }
 
-+ (NSString *)ormPathWithName:(NSString *)name {
-    return [[self class] ormPathWithName:name dir:DEFAULT_DB_DIR];
-}
-
 + (NSString *)ormPathWithName:(NSString *)name dir:(NSString *)dir {
-    NSString *direct = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    [direct stringByAppendingPathComponent:dir];
     NSFileManager *defaultManager = [NSFileManager defaultManager];
-    if (![defaultManager fileExistsAtPath:direct]) {
+    if (![defaultManager fileExistsAtPath:dir]) {
         NSError *error;
-        [defaultManager createDirectoryAtPath:direct withIntermediateDirectories:YES attributes:nil error:&error];
+        [defaultManager createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&error];
         if (error) {
             NSLog(@"database error %@", error);
             return nil;
         }
     }
 
-    NSString *dbPath = [direct stringByAppendingFormat:@"/%@.sqlite", name];
+    NSString *dbPath = [dir stringByAppendingFormat:@"/%@.sqlite", name];
     return dbPath;
 }
 
