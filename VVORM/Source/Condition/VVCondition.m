@@ -3,11 +3,12 @@
 // Copyright (c) 2019 Tank. All rights reserved.
 //
 
-#import "VVConditionModel.h"
+#import "VVCondition.h"
 
 #import "VVSQLiteConditionModel.h"
+#import "VVConditionModel.h"
 
-@implementation VVCondition
+@implementation VVCondition 
 
 + (VVConditionModel *)where:(NSString *)where {
     VVConditionModel *condition = [VVConditionModel condition];

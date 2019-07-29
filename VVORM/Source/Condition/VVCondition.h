@@ -7,7 +7,6 @@
 
 @class VVConditionModel;
 
-
 @interface VVCondition : NSObject
 
 + (VVConditionModel *)where:(NSString *)where;
