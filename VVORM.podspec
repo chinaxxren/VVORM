@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "VVORM"
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.6"
   spec.summary      = "VVORM 封装FMDB数据库操作"
   spec.homepage     = "https://github.com/chinaxxren/VVORM"
   spec.license      = "MIT"
