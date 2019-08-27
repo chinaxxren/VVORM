@@ -29,15 +29,17 @@
     VVORM *orm = [AppContent current];
     [orm registerClass:[User class]];
 
-//    [orm registerClass:[Download class]];
-//    Download *download = [Download new];
-//    download.did = [NSUUID UUID].UUIDString;
-//    download.name = @"dwonload~222";
-//    download.size = 121;
-//    [orm saveObject:download];
-
+    [orm registerClass:[Download class]];
+    Download *download = [Download new];
+    download.did = [NSUUID UUID].UUIDString;
+    download.name = @"dwonload~222";
+    download.size = 121;
+    [orm saveObject:download];
+    
+    [orm deleteObjects:[Download class] condition:nil];
+    
 //    [self testGlobal];
-    [self testUser];
+//    [self testUser];
 }
 
 uint64_t vv_getCurrentTime() {

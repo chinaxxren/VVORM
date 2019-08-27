@@ -348,8 +348,8 @@
 
 + (NSString *)deleteConditionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@" where "];
     if (condition.sqlite.where) {
+        [sql appendString:@" where "];
         [sql appendString:@" ("];
         [sql appendString:condition.sqlite.where];
         [sql appendString:@" )"];
@@ -359,8 +359,8 @@
 
 + (NSString *)updateConditionStatement:(VVConditionModel *)condition {
     NSMutableString *sql = [NSMutableString string];
-    [sql appendString:@" where "];
     if (condition.sqlite.where) {
+        [sql appendString:@" where "];
         [sql appendString:@" ("];
         [sql appendString:condition.sqlite.where];
         [sql appendString:@" )"];
