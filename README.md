@@ -9,7 +9,8 @@
 1. 支持ActiveRecord
 1. 自动模型和表的映射
 
-'''
+```
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -108,7 +109,8 @@ uint64_t vv_getCurrentTime() {
     User *user = [users firstObject];
     NSLog(@"name->%@", user.name);
 }
-'''
+
+```
 
 # 使用
 pod 'VVORM'
